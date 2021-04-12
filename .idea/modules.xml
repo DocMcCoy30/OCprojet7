@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/OCprojet7.iml" filepath="$PROJECT_DIR$/.idea/OCprojet7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/livre-api/livre-api.iml" filepath="$PROJECT_DIR$/livre-api/livre-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../webapp/webapp.iml" filepath="$PROJECT_DIR$/../../webapp/webapp.iml" />
+    </modules>
+  </component>
+</project>
