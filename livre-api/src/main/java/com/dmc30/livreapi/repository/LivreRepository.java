@@ -1,6 +1,6 @@
 package com.dmc30.livreapi.repository;
 
-import com.dmc30.livreapi.model.Livre;
+import com.dmc30.livreapi.model.entity.Livre;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

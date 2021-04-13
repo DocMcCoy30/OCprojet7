@@ -1,7 +1,7 @@
 package com.dmc30.livreapi.service;
 
 import com.dmc30.livreapi.exception.IntrouvableException;
-import com.dmc30.livreapi.model.Livre;
+import com.dmc30.livreapi.model.entity.Livre;
 import com.dmc30.livreapi.repository.LivreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,5 +29,10 @@ public class LivreServiceImpl implements LivreService {
         if (livres == null) {
             throw new IntrouvableException("Aucun résultat de recherche");
         } else return livres;
+    }
+
+    @Override
+    public void saveLivre(Livre livre) {
+        livreRepository.save(livre);
     }
 }

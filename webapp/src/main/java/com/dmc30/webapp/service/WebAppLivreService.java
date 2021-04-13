@@ -7,5 +7,5 @@ import java.util.List;
 public interface WebAppLivreService {
 
     List<LivreBean> getLivres();
-    List<LivreBean> getLivreByMotCle(String motCle);
+    List<LivreBean> getLivreByTitre(String motCle);
 }

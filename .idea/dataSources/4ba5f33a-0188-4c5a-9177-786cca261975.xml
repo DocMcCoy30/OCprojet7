@@ -792,7 +792,7 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1618231375</StartupTime>
+      <StartupTime>1618318273</StartupTime>
     </root>
     <database id="2" parent="1" name="DB_P7_Bibliotheque">
       <ObjectId>27616</ObjectId>
@@ -807,9 +807,10 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1452</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1476</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|27617|27619|1
+sequence|table|35822|35824|1
 </Relations>
     </database>
     <database id="3" parent="1" name="DB_P7_FirstThrown">
@@ -907,7 +908,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1453</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1477</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="25" parent="2" name="plpgsql">
@@ -1007,18 +1008,141 @@ false Zulu
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <sequence id="37" parent="24" name="livre_id_seq">
+    <sequence id="37" parent="24" name="auteur_id_seq">
+      <ObjectId>35822</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1459</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <sequence id="38" parent="24" name="livre_id_seq">
       <ObjectId>27617</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1437</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <table id="38" parent="24" name="livre">
+    <table id="39" parent="24" name="auteur">
+      <ObjectId>35824</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1462</StateNumber>
+    </table>
+    <table id="40" parent="24" name="auteurs_livres">
+      <ObjectId>35850</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1474</StateNumber>
+    </table>
+    <table id="41" parent="24" name="livre">
       <ObjectId>27619</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1444</StateNumber>
+      <StateNumber>1463</StateNumber>
     </table>
-    <column id="39" parent="38" name="id">
+    <column id="42" parent="39" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1459</StateNumber>
+      <TypeId>23</TypeId>
+      <IdentityKind>always</IdentityKind>
+      <Computed>1</Computed>
+    </column>
+    <column id="43" parent="39" name="nom">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>1459</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="44" parent="39" name="prenom">
+      <Position>3</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>1459</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="45" parent="39" name="date_naissance">
+      <Position>4</Position>
+      <DataType>date|0s</DataType>
+      <StateNumber>1459</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="46" parent="39" name="date_deces">
+      <Position>5</Position>
+      <DataType>date|0s</DataType>
+      <StateNumber>1459</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <index id="47" parent="39" name="auteur_pk">
+      <ObjectId>35830</ObjectId>
+      <StateNumber>1459</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <key id="48" parent="39" name="auteur_pk">
+      <ObjectId>35831</ObjectId>
+      <StateNumber>1459</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>auteur_pk</UnderlyingIndexName>
+    </key>
+    <column id="49" parent="40" name="id_auteur">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1473</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="50" parent="40" name="id_livre">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1473</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="51" parent="40" name="auteurs_livres_pk">
+      <ObjectId>35853</ObjectId>
+      <StateNumber>1473</StateNumber>
+      <ColNames>id_auteur
+id_livre</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0,0</CollationIds>
+      <ClassIds>1978,1978</ClassIds>
+    </index>
+    <key id="52" parent="40" name="auteurs_livres_pk">
+      <ObjectId>35854</ObjectId>
+      <StateNumber>1473</StateNumber>
+      <ColNames>id_auteur
+id_livre</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>auteurs_livres_pk</UnderlyingIndexName>
+    </key>
+    <foreign-key id="53" parent="40" name="auteur_fk">
+      <ObjectId>35855</ObjectId>
+      <StateNumber>1474</StateNumber>
+      <ColNames>id_auteur</ColNames>
+      <RefTableId>35824</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auteur</RefTableName>
+      <RefKeyName>auteur_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="54" parent="40" name="livre_fk">
+      <ObjectId>35860</ObjectId>
+      <StateNumber>1475</StateNumber>
+      <ColNames>id_livre</ColNames>
+      <RefTableId>27619</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>livre</RefTableName>
+      <RefKeyName>livre_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>restrict</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="55" parent="41" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1027,34 +1151,34 @@ false Zulu
       <IdentityKind>always</IdentityKind>
       <Computed>1</Computed>
     </column>
-    <column id="40" parent="38" name="titre">
+    <column id="56" parent="41" name="titre">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1437</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="41" parent="38" name="resume">
+    <column id="57" parent="41" name="resume">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1437</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="42" parent="38" name="date_edition">
+    <column id="58" parent="41" name="date_edition">
       <Position>5</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1444</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="38" name="numero_isbn13">
+    <column id="59" parent="41" name="numero_isbn13">
       <Position>6</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1451</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="44" parent="38" name="livre_pk">
+    <index id="60" parent="41" name="livre_pk">
       <ObjectId>27625</ObjectId>
       <StateNumber>1444</StateNumber>
       <ColNames>id</ColNames>
@@ -1064,7 +1188,7 @@ false Zulu
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="45" parent="38" name="livre_pk">
+    <key id="61" parent="41" name="livre_pk">
       <ObjectId>27626</ObjectId>
       <StateNumber>1437</StateNumber>
       <ColNames>id</ColNames>

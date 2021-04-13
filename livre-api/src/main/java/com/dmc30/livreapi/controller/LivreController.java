@@ -1,6 +1,8 @@
 package com.dmc30.livreapi.controller;
 
-import com.dmc30.livreapi.model.Livre;
+import com.dmc30.livreapi.model.entity.Auteur;
+import com.dmc30.livreapi.model.entity.Livre;
+import com.dmc30.livreapi.service.AuteurService;
 import com.dmc30.livreapi.service.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,19 +16,33 @@ import java.util.List;
 public class LivreController {
 
     LivreService livreService;
+    AuteurService auteurService;
 
     @Autowired
-    public LivreController(LivreService livreService) {
+    public LivreController(LivreService livreService, AuteurService auteurService) {
         this.livreService = livreService;
+        this.auteurService = auteurService;
     }
 
     @GetMapping(path = "/livres")
     public List<Livre> getLivres() {
-        return livreService.findAll();
+        List<Livre> livres = livreService.findAll();
+        for(Livre tempLivre : livres) {
+           int livreId = tempLivre.getId();
+           List<Auteur> auteurs = auteurService.findAuteurByLivres(livreId);
+           tempLivre.setAuteurs(auteurs);
+        }
+        return livres;
     }
 
     @PostMapping(path = "/livres/titre")
-    public List<Livre> getLivreByMotCle(@RequestParam("motCle") String motCle) {
-        return livreService.findLivreByTitreContaining(motCle);
+    public List<Livre> getLivreByTitre(@RequestParam("motCle") String motCle) {
+        List<Livre> livres = livreService.findLivreByTitreContaining(motCle);
+        for(Livre tempLivre : livres) {
+            int livreId = tempLivre.getId();
+            List<Auteur> auteurs = auteurService.findAuteurByLivres(livreId);
+            tempLivre.setAuteurs(auteurs);
+        }
+        return livres;
     }
 }

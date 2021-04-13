@@ -31,7 +31,7 @@ public class WebAppLivreController {
     @PostMapping("/showLivresByTitre")
     public String getLivreByTitre (Model theModel,
                                    @RequestParam("motCle") String motCle) {
-        List<LivreBean> livres = livreService.getLivreByMotCle(motCle);
+        List<LivreBean> livres = livreService.getLivreByTitre(motCle);
         theModel.addAttribute("livresParTitre", livres);
         return "index";
     }

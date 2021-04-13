@@ -15,5 +15,5 @@ public interface LivreApiProxy {
     List<LivreBean> getLivres();
 
     @PostMapping("/livres/titre")
-    List<LivreBean> getLivresByMotCle(@RequestParam("motCle") String motCle);
+    List<LivreBean> getLivreByTitre(@RequestParam("motCle") String motCle);
 }

@@ -23,7 +23,7 @@ public class WebAppLivreServiceImpl implements WebAppLivreService {
     }
 
     @Override
-    public List<LivreBean> getLivreByMotCle(String motCle) {
-        return livreApiProxy.getLivresByMotCle(motCle);
+    public List<LivreBean> getLivreByTitre(String motCle) {
+        return livreApiProxy.getLivreByTitre(motCle);
     }
 }

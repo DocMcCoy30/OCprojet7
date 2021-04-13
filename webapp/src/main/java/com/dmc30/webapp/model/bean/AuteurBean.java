@@ -6,16 +6,17 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import net.minidev.json.annotate.JsonIgnore;
 
+import java.util.Date;
 import java.util.List;
 
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
-public class LivreBean {
+public class AuteurBean {
 
     private int id;
-    private String titre;
-    private String resume;
-    private String dateEdition;
-    private String numeroIsbn13;
-    private List<AuteurBean> auteurs;
+    private String nom;
+    private String prenom;
+    private Date dateNaissance;
+    private Date dateDeces;
+    @JsonIgnore
+    private List<LivreBean> livres;
 }
-
