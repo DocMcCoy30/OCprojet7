@@ -28,7 +28,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="date_edition" not-null="true">
 		<type name="varchar" length="0"/>
 	</column>
-	<column name="numero_isbn13" not-null="true">
+	<column name="numero_isbn13">
 		<type name="varchar" length="0"/>
 	</column>
 	<constraint name="livre_pk" type="pk-constr" table="public.livre">

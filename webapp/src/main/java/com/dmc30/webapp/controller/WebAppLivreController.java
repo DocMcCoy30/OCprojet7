@@ -25,13 +25,15 @@ public class WebAppLivreController {
     public String getLivres(Model theModel) {
         List<LivreBean> livres = livreService.getLivres();
         theModel.addAttribute("livres", livres);
-        return "livres";
+        return "index";
     }
 
     @PostMapping("/showLivresByTitre")
     public String getLivreByTitre (Model theModel,
                                    @RequestParam("motCle") String motCle) {
-        return "livres-par-titre";
+        List<LivreBean> livres = livreService.getLivreByMotCle(motCle);
+        theModel.addAttribute("livresParTitre", livres);
+        return "index";
     }
 
 
