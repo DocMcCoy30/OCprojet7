@@ -5,66 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74d22ed9-cae4-4a5a-986d-303e57a72ac1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_6_28.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_2_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_client_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_27.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/controller/AuteurController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/Auteur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/repository/AuteurRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/AuteurService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/AuteurServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/model/bean/AuteurBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e343c3d7-93d8-4cb0-99ea-f1f5f6d5e91c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e343c3d7-93d8-4cb0-99ea-f1f5f6d5e91c/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e343c3d7-93d8-4cb0-99ea-f1f5f6d5e91c/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e343c3d7-93d8-4cb0-99ea-f1f5f6d5e91c/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e343c3d7-93d8-4cb0-99ea-f1f5f6d5e91c/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_32.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_30.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_30.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_autoconfigure_2_4_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_autoconfigure_2_4_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_4_42.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_3_0_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_3_0_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_context_3_0_22.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_netflix_eureka_client_3_0_22.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_3_0_22.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_4_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_4_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_rsa_1_0_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_rsa_1_0_9_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_rsa_1_0_9_RELEASE2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_5_4_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_5_4_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/DB_P7_Bibliotheque.dbm" beforeDir="false" afterPath="$PROJECT_DIR$/docs/DB_P7_Bibliotheque.dbm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/controller/LivreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/controller/LivreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/Livre.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/Livre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/repository/LivreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/repository/LivreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/LivreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/LivreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/LivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/LivreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/controller/WebAppLivreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/controller/WebAppLivreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/model/bean/LivreBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/model/bean/LivreBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/proxy/LivreApiProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/proxy/LivreApiProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/service/WebAppLivreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/service/WebAppLivreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/service/WebAppLivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/service/WebAppLivreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4ba5f33a-0188-4c5a-9177-786cca261975.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4ba5f33a-0188-4c5a-9177-786cca261975.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +68,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.WebappApplication">
+  <component name="RunManager" selected="Spring Boot.LivreApiApplication">
     <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eurekaserver.EurekaServerApplication" />
@@ -155,7 +99,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1618319691918</updated>
-      <workItem from="1618319695346" duration="11509000" />
+      <workItem from="1618319695346" duration="11751000" />
+      <workItem from="1618416428132" duration="42000" />
+      <workItem from="1618417917744" duration="1144000" />
+      <workItem from="1618494742521" duration="2036000" />
     </task>
     <servers />
   </component>

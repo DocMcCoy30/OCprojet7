@@ -1022,16 +1022,19 @@ sequence|table|35822|35824|1
     </sequence>
     <table id="39" parent="24" name="auteur">
       <ObjectId>35824</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>1462</StateNumber>
     </table>
     <table id="40" parent="24" name="auteurs_livres">
       <ObjectId>35850</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>1474</StateNumber>
     </table>
     <table id="41" parent="24" name="livre">
       <ObjectId>27619</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>1463</StateNumber>
     </table>
