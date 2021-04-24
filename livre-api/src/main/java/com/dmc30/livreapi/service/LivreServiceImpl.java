@@ -1,7 +1,7 @@
 package com.dmc30.livreapi.service;
 
 import com.dmc30.livreapi.exception.IntrouvableException;
-import com.dmc30.livreapi.model.entity.Livre;
+import com.dmc30.livreapi.model.entity.livre.Livre;
 import com.dmc30.livreapi.repository.LivreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,6 @@
 package com.dmc30.livreapi.service;
 
-import com.dmc30.livreapi.model.entity.Auteur;
-import org.springframework.data.repository.query.Param;
+import com.dmc30.livreapi.model.entity.livre.Auteur;
 
 import java.util.List;
 

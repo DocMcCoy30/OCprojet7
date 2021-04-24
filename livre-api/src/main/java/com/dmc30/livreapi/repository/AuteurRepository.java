@@ -1,6 +1,6 @@
 package com.dmc30.livreapi.repository;
 
-import com.dmc30.livreapi.model.entity.Auteur;
+import com.dmc30.livreapi.model.entity.livre.Auteur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

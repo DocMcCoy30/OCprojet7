@@ -1,7 +1,7 @@
 package com.dmc30.livreapi.controller;
 
-import com.dmc30.livreapi.model.entity.Auteur;
-import com.dmc30.livreapi.model.entity.Livre;
+import com.dmc30.livreapi.model.entity.livre.Auteur;
+import com.dmc30.livreapi.model.entity.livre.Livre;
 import com.dmc30.livreapi.service.AuteurService;
 import com.dmc30.livreapi.service.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;

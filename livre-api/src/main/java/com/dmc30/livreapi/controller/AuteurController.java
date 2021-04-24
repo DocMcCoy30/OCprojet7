@@ -1,6 +1,6 @@
 package com.dmc30.livreapi.controller;
 
-import com.dmc30.livreapi.model.entity.Auteur;
+import com.dmc30.livreapi.model.entity.livre.Auteur;
 import com.dmc30.livreapi.service.AuteurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

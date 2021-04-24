@@ -1,6 +1,6 @@
 package com.dmc30.livreapi.service;
 
-import com.dmc30.livreapi.model.entity.Livre;
+import com.dmc30.livreapi.model.entity.livre.Livre;
 
 import java.util.List;
 
