@@ -21,14 +21,20 @@ public class Pays {
     private int id;
 
     @Column(name = "nom")
-    private String nom = "France";
+    private String nom;
 
     @Column(name = "code_alpha2")
-    private String codeAlpha2 = "FR";
+    private String codeAlpha2;
 
     @Column(name = "code_alpha3")
-    private String codeAlpha3 = "FRA";
+    private String codeAlpha3;
 
     @Column(name = "code")
-    private Integer code = 250;
+    private Integer code;
+
+//    private int id;
+//    private String nom = "France";
+//    private String codeAlpha2 = "FR";
+//    private String codeAlpha3 = "FRA";
+//    private Integer code = 250;
 }

@@ -1,105 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="74d22ed9-cae4-4a5a-986d-303e57a72ac1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/bibliotheque/Bibliotheque.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/bibliotheque/Ouvrage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/commun/Adresse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/commun/Pays.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Editeur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Genre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Illustration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Langue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4ba5f33a-0188-4c5a-9177-786cca261975.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4ba5f33a-0188-4c5a-9177-786cca261975/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4ba5f33a-0188-4c5a-9177-786cca261975/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4ba5f33a-0188-4c5a-9177-786cca261975/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4ba5f33a-0188-4c5a-9177-786cca261975/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/DB_P7_Bibliotheque.dbm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sql/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/structure.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/controller/AuteurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/controller/AuteurController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/controller/LivreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/controller/LivreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/Auteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Auteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/Livre.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Livre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/repository/AuteurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/repository/AuteurRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/repository/LivreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/repository/LivreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/AuteurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/AuteurService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/AuteurServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/AuteurServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/LivreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/LivreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/LivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/LivreServiceImpl.java" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectId" id="1r7GPDPkswQAy3C86jAfutQxL4K" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DatabaseDriversLRU" value="postgresql" />
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Mohamed_Youssfi_Demo/MohamedYoussfi_SpringAOPDemo" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="vue.rearranger.settings.migration" value="true" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
-  <component name="ReactorSettings">
-    <option name="notificationShown" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.dmc30.livreapi.model.entity.commun" />
-      <recent name="com.dmc30.livreapi.model.entity.bibliotheque" />
-      <recent name="com.dmc30.livreapi.service" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\docs\sql" />
-      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\docs\uml" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="configurationTypes">
-      <set>
-        <option value="SpringBootApplicationConfigurationType" />
-      </set>
-    </option>
-  </component>
-  <component name="RunManager" selected="Spring Boot.LivreApiApplication">
+  <component name="RunManager" selected="Spring Boot.EurekaServerApplication">
+    <configuration name="ClientUIApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="clientUI" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dmc30.clientui.ClientUIApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eurekaserver.EurekaServerApplication" />
@@ -114,53 +32,5 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WebappApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="webapp" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dmc30.webapp.WebappApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="74d22ed9-cae4-4a5a-986d-303e57a72ac1" name="Default Changelist" comment="" />
-      <created>1618319691918</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1618319691918</updated>
-      <workItem from="1618319695346" duration="11751000" />
-      <workItem from="1618416428132" duration="42000" />
-      <workItem from="1618417917744" duration="1144000" />
-      <workItem from="1618494742521" duration="2710000" />
-      <workItem from="1618503204368" duration="1896000" />
-      <workItem from="1618554188605" duration="1008000" />
-      <workItem from="1618555240060" duration="1157000" />
-      <workItem from="1618663465377" duration="2758000" />
-      <workItem from="1618907435270" duration="6740000" />
-      <workItem from="1619099198159" duration="470000" />
-      <workItem from="1619259875940" duration="6975000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/controller/WebAppLivreController.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/dmc30/webapp/controller/WebAppLivreController.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

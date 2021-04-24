@@ -1,5 +1,6 @@
 package com.dmc30.livreapi.model.entity.livre;
 
+import com.dmc30.livreapi.model.entity.bibliotheque.Ouvrage;
 import com.dmc30.livreapi.model.entity.livre.Auteur;
 import com.dmc30.livreapi.model.entity.livre.Editeur;
 import com.dmc30.livreapi.model.entity.livre.Langue;
@@ -65,6 +66,8 @@ public class Livre {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
     private List<Illustration> illustrations;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
+    private List<Ouvrage> ouvrages;
 
 
 }
