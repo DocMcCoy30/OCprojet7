@@ -1,6 +1,7 @@
 package com.dmc30.livreapi.model.entity.bibliotheque;
 
 import com.dmc30.livreapi.model.entity.livre.Livre;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

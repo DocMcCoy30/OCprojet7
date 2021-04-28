@@ -15,8 +15,8 @@ public class AuteurBean {
     private int id;
     private String nom;
     private String prenom;
-    private Date dateNaissance;
-    private Date dateDeces;
+    private String dateNaissance;
+    private String dateDeces;
     @JsonIgnore
     private List<LivreBean> livres;
 }

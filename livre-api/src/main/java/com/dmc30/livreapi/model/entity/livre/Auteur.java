@@ -26,10 +26,10 @@ public class Auteur {
     private String prenom;
 
     @Column(name = "date_naissance")
-    private Date dateNaissance;
+    private String dateNaissance;
 
     @Column(name = "date_deces")
-    private Date dateDeces;
+    private String dateDeces;
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})

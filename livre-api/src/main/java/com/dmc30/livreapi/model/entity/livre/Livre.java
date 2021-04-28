@@ -4,6 +4,7 @@ import com.dmc30.livreapi.model.entity.bibliotheque.Ouvrage;
 import com.dmc30.livreapi.model.entity.livre.Auteur;
 import com.dmc30.livreapi.model.entity.livre.Editeur;
 import com.dmc30.livreapi.model.entity.livre.Langue;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -54,19 +55,22 @@ public class Livre {
     @JoinColumn(name = "id_langue")
     private Langue langue;
 
-    @ManyToMany(fetch = FetchType.LAZY,
+    @ManyToMany(fetch = FetchType.EAGER,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name = "many_livre_has_many_genre",
-            joinColumns = { @JoinColumn(name = "id_livre") },
-            inverseJoinColumns = { @JoinColumn(name = "id_genre") }
+            joinColumns = {@JoinColumn(name = "id_livre")},
+            inverseJoinColumns = {@JoinColumn(name = "id_genre")}
     )
+//    @JsonIgnore
     private List<Genre> genres;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
+    @JsonIgnore
     private List<Illustration> illustrations;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
+    @JsonIgnore
     private List<Ouvrage> ouvrages;
 
 

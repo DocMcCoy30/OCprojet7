@@ -1,5 +1,6 @@
 package com.dmc30.livreapi.model.entity.livre;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,5 +32,6 @@ public class Genre {
             joinColumns = {@JoinColumn(name = "id_genre")},
             inverseJoinColumns = {@JoinColumn(name = "id_livre")}
     )
+//    @JsonIgnore
     private List<Livre> livres;
 }

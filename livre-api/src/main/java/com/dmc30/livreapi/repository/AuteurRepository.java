@@ -12,6 +12,6 @@ public interface AuteurRepository extends JpaRepository<Auteur, Integer> {
     List<Auteur> findAuteurByNomOrPrenom(String nom, String prenom);
     Auteur findAuteurById(int id);
 
-    @Query(value = "SELECT a.* FROM auteur a INNER JOIN auteurs_livres al ON al.id_auteur=a.id WHERE al.id_livre=?1", nativeQuery = true)
+    @Query(value = "SELECT a.* FROM auteur a INNER JOIN many_livre_has_many_auteur al ON al.id_auteur=a.id WHERE al.id_livre=?1", nativeQuery = true)
     List<Auteur> findAuteurByLivres(@Param("id") int id);
 }
