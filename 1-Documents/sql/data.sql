@@ -5,7 +5,7 @@
 -- Dumped from database version 13.2
 -- Dumped by pg_dump version 13.2
 
--- Started on 2021-04-28 13:28:45
+-- Started on 2021-04-28 14:42:18
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -342,6 +342,10 @@ INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_edi
 -- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.role (id, role, description) OVERRIDING SYSTEM VALUE VALUES (1, 'ROLE_USER', 'accès à signIn/LogIn/recherche');
+INSERT INTO public.role (id, role, description) OVERRIDING SYSTEM VALUE VALUES (2, 'ROLE_ABONNE', 'accès à ConsultationProfil/Prolongation');
+INSERT INTO public.role (id, role, description) OVERRIDING SYSTEM VALUE VALUES (3, 'ROLE_EMPLOYE', 'accès à emprunt/retour');
+INSERT INTO public.role (id, role, description) OVERRIDING SYSTEM VALUE VALUES (4, 'ROLE_ADMIN', 'accès BackOffice');
 
 
 --
@@ -634,10 +638,10 @@ SELECT pg_catalog.setval('public.pret_id_seq', 1, false);
 -- Name: role_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.role_id_seq', 1, false);
+SELECT pg_catalog.setval('public.role_id_seq', 4, true);
 
 
--- Completed on 2021-04-28 13:28:45
+-- Completed on 2021-04-28 14:42:18
 
 --
 -- PostgreSQL database dump complete

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AuteurServiceImpl implements AuteurService {
@@ -20,7 +21,11 @@ public class AuteurServiceImpl implements AuteurService {
 
     @Override
     public List<Auteur> findAll() {
-        return auteurRepository.findAll();
+        List<Auteur> auteurs = auteurRepository.findAll();
+        if (auteurs.isEmpty()) {
+            throw new IntrouvableException("Aucun résultat de recherche");
+        }
+        return auteurs;
     }
 
     @Override
@@ -34,7 +39,12 @@ public class AuteurServiceImpl implements AuteurService {
 
     @Override
     public Auteur findAuteurById(int id) {
-        return auteurRepository.findAuteurById(id);
+        Optional<Auteur> result = auteurRepository.findById(id);
+        Auteur auteur = null;
+        if (result.isPresent()) {
+            auteur = result.get();
+        } else throw new IntrouvableException("Auteur non trouvé");
+        return auteur;
     }
 
     @Override

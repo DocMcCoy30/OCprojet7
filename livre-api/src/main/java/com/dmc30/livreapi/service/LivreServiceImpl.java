@@ -20,7 +20,10 @@ public class LivreServiceImpl implements LivreService {
 
     @Override
     public List<Livre> findAll() {
-        return livreRepository.findAll();
+        List<Livre> livres = livreRepository.findAll();
+        if (livres == null) {
+            throw new IntrouvableException("Aucun résultat de recherche");
+        } else return livres;
     }
 
     @Override

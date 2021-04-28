@@ -8,28 +8,27 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "adresse")
+@Table(name = "pays")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Adresse {
+public class Pays {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "rue")
-    private String rue;
+    @Column(name = "nom")
+    private String nom;
 
-    @Column(name = "code_postal")
-    private String codePostal;
+    @Column(name = "code_alpha2")
+    private String codeAlpha2;
 
-    @Column(name = "ville")
-    private String ville;
+    @Column(name = "code_alpha3")
+    private String codeAlpha3;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_pays")
-    private Pays pays;
+    @Column(name = "code")
+    private Integer code;
 }
