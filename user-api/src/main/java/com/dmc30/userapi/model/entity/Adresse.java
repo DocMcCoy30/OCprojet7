@@ -29,7 +29,7 @@ public class Adresse {
     @Column(name = "ville")
     private String ville;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_pays")
     private Pays pays;
 }

@@ -5,18 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f770393-5dc0-44bf-8950-0b03b5df42b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/exception/IntrouvableException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Pays.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/repository/AbonneRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/repository/EmployeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/repository/AdresseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/repository/PaysRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/AdresseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/AdresseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/bibliotheque/Ouvrage.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/bibliotheque/Ouvrage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Auteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Auteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Genre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Illustration.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Illustration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Livre.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Livre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/AuteurServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/AuteurServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/LivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/LivreServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Abonne.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Abonne.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Adresse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Adresse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Employe.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Employe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -66,9 +74,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.dmc30.userapi.service" />
       <recent name="com.dmc30.userapi.exception" />
       <recent name="com.dmc30.userapi.model.entity" />
-      <recent name="com.dmc30.userapi.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\1-Documents\uml" />
@@ -129,7 +137,7 @@
       <workItem from="1619517763908" duration="8150000" />
       <workItem from="1619593473302" duration="1072000" />
       <workItem from="1619594706671" duration="14406000" />
-      <workItem from="1619609988488" duration="4255000" />
+      <workItem from="1619609988488" duration="17447000" />
     </task>
     <servers />
   </component>
@@ -143,6 +151,11 @@
           <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/controller/ClientUILivreController.java</url>
           <line>30</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

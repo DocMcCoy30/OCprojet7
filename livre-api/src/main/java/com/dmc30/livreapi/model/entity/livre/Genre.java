@@ -1,10 +1,7 @@
 package com.dmc30.livreapi.model.entity.livre;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,7 +11,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@ToString(exclude = "livres")
+@EqualsAndHashCode(exclude = "livres")
 public class Genre {
 
     @Id
@@ -25,13 +23,13 @@ public class Genre {
     @Column(name = "genre")
     private String genre;
 
-    @ManyToMany(fetch = FetchType.LAZY,
+    @ManyToMany(fetch = FetchType.EAGER,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name = "many_livre_has_many_genre",
             joinColumns = {@JoinColumn(name = "id_genre")},
             inverseJoinColumns = {@JoinColumn(name = "id_livre")}
     )
-//    @JsonIgnore
+    @JsonIgnore
     private List<Livre> livres;
 }

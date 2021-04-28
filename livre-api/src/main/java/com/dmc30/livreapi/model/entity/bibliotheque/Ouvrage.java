@@ -2,10 +2,7 @@ package com.dmc30.livreapi.model.entity.bibliotheque;
 
 import com.dmc30.livreapi.model.entity.livre.Livre;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,7 +12,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = "livre")
+@EqualsAndHashCode(exclude = "livre")
 public class Ouvrage {
 
     @Id

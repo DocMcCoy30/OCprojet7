@@ -3,6 +3,7 @@ package com.dmc30.livreapi.service;
 import com.dmc30.livreapi.exception.IntrouvableException;
 import com.dmc30.livreapi.model.entity.livre.Auteur;
 import com.dmc30.livreapi.repository.AuteurRepository;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,6 +50,7 @@ public class AuteurServiceImpl implements AuteurService {
 
     @Override
     public List<Auteur> findAuteurByLivres(int id) {
+        Hibernate.initialize(auteurRepository.findAuteurByLivres(id));
         return auteurRepository.findAuteurByLivres(id);
     }
 

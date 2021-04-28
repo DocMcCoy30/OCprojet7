@@ -5,10 +5,7 @@ import com.dmc30.livreapi.model.entity.livre.Auteur;
 import com.dmc30.livreapi.model.entity.livre.Editeur;
 import com.dmc30.livreapi.model.entity.livre.Langue;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,7 +15,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = {"auteurs","genres"})
+@EqualsAndHashCode(exclude = {"auteurs","genres"})
 public class Livre {
 
     @Id
@@ -38,6 +36,14 @@ public class Livre {
     @Column(name = "numero_isbn13")
     private String numeroIsbn13;
 
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "id_editeur")
+    private Editeur editeur;
+
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "id_langue")
+    private Langue langue;
+
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
@@ -47,30 +53,19 @@ public class Livre {
     )
     private List<Auteur> auteurs;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "id_editeur")
-    private Editeur editeur;
-
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "id_langue")
-    private Langue langue;
-
-    @ManyToMany(fetch = FetchType.EAGER,
+    @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name = "many_livre_has_many_genre",
             joinColumns = {@JoinColumn(name = "id_livre")},
             inverseJoinColumns = {@JoinColumn(name = "id_genre")}
     )
-//    @JsonIgnore
     private List<Genre> genres;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
-    @JsonIgnore
     private List<Illustration> illustrations;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
-    @JsonIgnore
     private List<Ouvrage> ouvrages;
 
 

@@ -807,7 +807,7 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2207</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2214</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|38504|38506|1
 sequence|table|38574|38576|1
@@ -928,7 +928,7 @@ sequence|table|38704|38706|1
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2208</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2215</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="27" parent="2" name="plpgsql">
@@ -1615,8 +1615,7 @@ sequence|table|38704|38706|1
     <column id="124" parent="58" name="date_creation_compte">
       <Position>8</Position>
       <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>2165</StateNumber>
+      <StateNumber>2210</StateNumber>
       <TypeId>1082</TypeId>
     </column>
     <column id="125" parent="58" name="matricule">
@@ -1629,8 +1628,7 @@ sequence|table|38704|38706|1
     <column id="126" parent="58" name="date_entree">
       <Position>10</Position>
       <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>2165</StateNumber>
+      <StateNumber>2213</StateNumber>
       <TypeId>1082</TypeId>
     </column>
     <column id="127" parent="58" name="date_sortie">

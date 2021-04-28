@@ -12,7 +12,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = "livres")
+@EqualsAndHashCode(exclude = "livres")
 public class Auteur {
 
     @Id
@@ -31,7 +32,7 @@ public class Auteur {
     @Column(name = "date_deces")
     private String dateDeces;
 
-    @ManyToMany(fetch = FetchType.LAZY,
+    @ManyToMany(fetch = FetchType.EAGER,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name = "many_livre_has_many_auteur",

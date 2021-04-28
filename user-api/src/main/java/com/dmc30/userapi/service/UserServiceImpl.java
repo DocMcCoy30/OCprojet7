@@ -1,26 +1,30 @@
 package com.dmc30.userapi.service;
 
 import com.dmc30.userapi.exception.IntrouvableException;
-import com.dmc30.userapi.model.entity.Abonne;
-import com.dmc30.userapi.model.entity.Employe;
-import com.dmc30.userapi.repository.AbonneRepository;
-import com.dmc30.userapi.repository.EmployeRepository;
+import com.dmc30.userapi.model.entity.*;
+import com.dmc30.userapi.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     AbonneRepository abonneRepository;
     EmployeRepository employeRepository;
+    AdresseRepository adresseRepository;
+    PaysRepository paysRepository;
+    RoleRepository roleRepository;
 
     @Autowired
-    public UserServiceImpl(AbonneRepository abonneRepository, EmployeRepository employeRepository) {
+    public UserServiceImpl(AbonneRepository abonneRepository, EmployeRepository employeRepository, AdresseRepository adresseRepository, PaysRepository paysRepository, RoleRepository roleRepository) {
         this.abonneRepository = abonneRepository;
         this.employeRepository = employeRepository;
+        this.adresseRepository = adresseRepository;
+        this.paysRepository = paysRepository;
+        this.roleRepository = roleRepository;
     }
-
 
     @Override
     public List<Abonne> findAllAbonne() {
@@ -70,6 +74,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createEmploye(Employe employe) {
+        employe.setMatricule(UUID.randomUUID().toString());
+        Adresse adresse = employe.getAdresse();
+        Optional<Pays> result1 = paysRepository.findById(1);
+        Pays pays = result1.get();
+        adresse.setPays(pays);
+        Optional<Role> result2 = roleRepository.findById(4);
+        List<Role> roles= new ArrayList<>();
+        roles.add(result2.get());
+        employe.setRole(roles);
         employeRepository.save(employe);
     }
 

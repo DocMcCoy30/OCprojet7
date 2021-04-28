@@ -1,9 +1,7 @@
 package com.dmc30.userapi.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,7 +11,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = {"abonnes","employes"})
+@EqualsAndHashCode(exclude = {"abonnes","employes"})
 public class Role {
 
     @Id
@@ -27,21 +26,23 @@ public class Role {
     @Column(name = "description")
     private String description;
 
-    @ManyToMany(fetch = FetchType.EAGER,
+    @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name = "many_abonne_has_many_role",
             joinColumns = {@JoinColumn(name = "id_role")},
             inverseJoinColumns = {@JoinColumn(name = "id_abonne")}
     )
+//    @JsonIgnore
     private List<Abonne> abonnes;
 
     @ManyToMany(fetch = FetchType.EAGER,
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(
             name = "many_employe_has_many_role",
             joinColumns = {@JoinColumn(name = "id_role")},
             inverseJoinColumns = {@JoinColumn(name = "id_employe")}
     )
+//    @JsonIgnore
     private List<Employe> employes;
 }
