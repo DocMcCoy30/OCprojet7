@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eureka-server" />
         <module name="clientUI" />
+        <module name="user-api" />
+        <module name="eureka-server" />
         <module name="livre-api" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
       <module name="clientUI" target="1.8" />
       <module name="eureka-server" target="1.8" />
       <module name="livre-api" target="1.8" />
+      <module name="user-api" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -23,6 +25,7 @@
       <module name="clientUI" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="livre-api" options="-parameters" />
+      <module name="user-api" options="-parameters" />
     </option>
   </component>
 </project>
