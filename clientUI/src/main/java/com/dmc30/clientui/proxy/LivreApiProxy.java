@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(name = "livre-api", url = "localhost:9001")
+@FeignClient(name = "livre-api", url = "localhost:9002")
 public interface LivreApiProxy {
 
     @GetMapping("/livres")
