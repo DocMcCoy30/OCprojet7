@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f770393-5dc0-44bf-8950-0b03b5df42b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/PasswordEncoderHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1-Documents/uml/ArborescenceP7_V1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1-Documents/uml/ArborescenceP7_V2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-Documents/uml/Enregistrer un emprunt (+création abonné).png" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/uml/DA-Enregistrer un emprunt (+création abonné).png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-Documents/uml/Enregistrer un retour (+modification profil abonné).png" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/uml/DA-Enregistrer un retour (+modification profil abonné).png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-Documents/uml/Prolonger un emprunt.png" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/uml/DA-Prolonger un emprunt.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-Documents/uml/diagramme_de_classes.png" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/uml/Diagramme de Classes.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +57,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="11.0.3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Mohamed_Youssfi_Demo/MohamedYoussfi_SpringJpaDemo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/1-Documents/uml" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -113,13 +116,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="UserApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="user-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dmc30.userapi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.dmc30.userapi.UserApiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.UserApiApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -134,7 +148,7 @@
       <workItem from="1619593473302" duration="1072000" />
       <workItem from="1619594706671" duration="14406000" />
       <workItem from="1619609988488" duration="21408000" />
-      <workItem from="1619685540504" duration="20436000" />
+      <workItem from="1619685540504" duration="22421000" />
     </task>
     <servers />
   </component>
