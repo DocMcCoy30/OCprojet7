@@ -1,5 +1,6 @@
 package com.dmc30.userapi.service;
 
+import com.dmc30.userapi.model.bean.UserAuthenticationBean;
 import com.dmc30.userapi.model.entity.Abonne;
 import com.dmc30.userapi.model.entity.Employe;
 
@@ -17,6 +18,9 @@ public interface UserService {
     Employe findEmployeById(int employeId);
     void createEmploye(Employe employe);
     void deleteEmploye(Employe employe);
+
+    String authenticateUser (UserAuthenticationBean userAuthenticationBean);
+
 
 
 

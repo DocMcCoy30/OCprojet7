@@ -807,22 +807,22 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2214</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2272</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|38504|38506|1
-sequence|table|38574|38576|1
 sequence|table|38514|38516|1
 sequence|table|38524|38526|1
 sequence|table|38534|38536|1
 sequence|table|38544|38546|1
 sequence|table|38559|38561|1
-sequence|table|38581|38583|1
-sequence|table|38591|38593|1
+sequence|table|39046|38593|1
 sequence|table|38601|38603|1
-sequence|table|38623|38625|1
 sequence|table|38633|38635|1
-sequence|table|38643|38645|1
+sequence|table|38581|38583|1
+sequence|table|38623|38625|1
 sequence|table|38704|38706|1
+sequence|table|38574|38576|1
+sequence|table|38643|38645|1
 </Relations>
     </database>
     <database id="3" parent="1" name="DB_P7_Bibliotheque_V1">
@@ -928,7 +928,7 @@ sequence|table|38704|38706|1
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2215</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2273</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="27" parent="2" name="plpgsql">
@@ -1031,14 +1031,14 @@ sequence|table|38704|38706|1
     <sequence id="39" parent="26" name="abonne_id_seq">
       <ObjectId>38623</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2148</StateNumber>
+      <StateNumber>2267</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
     <sequence id="40" parent="26" name="adresse_id_seq">
-      <ObjectId>38591</ObjectId>
+      <ObjectId>39046</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2141</StateNumber>
-      <DataType>integer|0s</DataType>
+      <StateNumber>2269</StateNumber>
+      <DataType>bigint|0s</DataType>
     </sequence>
     <sequence id="41" parent="26" name="auteur_id_seq">
       <ObjectId>38514</ObjectId>
@@ -1049,7 +1049,7 @@ sequence|table|38704|38706|1
     <sequence id="42" parent="26" name="bibliotheque_id_seq">
       <ObjectId>38581</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2139</StateNumber>
+      <StateNumber>2267</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
     <sequence id="43" parent="26" name="editeur_id_seq">
@@ -1061,7 +1061,7 @@ sequence|table|38704|38706|1
     <sequence id="44" parent="26" name="employe_id_seq">
       <ObjectId>38704</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2165</StateNumber>
+      <StateNumber>2267</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
     <sequence id="45" parent="26" name="genre_id_seq">
@@ -1091,7 +1091,7 @@ sequence|table|38704|38706|1
     <sequence id="49" parent="26" name="ouvrage_id_seq">
       <ObjectId>38643</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2152</StateNumber>
+      <StateNumber>2267</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
     <sequence id="50" parent="26" name="pays_id_seq">
@@ -1103,7 +1103,7 @@ sequence|table|38704|38706|1
     <sequence id="51" parent="26" name="pret_id_seq">
       <ObjectId>38574</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2137</StateNumber>
+      <StateNumber>2267</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
     <sequence id="52" parent="26" name="role_id_seq">
@@ -1115,12 +1115,12 @@ sequence|table|38704|38706|1
     <table id="53" parent="26" name="abonne">
       <ObjectId>38625</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2167</StateNumber>
+      <StateNumber>2267</StateNumber>
     </table>
     <table id="54" parent="26" name="adresse">
       <ObjectId>38593</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2145</StateNumber>
+      <StateNumber>2267</StateNumber>
     </table>
     <table id="55" parent="26" name="auteur">
       <ObjectId>38516</ObjectId>
@@ -1130,7 +1130,7 @@ sequence|table|38704|38706|1
     <table id="56" parent="26" name="bibliotheque">
       <ObjectId>38583</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2146</StateNumber>
+      <StateNumber>2267</StateNumber>
     </table>
     <table id="57" parent="26" name="editeur">
       <ObjectId>38526</ObjectId>
@@ -1140,7 +1140,7 @@ sequence|table|38704|38706|1
     <table id="58" parent="26" name="employe">
       <ObjectId>38706</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2170</StateNumber>
+      <StateNumber>2267</StateNumber>
     </table>
     <table id="59" parent="26" name="genre">
       <ObjectId>38546</ObjectId>
@@ -1165,12 +1165,12 @@ sequence|table|38704|38706|1
     <table id="63" parent="26" name="many_abonne_has_many_role">
       <ObjectId>38748</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2176</StateNumber>
+      <StateNumber>2267</StateNumber>
     </table>
     <table id="64" parent="26" name="many_employe_has_many_role">
       <ObjectId>38733</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2173</StateNumber>
+      <StateNumber>2267</StateNumber>
     </table>
     <table id="65" parent="26" name="many_livre_has_many_auteur">
       <ObjectId>38663</ObjectId>
@@ -1185,7 +1185,7 @@ sequence|table|38704|38706|1
     <table id="67" parent="26" name="ouvrage">
       <ObjectId>38645</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2154</StateNumber>
+      <StateNumber>2267</StateNumber>
     </table>
     <table id="68" parent="26" name="pays">
       <ObjectId>38603</ObjectId>
@@ -1195,7 +1195,7 @@ sequence|table|38704|38706|1
     <table id="69" parent="26" name="pret">
       <ObjectId>38576</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2164</StateNumber>
+      <StateNumber>2267</StateNumber>
     </table>
     <table id="70" parent="26" name="role">
       <ObjectId>38635</ObjectId>
@@ -1281,7 +1281,7 @@ sequence|table|38704|38706|1
     </column>
     <index id="82" parent="53" name="abonne_pk">
       <ObjectId>38631</ObjectId>
-      <StateNumber>2148</StateNumber>
+      <StateNumber>2267</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1291,7 +1291,7 @@ sequence|table|38704|38706|1
     </index>
     <index id="83" parent="53" name="abonne_uq">
       <ObjectId>38724</ObjectId>
-      <StateNumber>2169</StateNumber>
+      <StateNumber>2267</StateNumber>
       <ColNames>id_adresse</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
@@ -1338,10 +1338,9 @@ sequence|table|38704|38706|1
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>2141</StateNumber>
+      <StateNumber>2270</StateNumber>
+      <DefaultExpression>nextval(&apos;adresse_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
-      <IdentityKind>always</IdentityKind>
-      <Computed>1</Computed>
     </column>
     <column id="89" parent="54" name="rue">
       <Position>2</Position>
@@ -1372,7 +1371,7 @@ sequence|table|38704|38706|1
     </column>
     <index id="93" parent="54" name="adresse_pk">
       <ObjectId>38599</ObjectId>
-      <StateNumber>2141</StateNumber>
+      <StateNumber>2267</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1486,7 +1485,7 @@ sequence|table|38704|38706|1
     </column>
     <index id="108" parent="56" name="bibliotheque_pk">
       <ObjectId>38589</ObjectId>
-      <StateNumber>2139</StateNumber>
+      <StateNumber>2267</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1496,7 +1495,7 @@ sequence|table|38704|38706|1
     </index>
     <index id="109" parent="56" name="bibliotheque_uq">
       <ObjectId>38621</ObjectId>
-      <StateNumber>2147</StateNumber>
+      <StateNumber>2267</StateNumber>
       <ColNames>id_adresse</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
@@ -1645,7 +1644,7 @@ sequence|table|38704|38706|1
     </column>
     <index id="129" parent="58" name="employe_pk">
       <ObjectId>38712</ObjectId>
-      <StateNumber>2165</StateNumber>
+      <StateNumber>2267</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1655,7 +1654,7 @@ sequence|table|38704|38706|1
     </index>
     <index id="130" parent="58" name="employe_uq">
       <ObjectId>38731</ObjectId>
-      <StateNumber>2171</StateNumber>
+      <StateNumber>2267</StateNumber>
       <ColNames>id_adresse</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
@@ -1921,7 +1920,7 @@ sequence|table|38704|38706|1
     </column>
     <index id="163" parent="63" name="many_abonne_has_many_role_pk">
       <ObjectId>38751</ObjectId>
-      <StateNumber>2175</StateNumber>
+      <StateNumber>2267</StateNumber>
       <ColNames>id_abonne
 id_role</ColNames>
       <Unique>1</Unique>
@@ -1978,7 +1977,7 @@ id_role</ColNames>
     </column>
     <index id="169" parent="64" name="many_employe_has_many_role_pk">
       <ObjectId>38736</ObjectId>
-      <StateNumber>2172</StateNumber>
+      <StateNumber>2267</StateNumber>
       <ColNames>id_employe
 id_role</ColNames>
       <Unique>1</Unique>
@@ -2170,7 +2169,7 @@ id_genre</ColNames>
     </column>
     <index id="190" parent="67" name="ouvrage_pk">
       <ObjectId>38651</ObjectId>
-      <StateNumber>2152</StateNumber>
+      <StateNumber>2267</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -2312,7 +2311,7 @@ id_genre</ColNames>
     </column>
     <index id="208" parent="69" name="pret_pk">
       <ObjectId>38579</ObjectId>
-      <StateNumber>2137</StateNumber>
+      <StateNumber>2267</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>

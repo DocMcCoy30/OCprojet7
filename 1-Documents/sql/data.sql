@@ -45,9 +45,9 @@ INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) OVERRIDING SYS
 -- Data for Name: bibliotheque; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.bibliotheque (id, code, numero_siret, nom, id_adresse) OVERRIDING SYSTEM VALUE VALUES (1, 'CEN', '51946426700011', 'Bibliothèque du Carré d""Art', 1);
+INSERT INTO public.bibliotheque (id, code, numero_siret, nom, id_adresse) OVERRIDING SYSTEM VALUE VALUES (1, 'CEN', '51946426700011', 'Bibliothèque du Carré d''Art', 1);
 INSERT INTO public.bibliotheque (id, code, numero_siret, nom, id_adresse) OVERRIDING SYSTEM VALUE VALUES (2, 'VAL', '51946426700012', 'Bibliothèque Marc Bernard', 2);
-INSERT INTO public.bibliotheque (id, code, numero_siret, nom, id_adresse) OVERRIDING SYSTEM VALUE VALUES (3, 'JDO', '51946426700013', 'Bibliothèque Jean d""Ormesson', 3);
+INSERT INTO public.bibliotheque (id, code, numero_siret, nom, id_adresse) OVERRIDING SYSTEM VALUE VALUES (3, 'JDO', '51946426700013', 'Bibliothèque Jean d''Ormesson', 3);
 INSERT INTO public.bibliotheque (id, code, numero_siret, nom, id_adresse) OVERRIDING SYSTEM VALUE VALUES (4, 'SER', '51946426700014', 'Bibliothèque Serre Cavalier', 4);
 
 

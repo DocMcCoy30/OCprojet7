@@ -55,13 +55,13 @@ public class Employe {
     @JoinColumn(name = "id_adresse")
     private Adresse adresse;
 
-    @ManyToMany(fetch = FetchType.EAGER,
+    @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE , CascadeType.REFRESH})
     @JoinTable(
             name = "many_employe_has_many_role",
             joinColumns = {@JoinColumn(name = "id_employe")},
             inverseJoinColumns = {@JoinColumn(name = "id_role")})
-    private List<Role> role;
+    private List<Role> roles;
 
     @Column(name = "date_creation_compte")
     private Date dateCreationCompte;

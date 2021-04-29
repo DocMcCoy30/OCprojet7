@@ -53,20 +53,20 @@ public class Livre {
     )
     private List<Auteur> auteurs;
 
-    @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinTable(
-            name = "many_livre_has_many_genre",
-            joinColumns = {@JoinColumn(name = "id_livre")},
-            inverseJoinColumns = {@JoinColumn(name = "id_genre")}
-    )
-    private List<Genre> genres;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
-    private List<Illustration> illustrations;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
-    private List<Ouvrage> ouvrages;
+//    @ManyToMany(fetch = FetchType.LAZY,
+//            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+//    @JoinTable(
+//            name = "many_livre_has_many_genre",
+//            joinColumns = {@JoinColumn(name = "id_livre")},
+//            inverseJoinColumns = {@JoinColumn(name = "id_genre")}
+//    )
+//    private List<Genre> genres;
+//
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
+//    private List<Illustration> illustrations;
+//
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
+//    private List<Ouvrage> ouvrages;
 
 
 }

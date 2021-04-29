@@ -36,7 +36,7 @@ public class Role {
 //    @JsonIgnore
     private List<Abonne> abonnes;
 
-    @ManyToMany(fetch = FetchType.EAGER,
+    @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(
             name = "many_employe_has_many_role",

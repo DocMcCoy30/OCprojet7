@@ -8,6 +8,6 @@ public interface AdresseService {
 
     void createAdresse(Adresse adresse);
 
-    Integer getMaxId();
+    Integer findMaxId();
 
 }

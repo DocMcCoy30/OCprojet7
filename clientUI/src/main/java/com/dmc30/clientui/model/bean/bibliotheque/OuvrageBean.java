@@ -2,6 +2,8 @@ package com.dmc30.clientui.model.bean.bibliotheque;
 
 import com.dmc30.clientui.model.bean.livre.LivreBean;
 
+import java.util.List;
+
 public class OuvrageBean {
 
     private int id;
@@ -9,5 +11,5 @@ public class OuvrageBean {
     private BibliothequeBean bibliotheque;
     private LivreBean livre;
     private boolean emprunte;
-//    private List<PretBean> prets;
+    private List<PretBean> prets;
 }

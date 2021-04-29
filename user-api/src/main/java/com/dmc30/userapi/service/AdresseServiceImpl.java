@@ -35,12 +35,8 @@ public class AdresseServiceImpl implements AdresseService {
     }
 
     @Override
-    public Integer getMaxId() {
-        return adresseRepository.getMaxId();
+    public Integer findMaxId() {
+        return adresseRepository.findMaxId();
     }
 
-//    @Override
-//    public int getLastAdresseId() {
-//        return adresseRepository.getLastAdresseId();
-//    }
 }

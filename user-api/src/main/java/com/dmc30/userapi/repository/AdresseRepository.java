@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.Query;
 public interface AdresseRepository extends JpaRepository<Adresse, Integer> {
 
     @Query(value = "SELECT MAX(id) FROM adresse", nativeQuery = true)
-    Integer getMaxId();
+    Integer findMaxId();
 }
