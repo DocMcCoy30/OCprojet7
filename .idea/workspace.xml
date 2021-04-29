@@ -5,84 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f770393-5dc0-44bf-8950-0b03b5df42b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_atteo_evo_inflector_1_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_4_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/bibliotheque/PretBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/utilisateur/AbonneBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/utilisateur/EmployeBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/utilisateur/RoleBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserApiProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/bean/UserAuthenticationBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_netflix_commons_netflix_eventbus_0_3_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_4_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_jxpath_commons_jxpath_1_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_4_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_core_1_6_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_native_macos_osx_x86_64_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_60_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_core_1_0_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_http_1_0_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_30_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_2_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_autoconfigure_2_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_actuator_2_4_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_rest_2_4_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_rest_2_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_reactor_netty_2_4_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_webflux_2_4_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_4_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_rest_webmvc_3_4_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_4_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_rest_core_3_4_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_3_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_3_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_3_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webflux_5_3_5.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/PasswordEncoderHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-Documents/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/sql/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/bibliotheque/OuvrageBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/bibliotheque/OuvrageBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Auteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Auteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Livre.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Livre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Abonne.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Abonne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Employe.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Employe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/entity/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/repository/AdresseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/repository/AdresseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/repository/PaysRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/repository/PaysRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/AdresseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/AdresseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/AdresseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/AdresseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +134,7 @@
       <workItem from="1619593473302" duration="1072000" />
       <workItem from="1619594706671" duration="14406000" />
       <workItem from="1619609988488" duration="21408000" />
-      <workItem from="1619685540504" duration="19503000" />
+      <workItem from="1619685540504" duration="20436000" />
     </task>
     <servers />
   </component>
@@ -220,12 +146,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java</url>
-          <line>53</line>
+          <line>54</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java</url>
-          <line>126</line>
+          <line>127</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

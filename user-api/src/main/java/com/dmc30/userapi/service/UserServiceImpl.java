@@ -4,6 +4,7 @@ import com.dmc30.userapi.exception.IntrouvableException;
 import com.dmc30.userapi.model.bean.UserAuthenticationBean;
 import com.dmc30.userapi.model.entity.*;
 import com.dmc30.userapi.repository.*;
+import com.dmc30.userapi.security.PasswordEncoderHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,15 +20,15 @@ public class UserServiceImpl implements UserService {
     AdresseRepository adresseRepository;
     PaysRepository paysRepository;
     RoleRepository roleRepository;
-    BCryptPasswordEncoder passwordEncoder;
+    PasswordEncoderHelper passwordEncoderHelper;
 
-    public UserServiceImpl(AbonneRepository abonneRepository, EmployeRepository employeRepository, AdresseRepository adresseRepository, PaysRepository paysRepository, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder) {
+    public UserServiceImpl(AbonneRepository abonneRepository, EmployeRepository employeRepository, AdresseRepository adresseRepository, PaysRepository paysRepository, RoleRepository roleRepository, PasswordEncoderHelper passwordEncoderHelper) {
         this.abonneRepository = abonneRepository;
         this.employeRepository = employeRepository;
         this.adresseRepository = adresseRepository;
         this.paysRepository = paysRepository;
         this.roleRepository = roleRepository;
-        this.passwordEncoder = passwordEncoder;
+        this.passwordEncoderHelper = passwordEncoderHelper;
     }
 
     @Override
@@ -66,7 +67,7 @@ public class UserServiceImpl implements UserService {
         roles.add(result2.get());
         abonne.setRoles(roles);
         //Encrypt Password
-        abonne.setPassword(passwordEncoder.encode(abonne.getPassword()));
+        abonne.setPassword(passwordEncoderHelper.passwordEncoder(abonne.getPassword()));
         //save Abonne in DB
         abonneRepository.save(abonne);
     }
@@ -111,8 +112,8 @@ public class UserServiceImpl implements UserService {
         List<Role> roles = new ArrayList<>();
         roles.add(result2.get());
         employe.setRoles(roles);
-
-
+        //Encrypt Password
+        employe.setPassword(passwordEncoderHelper.passwordEncoder(employe.getPassword()));
         //Save Employe in DB
         employeRepository.save(employe);
     }

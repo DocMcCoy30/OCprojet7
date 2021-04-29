@@ -1,4 +1,4 @@
-package com.dmc30.userapi.configuration;
+package com.dmc30.userapi.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
