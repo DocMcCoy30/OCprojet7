@@ -23,7 +23,7 @@ public class Genre {
     @Column(name = "genre")
     private String genre;
 
-    @ManyToMany(fetch = FetchType.EAGER,
+    @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name = "many_livre_has_many_genre",

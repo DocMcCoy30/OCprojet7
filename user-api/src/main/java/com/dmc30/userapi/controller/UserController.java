@@ -26,7 +26,7 @@ public class UserController {
         return "user-api's working!";
     }
 
-    @PostMapping("/abonne")
+    @PostMapping("/signin")
     public String createAbonne(@Valid @RequestBody Abonne abonne) {
         userService.createAbonne(abonne);
         return "L'abonné "+abonne.getNumAbonne()+" "+abonne.getPrenom()+" "+abonne.getNom()+" a bien été enregistré.";

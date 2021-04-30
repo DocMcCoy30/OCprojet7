@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f770393-5dc0-44bf-8950-0b03b5df42b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/1-Documents/uml/ArborescenceP7_V1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1-Documents/uml/ArborescenceP7_V2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/controller/ClientUIUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/utilisateur/UserAuthenticationBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/ClientUIUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/ClientUIUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-Documents/uml/Enregistrer un emprunt (+création abonné).png" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/uml/DA-Enregistrer un emprunt (+création abonné).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-Documents/uml/Enregistrer un retour (+modification profil abonné).png" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/uml/DA-Enregistrer un retour (+modification profil abonné).png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-Documents/uml/Prolonger un emprunt.png" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/uml/DA-Prolonger un emprunt.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-Documents/uml/diagramme_de_classes.png" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/uml/Diagramme de Classes.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-Documents/uml/Modele Physique de Données.png" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/uml/Modele Physique de Données.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserApiProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserApiProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Genre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Livre.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/model/entity/livre/Livre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +77,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.dmc30.clientui.service" />
       <recent name="com.dmc30.clientui.model.bean.bibliotheque" />
       <recent name="com.dmc30.userapi.model.entity" />
       <recent name="com.dmc30.userapi.service" />
@@ -94,10 +100,14 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserApiApplication">
+  <component name="RunManager" selected="Spring Boot.ClientUIApplication">
     <configuration name="ClientUIApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="clientUI" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.dmc30.clientui.ClientUIApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,6 +139,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.ClientUIApplication" />
+      <item itemvalue="Spring Boot.EurekaServerApplication" />
+      <item itemvalue="Spring Boot.LivreApiApplication" />
+      <item itemvalue="Spring Boot.UserApiApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.UserApiApplication" />
@@ -149,6 +165,9 @@
       <workItem from="1619594706671" duration="14406000" />
       <workItem from="1619609988488" duration="21408000" />
       <workItem from="1619685540504" duration="22421000" />
+      <workItem from="1619712165296" duration="4497000" />
+      <workItem from="1619735934481" duration="1132000" />
+      <workItem from="1619774448715" duration="5143000" />
     </task>
     <servers />
   </component>
@@ -162,11 +181,6 @@
           <url>file://$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java</url>
           <line>54</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java</url>
-          <line>127</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

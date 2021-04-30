@@ -1114,6 +1114,7 @@ sequence|table|38643|38645|1
     </sequence>
     <table id="53" parent="26" name="abonne">
       <ObjectId>38625</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>2267</StateNumber>
     </table>
