@@ -6,6 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(name = "user-api", url = "localhost:9001")
 public interface UserApiProxy {
@@ -13,15 +14,9 @@ public interface UserApiProxy {
     @GetMapping("/users/check")
     String check();
 
-    @GetMapping("/login")
-    String pageLogin ();
-
-    @PostMapping("/login")
+    @PostMapping("users/login")
     String login(@RequestBody UserAuthenticationBean user);
 
-    @GetMapping("/signin")
-    String pageSignin ();
-
-    @PostMapping("/signin")
-    void signin(@RequestBody AbonneBean abonne);
+    @PostMapping("users/signin")
+    String signin(@RequestBody AbonneBean abonne, @RequestParam int paysId);
 }

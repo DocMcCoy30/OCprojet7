@@ -10,7 +10,7 @@ public interface UserService {
 
     List<Abonne> findAllAbonne();
     Abonne findAbonneById(int abonneId);
-    void createAbonne(Abonne abonne);
+    void createAbonne(Abonne abonne, int paysId);
     void deleteAbonne(Abonne abonne);
 
 

@@ -18,6 +18,12 @@
     <hr>
 
     <div th:text="${statut}"></div>
+    <div th:if="${message}" th:utext="${message}"
+         style="color:red;font-style:italic;">
+        ...
+    </div>
+    <a th:href="@{/login}">LogIn</a>
+    <a th:href="@{/signin}">SignIn</a>
 
     <table class="table table-striped table-dark table-bordered">
         <thead>

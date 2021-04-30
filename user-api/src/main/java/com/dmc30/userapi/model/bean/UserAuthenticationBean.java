@@ -12,6 +12,6 @@ import lombok.ToString;
 public class UserAuthenticationBean {
 
     private String username;
-    private String email;
+//    private String email;
     private String password;
 }

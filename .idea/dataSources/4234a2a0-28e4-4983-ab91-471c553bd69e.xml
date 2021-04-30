@@ -1120,6 +1120,7 @@ sequence|table|38643|38645|1
     </table>
     <table id="54" parent="26" name="adresse">
       <ObjectId>38593</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>2267</StateNumber>
     </table>

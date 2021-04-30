@@ -27,8 +27,8 @@ public class UserController {
     }
 
     @PostMapping("/signin")
-    public String createAbonne(@Valid @RequestBody Abonne abonne) {
-        userService.createAbonne(abonne);
+    public String createAbonne(@Valid @RequestBody Abonne abonne, @RequestParam int paysId) {
+        userService.createAbonne(abonne, paysId);
         return "L'abonné "+abonne.getNumAbonne()+" "+abonne.getPrenom()+" "+abonne.getNom()+" a bien été enregistré.";
     }
 

@@ -10,6 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -50,7 +52,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void createAbonne(Abonne abonne) {
+    public void createAbonne(Abonne abonne, int paysId) {
         //set Numero Abonne
         abonne.setNumAbonne(UUID.randomUUID().toString());
         //get Adresse de l'abonné
@@ -58,7 +60,7 @@ public class UserServiceImpl implements UserService {
         //set Adresse ID
 //        adresse.setId(adresseRepository.findMaxId()+1);
         //set Pays France to Adresse
-        Optional<Pays> result1 = paysRepository.findById(1);
+        Optional<Pays> result1 = paysRepository.findById(paysId);
         Pays pays = result1.get();
         adresse.setPays(pays);
         //set Role = ABONNE
@@ -68,6 +70,11 @@ public class UserServiceImpl implements UserService {
         abonne.setRoles(roles);
         //Encrypt Password
         abonne.setPassword(passwordEncoderHelper.passwordEncoder(abonne.getPassword()));
+        //set Date de Créaation Compte
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+        System.out.println(dateFormat.format(date));
+        abonne.setDateCreationCompte(new Date());
         //save Abonne in DB
         abonneRepository.save(abonne);
     }

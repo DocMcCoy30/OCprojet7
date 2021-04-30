@@ -9,5 +9,5 @@ public interface ClientUIUserService {
 
     String login(UserAuthenticationBean userAuthentication);
 
-    void signin(AbonneBean abonne);
+    String signin(AbonneBean abonne, int paysId);
 }
