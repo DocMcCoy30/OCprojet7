@@ -12,6 +12,6 @@ public class ClientUIAccueilController {
     public String getToAccueil(Model theModel) {
         LivreBean livre = new LivreBean();
         theModel.addAttribute("livre", livre);
-        return "index";
+        return "accueil";
     }
 }

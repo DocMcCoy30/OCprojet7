@@ -7,7 +7,7 @@ public interface ClientUIUserService {
 
     String check();
 
-    void login(UserAuthenticationBean userAuthentication);
+    String login(UserAuthenticationBean userAuthentication);
 
     void signin(AbonneBean abonne);
 }

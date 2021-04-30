@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Accueil</title>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Accueil</h1>
+    <hr>
+
+    <div th:text="${statut}"></div>
+
+    <table class="table table-striped table-dark table-bordered">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Tous les livres</td>
+            <td>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a th:href="@{/showLivres}"
+                       class="btn btn-secondary btn-md btn-block col-sm-3">
+                        rechercher
+                    </a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div th:if="${! #lists.isEmpty(livres)}">
+        <h4>Tous les livres</h4>
+        <table class="table table-striped table-dark table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Titre</th>
+                <th>Resume</th>
+                <th>Date d'edition</th>
+                <th>Numero isbn13</th>
+                <th>Auteur</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="tempLivre : ${livres}">
+                <td th:text="${tempLivre.titre}"></td>
+                <td th:text="${tempLivre.resume}"></td>
+                <td th:text="${tempLivre.dateEdition}"></td>
+                <td th:text="${tempLivre.numeroIsbn13}"></td>
+                <td th:text="${tempLivre.auteurs}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

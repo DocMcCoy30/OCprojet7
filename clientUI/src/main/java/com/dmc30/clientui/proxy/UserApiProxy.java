@@ -17,7 +17,7 @@ public interface UserApiProxy {
     String pageLogin ();
 
     @PostMapping("/login")
-    void login(@RequestBody UserAuthenticationBean user);
+    String login(@RequestBody UserAuthenticationBean user);
 
     @GetMapping("/signin")
     String pageSignin ();

@@ -22,8 +22,8 @@ public class ClientUIUserServiceImpl implements ClientUIUserService {
     }
 
     @Override
-    public void login(UserAuthenticationBean userAuthentication) {
-        userApiProxy.login(userAuthentication);
+    public String login(UserAuthenticationBean userAuthentication) {
+        return userApiProxy.login(userAuthentication);
     }
 
     @Override

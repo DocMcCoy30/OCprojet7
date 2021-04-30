@@ -25,7 +25,7 @@ public class ClientUILivreController {
     public String getLivres(Model theModel) {
         List<LivreBean> livres = livreService.getLivres();
         theModel.addAttribute("livres", livres);
-        return "index";
+        return "accueil";
     }
 
     @PostMapping("/showLivresByTitre")
