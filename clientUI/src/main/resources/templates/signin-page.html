@@ -14,138 +14,147 @@
     <link th:href="@{/css/signin.css}" rel="stylesheet">
 </head>
 
-<body class="bg-light">
+<body class="text-center">
 
 <div class="container">
+    <a th:href="@{/}"
+       class="btn btn-primary btn-sm mb-3">
+        Retour à l'accueil</a>
     <main>
-        <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72"
-                 height="57">
-            <h2>Créer un compte</h2>
-        </div>
-        <div class="col-md-7 col-lg-8">
-            <h4 class="mb-3">Vos informations</h4>
-            <form class="form-signin" action="#" th:action="@{/signin}" th:object="${abonne}" method="post">
-                <div class="row g-3">
-                    <div class="col-sm-6">
-                        <label for="prenom" class="form-label">Prenom</label>
-                        <input type="text" th:field="*{prenom}" class="form-control" id="prenom" placeholder="" value=""
-                               required>
-                        <div class="invalid-feedback">
-                            Valid first name is required.
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="nom" class="form-label">Nom</label>
-                        <input type="text" th:field="*{nom}" class="form-control" id="nom" placeholder="" value=""
-                               required>
-                        <div class="invalid-feedback">
-                            Valid last name is required.
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="username" class="form-label">Username</label>
-                        <div class="input-group has-validation">
-                            <span class="input-group-text">@</span>
-                            <input type="text" th:field="*{username}" class="form-control" id="username" placeholder=""
-                                   value="" required>
+        <div class="py-5">
+            <!--            <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72"-->
+            <!--                 height="57">-->
+            <h1 class="h3 mb-3 font-weight-normal">Créer un compte</h1>
+            <!--        </div>-->
+<!--            <div class="col-md-7 col-lg-8">-->
+<!--                <h4 class="mb-3">Vos informations</h4>-->
+                <form class="form-signin" action="#" th:action="@{/signin}" th:object="${abonne}" method="post">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="prenom" class="form-label">Prenom</label>
+                            <input type="text" th:field="*{prenom}" class="form-control" id="prenom" placeholder=""
+                                   value=""
+                                   required>
                             <div class="invalid-feedback">
-                                Your username is required.
+                                Valid first name is required.
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="password" class="form-label">Mot de Passe</label>
-                        <input type="password" th:field="*{password}" class="form-control" id="password" placeholder=""
-                               value="" required>
-                        <div class="invalid-feedback">
-                            Valid last name is required.
+                        <div class="col-sm-6">
+                            <label for="nom" class="form-label">Nom</label>
+                            <input type="text" th:field="*{nom}" class="form-control" id="nom" placeholder="" value=""
+                                   required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="telephone" class="form-label">Numéro de Téléphone</label>
-                        <input type="text" th:field="*{numTelephone}" class="form-control" id="telephone"
-                               placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Phone required.
+                        <div class="col-sm-6">
+                            <label for="username" class="form-label">Username</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text">@</span>
+                                <input type="text" th:field="*{username}" class="form-control" id="username"
+                                       placeholder=""
+                                       value="" required>
+                                <div class="invalid-feedback">
+                                    Your username is required.
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <label for="email" class="form-label">Email <span class="text-muted"></span></label>
-                        <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="" value=""
-                               required>
-                        <div class="invalid-feedback">
-                            Please enter a valid email address for shipping updates.
+                        <div class="col-sm-6">
+                            <label for="password" class="form-label">Mot de Passe</label>
+                            <input type="password" th:field="*{password}" class="form-control" id="password"
+                                   placeholder=""
+                                   value="" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <label for="adresse" class="form-label">Adresse</label>
-                        <input type="text" th:field="*{adresse.rue}" class="form-control" id="adresse" placeholder=""
-                               value="" required>
-                        <div class="invalid-feedback">
-                            Please enter your shipping address.
+                        <div class="col-sm-6">
+                            <label for="telephone" class="form-label">Numéro de Téléphone</label>
+                            <input type="text" th:field="*{numTelephone}" class="form-control" id="telephone"
+                                   placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Phone required.
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="code-postal" class="form-label">Code Postal</label>
-                        <input type="text" th:field="*{adresse.codePostal}" class="form-control" id="code-postal"
-                               placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Zip code required.
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email <span class="text-muted"></span></label>
+                            <input type="email" th:field="*{email}" class="form-control" id="email" placeholder=""
+                                   value=""
+                                   required>
+                            <div class="invalid-feedback">
+                                Please enter a valid email address for shipping updates.
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="ville" class="form-label">Ville</label>
-                        <input type="text" th:field="*{adresse.ville}" class="form-control" id="ville"
-                               placeholder=""
-                               value="" required>
-                        <div class="invalid-feedback">
-                            City required.
+                        <div class="col-12">
+                            <label for="adresse" class="form-label">Adresse</label>
+                            <input type="text" th:field="*{adresse.rue}" class="form-control" id="adresse"
+                                   placeholder=""
+                                   value="" required>
+                            <div class="invalid-feedback">
+                                Please enter your shipping address.
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="pays" class="form-label">Pays</label>
-                        <select class="form-control" id="pays" name="paysId" required>
-                            <option value="">Pays...</option>
-                            <option value=1>France</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please provide a valid country.
+                        <div class="col-md-3">
+                            <label for="code-postal" class="form-label">Code Postal</label>
+                            <input type="text" th:field="*{adresse.codePostal}" class="form-control" id="code-postal"
+                                   placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Zip code required.
+                            </div>
                         </div>
+                        <div class="col-md-3">
+                            <label for="ville" class="form-label">Ville</label>
+                            <input type="text" th:field="*{adresse.ville}" class="form-control" id="ville"
+                                   placeholder=""
+                                   value="" required>
+                            <div class="invalid-feedback">
+                                City required.
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="pays" class="form-label">Pays</label>
+                            <select class="form-control" id="pays" name="paysId" required>
+                                <option value="">Pays...</option>
+                                <option value=1>France</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please provide a valid country.
+                            </div>
+                        </div>
+                        <!--                        <div class="col-md-4">-->
+                        <!--                            <select>-->
+                        <!--                            <option>Choisir un cours</option>-->
+                        <!--                            <option th:each="tempPays : ${pays}"-->
+                        <!--                                    th:value="${pays.id}"-->
+                        <!--                                    th:text="${pays.nom}">-->
+                        <!--                            </option>-->
+                        <!--                            </select>-->
                     </div>
-                    <!--                        <div class="col-md-4">-->
-                    <!--                            <select>-->
-                    <!--                            <option>Choisir un cours</option>-->
-                    <!--                            <option th:each="tempPays : ${pays}"-->
-                    <!--                                    th:value="${pays.id}"-->
-                    <!--                                    th:text="${pays.nom}">-->
-                    <!--                            </option>-->
-                    <!--                            </select>-->
-                </div>
 
-                <hr class="my-4">
-                <hr class="my-4">
+                    <hr class="my-4">
+                    <hr class="my-4">
 
-                <button class="w-100 btn btn-primary btn-lg" type="submit">Créer un compte</button>
-            </form>
+                    <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Créer un compte</button>
+                </form>
+<!--            </div>-->
         </div>
     </main>
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017–2021 Company Name</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-    </footer>
+    <!--    <footer class="my-5 pt-5 text-muted text-center text-small">-->
+    <!--        <p class="mb-1">&copy; 2017–2021 Company Name</p>-->
+    <!--        <ul class="list-inline">-->
+    <!--            <li class="list-inline-item"><a href="#">Privacy</a></li>-->
+    <!--            <li class="list-inline-item"><a href="#">Terms</a></li>-->
+    <!--            <li class="list-inline-item"><a href="#">Support</a></li>-->
+    <!--        </ul>-->
+    <!--    </footer>-->
 </div>
 
 
-<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
+<!--<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"-->
+<!--        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"-->
+<!--        crossorigin="anonymous"></script>-->
 
-<script src="form-validation.js"></script>
+<!--<script src="form-validation.js"></script>-->
 </body>
 
 

@@ -1,13 +1,11 @@
 package com.dmc30.userapi.service;
 
 import com.dmc30.userapi.exception.IntrouvableException;
-import com.dmc30.userapi.model.bean.UserAuthenticationBean;
+import com.dmc30.userapi.model.bean.UserDetails;
 import com.dmc30.userapi.model.entity.*;
 import com.dmc30.userapi.repository.*;
 import com.dmc30.userapi.security.PasswordEncoderHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
@@ -69,7 +67,7 @@ public class UserServiceImpl implements UserService {
         roles.add(result2.get());
         abonne.setRoles(roles);
         //Encrypt Password
-        abonne.setPassword(passwordEncoderHelper.passwordEncoder(abonne.getPassword()));
+//        abonne.setPassword(passwordEncoderHelper.passwordEncoder(abonne.getPassword()));
         //set Date de Créaation Compte
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
@@ -131,9 +129,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String authenticateUser(UserAuthenticationBean userAuthenticationBean) {
-        String username = userAuthenticationBean.getUsername();
-        String password = userAuthenticationBean.getPassword();
+    public String authenticateUser(UserDetails userDetails) {
+        String email = userDetails.getEmail();
+        String password = userDetails.getPassword();
         String result = "Authentification KO";
         boolean abonne = false;
         boolean employe = false;
@@ -142,14 +140,14 @@ public class UserServiceImpl implements UserService {
         List<Employe> employes = employeRepository.findAll();
         for (Abonne tempAbonne : abonnes
         ) {
-            if (tempAbonne.getUsername().equals(userAuthenticationBean.getUsername())) {
+            if (tempAbonne.getEmail().equals(userDetails.getEmail())) {
                 abonne = true;
                 pwCheck = BCrypt.checkpw(password, tempAbonne.getPassword());
             }
         }
         for (Employe tempEmploye : employes
         ) {
-            if (tempEmploye.getUsername().equals(userAuthenticationBean.getUsername())) {
+            if (tempEmploye.getEmail().equals(userDetails.getEmail())) {
                 employe = true;
                 pwCheck = BCrypt.checkpw(password, tempEmploye.getPassword());
             }

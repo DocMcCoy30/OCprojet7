@@ -1,7 +1,7 @@
 package com.dmc30.clientui.controller;
 
 import com.dmc30.clientui.model.bean.utilisateur.AbonneBean;
-import com.dmc30.clientui.model.bean.utilisateur.UserAuthenticationBean;
+import com.dmc30.clientui.model.bean.utilisateur.UserDetails;
 import com.dmc30.clientui.service.ClientUIUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,13 +27,13 @@ public class ClientUIUserController {
 
     @GetMapping(path = "/login")
     public String loginPage(Model theModel){
-        UserAuthenticationBean user = new UserAuthenticationBean();
+        UserDetails user = new UserDetails();
         theModel.addAttribute("user", user);
         return "login-page";
     }
 
     @PostMapping(path = "/login")
-    public String login(@ModelAttribute UserAuthenticationBean user, Model theModel) {
+    public String login(@ModelAttribute UserDetails user, Model theModel) {
         String authenticationMessage = userService.login(user);
         theModel.addAttribute("message", authenticationMessage);
         return "accueil";
@@ -48,7 +48,6 @@ public class ClientUIUserController {
 
     @PostMapping("/signin")
     public String signin(@ModelAttribute AbonneBean abonne, @RequestParam("paysId") Integer paysId, Model theModel) {
-//        paysId = 1;
         String signinMessage = userService.signin(abonne, paysId);
         theModel.addAttribute("message", signinMessage);
         return "accueil";

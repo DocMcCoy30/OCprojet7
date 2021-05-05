@@ -9,10 +9,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class UserAuthenticationBean {
+public class UserDetails {
 
-    private String username;
-//    private String email;
+    private String email;
     private String password;
 }
 

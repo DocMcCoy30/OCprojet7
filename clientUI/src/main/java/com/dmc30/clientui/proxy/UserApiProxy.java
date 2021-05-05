@@ -1,7 +1,7 @@
 package com.dmc30.clientui.proxy;
 
 import com.dmc30.clientui.model.bean.utilisateur.AbonneBean;
-import com.dmc30.clientui.model.bean.utilisateur.UserAuthenticationBean;
+import com.dmc30.clientui.model.bean.utilisateur.UserDetails;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +15,7 @@ public interface UserApiProxy {
     String check();
 
     @PostMapping("users/login")
-    String login(@RequestBody UserAuthenticationBean user);
+    String login(@RequestBody UserDetails user);
 
     @PostMapping("users/signin")
     String signin(@RequestBody AbonneBean abonne, @RequestParam int paysId);

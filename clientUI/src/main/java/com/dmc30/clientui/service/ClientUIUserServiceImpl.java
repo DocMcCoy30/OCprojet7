@@ -1,19 +1,20 @@
 package com.dmc30.clientui.service;
 
 import com.dmc30.clientui.model.bean.utilisateur.AbonneBean;
-import com.dmc30.clientui.model.bean.utilisateur.UserAuthenticationBean;
+import com.dmc30.clientui.model.bean.utilisateur.UserDetails;
 import com.dmc30.clientui.proxy.UserApiProxy;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.dmc30.clientui.security.PasswordEncoderHelper;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ClientUIUserServiceImpl implements ClientUIUserService {
 
     UserApiProxy userApiProxy;
+    PasswordEncoderHelper encoderHelper;
 
-    @Autowired
-    public ClientUIUserServiceImpl(UserApiProxy userApiProxy) {
+    public ClientUIUserServiceImpl(UserApiProxy userApiProxy, PasswordEncoderHelper encoderHelper) {
         this.userApiProxy = userApiProxy;
+        this.encoderHelper = encoderHelper;
     }
 
     @Override
@@ -22,12 +23,13 @@ public class ClientUIUserServiceImpl implements ClientUIUserService {
     }
 
     @Override
-    public String login(UserAuthenticationBean userAuthentication) {
+    public String login(UserDetails userAuthentication) {
         return userApiProxy.login(userAuthentication);
     }
 
     @Override
     public String signin(AbonneBean abonne, int paysId) {
+        abonne.setPassword(encoderHelper.passwordEncoder(abonne.getPassword()));
         return userApiProxy.signin(abonne, paysId);
     }
 }
