@@ -4,9 +4,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/clientUI/pom.xml" />
+        <option value="$PROJECT_DIR$/user-api/pom.xml" />
         <option value="$PROJECT_DIR$/livre-api/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
-        <option value="$PROJECT_DIR$/user-api/pom.xml" />
       </list>
     </option>
   </component>

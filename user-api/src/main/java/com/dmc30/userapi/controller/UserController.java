@@ -1,9 +1,12 @@
 package com.dmc30.userapi.controller;
 
-import com.dmc30.userapi.model.bean.UserDetails;
+import com.dmc30.userapi.exception.TechnicalException;
+import com.dmc30.userapi.model.dto.UserDetailsDto;
 import com.dmc30.userapi.model.entity.Abonne;
 import com.dmc30.userapi.model.entity.Employe;
-import com.dmc30.userapi.service.UserService;
+import com.dmc30.userapi.service.contract.UserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +17,7 @@ import javax.validation.Valid;
 public class UserController {
 
     UserService userService;
+    Logger logger = LogManager.getLogger(UserController.class);
 
     @Autowired
     public UserController(UserService userService) {
@@ -26,9 +30,14 @@ public class UserController {
     }
 
     @PostMapping("/signin")
-    public String createAbonne(@Valid @RequestBody Abonne abonne, @RequestParam int paysId) {
-        userService.createAbonne(abonne, paysId);
-        return "L'abonné "+abonne.getNumAbonne()+" "+abonne.getPrenom()+" "+abonne.getNom()+" a bien été enregistré.";
+    public String createAbonne(@Valid @RequestBody Abonne abonne, @RequestParam int paysId) throws TechnicalException {
+        String message = "L'abonné "+abonne.getNumAbonne()+" "+abonne.getPrenom()+" "+abonne.getNom()+" a bien été enregistré.";
+        try {
+            userService.createAbonne(abonne, paysId);
+        }catch (TechnicalException e) {
+            message = e.getMessage();
+        }
+        return message;
     }
 
     @PostMapping("/employe")
@@ -38,8 +47,11 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody UserDetails userDetails) {
-        String message = userService.authenticateUser(userDetails);
+    public String login(@RequestBody UserDetailsDto userDetailsDto) {
+        String message = userService.authenticateUser(userDetailsDto);
+//        Authentication auth
+//                = SecurityContextHolder.getContext().getAuthentication();
+//        logger.info("user : " + auth.getPrincipal() + " / Role : " + auth.getAuthorities());
         return message;
     }
 

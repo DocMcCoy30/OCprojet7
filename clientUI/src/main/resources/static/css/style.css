@@ -1,0 +1,10 @@
+body{
+  width: 100%;
+}
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+#header-title{
+  font-size: x-large;
+}

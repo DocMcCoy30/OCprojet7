@@ -1,7 +1,7 @@
 package com.dmc30.clientui.controller;
 
-import com.dmc30.clientui.model.bean.livre.LivreBean;
-import com.dmc30.clientui.service.ClientUILivreService;
+import com.dmc30.clientui.model.dto.livre.LivreDto;
+import com.dmc30.clientui.service.impl.ClientUILivreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +23,7 @@ public class ClientUILivreController {
 
     @GetMapping("/showLivres")
     public String getLivres(Model theModel) {
-        List<LivreBean> livres = livreService.getLivres();
+        List<LivreDto> livres = livreService.getLivres();
         theModel.addAttribute("livres", livres);
         return "accueil";
     }
@@ -31,7 +31,7 @@ public class ClientUILivreController {
     @PostMapping("/showLivresByTitre")
     public String getLivreByTitre (Model theModel,
                                    @RequestParam("motCle") String motCle) {
-        List<LivreBean> livres = livreService.getLivreByTitre(motCle);
+        List<LivreDto> livres = livreService.getLivreByTitre(motCle);
         theModel.addAttribute("livresParTitre", livres);
         return "index";
     }

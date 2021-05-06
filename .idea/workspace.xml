@@ -4,61 +4,95 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f770393-5dc0-44bf-8950-0b03b5df42b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_4_42.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_4_42.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_springsecurity5_3_0_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/PasswordEncoderHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/SecurityConfig.java" afterDir="false" />
+    <list default="true" id="f8b307bb-768a-49a1-8041-682a11af6e94" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_netflix_netflix_commons_netflix_eventbus_0_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_jxpath_commons_jxpath_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_bootstrap_5_0_0_beta3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_popper_js_2_5_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/ClientUILivreService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/ClientUIUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/exception/ErrorMessages.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/contract/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4234a2a0-28e4-4983-ab91-471c553bd69e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_4_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_4_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_4_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_4_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_4_42.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_4_42.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-Documents/sql/structure.sql" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/sql/structure.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-Documents/uml/Modele Physique de Données.png" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/uml/Modele Physique de Données.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/controller/ClientUIAccueilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/controller/ClientUIAccueilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/controller/ClientUILivreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/controller/ClientUILivreController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/controller/ClientUIUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/controller/ClientUIUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/utilisateur/UserAuthenticationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/utilisateur/UserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/bibliotheque/BibliothequeBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/bibliotheque/BibliothequeDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/bibliotheque/OuvrageBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/bibliotheque/OuvrageDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/bibliotheque/PretBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/bibliotheque/PretDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/commun/AdresseBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/commun/AdresseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/commun/PaysBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/commun/PaysDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/livre/AuteurBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/livre/AuteurDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/livre/EditeurBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/livre/EditeurDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/livre/GenreBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/livre/GenreDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/livre/IllustrationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/livre/IllustrationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/livre/LangueBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/livre/LangueDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/livre/LivreBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/livre/LivreDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/utilisateur/AbonneBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/utilisateur/AbonneDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/utilisateur/EmployeBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/utilisateur/EmployeDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/utilisateur/RoleBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/utilisateur/RoleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/bean/utilisateur/UserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/model/dto/utilisateur/UserDetailsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/LivreApiProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/LivreApiProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserApiProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserApiProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/ClientUIUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/ClientUIUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/ClientUIUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/ClientUIUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/ClientUILivreService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/ClientUILivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/ClientUILivreServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/ClientUIUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/ClientUIUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/ClientUIUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/css/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/accueil.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/login-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/login-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/signin-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/signin-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/controller/AuteurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/controller/AuteurController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/controller/LivreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/controller/LivreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/AuteurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/contract/AuteurService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/AuteurServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/impl/AuteurServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/LivreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/contract/LivreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/LivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/impl/LivreServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/bean/UserAuthenticationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/bean/UserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/exception/IntrouvableException.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/exception/TechnicalException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/bean/UserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/model/dto/UserDetailsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/AdresseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/contract/AdresseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/AdresseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/impl/AdresseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CompilerWorkspaceConfiguration">
-    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProjectId" id="1rcJZccT3jqkSG96ybAbyRFpqku" />
+  <component name="ProjectId" id="1s6wodmlglql6KonJCmBkw1Swc6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -74,42 +108,24 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="jdk.selected.JAVA_MODULE" value="11.0.3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/1-Documents/sql" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/user-api/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.dmc30.clientui.service" />
-      <recent name="com.dmc30.clientui.model.bean.bibliotheque" />
-      <recent name="com.dmc30.userapi.model.entity" />
-      <recent name="com.dmc30.userapi.service" />
-      <recent name="com.dmc30.userapi.exception" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\1-Documents\sql" />
+      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\user-api\src\main\resources" />
+      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\templates\fragments" />
       <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\templates" />
-      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\1-Documents\uml" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\static" />
-      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources" />
-      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\static\css" />
-      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\css" />
-      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\1-Documents\uml" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.dmc30.userapi.repository" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -120,13 +136,64 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.ClientUIApplication">
+    <configuration name="ClientUIApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dmc30.clientui.ClientUIApplication" />
+      <module name="clientUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dmc30.clientui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.eurekaserver.EurekaServerApplication" />
+      <module name="eureka-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.eurekaserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LivreApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dmc30.livreapi.LivreApiApplication" />
+      <module name="livre-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dmc30.livreapi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dmc30.userapi.UserApiApplication" />
+      <module name="user-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dmc30.userapi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClientUIApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="clientUI" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.dmc30.clientui.ClientUIApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -141,26 +208,22 @@
     <configuration name="LivreApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="livre-api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.dmc30.livreapi.LivreApiApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="UserApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="user-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.dmc30.userapi.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.dmc30.userapi.UserApiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ClientUIApplication" />
+      <item itemvalue="Application.EurekaServerApplication" />
+      <item itemvalue="Application.LivreApiApplication" />
+      <item itemvalue="Application.UserApiApplication" />
       <item itemvalue="Spring Boot.ClientUIApplication" />
       <item itemvalue="Spring Boot.EurekaServerApplication" />
       <item itemvalue="Spring Boot.LivreApiApplication" />
@@ -168,58 +231,31 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.UserApiApplication" />
+        <item itemvalue="Application.UserApiApplication" />
+        <item itemvalue="Application.LivreApiApplication" />
+        <item itemvalue="Application.EurekaServerApplication" />
+        <item itemvalue="Application.ClientUIApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6f770393-5dc0-44bf-8950-0b03b5df42b2" name="Default Changelist" comment="" />
-      <created>1619269500786</created>
+      <changelist id="f8b307bb-768a-49a1-8041-682a11af6e94" name="Default Changelist" comment="" />
+      <created>1620206525830</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1619269500786</updated>
-      <workItem from="1619269502305" duration="3880000" />
-      <workItem from="1619517763908" duration="8150000" />
-      <workItem from="1619593473302" duration="1072000" />
-      <workItem from="1619594706671" duration="14406000" />
-      <workItem from="1619609988488" duration="21408000" />
-      <workItem from="1619685540504" duration="22421000" />
-      <workItem from="1619712165296" duration="4497000" />
-      <workItem from="1619735934481" duration="1132000" />
-      <workItem from="1619774448715" duration="10142000" />
-      <workItem from="1619788323475" duration="9463000" />
-      <workItem from="1619801123242" duration="285000" />
-      <workItem from="1619937929342" duration="1344000" />
-      <workItem from="1620197406614" duration="1074000" />
-      <workItem from="1620199452969" duration="840000" />
-      <workItem from="1620201870431" duration="1272000" />
+      <updated>1620206525830</updated>
+      <workItem from="1620206531000" duration="520000" />
+      <workItem from="1620207075619" duration="6994000" />
+      <workItem from="1620222458642" duration="381000" />
+      <workItem from="1620224045875" duration="8547000" />
+      <workItem from="1620284844755" duration="1297000" />
+      <workItem from="1620287110402" duration="2471000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/controller/UserController.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/ClientUIUserServiceImpl.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/PasswordEncoderHelper.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
