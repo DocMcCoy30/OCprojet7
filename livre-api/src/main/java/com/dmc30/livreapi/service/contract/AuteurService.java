@@ -1,6 +1,6 @@
 package com.dmc30.livreapi.service.contract;
 
-import com.dmc30.livreapi.model.entity.livre.Auteur;
+import com.dmc30.livreapi.data.entity.livre.Auteur;
 
 import java.util.List;
 

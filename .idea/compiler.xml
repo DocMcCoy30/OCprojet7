@@ -17,7 +17,7 @@
       <module name="clientUI" target="11" />
       <module name="eureka-server" target="11" />
       <module name="livre-api" target="11" />
-      <module name="user-api" target="11" />
+      <module name="user-api" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

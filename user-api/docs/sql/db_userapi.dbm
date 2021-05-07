@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.3" use-changelog="false" last-position="0,0" last-zoom="0.55" max-obj-count="6"
+	 default-schema="public" default-owner="postgres">
+<database name="DB_UserApi" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<sequence name="abonne_id_seq" cycle="false" start="1" increment="1" min-value="-2147483648" max-value="2147483647" cache="1">
+	<schema name="public"/>
+</sequence>
+
+<table name="abonne" layer="0" collapse-mode="2" max-obj-count="13" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="772.5" y="15"/>
+	<column name="id" not-null="true" sequence="public.abonne_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="username">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="prenom" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="nom" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="password" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="public_id" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="numero_telephone">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="date_creation_compte" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="numero_abonne">
+		<type name="varchar" length="0"/>
+	</column>
+	<constraint name="abonne_pk" type="pk-constr" table="public.abonne">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="uq_a_username" type="uq-constr" table="public.abonne">
+		<columns names="username" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="uq_a_email" type="uq-constr" table="public.abonne">
+		<columns names="email" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="employe_id_seq" cycle="false" start="1" increment="1" min-value="-2147483648" max-value="2147483647" cache="1">
+	<schema name="public"/>
+</sequence>
+
+<table name="employe" layer="0" collapse-mode="2" max-obj-count="14" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="777.308" y="521.643"/>
+	<column name="id" not-null="true" sequence="public.employe_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="username" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="prenom" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="nom" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="password" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="public_id" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="numero_telephone">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="matricule" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="date_entree" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="date_sortie">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="employe_pk" type="pk-constr" table="public.employe">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="uq_e_username" type="uq-constr" table="public.employe">
+		<columns names="username" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="uq_e_email" type="uq-constr" table="public.employe">
+		<columns names="email" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="role_id_seq" cycle="false" start="1" increment="1" min-value="-2147483648" max-value="2147483647" cache="1">
+	<schema name="public"/>
+</sequence>
+
+<table name="role" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="246.25" y="283.75"/>
+	<column name="id" not-null="true" sequence="public.role_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="role" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<constraint name="role_pk" type="pk-constr" table="public.role">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="many_abonne_has_many_role" type="relnn" layer="0"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#93aa1e"
+	 src-table="public.abonne"
+	 dst-table="public.role"
+	 src-required="false" dst-required="false"
+	 table-name="many_abonne_has_many_role"/>
+
+<relationship name="many_employe_has_many_role" type="relnn" layer="0"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#799926"
+	 src-table="public.employe"
+	 dst-table="public.role"
+	 src-required="false" dst-required="false"
+	 table-name="many_employe_has_many_role"/>
+
+<sequence name="adresse_id_seq" cycle="false" start="1" increment="1" min-value="-2147483648" max-value="2147483647" cache="1">
+	<schema name="public"/>
+</sequence>
+
+<table name="adresse" layer="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1375.38" y="330.769"/>
+	<column name="id" not-null="true" sequence="public.adresse_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="rue">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="code_postal" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="ville" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<constraint name="adresse_pk" type="pk-constr" table="public.adresse">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="abonne_has_one_adresse" type="rel11" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#64feef"
+	 src-table="public.adresse"
+	 dst-table="public.abonne"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="employe_has_one_adresse" type="rel11" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#48a748"
+	 src-table="public.adresse"
+	 dst-table="public.employe"
+	 src-required="false" dst-required="false"/>
+
+<sequence name="pays_id_seq" cycle="false" start="1" increment="1" min-value="-2147483648" max-value="2147483647" cache="1">
+	<schema name="public"/>
+</sequence>
+
+<table name="pays" layer="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1930.91" y="320"/>
+	<column name="id" not-null="true" sequence="public.pays_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nom" not-null="true">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="code_alpha2">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="code_alpha3">
+		<type name="varchar" length="0"/>
+	</column>
+	<column name="code">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="pays_pk" type="pk-constr" table="public.pays">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="adresse_has_one_pays" type="rel11" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#6c3ae6"
+	 src-table="public.pays"
+	 dst-table="public.adresse"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
