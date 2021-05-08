@@ -28,7 +28,7 @@ public class UsersController {
         this.usersService = usersService;
     }
 
-    @GetMapping("/status")
+    @GetMapping("/check")
     public String checkStatus () {
         return "User_Api ' s working";
     }

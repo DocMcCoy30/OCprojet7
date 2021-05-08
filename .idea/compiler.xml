@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="clientUI" />
+        <module name="gateway-api" />
         <module name="user-api" />
         <module name="eureka-server" />
         <module name="livre-api" />
@@ -16,6 +17,7 @@
     <bytecodeTargetLevel>
       <module name="clientUI" target="11" />
       <module name="eureka-server" target="11" />
+      <module name="gateway-api" target="1.8" />
       <module name="livre-api" target="11" />
       <module name="user-api" target="1.8" />
     </bytecodeTargetLevel>
@@ -24,6 +26,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="clientUI" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="gateway-api" options="-parameters" />
       <module name="livre-api" options="-parameters" />
       <module name="user-api" options="-parameters" />
     </option>
