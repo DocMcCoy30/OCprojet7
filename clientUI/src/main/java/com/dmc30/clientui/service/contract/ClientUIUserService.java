@@ -14,5 +14,5 @@ public interface ClientUIUserService {
 
     ResponseEntity<CreateAbonneResponseModel> createAbonne(UsersDto abonne, Long paysId);
 
-    void secureLogin(LoginRequestDto loginRequestDto);
+    ResponseEntity<String> secureLogin(LoginRequestDto loginRequestDto);
 }

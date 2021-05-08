@@ -29,5 +29,5 @@ public interface UserApiProxy {
 
 
     @PostMapping("/secure/login")
-    void secureLogin(LoginRequestDto loginRequestDto);
+    ResponseEntity<String> secureLogin(LoginRequestDto loginRequestDto);
 }
