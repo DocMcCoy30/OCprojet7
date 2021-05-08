@@ -5,15 +5,21 @@ import com.dmc30.clientui.shared.utilisateur.UsersDto;
 import com.dmc30.clientui.shared.utilisateur.LoginRequestDto;
 import com.dmc30.clientui.service.contract.ClientUIUserService;
 import com.dmc30.clientui.ui.model.CreateAbonneRequestModel;
+import com.dmc30.clientui.ui.model.CreateAbonneResponseModel;
 import com.dmc30.clientui.ui.model.LoginRequestModel;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Objects;
 
 @Controller
 public class ClientUIUserController {
@@ -74,12 +80,17 @@ public class ClientUIUserController {
 //    }
 
     @PostMapping("/signin")
-    public String createAbonne(@ModelAttribute CreateAbonneRequestModel userDetails, @RequestParam("paysId") Long paysId) {
+    public String createAbonne(@ModelAttribute CreateAbonneRequestModel userDetails,
+                               @RequestParam("paysId") Long paysId,
+                               Model theModel) {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UsersDto abonne = modelMapper.map(userDetails, UsersDto.class);
         abonne.setEncryptedPassword(passwordEncoderHelper.encodePwd(userDetails.getPassword()));
-        userService.createAbonne(abonne, paysId);
+        ResponseEntity<CreateAbonneResponseModel> response = userService.createAbonne(abonne, paysId);
+        logger.info("CreAbResMod : " + Objects.requireNonNull(response.getBody()).toString(), response.getStatusCode());
+        String message = "L'abonné " + response.getBody().getUsername() + " / " + response.getBody().getEmail() + " a bien été enregistré.";
+        theModel.addAttribute("message", message);
         return "accueil";
     }
 }

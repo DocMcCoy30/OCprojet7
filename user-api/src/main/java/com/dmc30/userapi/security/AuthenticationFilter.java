@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -53,16 +54,19 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
-    String email = ((User)authResult.getPrincipal()).getUsername();
-    UsersDto userDetails = usersService.getUserDetailsByEmail(email);
+        String email = ((User) authResult.getPrincipal()).getUsername();
+        UsersDto userDetails = usersService.getUserDetailsByEmail(email);
 
-    String token = Jwts.builder()
-            .setSubject(userDetails.getPublicId())
-            .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(environment.getProperty("token.expiration_time"))))
-            .signWith(SignatureAlgorithm.HS512, environment.getProperty("token.secret"))
-            .compact();
-
-    response.addHeader("token", token);
-    response.addHeader("publicId", userDetails.getPublicId());
+        String token = Jwts.builder()
+                .setSubject(userDetails.getPublicId())
+                .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(environment.getProperty("token.expiration_time"))))
+                .signWith(SignatureAlgorithm.HS512, environment.getProperty("token.secret"))
+                .compact();
+        logger.info("Logger username : " + ((User) authResult.getPrincipal()).getUsername());
+        logger.info("Logger role : " + ((User) authResult.getPrincipal()).getAuthorities());
+        logger.info("Logger Token : " + token);
+        response.addHeader("token", token);
+        response.addHeader("publicId", userDetails.getPublicId());
+        logger.info("Logger ResponseHeader : " + response.getHeaderNames());
     }
 }
