@@ -142,13 +142,24 @@ public class UsersServiceImpl implements UsersService {
     public UsersDto getUserDetailsByEmail(String email) {
         EmployeEntity employeEntity;
         AbonneEntity abonneEntity = abonneRepository.findByEmail(email);
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         if (abonneEntity == null) {
             employeEntity = employeRepository.findByEmail(email);
             if (employeEntity == null) {
                 throw new UsernameNotFoundException(email + " n'existe pas dans la base de données.");
-            } else return new ModelMapper().map(employeEntity, UsersDto.class);
+            } else return modelMapper.map(employeEntity, UsersDto.class);
         }
-        return new ModelMapper().map(abonneEntity, UsersDto.class);
+        return modelMapper.map(abonneEntity, UsersDto.class);
+    }
+
+    @Override
+    public UsersDto getAbonneByPublicId(String publicId) {
+        AbonneEntity abonneEntity = abonneRepository.findByPublicId(publicId);
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        UsersDto abonneDto = modelMapper.map(abonneEntity, UsersDto.class);
+        return abonneDto;
     }
 
 }

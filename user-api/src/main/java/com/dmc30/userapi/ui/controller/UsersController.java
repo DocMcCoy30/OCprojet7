@@ -33,17 +33,11 @@ public class UsersController {
         return "User_Api ' s working";
     }
 
-//    @PostMapping("/signin")
-//    public ResponseEntity<CreateAbonneResponseModel> createAbonne(@RequestBody CreateAbonneRequestModel userDetails,
-//                                                                  @RequestParam Long paysId) {
-//        logger.info(userDetails.toString());
-//        ModelMapper modelMapper = new ModelMapper();
-//        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-//        UsersDto abonne = modelMapper.map(userDetails, UsersDto.class);
-//        UsersDto createdAbonne = usersService.createAbonne(abonne, paysId);
-//        CreateAbonneResponseModel returnValue = modelMapper.map(createdAbonne, CreateAbonneResponseModel.class);
-//        return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
-//    }
+    @GetMapping("/abonne")
+    public UsersDto findAbonneByPublicId(@RequestParam String publicId) {
+        UsersDto abonne = usersService.getAbonneByPublicId(publicId);
+        return abonne;
+    }
 
     @PostMapping("/signin")
     public ResponseEntity<CreateAbonneResponseModel> createAbonne(@RequestBody UsersDto usersDto,

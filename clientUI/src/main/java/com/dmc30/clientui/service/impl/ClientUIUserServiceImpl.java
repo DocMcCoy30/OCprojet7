@@ -1,22 +1,18 @@
 package com.dmc30.clientui.service.impl;
 
-import com.dmc30.clientui.security.TokenValidationHelper;
-import com.dmc30.clientui.shared.utilisateur.UsersDto;
-import com.dmc30.clientui.shared.utilisateur.LoginRequestDto;
+import com.dmc30.clientui.exception.ErrorMessage;
+import com.dmc30.clientui.exception.TechnicalException;
 import com.dmc30.clientui.proxy.UserApiProxy;
-import com.dmc30.clientui.security.PasswordEncoderHelper;
+import com.dmc30.clientui.security.TokenValidationHelper;
 import com.dmc30.clientui.service.contract.ClientUIUserService;
+import com.dmc30.clientui.shared.utilisateur.LoginRequestDto;
+import com.dmc30.clientui.shared.utilisateur.UsersDto;
 import com.dmc30.clientui.ui.model.CreateAbonneResponseModel;
-import com.dmc30.clientui.ui.model.LoginRequestModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-
-import javax.servlet.http.HttpServletResponse;
 
 @Service
 public class ClientUIUserServiceImpl implements ClientUIUserService {
@@ -48,14 +44,28 @@ public class ClientUIUserServiceImpl implements ClientUIUserService {
     }
 
     @Override
-    public ResponseEntity<String> secureLogin(LoginRequestDto loginRequestDto) {
+    public String[] secureLogin(LoginRequestDto loginRequestDto) throws TechnicalException {
         ResponseEntity<String> responseEntity = userApiProxy.secureLogin(loginRequestDto);
         logger.info(String.valueOf(responseEntity));
-        String publicId = responseEntity.getHeaders().get("publicId").get(0);
-        String token = responseEntity.getHeaders().get("token").get(0);
-        logger.info("PublicId = " + publicId);
-        logger.info("Token = " + token);
-        boolean auth = tokenValidationHelper.isJwtValid(token);
-        return responseEntity;
+        String[] returnValue = new String[0];
+        String publicId = "";
+        String token = "";
+        if(responseEntity.getHeaders().containsKey("publicId")) {
+            boolean auth = tokenValidationHelper.isJwtValid(responseEntity.getHeaders().get("token").get(0));
+            if (auth) {
+                returnValue = new String[]{"OK", responseEntity.getHeaders().get("publicId").get(0)};
+            } else {
+                returnValue = new String[]{"KO", "Token invalide ou expiré"};
+            }
+        } else if (responseEntity.getHeaders().containsKey("error")) {
+            returnValue = new String[]{"KO", responseEntity.getHeaders().get("error").get(0)};
+        }
+        return returnValue;
+    }
+
+    @Override
+    public UsersDto getAbonneByPublicId(String publicId) {
+        return userApiProxy.findAbonneByPublicId(publicId);
     }
 }
+

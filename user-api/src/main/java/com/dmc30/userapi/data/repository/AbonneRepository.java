@@ -6,4 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface AbonneRepository extends JpaRepository<AbonneEntity, Long> {
 
     AbonneEntity findByEmail(String email);
+
+    AbonneEntity findByPublicId(String publicId);
 }

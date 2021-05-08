@@ -5,21 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b307bb-768a-49a1-8041-682a11af6e94" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/TokenValidationHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-api/src/main/java/com/dmc30mple/gatewayapi/AuthorizationHeaderFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/exception/ErrorMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/exception/TechnicalException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/exception/ErrorMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/exception/TechnicalException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_native_macos_osx_x86_64_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_63_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_core_1_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_http_1_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_test_3_4_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_reactor_netty_2_4_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_webflux_2_4_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_gateway_server_3_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_gateway_3_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webflux_5_3_6.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserApiProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserApiProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/ClientUIUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/ClientUIUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/ClientUIUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/ClientUIUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/livre-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/ClientUIUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/ClientUIUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/login-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/login-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/data/repository/AbonneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/data/repository/AbonneRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/contract/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/contract/UsersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/impl/UsersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/impl/UsersServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/ui/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/ui/controller/UsersController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +83,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="11.0.3" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gateway-api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -71,10 +98,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.dmc30.clientui.exception" />
       <recent name="com.dmc30.clientui.ui.model" />
       <recent name="com.dmc30.userapi.model.dto" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\java\com\dmc30\clientui" />
       <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\user-api\src\main\resources" />
       <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\templates\fragments" />
       <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\templates" />
@@ -250,29 +279,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/impl/UsersServiceImpl.java</url>
-          <line>142</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/ClientUIUserController.java</url>
-          <line>60</line>
+          <line>66</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gateway-api/src/main/java/com/dmc30mple/gatewayapi/AuthorizationHeaderFilter.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/ClientUIUserServiceImpl.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/TokenValidationHelper.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="25" />
+          <line>52</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -20,14 +20,19 @@ public interface UserApiProxy {
     @GetMapping("/users/check")
     String check();
 
+    @GetMapping("/users/abonne")
+    UsersDto findAbonneByPublicId(@RequestParam String publicId);
+
+    @GetMapping("/employe")
+    UsersDto findEmployeByPublicId(String publicId);
+
     @PostMapping("/users/login")
     String login(@RequestBody LoginRequestDto user);
 
     @PostMapping("/users/signin")
     ResponseEntity<CreateAbonneResponseModel> signin(@RequestBody UsersDto abonne, @RequestParam Long paysId);
 
-
-
     @PostMapping("/secure/login")
     ResponseEntity<String> secureLogin(LoginRequestDto loginRequestDto);
+
 }

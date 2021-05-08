@@ -11,4 +11,5 @@ public interface UsersService extends UserDetailsService {
 
     UsersDto getUserDetailsByEmail(String email);
 
+    UsersDto getAbonneByPublicId(String publicId);
 }

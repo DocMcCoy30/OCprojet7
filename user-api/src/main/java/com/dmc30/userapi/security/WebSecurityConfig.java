@@ -8,8 +8,14 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 import javax.servlet.Filter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity
@@ -32,10 +38,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //connect to h2 console
         http.headers().frameOptions().disable();
         http.authorizeRequests().antMatchers("/users/**").permitAll()
-        .and()
+                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .usernameParameter("email")
+//                .failureHandler(new AuthenticationFailureHandler() {
+//                    @Override
+//                    public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
+//                        String email = httpServletRequest.getParameter("email");
+//                        String error = e.getMessage();
+//                        System.out.println("A failed login attempt with email: "
+//                                + email + ". Reason: " + error);
+//                        String redirectUrl = httpServletRequest.getContextPath() + "/login?error";
+//                        httpServletResponse.sendRedirect(redirectUrl);
+//                    }
+//                })
+//        .and()
+//        .logout().logoutSuccessUrl("/login?logout").deleteCookies("JSESSIONID");
         .addFilter(getAuthenticationFilter());
 
     }
+
 
     private AuthenticationFilter getAuthenticationFilter() throws Exception {
         AuthenticationFilter authenticationFilter = new AuthenticationFilter(usersService, environment, authenticationManager());

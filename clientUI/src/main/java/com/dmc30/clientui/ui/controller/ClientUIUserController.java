@@ -1,5 +1,6 @@
 package com.dmc30.clientui.ui.controller;
 
+import com.dmc30.clientui.exception.TechnicalException;
 import com.dmc30.clientui.security.PasswordEncoderHelper;
 import com.dmc30.clientui.shared.utilisateur.UsersDto;
 import com.dmc30.clientui.shared.utilisateur.LoginRequestDto;
@@ -18,6 +19,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Objects;
 
@@ -57,12 +59,32 @@ public class ClientUIUserController {
 //    }
 
     @PostMapping(path = "/login")
-    public String secureLogin(@ModelAttribute LoginRequestModel userLoginDetails, Model theModel) {
-        ModelMapper modelMapper = new ModelMapper();
-        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        LoginRequestDto loginRequestDto = modelMapper.map(userLoginDetails, LoginRequestDto.class);
-        userService.secureLogin(loginRequestDto);
-        return "accueil";
+    public ModelAndView secureLogin(@ModelAttribute LoginRequestModel userLoginDetails, ModelAndView theModel) throws TechnicalException {
+        UsersDto abonneDto = new UsersDto();
+        String errorMessage = "";
+        String viewName = "login-page";
+        try {
+            ModelMapper modelMapper = new ModelMapper();
+            modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+            LoginRequestDto loginRequestDto = modelMapper.map(userLoginDetails, LoginRequestDto.class);
+            String[] result = userService.secureLogin(loginRequestDto);
+            switch (result[0]) {
+                case "OK":
+                    abonneDto = userService.getAbonneByPublicId(result[1]);
+                    theModel.addObject("abonne", abonneDto);
+                    viewName = "accueil";
+                    break;
+                case "KO":
+                    errorMessage = result[1];
+                    theModel.addObject("errorMessage", errorMessage);
+                    theModel.addObject("user", new LoginRequestModel());
+            }
+        } catch (TechnicalException e) {
+            errorMessage = e.getMessage();
+            theModel.addObject("errorMessage", errorMessage);
+        }
+        theModel.setViewName(viewName);
+        return theModel;
     }
 
     @GetMapping(path = "/signin")

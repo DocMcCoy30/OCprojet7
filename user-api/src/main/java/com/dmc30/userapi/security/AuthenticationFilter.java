@@ -13,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -67,6 +68,12 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         logger.info("Logger Token : " + token);
         response.addHeader("token", token);
         response.addHeader("publicId", userDetails.getPublicId());
-        logger.info("Logger ResponseHeader : " + response.getHeaderNames());
     }
+
+    @Override
+    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
+        String error = failed.getMessage();
+        response.addHeader("error", error);
+    }
+
 }
