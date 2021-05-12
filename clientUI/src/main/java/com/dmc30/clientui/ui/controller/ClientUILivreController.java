@@ -1,7 +1,7 @@
 package com.dmc30.clientui.ui.controller;
 
 import com.dmc30.clientui.shared.livre.LivreDto;
-import com.dmc30.clientui.service.contract.ClientUILivreService;
+import com.dmc30.clientui.service.contract.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +14,10 @@ import java.util.List;
 @Controller
 public class ClientUILivreController {
 
-    ClientUILivreService livreService;
+    LivreService livreService;
 
     @Autowired
-    public ClientUILivreController(ClientUILivreService livreService) {
+    public ClientUILivreController(LivreService livreService) {
         this.livreService = livreService;
     }
 

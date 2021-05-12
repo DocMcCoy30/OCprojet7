@@ -521,7 +521,7 @@ INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (119,
 -- Name: abonne_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.abonne_id_seq', 1, false);
+SELECT pg_catalog.setval('public.utilisateur_id_seq', 1, false);
 
 
 --
@@ -558,15 +558,6 @@ SELECT pg_catalog.setval('public.bibliotheque_id_seq', 4, true);
 --
 
 SELECT pg_catalog.setval('public.editeur_id_seq', 29, true);
-
-
---
--- TOC entry 3191 (class 0 OID 0)
--- Dependencies: 228
--- Name: employe_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.employe_id_seq', 1, false);
 
 
 --

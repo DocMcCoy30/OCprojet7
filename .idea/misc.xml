@@ -4,12 +4,12 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/clientUI/pom.xml" />
-        <option value="$PROJECT_DIR$/user-api/pom.xml" />
-        <option value="$PROJECT_DIR$/livre-api/pom.xml" />
+        <option value="$PROJECT_DIR$/user-service/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
-        <option value="$PROJECT_DIR$/gateway-api/pom.xml" />
+        <option value="$PROJECT_DIR$/livre-service/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway-server/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11.0.3" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" project-jdk-name="11.0.3" project-jdk-type="JavaSDK" />
 </project>

@@ -16,6 +16,5 @@ public class RoleDto {
     private int id;
     private String role;
     private String description;
-    private List<UsersDto> abonnes;
-    private List<EmployeDto> employes;
+    private List<UtilisateurDto> utilisateurs;
 }

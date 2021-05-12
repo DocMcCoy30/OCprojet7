@@ -7,28 +7,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="gateway-server" />
         <module name="clientUI" />
-        <module name="gateway-api" />
-        <module name="user-api" />
+        <module name="user-service" />
         <module name="eureka-server" />
-        <module name="livre-api" />
+        <module name="livre-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="clientUI" target="11" />
       <module name="eureka-server" target="11" />
-      <module name="gateway-api" target="1.8" />
-      <module name="livre-api" target="11" />
-      <module name="user-api" target="1.8" />
+      <module name="gateway-server" target="11" />
+      <module name="livre-service" target="11" />
+      <module name="user-service" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="clientUI" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
-      <module name="gateway-api" options="-parameters" />
-      <module name="livre-api" options="-parameters" />
-      <module name="user-api" options="-parameters" />
+      <module name="gateway-server" options="-parameters" />
+      <module name="livre-service" options="-parameters" />
+      <module name="user-service" options="-parameters" />
     </option>
   </component>
 </project>

@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="[Postgres]DB_P7_Bibliotheque" uuid="142e4a8a-4a6f-472a-86a4-6e409fe62f2e">
+    <data-source source="LOCAL" name="[PostgreSQL]DB_P7_Bibliotheque" uuid="edec9058-78da-494b-a38d-e99d3ce07e86">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5433/DB_P7_Bibliotheque</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="[PostgreSQL]DB_UserApi" uuid="c8c98ea1-ac05-4b08-a774-4a8b339d73d4">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5433/DB_UserApi</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

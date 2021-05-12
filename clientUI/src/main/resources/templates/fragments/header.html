@@ -30,6 +30,9 @@
         <!--        </ul>-->
         <div class="col-md-3">
             <span th:if="${abonne}" th:utext="${abonne.prenom}"></span>
+            <a th:if="${abonne}" th:href="@{/logout}">logout</a>
+            <span th:if="${logoutMessage}" th:utext="${logoutMessage}"></span>
+
         </div>
         <div class="col-md-3 text-end">
             <a th:href="@{/login}">
