@@ -63,14 +63,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public String[] secureLogin(LoginRequestDto loginRequestDto) throws TechnicalException {
         ResponseEntity<String> responseEntity = userServiceProxy.secureLogin(loginRequestDto);
-        logger.info(String.valueOf(responseEntity));
         String[] returnValue = new String[0];
         String publicId = "";
-        String roles = responseEntity.getHeaders().get("Roles").get(0);
-//        Set<String> roleList = tokenValidationHelper.stringTokenizerHelper(roles);
-//        logger.info("Roles from Header = " + roles);
-        String token = responseEntity.getHeaders().get("Authorization").get(0);
+
         if (responseEntity.getHeaders().containsKey("publicId")) {
+            String roles = responseEntity.getHeaders().get("Roles").get(0);
+            String token = responseEntity.getHeaders().get("Authorization").get(0);
+//            UtilisateurDto user = userServiceProxy.findUtilisateurByPublicId(responseEntity.getHeaders().get("publicId").get(0));
             boolean auth = tokenValidationHelper.isJwtValid(responseEntity.getHeaders().get("Authorization").get(0));
             if (auth) {
                 returnValue = new String[]{"OK", responseEntity.getHeaders().get("publicId").get(0)};
@@ -95,8 +94,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UtilisateurDto getAbonneByPublicId(String publicId) {
-        return userServiceProxy.findAbonneByPublicId(publicId);
+    public UtilisateurDto getUtilisateurByPublicId(String publicId) {
+        return userServiceProxy.findUtilisateurByPublicId(publicId);
     }
 
 }

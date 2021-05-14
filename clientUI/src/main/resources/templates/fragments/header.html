@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,34 +16,44 @@
 <body>
 
 <div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <a id="header-title" href="/"
-           class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-            Bibliothèque
-        </a>
 
-        <!--        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">-->
-        <!--            <li><a th:href="@{/}" class="nav-link px-2 link-primary">Accueil</a></li>-->
-        <!--            <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>-->
-        <!--            <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>-->
-        <!--            <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>-->
-        <!--            <li><a href="#" class="nav-link px-2 link-dark">About</a></li>-->
-        <!--        </ul>-->
-        <div class="col-md-3">
-            <span th:if="${abonne}" th:utext="${abonne.prenom}"></span>
-            <a th:if="${abonne}" th:href="@{/logout}">logout</a>
-            <span th:if="${logoutMessage}" th:utext="${logoutMessage}"></span>
 
-        </div>
-        <div class="col-md-3 text-end">
-            <a th:href="@{/login}">
-                <button type="button" class="btn btn-outline-primary me-2">Se connecter</button>
+    <div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
+
+        <header th:case="${true}"
+                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a th:href="@{/(publicId=${abonne.publicId})}"
+               class="col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                Bibliothèque
             </a>
-            <a th:href="@{/signin}">
-                <button type="button" class="btn btn-primary">S'inscrire</button>
+            <div class="col-md-3 text-right">
+                Bonjour <a th:href="@{/showProfil(publicId=${abonne.publicId})}"><span
+                    sec:authentication="name"></span></a>
+                <a th:href="@{/logout}">
+                    <button type="button" class="btn btn-success me-2">Se deconnecter</button>
+                </a>
+            </div>
+        </header>
+
+        <header th:case="${false}"
+                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a th:href="@{/}"
+               class="col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                Bibliothèque
             </a>
-        </div>
-    </header>
+            <div class="col-md-3 text-right">
+                <a th:href="@{/login}">
+                    <button type="button" class="btn btn-outline-primary me-2">Se connecter</button>
+                </a>
+                <a th:href="@{/signin}">
+                    <button type="button" class="btn btn-primary">S'inscrire</button>
+                </a>
+            </div>
+        </header>
+
+        <span th:if="${logoutMessage}" th:utext="${logoutMessage}"></span>
+
+    </div>
 </div>
 
 

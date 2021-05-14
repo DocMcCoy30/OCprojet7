@@ -72,7 +72,7 @@ public class ClientUIUserController {
             String[] result = userService.secureLogin(loginRequestDto);
             switch (result[0]) {
                 case "OK":
-                    abonneDto = userService.getAbonneByPublicId(result[1]);
+                    abonneDto = userService.getUtilisateurByPublicId(result[1]);
                     theModel.addObject("abonne", abonneDto);
                     viewName = "accueil";
                     break;
@@ -97,17 +97,7 @@ public class ClientUIUserController {
         return "signin-page";
     }
 
-//    @PostMapping("/signin")
-//    public String signin(@ModelAttribute AbonneDto abonne, @RequestParam("paysId") Long paysId, Model theModel) {
-//        String signinMessage = userService.signin(abonne, paysId);
-//        theModel.addAttribute("message", signinMessage);
-//        return "accueil";
-//    }
-
     @PostMapping("/signin")
-//    public String createAbonne(@ModelAttribute CreateAbonneRequestModel userDetails,
-//                               @RequestParam("paysId") Long paysId,
-//                               Model theModel) {
     public String createAbonne(@ModelAttribute UtilisateurDto userDetails,
                                @RequestParam("paysId") Long paysId,
                                Model theModel) {
@@ -120,5 +110,13 @@ public class ClientUIUserController {
         String message = "L'abonné " + response.getBody().getUsername() + " / " + response.getBody().getEmail() + " a bien été enregistré.";
         theModel.addAttribute("message", message);
         return "accueil";
+    }
+
+    @GetMapping(value = "/showProfil")
+    public ModelAndView showProfil(@RequestParam("publicId") String publicId) {
+        ModelAndView theModel = new ModelAndView("profil-utilisateur");
+        UtilisateurDto abonne = userService.getUtilisateurByPublicId(publicId);
+        theModel.addObject("abonne", abonne);
+        return theModel;
     }
 }

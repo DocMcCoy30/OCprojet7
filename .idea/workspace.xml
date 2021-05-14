@@ -5,225 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="626a98ec-6f0a-4fcd-8b60-c183d40dc1d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_native_macos_osx_x86_64_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_epoll_linux_x86_64_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_native_unix_common_4_1_63_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_core_1_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_netty_reactor_netty_http_1_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_test_3_4_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_reactor_netty_2_4_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_webflux_2_4_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_gateway_server_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_gateway_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webflux_5_3_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-server/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-server/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-server/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-server/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-server/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-server/src/main/java/com/dmc30mple/gatewayserver/AuthorizationHeaderFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-server/src/main/java/com/dmc30mple/gatewayserver/GatewayServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-server/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-server/src/test/java/com/dmc30mple/gatewayapi/GatewayServerApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/LivreServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/bibliotheque/Bibliotheque.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/bibliotheque/Ouvrage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/commun/Adresse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/commun/Pays.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/livre/Auteur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/livre/Editeur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/livre/Genre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/livre/Illustration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/livre/Langue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/livre/Livre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/repository/AuteurRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/repository/LivreRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/exception/IntrouvableException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/contract/AuteurService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/contract/LivreService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/AuteurServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/LivreServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/ui/controller/AuteurController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/ui/controller/LivreController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/livre-service/src/test/java/com/dmc30/livreservice/LivreServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/UserServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/data/entity/AdresseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/data/entity/PaysEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/data/entity/RoleEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/data/entity/UtilisateurEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/data/repository/AdresseRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/data/repository/PaysRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/data/repository/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/data/repository/UtilisateurRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/exception/ErrorMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/exception/TechnicalException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/security/AuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/security/PasswordEncoderHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/security/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/contract/UsersService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/impl/UsersServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/shared/AdresseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/shared/PaysDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/shared/RoleDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/shared/UtilisateurDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/ui/controller/UsersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/ui/model/Adresse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/ui/model/CreateAbonneResponseModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/ui/model/LoginRequestModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/ui/model/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user-service/src/test/java/com/dmc30/userservice/UserServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/142e4a8a-4a6f-472a-86a4-6e409fe62f2e.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/142e4a8a-4a6f-472a-86a4-6e409fe62f2e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/142e4a8a-4a6f-472a-86a4-6e409fe62f2e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/142e4a8a-4a6f-472a-86a4-6e409fe62f2e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/142e4a8a-4a6f-472a-86a4-6e409fe62f2e/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8c98ea1-ac05-4b08-a774-4a8b339d73d4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8c98ea1-ac05-4b08-a774-4a8b339d73d4/storage_v2/_src_/database/DB_UserApi.bmcpBA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8c98ea1-ac05-4b08-a774-4a8b339d73d4/storage_v2/_src_/database/DB_UserApi.bmcpBA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8c98ea1-ac05-4b08-a774-4a8b339d73d4/storage_v2/_src_/database/DB_UserApi.bmcpBA/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8c98ea1-ac05-4b08-a774-4a8b339d73d4/storage_v2/_src_/database/DB_UserApi.bmcpBA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8c98ea1-ac05-4b08-a774-4a8b339d73d4/storage_v2/_src_/database/DB_UserApi.bmcpBA/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c8c98ea1-ac05-4b08-a774-4a8b339d73d4/storage_v2/_src_/database/DB_UserApi.bmcpBA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/profil-utilisateur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2145212b-e7fa-4f1a-a607-08e49221cee2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2145212b-e7fa-4f1a-a607-08e49221cee2/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2145212b-e7fa-4f1a-a607-08e49221cee2/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2145212b-e7fa-4f1a-a607-08e49221cee2/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2145212b-e7fa-4f1a-a607-08e49221cee2/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-Documents/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/sql/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-Documents/sql/structure.sql" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/sql/structure.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/LivreApiProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/LivreServiceProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserApiProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserServiceProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserServiceProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserServiceProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/TokenValidationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/TokenValidationHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/ClientUILivreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/LivreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/ClientUIUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/ClientUILivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/LivreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/ClientUIUserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/utilisateur/EmployeDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/utilisateur/RoleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/utilisateur/RoleDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/utilisateur/UsersDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/utilisateur/UtilisateurDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/ClientUILivreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/ClientUILivreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/ClientUIAccueilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/ClientUIAccueilController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/ClientUIUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/ClientUIUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/accueil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/src/main/java/com/dmc30mple/gatewayapi/AuthorizationHeaderFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/src/main/java/com/dmc30mple/gatewayapi/GatewayApiApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-api/src/test/java/com/dmc30mple/gatewayapi/GatewayApiApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/LivreApiApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/data/entity/bibliotheque/Bibliotheque.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/data/entity/bibliotheque/Ouvrage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/data/entity/commun/Adresse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/data/entity/commun/Pays.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/data/entity/livre/Auteur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/data/entity/livre/Editeur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/data/entity/livre/Genre.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/data/entity/livre/Illustration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/data/entity/livre/Langue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/data/entity/livre/Livre.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/data/repository/AuteurRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/data/repository/LivreRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/exception/IntrouvableException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/contract/AuteurService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/contract/LivreService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/impl/AuteurServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/service/impl/LivreServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/ui/controller/AuteurController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/java/com/dmc30/livreapi/ui/controller/LivreController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-api/src/test/java/com/dmc30/livreapi/LivreApiApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/docs/sql/db_userapi.dbm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/UserApiApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/data/entity/AbonneEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/data/entity/AdresseEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/data/entity/EmployeEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/data/entity/PaysEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/data/entity/RoleEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/data/repository/AbonneRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/data/repository/AdresseRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/data/repository/EmployeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/data/repository/PaysRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/data/repository/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/exception/ErrorMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/exception/TechnicalException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/AuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/PasswordEncoderHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/security/WebSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/contract/UsersService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/service/impl/UsersServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/shared/AdresseDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/shared/PaysDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/shared/RoleDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/shared/UsersDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/ui/controller/UsersController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/ui/model/Adresse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/ui/model/CreateAbonneRequestModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/ui/model/CreateAbonneResponseModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/ui/model/CreateEmployeRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/ui/model/CreateAbonneRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/ui/model/CreateEmployeResponseModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/java/com/dmc30/userapi/ui/model/LoginRequestModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-api/src/test/java/com/dmc30/userapi/UserApiApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/signin-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/signin-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/security/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/security/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/ui/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/ui/controller/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,6 +41,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -249,7 +51,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/clientUI/src/main/resources/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -259,11 +61,16 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\templates" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -272,7 +79,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.EurekaServerApplication">
+  <component name="RunManager" selected="Spring Boot.UserServiceApplication">
     <configuration name="ClientUIApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dmc30.clientui.ClientUIApplication" />
       <module name="clientUI" />
@@ -328,6 +135,10 @@
     <configuration name="ClientUIApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="clientUI" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.dmc30.clientui.ClientUIApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -356,10 +167,25 @@
     <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="user-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.dmc30.userservice.UserServiceApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ClientUIApplication" />
+      <item itemvalue="Application.EurekaServerApplication" />
+      <item itemvalue="Application.GatewayServerApplication" />
+      <item itemvalue="Application.LivreServiceApplication" />
+      <item itemvalue="Spring Boot.ClientUIApplication" />
+      <item itemvalue="Spring Boot.EurekaServerApplication" />
+      <item itemvalue="Spring Boot.GatewayServerApplication" />
+      <item itemvalue="Spring Boot.LivreServiceApplication" />
+      <item itemvalue="Spring Boot.UserServiceApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.EurekaServerApplication" />
@@ -378,7 +204,9 @@
       <option name="presentableId" value="Default" />
       <updated>1620832736670</updated>
       <workItem from="1620832741723" duration="316000" />
-      <workItem from="1620833087401" duration="2660000" />
+      <workItem from="1620833087401" duration="2737000" />
+      <workItem from="1620918197729" duration="8417000" />
+      <workItem from="1620992566964" duration="8368000" />
     </task>
     <servers />
   </component>
@@ -388,15 +216,40 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/ui/controller/UsersController.java</url>
           <line>41</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/impl/UsersServiceImpl.java</url>
           <line>76</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/ui/controller/UsersController.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/ClientUIUserController.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/UserServiceImpl.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/UserServiceImpl.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/ClientUIAccueilController.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

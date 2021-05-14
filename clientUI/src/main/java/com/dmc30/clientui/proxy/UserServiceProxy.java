@@ -16,11 +16,11 @@ public interface UserServiceProxy {
     @GetMapping("/users/check")
     String check();
 
-    @GetMapping("/users/abonne")
-    UtilisateurDto findAbonneByPublicId(@RequestParam String publicId);
-
-    @GetMapping("/employe")
-    UtilisateurDto findEmployeByPublicId(String publicId);
+    @GetMapping("/users/utilisateur")
+    UtilisateurDto findUtilisateurByPublicId(@RequestParam String publicId);
+//
+//    @GetMapping("/employe")
+//    UtilisateurDto findEmployeByPublicId(String publicId);
 
     @PostMapping("/users/login")
     String login(@RequestBody LoginRequestDto user);

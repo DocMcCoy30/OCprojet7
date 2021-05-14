@@ -30,8 +30,8 @@ public class UsersController {
         return "User_Api ' s working";
     }
 
-    @GetMapping("/abonne")
-    public UtilisateurDto findAbonneByPublicId(@RequestParam String publicId) {
+    @GetMapping("/utilisateur")
+    public UtilisateurDto findUtilisateurByPublicId(@RequestParam String publicId) {
         UtilisateurDto abonne = usersService.getUtilisateurByPublicId(publicId);
         return abonne;
     }

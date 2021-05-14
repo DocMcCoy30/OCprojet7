@@ -1,5 +1,7 @@
 package com.dmc30.clientui.security;
 
+import com.dmc30.clientui.proxy.UserServiceProxy;
+import com.dmc30.clientui.shared.utilisateur.RoleDto;
 import io.jsonwebtoken.Jwts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +33,8 @@ public class TokenValidationHelper extends BasicAuthenticationFilter {
 
     @Autowired
     Environment environment;
+    @Autowired
+    UserServiceProxy userServiceProxy;
 
     public TokenValidationHelper(AuthenticationManager authenticationManager) {
         super(authenticationManager);
@@ -77,25 +81,13 @@ public class TokenValidationHelper extends BasicAuthenticationFilter {
 //        filterChain.doFilter(request, response);
 //    }
 
-
-//    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-//            throws IOException, ServletException {
-//        String header = request.getHeader("Authorization");
-//        if (header!= null) {
-//            logger.info("Header in doFilter = " + header.toString());
-//        }
-//        if (header == null || !header.startsWith("Bearer")) {
-//            filterChain.doFilter(request, response);
-//            return;
-//        }
-//        UsernamePasswordAuthenticationToken authenticationToken = getAuthentication(request);
-//        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-//        filterChain.doFilter(request, response);
-//    }
-
     //    public UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
     public UsernamePasswordAuthenticationToken getAuthentication(String token, String roles) {
+//        public UsernamePasswordAuthenticationToken getAuthentication(String token, String publicId) {
+
         Set<String> roleList = stringTokenizerHelper(roles);
+//        Set<RoleDto> roleList = userServiceProxy.findUtilisateurByPublicId(publicId).getRoles();
+
         List<GrantedAuthority> authorities = roleList
                 .stream()
                 .map(SimpleGrantedAuthority::new)

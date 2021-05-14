@@ -16,6 +16,6 @@ public interface UserService {
 
     ResponseEntity<CreateAbonneResponseModel> createAbonne(UtilisateurDto abonne, Long paysId);
 
-    UtilisateurDto getAbonneByPublicId(String publicId);
+    UtilisateurDto getUtilisateurByPublicId(String publicId);
 
 }
