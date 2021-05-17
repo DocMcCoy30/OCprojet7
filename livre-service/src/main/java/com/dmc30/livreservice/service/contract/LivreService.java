@@ -9,4 +9,5 @@ public interface LivreService {
     List<Livre> findAll();
     List<Livre> findLivreByTitreContaining(String motCle);
     void saveLivre(Livre livre);
+    List<Livre> findLivreByAuteur(Long auteurId);
 }

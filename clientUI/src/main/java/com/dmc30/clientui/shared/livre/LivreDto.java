@@ -11,7 +11,6 @@ import java.util.List;
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class LivreDto {
 
-    private int id;
     private String titre;
     private String resume;
     private List<AuteurDto> auteurs;

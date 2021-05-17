@@ -11,7 +11,6 @@ import lombok.ToString;
 @ToString
 public class PaysDto {
 
-    private Long id;
     private String nom;
     private String codeAlpha2;
     private String codeAlpha3;

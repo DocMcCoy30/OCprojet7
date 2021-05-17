@@ -55,16 +55,11 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         String email = ((User) authResult.getPrincipal()).getUsername();
         UtilisateurDto userDetails = usersService.getUserDetailsByEmail(email);
-        logger.info("UserDetails in AuthFilter" + userDetails.toString());
-
         String token = Jwts.builder()
                 .setSubject(userDetails.getUsername())
                 .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(environment.getProperty("token.expiration_time"))))
                 .signWith(SignatureAlgorithm.HS512, environment.getProperty("token.secret"))
                 .compact();
-        logger.info("Logger username : " + ((User) authResult.getPrincipal()).getUsername());
-        logger.info("Logger role : " + ((User) authResult.getPrincipal()).getAuthorities());
-        logger.info("Logger Token : " + token);
         response.addHeader("Authorization", token);
         response.addHeader("publicId", userDetails.getPublicId());
         response.addHeader("roles", userDetails.getRoles().toString());
@@ -72,7 +67,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
-        String error = "Email ou Mot de Passe erronné";
+        String error = "Email ou Mot de Passe erroné";
         response.addHeader("error", error);
     }
 

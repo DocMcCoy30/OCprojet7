@@ -13,7 +13,6 @@ import java.util.List;
 @ToString
 public class LangueDto {
 
-    private int id;
     private String code;
     private String langue;
     private List<LivreDto> livres;

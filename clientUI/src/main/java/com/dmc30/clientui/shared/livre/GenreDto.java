@@ -14,7 +14,6 @@ import java.util.List;
 @ToString
 public class GenreDto {
 
-    private int id;
     private String genre;
     @JsonIgnore
     private List<LivreDto> livres;

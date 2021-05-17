@@ -5,62 +5,28 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"-->
-    <!--          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">-->
     <link href="webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet"/>
-
     <title>Accueil</title>
 </head>
 <body>
-
 <header th:insert="fragments/header.html"></header>
-
 <div class="container">
-
-    <h2>Rechercher un livre</h2>
-    <hr>
-
-<!--    <a th:href="@{/check}">Statut</a>-->
+    <div th:insert="fragments/recherche.html"></div>
+    <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+    </div>
     <div th:text="${statut}"></div>
     <div th:if="${message}" th:utext="${message}"
          style="color:red;font-style:italic;">
-        ...
     </div>
     <div sec:authorize="isAuthenticated()">
         Secured Authentication OK
-<!--        Roles: <span sec:authentication="principal.authorities"></span>-->
-<!--        Logged user: <span sec:authentication="name"></span>-->
     </div>
     <div sec:authorize="hasRole('ROLE_ABONNE')">
         Authentifié en tant qu'abonné.
     </div>
-
-
-    <table class="table table-striped table-dark table-bordered">
-        <thead>
-        <tr>
-            <th></th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Tous les livres</td>
-            <td>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a th:href="@{/showLivres}"
-                       class="btn btn-secondary btn-md btn-block col-sm-3">
-                        rechercher
-                    </a>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
     <div th:if="${! #lists.isEmpty(livres)}">
-        <h4>Tous les livres</h4>
+        <h4>Résultats de recherche :</h4>
         <table class="table table-striped table-dark table-bordered">
             <thead class="thead-dark">
             <tr>
@@ -82,10 +48,8 @@
             </tbody>
         </table>
     </div>
-
 </div>
 
 <footer th:insert="fragments/footer.html"></footer>
-
 </body>
 </html>

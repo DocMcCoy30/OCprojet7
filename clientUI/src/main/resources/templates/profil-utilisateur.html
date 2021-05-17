@@ -1,23 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <title>Profi Utilisateur</title>
+    <title>Profil Utilisateur</title>
 </head>
 <body>
-
 <header th:insert="fragments/header.html"></header>
-
 <div class="container">
     <h2>Profil Abonné</h2>
     <hr>
-
     <div><a style="text-decoration: underline"> Prénom : </a><span style="font-weight: bold" th:text="${abonne.prenom}"></span></div>
     <div><a style="text-decoration: underline">Nom : </a><span style="font-weight: bold" th:text="${abonne.nom}"></span></div>
     <div><a style="text-decoration: underline">Email : </a><span style="font-weight: bold" th:text="${abonne.email}"></span></div>
@@ -27,10 +21,7 @@
     <div><a style="text-decoration: underline">Numéro de téléphone : </a><span style="font-weight: bold"
                                                                                th:text="${abonne.numTelephone}"></span>
     </div>
-
 </div>
-
 <footer th:insert="fragments/footer.html"></footer>
-
 </body>
 </html>

@@ -14,7 +14,6 @@ import java.util.List;
 @ToString
 public class BibliothequeDto {
 
-    private int id;
     private String code;
     private String numSiret;
     private String nom;

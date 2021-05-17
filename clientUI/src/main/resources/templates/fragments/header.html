@@ -5,21 +5,14 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet"/>
-
     <!-- Custom styles for this template -->
     <link th:href="@{/css/style.css}" rel="stylesheet">
-
     <title>Header</title>
 </head>
 <body>
-
 <div class="container">
-
-
     <div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
-
         <header th:case="${true}"
                 class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <a th:href="@{/(publicId=${abonne.publicId})}"
@@ -34,7 +27,6 @@
                 </a>
             </div>
         </header>
-
         <header th:case="${false}"
                 class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <a th:href="@{/}"
@@ -50,12 +42,8 @@
                 </a>
             </div>
         </header>
-
         <span th:if="${logoutMessage}" th:utext="${logoutMessage}"></span>
-
     </div>
 </div>
-
-
 </body>
 </html>

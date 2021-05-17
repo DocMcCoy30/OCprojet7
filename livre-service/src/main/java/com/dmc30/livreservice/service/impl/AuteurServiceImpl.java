@@ -40,7 +40,7 @@ public class AuteurServiceImpl implements AuteurService {
     }
 
     @Override
-    public Auteur findAuteurById(int id) {
+    public Auteur findAuteurById(Long id) {
         Optional<Auteur> result = auteurRepository.findById(id);
         Auteur auteur = null;
         if (result.isPresent()) {
@@ -50,7 +50,7 @@ public class AuteurServiceImpl implements AuteurService {
     }
 
     @Override
-    public List<Auteur> findAuteurByLivres(int id) {
+    public List<Auteur> findAuteurByLivres(Long id) {
         Hibernate.initialize(auteurRepository.findAuteurByLivres(id));
         return auteurRepository.findAuteurByLivres(id);
     }
@@ -58,5 +58,10 @@ public class AuteurServiceImpl implements AuteurService {
     @Override
     public void save(Auteur auteur) {
         auteurRepository.save(auteur);
+    }
+
+    @Override
+    public List<Auteur> findAuteurByNomContaining(String motCle) {
+        return auteurRepository.findAuteurByNomContaining(motCle);
     }
 }

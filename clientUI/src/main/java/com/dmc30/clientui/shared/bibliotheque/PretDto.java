@@ -13,7 +13,6 @@ import java.util.Date;
 @ToString
 public class PretDto {
 
-    private int id;
     private OuvrageDto ouvrage;
     private Date dateEmprunt;
     private Date dateRestitution;

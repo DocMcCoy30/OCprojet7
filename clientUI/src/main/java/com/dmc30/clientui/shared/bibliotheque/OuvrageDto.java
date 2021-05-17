@@ -14,7 +14,6 @@ import java.util.List;
 @ToString
 public class OuvrageDto {
 
-    private int id;
     private String idInterne;
     private BibliothequeDto bibliotheque;
     private LivreDto livre;

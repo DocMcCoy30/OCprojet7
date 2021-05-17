@@ -8,4 +8,5 @@ public interface LivreService {
 
     List<LivreDto> getLivres();
     List<LivreDto> getLivreByTitre(String motCle);
+    List<LivreDto> getLivreByAuteur(String motCle);
 }

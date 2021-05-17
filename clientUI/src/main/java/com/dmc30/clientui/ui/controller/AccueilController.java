@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class ClientUIAccueilController {
+public class AccueilController {
 
     UserService userService;
 
     @Autowired
-    public ClientUIAccueilController(UserService userService) {
+    public AccueilController(UserService userService) {
         this.userService = userService;
     }
 
-    Logger logger = LoggerFactory.getLogger(ClientUIAccueilController.class);
+    Logger logger = LoggerFactory.getLogger(AccueilController.class);
 
     @GetMapping("/")
     public String getToAccueil(@RequestParam(value = "publicId", required = false) String publicId, Model theModel) {

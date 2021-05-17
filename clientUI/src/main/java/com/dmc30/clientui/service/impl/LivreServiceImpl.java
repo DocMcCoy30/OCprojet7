@@ -27,4 +27,9 @@ public class LivreServiceImpl implements LivreService {
     public List<LivreDto> getLivreByTitre(String motCle) {
         return livreServiceProxy.getLivreByTitre(motCle);
     }
+
+    @Override
+    public List<LivreDto> getLivreByAuteur(String motCle) {
+        return livreServiceProxy.getLivreByAuteur(motCle);
+    }
 }

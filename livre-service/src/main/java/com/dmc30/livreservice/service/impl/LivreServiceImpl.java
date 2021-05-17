@@ -39,4 +39,12 @@ public class LivreServiceImpl implements LivreService {
     public void saveLivre(Livre livre) {
         livreRepository.save(livre);
     }
+
+    @Override
+    public List<Livre> findLivreByAuteur(Long auteurId) {
+        List<Livre> livres = livreRepository.findLivreByAuteur(auteurId);
+        if (livres == null) {
+            throw new IntrouvableException("Aucun résultat de recherche");
+        } else return livres;
+    }
 }

@@ -1,4 +1,4 @@
-package com.dmc30.livreservice.data.entity.commun.commun;
+package com.dmc30.livreservice.data.entity.commun;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +18,7 @@ public class Pays {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Column(name = "nom")
     private String nom;

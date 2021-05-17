@@ -11,11 +11,9 @@ import java.util.List;
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class AuteurDto {
 
-    private int id;
     private String nom;
     private String prenom;
     private String dateNaissance;
     private String dateDeces;
-    @JsonIgnore
     private List<LivreDto> livres;
 }

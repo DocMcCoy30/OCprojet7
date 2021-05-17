@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -28,7 +29,7 @@ public class LivreController {
     public List<Livre> getLivres() {
         List<Livre> livres = livreService.findAll();
         for(Livre tempLivre : livres) {
-           int livreId = tempLivre.getId();
+           Long livreId = tempLivre.getId();
            List<Auteur> auteurs = auteurService.findAuteurByLivres(livreId);
            tempLivre.setAuteurs(auteurs);
         }
@@ -39,10 +40,21 @@ public class LivreController {
     public List<Livre> getLivreByTitre(@RequestParam("motCle") String motCle) {
         List<Livre> livres = livreService.findLivreByTitreContaining(motCle);
         for(Livre tempLivre : livres) {
-            int livreId = tempLivre.getId();
+            Long livreId = tempLivre.getId();
             List<Auteur> auteurs = auteurService.findAuteurByLivres(livreId);
             tempLivre.setAuteurs(auteurs);
         }
+        return livres;
+    }
+
+    @PostMapping(path = "/livres/auteur")
+    public List<Livre> getLivreByAuteur(@RequestParam("motCle") String motCle) {
+        List<Auteur> auteurs = auteurService.findAuteurByNomContaining(motCle);
+        List<Livre> livres = new ArrayList<>();
+        for(Auteur tempAuteur : auteurs) {
+            Long auteurId = tempAuteur.getId();
+            livres = livreService.findLivreByAuteur(auteurId);
+         }
         return livres;
     }
 }

@@ -1,6 +1,6 @@
 package com.dmc30.livreservice.data.entity.bibliotheque;
 
-import com.dmc30.livreservice.data.entity.commun.commun.Adresse;
+import com.dmc30.livreservice.data.entity.commun.Adresse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +20,7 @@ public class Bibliotheque {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Column(name = "code")
     private String code;

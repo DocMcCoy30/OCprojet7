@@ -11,7 +11,6 @@ import lombok.ToString;
 @ToString
 public class IllustrationDto {
 
-    private int id;
     private String url;
     private String typeIllustration;
     private LivreDto livre;

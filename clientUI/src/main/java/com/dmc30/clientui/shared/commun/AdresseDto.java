@@ -11,7 +11,6 @@ import lombok.ToString;
 @ToString
 public class AdresseDto {
 
-    private int id;
     private String rue;
     private String codePostal;
     private String ville;

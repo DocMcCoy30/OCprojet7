@@ -13,7 +13,6 @@ import java.util.List;
 @ToString
 public class EditeurDto {
 
-    private int id;
     private String nomMaisonEdition;
     private List<LivreDto> livres;
 }

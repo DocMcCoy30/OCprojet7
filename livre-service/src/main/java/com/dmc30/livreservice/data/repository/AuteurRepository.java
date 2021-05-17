@@ -7,11 +7,14 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface AuteurRepository extends JpaRepository<Auteur, Integer> {
+public interface AuteurRepository extends JpaRepository<Auteur, Long> {
 
     List<Auteur> findAuteurByNomOrPrenom(String nom, String prenom);
-    Auteur findAuteurById(int id);
+    Auteur findAuteurById(Long id);
 
     @Query(value = "SELECT a.* FROM auteur a INNER JOIN many_livre_has_many_auteur al ON al.id_auteur=a.id WHERE al.id_livre=?1", nativeQuery = true)
-    List<Auteur> findAuteurByLivres(@Param("id") int id);
+    List<Auteur> findAuteurByLivres(@Param("id") Long id);
+
+    @Query(value = "SELECT * FROM auteur WHERE LOWER (nom) LIKE '%' || ?1 || '%' OR LOWER (prenom) LIKE '%' || ?1 || '%';",nativeQuery = true)
+    List<Auteur> findAuteurByNomContaining(String motCle);
 }

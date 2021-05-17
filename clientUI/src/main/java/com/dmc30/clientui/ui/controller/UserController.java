@@ -21,15 +21,15 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Objects;
 
 @Controller
-public class ClientUIUserController {
+public class UserController {
 
-    Logger logger = LoggerFactory.getLogger(ClientUIUserController.class);
+    Logger logger = LoggerFactory.getLogger(UserController.class);
 
     private UserService userService;
     private PasswordEncoderHelper passwordEncoderHelper;
 
     @Autowired
-    public ClientUIUserController(UserService userService, PasswordEncoderHelper passwordEncoderHelper) {
+    public UserController(UserService userService, PasswordEncoderHelper passwordEncoderHelper) {
         this.userService = userService;
         this.passwordEncoderHelper = passwordEncoderHelper;
     }

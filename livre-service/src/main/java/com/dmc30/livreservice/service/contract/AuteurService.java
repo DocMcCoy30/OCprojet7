@@ -8,7 +8,8 @@ public interface AuteurService {
 
     List<Auteur> findAll();
     List<Auteur> findAuteurByNomOrPrenom(String nom, String prenom);
-    Auteur findAuteurById(int id);
-    List<Auteur> findAuteurByLivres(int id);
+    Auteur findAuteurById(Long id);
+    List<Auteur> findAuteurByLivres(Long id);
     void save(Auteur auteur);
+    List<Auteur> findAuteurByNomContaining(String motCle);
 }

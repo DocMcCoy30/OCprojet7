@@ -4,21 +4,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <title>Accueil</title>
+    <title>Index</title>
 </head>
 <body>
-
 <div class="container">
-
-    <h1>Accueil</h1>
+    <h1>Index</h1>
     <hr>
-
     <div th:text="${statut}"></div>
-
     <table class="table table-striped table-dark table-bordered">
         <thead>
         <tr>
@@ -49,23 +41,13 @@
                         <button class="btn btn-secondary btn-md col-sm-3 form-control" type="submit">Rechercher</button>
                     </div>
                 </form>
-                <!--                <form action="#" th:action="@{/showLivresByTitre}" method="post" class="row g-3">-->
-                <!--                    <div class="col-md-9">-->
-                <!--                        <input type="text" name="motCle" placeholder="recherche" class="form-control" autofocus="autofocus">-->
-                <!--                    </div>-->
-                <!--                    <div class="col-md-3">-->
-                <!--                        <button class="btn btn-secondary btn-md btn-block form-control" type="submit">Rechercher</button>-->
-                <!--                    </div>-->
-                <!--                </form>-->
             </td>
         </tr>
         </tbody>
     </table>
-
     <br>
     <hr>
     <br>
-
     <div th:if="${! #lists.isEmpty(livres)}">
         <h4>Tous les livres</h4>
         <table class="table table-striped table-dark table-bordered">
@@ -89,7 +71,6 @@
             </tbody>
         </table>
     </div>
-
     <div th:if="${! #lists.isEmpty(livresParTitre)}">
         <h4>Livres par titres</h4>
         <table class="table table-striped table-dark table-bordered">
@@ -114,16 +95,5 @@
         </table>
     </div>
 </div>
-<!--<form th:action="@{/addPerson}"-->
-<!--      th:object="${personForm}" method="POST">-->
-<!--    First Name:-->
-<!--    <input type="text" th:field="*{firstName}" />-->
-<!--    <br/>-->
-<!--    Last Name:-->
-<!--    <input type="text" th:field="*{lastName}" />-->
-<!--    <br/>-->
-<!--    <input type="submit" value="Create" />-->
-<!--</form>-->
-
 </body>
 </html>

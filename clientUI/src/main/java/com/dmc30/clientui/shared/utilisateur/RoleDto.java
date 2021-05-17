@@ -13,7 +13,6 @@ import java.util.List;
 @ToString
 public class RoleDto {
 
-    private int id;
     private String role;
     private String description;
     private List<UtilisateurDto> utilisateurs;

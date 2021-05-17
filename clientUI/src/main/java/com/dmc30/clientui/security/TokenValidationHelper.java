@@ -81,26 +81,19 @@ public class TokenValidationHelper extends BasicAuthenticationFilter {
 //        filterChain.doFilter(request, response);
 //    }
 
-    //    public UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
     public UsernamePasswordAuthenticationToken getAuthentication(String token, String roles) {
-//        public UsernamePasswordAuthenticationToken getAuthentication(String token, String publicId) {
-
         Set<String> roleList = stringTokenizerHelper(roles);
 //        Set<RoleDto> roleList = userServiceProxy.findUtilisateurByPublicId(publicId).getRoles();
-
         List<GrantedAuthority> authorities = roleList
                 .stream()
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
-
-        logger.info("Token in getAuthentification = " + token);
         if (token != null) {
             String user = Jwts.parser().setSigningKey(environment.getProperty("token.secret"))
                     .parseClaimsJws(token.replace("Bearer", ""))
                     .getBody()
                     .getSubject();
             if (user != null) {
-//                return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
                 return new UsernamePasswordAuthenticationToken(user, null, authorities);
 
             }
