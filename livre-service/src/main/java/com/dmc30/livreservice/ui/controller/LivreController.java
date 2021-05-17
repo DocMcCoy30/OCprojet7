@@ -5,6 +5,7 @@ import com.dmc30.livreservice.data.entity.livre.Livre;
 import com.dmc30.livreservice.service.contract.AuteurService;
 import com.dmc30.livreservice.service.contract.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,6 +33,17 @@ public class LivreController {
            Long livreId = tempLivre.getId();
            List<Auteur> auteurs = auteurService.findAuteurByLivres(livreId);
            tempLivre.setAuteurs(auteurs);
+        }
+        return livres;
+    }
+
+    @GetMapping(path = "/livres/12")
+    public List<Livre> get12LastLivres() {
+        List<Livre>livres = livreService.findLast12();
+        for(Livre tempLivre : livres) {
+            Long livreId = tempLivre.getId();
+            List<Auteur> auteurs = auteurService.findAuteurByLivres(livreId);
+            tempLivre.setAuteurs(auteurs);
         }
         return livres;
     }

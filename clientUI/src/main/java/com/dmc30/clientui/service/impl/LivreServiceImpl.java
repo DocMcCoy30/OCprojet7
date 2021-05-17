@@ -24,6 +24,11 @@ public class LivreServiceImpl implements LivreService {
     }
 
     @Override
+    public List<LivreDto> get12LastLivres() {
+        return livreServiceProxy.get12LastLivres();
+    }
+
+    @Override
     public List<LivreDto> getLivreByTitre(String motCle) {
         return livreServiceProxy.getLivreByTitre(motCle);
     }

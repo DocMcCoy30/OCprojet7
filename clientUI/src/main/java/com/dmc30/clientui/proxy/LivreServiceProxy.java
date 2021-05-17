@@ -14,6 +14,9 @@ public interface LivreServiceProxy {
     @GetMapping("/livres")
     List<LivreDto> getLivres();
 
+    @GetMapping("/livres/12")
+    List<LivreDto> get12LastLivres();
+
     @PostMapping("/livres/titre")
     List<LivreDto> getLivreByTitre(@RequestParam("motCle") String motCle);
 

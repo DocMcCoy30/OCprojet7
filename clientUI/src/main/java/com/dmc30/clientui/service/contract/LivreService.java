@@ -7,6 +7,7 @@ import java.util.List;
 public interface LivreService {
 
     List<LivreDto> getLivres();
+    List<LivreDto> get12LastLivres();
     List<LivreDto> getLivreByTitre(String motCle);
     List<LivreDto> getLivreByAuteur(String motCle);
 }
