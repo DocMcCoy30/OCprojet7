@@ -15,4 +15,11 @@ public class EditeurDto {
 
     private String nomMaisonEdition;
     private List<LivreDto> livres;
+
+    @Override
+    public String toString() {
+        return "EditeurDto{" +
+                "nomMaisonEdition='" + nomMaisonEdition + '\'' +
+                '}';
+    }
 }

@@ -2,6 +2,8 @@ package com.dmc30.clientui.ui.controller;
 
 import com.dmc30.clientui.exception.TechnicalException;
 import com.dmc30.clientui.security.PasswordEncoderHelper;
+import com.dmc30.clientui.service.contract.BibliothequeService;
+import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
 import com.dmc30.clientui.shared.utilisateur.UtilisateurDto;
 import com.dmc30.clientui.shared.utilisateur.LoginRequestDto;
 import com.dmc30.clientui.service.contract.UserService;
@@ -18,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Objects;
 
 @Controller
@@ -26,11 +29,13 @@ public class UserController {
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
     private UserService userService;
+    private BibliothequeService bibliothequeService;
     private PasswordEncoderHelper passwordEncoderHelper;
 
     @Autowired
-    public UserController(UserService userService, PasswordEncoderHelper passwordEncoderHelper) {
+    public UserController(UserService userService, BibliothequeService bibliothequeService, PasswordEncoderHelper passwordEncoderHelper) {
         this.userService = userService;
+        this.bibliothequeService = bibliothequeService;
         this.passwordEncoderHelper = passwordEncoderHelper;
     }
 
@@ -42,14 +47,22 @@ public class UserController {
     }
 
     @GetMapping(path = "/login")
-    public String loginPage(Model theModel,
-                            @RequestParam(value = "logout", required = false) String logout) {
+    public ModelAndView loginPage(@RequestParam(value = "logout", required = false) String logout,
+                                  @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
+        ModelAndView theModel = new ModelAndView("login-page");
         LoginRequestDto user = new LoginRequestDto();
         if (logout != null) {
-            theModel.addAttribute("logoutMessage", "Vous êtes deconnecté !");
+            List<BibliothequeDto> bibliotheques = bibliothequeService.getBibliotheques();
+            theModel.addObject("bibliotheques", bibliotheques);
+            theModel.addObject("logoutMessage", "Vous êtes deconnecté !");
+            theModel.setViewName("index");
         }
-        theModel.addAttribute("user", user);
-        return "login-page";
+        if (bibliothequeId != null) {
+            BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
+            theModel.addObject("bibliotheque", bibliotheque);
+        }
+        theModel.addObject("user", user);
+        return theModel;
     }
 
 //    @PostMapping(path = "/login")
@@ -61,6 +74,7 @@ public class UserController {
 
     @PostMapping(path = "/login")
     public ModelAndView secureLogin(@ModelAttribute LoginRequestModel userLoginDetails,
+                                    @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId,
                                     ModelAndView theModel) throws TechnicalException {
         UtilisateurDto abonneDto = new UtilisateurDto();
         String errorMessage = "";
@@ -85,14 +99,23 @@ public class UserController {
             errorMessage = e.getMessage();
             theModel.addObject("errorMessage", errorMessage);
         }
+        if (bibliothequeId != null) {
+            BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
+            theModel.addObject("bibliotheque", bibliotheque);
+        }
         theModel.setViewName(viewName);
         return theModel;
     }
 
     @GetMapping(path = "/signin")
-    public String signinPage(Model theModel) {
+    public String signinPage(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId,
+                             Model theModel) {
 //        CreateAbonneRequestModel abonne = new CreateAbonneRequestModel();
         UtilisateurDto abonne = new UtilisateurDto();
+        if (bibliothequeId != null) {
+            BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
+            theModel.addAttribute("bibliotheque", bibliotheque);
+        }
         theModel.addAttribute("abonne", abonne);
         return "signin-page";
     }
@@ -100,6 +123,7 @@ public class UserController {
     @PostMapping("/signin")
     public String createAbonne(@ModelAttribute UtilisateurDto userDetails,
                                @RequestParam("paysId") Long paysId,
+                               @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId,
                                Model theModel) {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
@@ -109,14 +133,23 @@ public class UserController {
         logger.info("CreAbResMod : " + Objects.requireNonNull(response.getBody()).toString(), response.getStatusCode());
         String message = "L'abonné " + response.getBody().getUsername() + " / " + response.getBody().getEmail() + " a bien été enregistré.";
         theModel.addAttribute("message", message);
+        if (bibliothequeId != null) {
+            BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
+            theModel.addAttribute("bibliotheque", bibliotheque);
+        }
         return "accueil";
     }
 
     @GetMapping(value = "/showProfil")
-    public ModelAndView showProfil(@RequestParam("publicId") String publicId) {
+    public ModelAndView showProfil(@RequestParam("publicId") String publicId,
+                                   @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         ModelAndView theModel = new ModelAndView("profil-utilisateur");
         UtilisateurDto abonne = userService.getUtilisateurByPublicId(publicId);
         theModel.addObject("abonne", abonne);
+        if (bibliothequeId != null) {
+            BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
+            theModel.addObject("bibliotheque", bibliotheque);
+        }
         return theModel;
     }
 }

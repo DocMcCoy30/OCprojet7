@@ -1,5 +1,6 @@
 package com.dmc30.clientui.service.impl;
 
+import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
 import com.dmc30.clientui.shared.livre.LivreDto;
 import com.dmc30.clientui.proxy.LivreServiceProxy;
 import com.dmc30.clientui.service.contract.LivreService;
@@ -37,4 +38,5 @@ public class LivreServiceImpl implements LivreService {
     public List<LivreDto> getLivreByAuteur(String motCle) {
         return livreServiceProxy.getLivreByAuteur(motCle);
     }
+
 }

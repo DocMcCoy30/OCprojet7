@@ -31,9 +31,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
         http.authorizeRequests().antMatchers("/users/**").permitAll()
                 .and()
-                .logout().logoutUrl("/logout")
-                .and()
-                .logout().logoutSuccessUrl("/login?logout").deleteCookies("JSESSIONID")
+//                .logout().logoutUrl("/logout")
+//                .and()
+                .logout().deleteCookies("JSESSIONID")
                 .and()
                 .addFilter(getAuthenticationFilter());
 

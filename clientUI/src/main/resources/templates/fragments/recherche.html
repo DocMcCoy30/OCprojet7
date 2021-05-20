@@ -13,10 +13,10 @@
 <body>
 <div class="container">
 
-    <h2>Rechercher un livre</h2>
+    <h4>Rechercher un livre</h4>
     <hr>
     <br>
-    <form th:action="@{/searchLivres}" method="post">
+    <form th:action="@{/searchLivres(bibliothequeId=${bibliotheque.id})}" method="post">
         <div class="input-group">
                         <span class="input-group-btn col-md-7">
             <input type="text" class="form-control" name="mot-cle" placeholder="Rechercher ..."/>

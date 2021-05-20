@@ -1,5 +1,7 @@
 package com.dmc30.clientui.ui.controller;
 
+import com.dmc30.clientui.service.contract.BibliothequeService;
+import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
 import com.dmc30.clientui.shared.livre.LivreDto;
 import com.dmc30.clientui.service.contract.LivreService;
 import org.slf4j.Logger;
@@ -20,11 +22,13 @@ public class LivreController {
 
     Logger logger = LoggerFactory.getLogger(LivreController.class);
 
-    LivreService livreService;
+    private LivreService livreService;
+    private BibliothequeService bibliothequeService;
 
     @Autowired
-    public LivreController(LivreService livreService) {
+    public LivreController(LivreService livreService, BibliothequeService bibliothequeService) {
         this.livreService = livreService;
+        this.bibliothequeService = bibliothequeService;
     }
 
     @GetMapping("/showLivres")
@@ -44,7 +48,8 @@ public class LivreController {
 
     @PostMapping("/searchLivres")
     public ModelAndView searchLivres(@RequestParam(value = "search-param", required = false) Integer searchParam,
-                                     @RequestParam(value = "mot-cle", required = false) String motCle) {
+                                     @RequestParam(value = "mot-cle", required = false) String motCle,
+                                     @RequestParam("bibliothequeId") Long bibliothequeId) {
         String errorMessage = null;
         ModelAndView theModel = new ModelAndView("accueil");
         List<LivreDto> livres = new ArrayList<>();
@@ -66,6 +71,10 @@ public class LivreController {
         }
         if (livres.isEmpty()) {
             errorMessage = "Aucun livre trouvé pour cette recherche !";
+        }
+        if (bibliothequeId != null) {
+            BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
+            theModel.addObject("bibliotheque", bibliotheque);
         }
         theModel.addObject("livres", livres);
         theModel.addObject("errorMessage", errorMessage);

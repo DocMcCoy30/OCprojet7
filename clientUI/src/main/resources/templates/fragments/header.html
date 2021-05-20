@@ -14,35 +14,37 @@
 <div class="container">
     <div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
         <header th:case="${true}"
-                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <a th:href="@{/(publicId=${abonne.publicId})}"
-               class="col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                Bibliothèque
+                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-5 border-bottom">
+            <a th:href="@{/(publicId=${abonne.publicId})}" class="col-md-5 mb-2 mb-md-0 text-dark text-decoration-none">
+                <h4 th:text="${bibliotheque.nom}">
+                    Bibliothèque</h4>
             </a>
+            <input type="hidden" name="bibliothequeId" th:value="${bibliotheque.id}">
             <div class="col-md-3 text-right">
-                Bonjour <a th:href="@{/showProfil(publicId=${abonne.publicId})}"><span
+                Bonjour <a th:href="@{/showProfil(publicId=${abonne.publicId}, bibliothequeId=${bibliotheque.id})}"><span
                     sec:authentication="name"></span></a>
-                <a th:href="@{/logout}">
+                <a th:href="@{/logout(bibliothequeId=${bibliotheque.id})}">
                     <button type="button" class="btn btn-success me-2">Se deconnecter</button>
                 </a>
             </div>
         </header>
         <header th:case="${false}"
                 class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <a th:href="@{/}"
-               class="col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                Bibliothèque
+            <a th:href="@{/}" class="col-md-5 mb-2 mb-md-0 text-dark text-decoration-none">
+               <h4 th:text="${bibliotheque.nom}">
+                Bibliothèque</h4>
             </a>
+            <input type="hidden" name="bibliothequeId" th:value="${bibliotheque.id}">
             <div class="col-md-3 text-right">
-                <a th:href="@{/login}">
+                <a th:href="@{/login(bibliothequeId=${bibliotheque.id})}">
                     <button type="button" class="btn btn-outline-primary me-2">Se connecter</button>
                 </a>
-                <a th:href="@{/signin}">
+                <a th:href="@{/signin(bibliothequeId=${bibliotheque.id})}">
                     <button type="button" class="btn btn-primary">S'inscrire</button>
                 </a>
             </div>
         </header>
-        <span th:if="${logoutMessage}" th:utext="${logoutMessage}"></span>
+
     </div>
 </div>
 </body>

@@ -1,5 +1,6 @@
 package com.dmc30.clientui.proxy;
 
+import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
 import com.dmc30.clientui.shared.livre.LivreDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,4 +23,10 @@ public interface LivreServiceProxy {
 
     @PostMapping("livres/auteur")
     List<LivreDto> getLivreByAuteur(@RequestParam("motCle") String motCle);
+
+    @GetMapping("/bibliotheques")
+    List<BibliothequeDto> getBibliotheques();
+
+    @PostMapping("/bibliotheque")
+    BibliothequeDto getBibliotheque(@RequestParam("bibliothequeId") Long bibliothequeId);
 }

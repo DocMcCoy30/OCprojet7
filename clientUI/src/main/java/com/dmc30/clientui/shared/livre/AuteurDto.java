@@ -16,4 +16,14 @@ public class AuteurDto {
     private String dateNaissance;
     private String dateDeces;
     private List<LivreDto> livres;
+
+    @Override
+    public String toString() {
+        return "AuteurDto{" +
+                "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", dateNaissance='" + dateNaissance + '\'' +
+                ", dateDeces='" + dateDeces + '\'' +
+                '}';
+    }
 }

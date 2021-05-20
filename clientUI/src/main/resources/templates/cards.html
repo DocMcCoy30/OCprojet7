@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet"/>
+    <title>Cards</title>
+</head>
+<body>
+<div class="container">
+
+    <h1>Cards</h1>
+    <div th:if="${! #lists.isEmpty(lastLivres)}">
+        <div class="row">
+            <div class="col-md-4" th:each="tempLivre : ${lastLivres}">
+                <div class="card"  style="margin-top: 2em">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${tempLivre.titre}">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" th:text="${tempLivre.auteurs}">Card
+                            subtitle</h6>
+                        <p class="card-text" th:text="${tempLivre.resume}"></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" th:text="${tempLivre.numeroIsbn13}">ISBN</li>
+                        <li class="list-group-item" th:text="${tempLivre.editeur.nomMaisonEdition}">Editeur</li>
+                        <li class="list-group-item" th:text="${tempLivre.dateEdition}">Date d'édition</li>
+                    </ul>
+                    <div class="card-body">
+                        <a th:href="@{#}" class="card-link">Détail du livre</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
