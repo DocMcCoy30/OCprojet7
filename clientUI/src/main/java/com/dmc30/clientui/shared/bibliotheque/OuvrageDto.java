@@ -1,10 +1,7 @@
 package com.dmc30.clientui.shared.bibliotheque;
 
 import com.dmc30.clientui.shared.livre.LivreDto;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,6 +9,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+//@ToString(exclude = {"bibliotheque"})
+//@EqualsAndHashCode(exclude = {"bibliotheque"})
 public class OuvrageDto {
 
     private String idInterne;
@@ -19,4 +18,5 @@ public class OuvrageDto {
     private LivreDto livre;
     private boolean emprunte;
     private List<PretDto> prets;
+
 }

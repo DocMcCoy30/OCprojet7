@@ -51,7 +51,7 @@ public class LivreController {
                                      @RequestParam(value = "mot-cle", required = false) String motCle,
                                      @RequestParam("bibliothequeId") Long bibliothequeId) {
         String errorMessage = null;
-        ModelAndView theModel = new ModelAndView("accueil");
+        ModelAndView theModel = new ModelAndView("recherche");
         List<LivreDto> livres = new ArrayList<>();
         logger.info("searchParam = " + searchParam);
         logger.info("motCle = " + motCle);

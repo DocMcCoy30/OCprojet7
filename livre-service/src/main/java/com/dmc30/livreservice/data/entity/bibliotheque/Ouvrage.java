@@ -1,6 +1,7 @@
 package com.dmc30.livreservice.data.entity.bibliotheque;
 
 import com.dmc30.livreservice.data.entity.livre.Livre;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,8 +11,8 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = "livre")
-@EqualsAndHashCode(exclude = "livre")
+@ToString(exclude = {"livre", "bibliotheque"})
+@EqualsAndHashCode(exclude = {"livre", "bibliotheque"})
 public class Ouvrage {
 
     @Id
@@ -22,10 +23,14 @@ public class Ouvrage {
     @Column(name = "id_interne")
     private String idInterne;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    //    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+//    @JoinColumn(name = "id_bibliotheque")
+    @JsonBackReference
+    @ManyToOne
     @JoinColumn(name = "id_bibliotheque")
     private Bibliotheque bibliotheque;
 
+    @JsonBackReference
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "id_livre")
     private Livre livre;

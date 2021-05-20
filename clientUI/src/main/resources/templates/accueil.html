@@ -53,31 +53,31 @@
         </div>
     </div>
 
-    <div th:if="${! #lists.isEmpty(livres)}">
-        <h4>Résultat de recherche</h4>
-        <table class="table table-striped table-dark table-bordered">
-            <thead class="thead-dark">
-            <tr>
-                <th>Titre</th>
-                <th>Resume</th>
-                <th>Date d'edition</th>
-                <th>Numero isbn13</th>
-                <th>Auteur</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="tempLivre : ${livres}">
-                <td th:text="${tempLivre.titre}"></td>
-                <td th:text="${tempLivre.resume}"></td>
-                <td th:text="${tempLivre.dateEdition}"></td>
-                <td th:text="${tempLivre.numeroIsbn13}"></td>
-                <td th:text="${tempLivre.auteurs}"></td>
-                <td><a th:href="@{#}" class="card-link">Détail</a></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+<!--    <div th:if="${! #lists.isEmpty(livres)}">-->
+<!--        <h4>Résultat de recherche</h4>-->
+<!--        <table class="table table-striped table-dark table-bordered">-->
+<!--            <thead class="thead-dark">-->
+<!--            <tr>-->
+<!--                <th>Titre</th>-->
+<!--                <th>Resume</th>-->
+<!--                <th>Date d'edition</th>-->
+<!--                <th>Numero isbn13</th>-->
+<!--                <th>Auteur</th>-->
+<!--                <th></th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr th:each="tempLivre : ${livres}">-->
+<!--                <td th:text="${tempLivre.titre}"></td>-->
+<!--                <td th:text="${tempLivre.resume}"></td>-->
+<!--                <td th:text="${tempLivre.dateEdition}"></td>-->
+<!--                <td th:text="${tempLivre.numeroIsbn13}"></td>-->
+<!--                <td th:text="${tempLivre.auteurs}"></td>-->
+<!--                <td><a th:href="@{#}" class="card-link">Détail</a></td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
 </div>
 
 <footer th:insert="fragments/footer.html"></footer>

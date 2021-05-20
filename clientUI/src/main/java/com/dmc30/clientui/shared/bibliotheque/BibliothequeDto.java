@@ -1,17 +1,16 @@
 package com.dmc30.clientui.shared.bibliotheque;
 
 import com.dmc30.clientui.shared.commun.AdresseDto;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
-import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+//@EqualsAndHashCode(exclude = {"ouvrages"})
+//@ToString(exclude = {"ouvrages"})
 public class BibliothequeDto {
 
     private Long id;
@@ -19,5 +18,8 @@ public class BibliothequeDto {
     private String numSiret;
     private String nom;
     private AdresseDto adresse;
-    private List<OuvrageDto> ouvrages;
+    private Set<OuvrageDto> ouvrages;
+
+
+
 }

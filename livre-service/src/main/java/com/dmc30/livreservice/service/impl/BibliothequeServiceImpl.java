@@ -21,6 +21,7 @@ public class BibliothequeServiceImpl implements BibliothequeService {
 
     @Override
     public List<Bibliotheque> findAll() {
+
         return bibliothequeRepository.findAll();
     }
 

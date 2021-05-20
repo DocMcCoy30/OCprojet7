@@ -1,14 +1,15 @@
 package com.dmc30.clientui.shared.livre;
 
 import com.dmc30.clientui.shared.bibliotheque.OuvrageDto;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
+import java.util.Set;
 
-@Data @AllArgsConstructor @NoArgsConstructor @ToString
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class LivreDto {
 
     private String titre;
@@ -20,6 +21,6 @@ public class LivreDto {
     private LangueDto langue;
     private List<GenreDto> genres;
     private List<IllustrationDto> illustrations;
-    private List<OuvrageDto> ouvrages;
+    private Set<OuvrageDto> ouvrages;
 }
 

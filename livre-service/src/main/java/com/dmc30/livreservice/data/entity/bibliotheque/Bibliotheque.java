@@ -1,20 +1,20 @@
 package com.dmc30.livreservice.data.entity.bibliotheque;
 
 import com.dmc30.livreservice.data.entity.commun.Adresse;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "bibliotheque")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@ToString(exclude = {"ouvrages"})
+@EqualsAndHashCode(exclude = {"ouvrages"})
 public class Bibliotheque {
 
     @Id
@@ -35,7 +35,9 @@ public class Bibliotheque {
     @JoinColumn(name = "id_adresse")
     private Adresse adresse;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bibliotheque",
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    private List<Ouvrage> ouvrages;
+    //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bibliotheque",
+//            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JsonManagedReference
+    @OneToMany(mappedBy = "bibliotheque")
+    private Set<Ouvrage> ouvrages;
 }

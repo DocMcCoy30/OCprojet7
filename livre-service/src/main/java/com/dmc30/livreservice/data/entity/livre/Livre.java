@@ -1,6 +1,7 @@
 package com.dmc30.livreservice.data.entity.livre;
 
 import com.dmc30.livreservice.data.entity.bibliotheque.Ouvrage;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,8 +12,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = {"auteurs","genres"})
-@EqualsAndHashCode(exclude = {"auteurs","genres"})
+@ToString(exclude = {"auteurs","genres","ouvrages"})
+@EqualsAndHashCode(exclude = {"auteurs","genres","ouvrages"})
 public class Livre {
 
     @Id
@@ -61,6 +62,7 @@ public class Livre {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
     private List<Illustration> illustrations;
 
+    @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
     private List<Ouvrage> ouvrages;
 
