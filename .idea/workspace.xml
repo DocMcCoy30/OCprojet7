@@ -5,17 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="626a98ec-6f0a-4fcd-8b60-c183d40dc1d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/nimes1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/nimes2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/nimes3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/nimes4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/nimes5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/nimes6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/livre-detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bibliotheque/BibliothequeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bibliotheque/BibliothequeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bibliotheque/OuvrageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bibliotheque/OuvrageDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/livre/LivreDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/livre/LivreDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/TokenValidationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/TokenValidationHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/AccueilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/AccueilController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/LivreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/LivreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/css/cover.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/accueil-original.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/accueil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/cards.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/recherche.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/recherche.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/bibliotheque/Bibliotheque.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/bibliotheque/Bibliotheque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/bibliotheque/Ouvrage.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/bibliotheque/Ouvrage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/livre/Livre.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/livre/Livre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/BibliothequeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/BibliothequeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/testrow.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +64,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/clientUI/src/main/resources/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/clientUI/src/main/resources/static/img" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -71,6 +85,7 @@
       <recent name="com.dmc30.clientui.service.impl" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\static\img" />
       <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\templates" />
       <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\templates\fragments" />
     </key>
@@ -229,7 +244,9 @@
       <workItem from="1621063738349" duration="4981000" />
       <workItem from="1621237656514" duration="22198000" />
       <workItem from="1621408646706" duration="22903000" />
-      <workItem from="1621492065915" duration="11676000" />
+      <workItem from="1621492065915" duration="19254000" />
+      <workItem from="1621583127365" duration="28000" />
+      <workItem from="1621583186981" duration="3919000" />
     </task>
     <servers />
   </component>
@@ -241,7 +258,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/LivreController.java</url>
-          <line>53</line>
+          <line>88</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -251,22 +268,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/UserController.java</url>
-          <line>52</line>
+          <line>66</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/UserController.java</url>
-          <line>78</line>
+          <line>93</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/AccueilController.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/ui/controller/AccueilController.java</url>
-          <line>50</line>
+          <line>44</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

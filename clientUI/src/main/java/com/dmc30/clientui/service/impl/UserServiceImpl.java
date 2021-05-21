@@ -34,32 +34,12 @@ public class UserServiceImpl implements UserService {
 //        return userServiceProxy.check();
     }
 
-//    @Override
-//    public String login(LoginRequestDto loginRequestDto) {
-//        return userServiceProxy.login(loginRequestDto);
-//    }
-
-//    @Override
-//    public String[] secureLogin(LoginRequestDto loginRequestDto) throws TechnicalException {
-//        ResponseEntity<String> responseEntity = userApiProxy.secureLogin(loginRequestDto);
-//        logger.info(String.valueOf(responseEntity));
-//        String[] returnValue = new String[0];
-//        String publicId = "";
-//        String token = "";
-//        if (responseEntity.getHeaders().containsKey("publicId")) {
-//            boolean auth = tokenValidationHelper.isJwtValid(responseEntity.getHeaders().get("token").get(0));
-//            if (auth) {
-//                returnValue = new String[]{"OK", responseEntity.getHeaders().get("publicId").get(0)};
-//
-//            } else {
-//                returnValue = new String[]{"KO", "Token invalide ou expiré"};
-//            }
-//        } else if (responseEntity.getHeaders().containsKey("error")) {
-//            returnValue = new String[]{"KO", responseEntity.getHeaders().get("error").get(0)};
-//        }
-//        return returnValue;
-//    }
-
+    /**
+     * Traitement des données de connexion (validation du token renvoyé par user-service)
+     * @param loginRequestDto Les données de connexion de l'utilisateur
+     * @return un message définissant le résultet du processus d'identification (succès ou échec)
+     * @throws TechnicalException
+     */
     @Override
     public String[] secureLogin(LoginRequestDto loginRequestDto) throws TechnicalException {
         ResponseEntity<String> responseEntity = userServiceProxy.secureLogin(loginRequestDto);
@@ -69,15 +49,10 @@ public class UserServiceImpl implements UserService {
         if (responseEntity.getHeaders().containsKey("publicId")) {
             String roles = responseEntity.getHeaders().get("Roles").get(0);
             String token = responseEntity.getHeaders().get("Authorization").get(0);
-//            UtilisateurDto user = userServiceProxy.findUtilisateurByPublicId(responseEntity.getHeaders().get("publicId").get(0));
             boolean auth = tokenValidationHelper.isJwtValid(responseEntity.getHeaders().get("Authorization").get(0));
             if (auth) {
                 returnValue = new String[]{"OK", responseEntity.getHeaders().get("publicId").get(0)};
                 SecurityContextHolder.getContext().setAuthentication(tokenValidationHelper.getAuthentication(token, roles));
-                logger.info("SecurityContextHolder.getName " + SecurityContextHolder.getContext().getAuthentication().getName());
-                logger.info("SecurityContextHolder.getPrincipal " + SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-                logger.info("SecurityContextHolder.getAuthorities " + SecurityContextHolder.getContext().getAuthentication().getAuthorities());
-
             } else {
                 returnValue = new String[]{"KO", "Token invalide ou expiré"};
             }
@@ -90,7 +65,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<CreateAbonneResponseModel> createAbonne(UtilisateurDto abonne, Long paysId) {
         return userServiceProxy.signin(abonne, paysId);
-//        return userServiceProxy.signin(abonne, paysId);
     }
 
     @Override

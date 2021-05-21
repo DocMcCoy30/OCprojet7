@@ -23,6 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * A terme, connecte l'interface utilisateur (Front) avec le microservice User (user-service) via la couche service et proxy.
+ */
 @Controller
 public class UserController {
 
@@ -39,6 +42,11 @@ public class UserController {
         this.passwordEncoderHelper = passwordEncoderHelper;
     }
 
+    /**
+     * méthode test - affiche la page accueil.
+     * @param theModel le model renvoyé.
+     * @return la vue avec un message compte rendu de vérification du bon fonctionnement du service.
+     */
     @GetMapping(path = "/check")
     public String status(Model theModel) {
         String message = userService.check();
@@ -46,6 +54,12 @@ public class UserController {
         return "accueil";
     }
 
+    /**
+     * Affiche la vue login-page pour que l'utilisateur renseigne ses identifiants / mot de passe ou la page index en cas de demande de déconnexion
+     * @param logout si présent, deconnecte l'utilisateur.
+     * @param bibliothequeId l'identifiant de la bibliothèque selectionnée
+     * @return la vue login-page avec un objet LoginRequest (identifiant/mot de passe) ou la page index avec la liste des bibliothèque en cas de deconnexion.
+     */
     @GetMapping(path = "/login")
     public ModelAndView loginPage(@RequestParam(value = "logout", required = false) String logout,
                                   @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
@@ -65,13 +79,14 @@ public class UserController {
         return theModel;
     }
 
-//    @PostMapping(path = "/login")
-//    public String login(@ModelAttribute LoginRequestDto user, Model theModel) {
-//        String authenticationMessage = userService.login(user);
-//        theModel.addAttribute("message", authenticationMessage);
-//        return "accueil";
-//    }
-
+    /**
+     * Traitement des données pour identification et connexion sécurisée de l'utilisateur (SpringSecurity)
+     * @param userLoginDetails Les identifiants/mot de passe de l'utilisateur entrés sur la page login-page
+     * @param bibliothequeId L'identifiant de la bibliothèque selectionnée.
+     * @param theModel Le Model renvoyé.
+     * @return la vue accueil si l'identification est un succès, la page login avec un messge d'erreur si les identifiant/mot de passe renseignés sont erronés.
+     * @throws TechnicalException
+     */
     @PostMapping(path = "/login")
     public ModelAndView secureLogin(@ModelAttribute LoginRequestModel userLoginDetails,
                                     @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId,
@@ -107,10 +122,15 @@ public class UserController {
         return theModel;
     }
 
+    /**
+     * Affiche la page signin-page permettant à l'utilisateur de renseigner ses données personnelles afin de créer un compte (abonné)
+     * @param bibliothequeId L'identifiant de la bibliothèque selectionnée.
+     * @param theModel Le Model renvoyé.
+     * @return la vue signin-page avec la bibliothèque selectionnée.
+     */
     @GetMapping(path = "/signin")
     public String signinPage(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId,
                              Model theModel) {
-//        CreateAbonneRequestModel abonne = new CreateAbonneRequestModel();
         UtilisateurDto abonne = new UtilisateurDto();
         if (bibliothequeId != null) {
             BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
@@ -120,6 +140,14 @@ public class UserController {
         return "signin-page";
     }
 
+    /**
+     * Traitement des données pour création d'un compte abonné avec cryptage du mot de passe.
+     * @param userDetails Les données personnelles de l'utilisateur nécessaire à la création d'un compte abonné.
+     * @param paysId L'identifiant du pays de résidence selectionné.
+     * @param bibliothequeId L'identifiant de la bibliothèque selectionnée.
+     * @param theModel le Model renvoyé.
+     * @return La page accueil avec la bibliothèque selectionnée et un message e confirmation de la création du compte.
+     */
     @PostMapping("/signin")
     public String createAbonne(@ModelAttribute UtilisateurDto userDetails,
                                @RequestParam("paysId") Long paysId,
@@ -130,7 +158,6 @@ public class UserController {
         UtilisateurDto abonne = modelMapper.map(userDetails, UtilisateurDto.class);
         abonne.setEncryptedPassword(passwordEncoderHelper.encodePwd(userDetails.getPassword()));
         ResponseEntity<CreateAbonneResponseModel> response = userService.createAbonne(abonne, paysId);
-        logger.info("CreAbResMod : " + Objects.requireNonNull(response.getBody()).toString(), response.getStatusCode());
         String message = "L'abonné " + response.getBody().getUsername() + " / " + response.getBody().getEmail() + " a bien été enregistré.";
         theModel.addAttribute("message", message);
         if (bibliothequeId != null) {
@@ -140,6 +167,12 @@ public class UserController {
         return "accueil";
     }
 
+    /**
+     * affiche la page profil de l'utilisateur pour consultation et modification de ses données personnelles
+     * @param publicId L'identifiant public de l'utilisateur connecté.
+     * @param bibliothequeId L'identiant de la bibliothèque selectionnées
+     * @return la vue profil-utilisateur avec la bibliothèque selectionnée, et le détail des données de l'utilisateur connecté.
+     */
     @GetMapping(value = "/showProfil")
     public ModelAndView showProfil(@RequestParam("publicId") String publicId,
                                    @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {

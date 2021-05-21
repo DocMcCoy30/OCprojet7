@@ -11,10 +11,10 @@
     <title>Recherche</title>
 </head>
 <body>
-<div class="container">
+<br>
+<br>
 
-    <h4>Rechercher un livre</h4>
-    <hr>
+    <h5>Rechercher un livre</h5>
     <br>
     <form th:action="@{/searchLivres(bibliothequeId=${bibliotheque.id})}" method="post">
         <div class="input-group">
@@ -37,17 +37,18 @@
                 </span>
         </div>
     </form>
-    <hr>
+    <br>
+    <br>
     <br>
     <div th:if="${! #lists.isEmpty(livres)}">
         <h4>Résultat de recherche</h4>
-        <table class="table table-striped table-dark table-bordered">
+        <table class="table table-striped  table-bordered">
             <thead class="thead-dark">
             <tr>
                 <th>Titre</th>
-                <th>Resume</th>
+<!--                <th>Resume</th>-->
                 <th>Date d'edition</th>
-                <th>Numero isbn13</th>
+                <th>Editeur</th>
                 <th>Auteur</th>
                 <th></th>
             </tr>
@@ -55,15 +56,15 @@
             <tbody>
             <tr th:each="tempLivre : ${livres}">
                 <td th:text="${tempLivre.titre}"></td>
-                <td th:text="${tempLivre.resume}"></td>
+<!--                <td th:text="${tempLivre.resume}"></td>-->
                 <td th:text="${tempLivre.dateEdition}"></td>
-                <td th:text="${tempLivre.numeroIsbn13}"></td>
+                <td th:text="${tempLivre.editeur.nomMaisonEdition}"></td>
                 <td th:text="${tempLivre.auteurs}"></td>
                 <td><a th:href="@{#}" class="card-link">Détail</a></td>
             </tr>
             </tbody>
         </table>
     </div>
-</div>
+<!--</div>-->
 </body>
 </html>

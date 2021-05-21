@@ -40,6 +40,11 @@ public class TokenValidationHelper extends BasicAuthenticationFilter {
         super(authenticationManager);
     }
 
+    /**
+     * Vérifie le token envoyé par user-service
+     * @param jwt le token
+     * @return un boolean selon le résultat positif/négatif de la vérification
+     */
     public boolean isJwtValid(String jwt) {
         boolean returnValue = true;
         String subject = Jwts.parser()
@@ -53,37 +58,14 @@ public class TokenValidationHelper extends BasicAuthenticationFilter {
         return returnValue;
     }
 
-//    @Override
-//    public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-//            throws IOException, ServletException {
-//        request = (HttpServletRequest) request;
-//
-//        //extract token from header
-//        final String accessToken = request.getHeader("header-name");
-//        if (null != accessToken) {
-//            //get and check whether token is valid ( from DB or file wherever you are storing the token)
-//
-//            //Populate SecurityContextHolder by fetching relevant information using token
-//            final User user = new User(
-//                    "username",
-//                    "password",
-//                    true,
-//                    true,
-//                    true,
-//                    true,
-//                    authorities);
-//            final UsernamePasswordAuthenticationToken authentication =
-//                    new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
-//            SecurityContextHolder.getContext().setAuthentication(authentication);
-//
-//        }
-//
-//        filterChain.doFilter(request, response);
-//    }
-
+    /**
+     * Récupère le token et l'utilise afin de définir l'utilisateur à intégrer dans le context de sécurité pour connexion.
+     * @param token le token envoyé par user-service
+     * @param roles le(s) rôles de l'utilisateur.
+     * @return un objet UsernamePasswordAuthenticationToken définissant l'utilisateur et ses roles si la vérification est un succès.
+     */
     public UsernamePasswordAuthenticationToken getAuthentication(String token, String roles) {
         Set<String> roleList = stringTokenizerHelper(roles);
-//        Set<RoleDto> roleList = userServiceProxy.findUtilisateurByPublicId(publicId).getRoles();
         List<GrantedAuthority> authorities = roleList
                 .stream()
                 .map(SimpleGrantedAuthority::new)
@@ -95,18 +77,21 @@ public class TokenValidationHelper extends BasicAuthenticationFilter {
                     .getSubject();
             if (user != null) {
                 return new UsernamePasswordAuthenticationToken(user, null, authorities);
-
             }
             return null;
         }
         return null;
     }
 
+    /**
+     * Permet de formater le(s) roles de l'utilisateur qui souhaite se connecter (string -> set<GrantedAuthorities>)
+     * @param subject le(s) role(s) de l'utilisateur sous forme d'une chaine de caracteres
+     * @return un set de string roles
+     */
     public Set<String> stringTokenizerHelper(String subject) {
         List<String> result = new ArrayList<>();
         List<String> result2 = new ArrayList<>();
         Set<String> rolesList = new HashSet<>();
-
         StringTokenizer st = new StringTokenizer(subject, ",");
         while (st.hasMoreTokens()) {
             result.add(st.nextToken());

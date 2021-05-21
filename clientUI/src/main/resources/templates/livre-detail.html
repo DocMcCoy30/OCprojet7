@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet"/>
-    <title>Cards</title>
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet">
+    <title>Détail d'un livre</title>
 </head>
 <body>
+<header th:insert="fragments/header.html"></header>
 <div class="container">
+    <div th:insert="fragments/recherche.html"></div>
+    <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+    </div>
+    <div th:text="${statut}"></div>
+    <div th:if="${message}" th:utext="${message}"
+         style="color:red;font-style:italic;">
+    </div>
 
     <h1>Cards</h1>
     <div th:if="${! #lists.isEmpty(lastLivres)}">
         <div class="row">
-            <div class="col-md-4" th:each="tempLivre : ${lastLivres}">
+            <div class="col-md-10" th:each="tempLivre : ${lastLivres}">
                 <div class="card"  style="margin-top: 2em">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
@@ -37,5 +49,6 @@
     </div>
 </div>
 
+<footer th:insert="fragments/footer.html"></footer>
 </body>
 </html>

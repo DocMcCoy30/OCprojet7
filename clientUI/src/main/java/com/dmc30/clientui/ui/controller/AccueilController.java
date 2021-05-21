@@ -34,17 +34,11 @@ public class AccueilController {
 
     Logger logger = LoggerFactory.getLogger(AccueilController.class);
 
-//    @GetMapping("/")
-//    public String getToAccueil(@RequestParam(value = "publicId", required = false) String publicId, Model theModel) {
-//        if (publicId!=null) {
-//            UtilisateurDto abonne = userService.getUtilisateurByPublicId(publicId);
-//            theModel.addAttribute("abonne", abonne);
-//        }
-//        LivreDto livre = new LivreDto();
-//        theModel.addAttribute("livre", livre);
-//        return "accueil";
-//    }
-
+    /**
+     * Affiche la vue index : page d'accueil de l'application
+     * @param publicId L'identifiant public de l'utilisateur s'il est connecté
+     * @return la vue index avec la liste des bibliotheque et l'utilisateur s'il est connecté
+     */
     @GetMapping("/")
     public ModelAndView showIndex(@RequestParam(value = "publicId", required = false) String publicId) {
         UtilisateurDto abonneDto = new UtilisateurDto();
@@ -58,7 +52,12 @@ public class AccueilController {
         return theModel;
     }
 
-
+    /**
+     * Affiche la vue accueil de l'application
+     * @param publicId L'identifiant public de l'utilisateur s'il est connecté
+     * @param bibliothequeId L'identifiant de la bibliotheque choisie dans la page index
+     * @return la vue accueil avec l'utilisateur s'il est connecté, la bibliothèque selectionnée, et la liste des 12 derniers livres enregistrés dans la BD
+     */
     @PostMapping("/showAccueil")
     public ModelAndView getToLast12(@RequestParam(value = "publicId", required = false) String publicId,
                               @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
