@@ -6,6 +6,7 @@ import com.dmc30.clientui.service.contract.UserService;
 import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
 import com.dmc30.clientui.shared.livre.LivreDto;
 import com.dmc30.clientui.shared.utilisateur.UtilisateurDto;
+import com.dmc30.clientui.ui.model.LivreResponseModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,11 +68,10 @@ public class AccueilController {
             UtilisateurDto abonne = userService.getUtilisateurByPublicId(publicId);
             theModel.addObject("abonne", abonne);
         }
-        List<LivreDto> livres = livreService.get12LastLivres();
+        List<LivreResponseModel> livres = livreService.get12LastLivres();
         theModel.addObject("lastLivres", livres);
         BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
         theModel.addObject("bibliotheque", bibliotheque);
-
         return theModel;
     }
 }

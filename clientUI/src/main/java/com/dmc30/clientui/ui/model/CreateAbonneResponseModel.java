@@ -1,5 +1,6 @@
 package com.dmc30.clientui.ui.model;
 
+import com.dmc30.clientui.shared.utilisateur.RoleDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,5 +17,5 @@ public class CreateAbonneResponseModel {
     private String nom;
     private String email;
     private String publicId;
-    private Set<Role> role;
+    private Set<RoleDto> role;
 }

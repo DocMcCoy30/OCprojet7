@@ -4,6 +4,7 @@ import com.dmc30.clientui.service.contract.BibliothequeService;
 import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
 import com.dmc30.clientui.shared.livre.LivreDto;
 import com.dmc30.clientui.service.contract.LivreService;
+import com.dmc30.clientui.ui.model.LivreResponseModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class LivreController {
      */
     @GetMapping("/showLivres")
     public String getLivres(Model theModel) {
-        List<LivreDto> livres = livreService.getLivres();
+        List<LivreResponseModel> livres = livreService.getLivres();
         theModel.addAttribute("livres", livres);
         return "accueil";
     }
@@ -55,7 +56,7 @@ public class LivreController {
     @PostMapping("/showLivresByTitre")
     public String getLivreByTitre(Model theModel,
                                   @RequestParam("motCle") String motCle) {
-        List<LivreDto> livres = livreService.getLivreByTitre(motCle);
+        List<LivreResponseModel> livres = livreService.getLivreByTitre(motCle);
         theModel.addAttribute("livresParTitre", livres);
         return "accueil";
     }
@@ -69,7 +70,7 @@ public class LivreController {
     @PostMapping("/showLivresByAuteur")
     public String getLivreByAuteur(Model theModel,
                                    @RequestParam("motCle") String motCle) {
-        List<LivreDto> livres = livreService.getLivreByAuteur(motCle);
+        List<LivreResponseModel> livres = livreService.getLivreByAuteur(motCle);
         theModel.addAttribute("livresParAuteur", livres);
         return "accueil";
     }
@@ -87,7 +88,7 @@ public class LivreController {
                                      @RequestParam("bibliothequeId") Long bibliothequeId) {
         String errorMessage = null;
         ModelAndView theModel = new ModelAndView("accueil");
-        List<LivreDto> livres = new ArrayList<>();
+        List<LivreResponseModel> livres = new ArrayList<>();
         logger.info("searchParam = " + searchParam);
         logger.info("motCle = " + motCle);
         String lowerMotCle = "";

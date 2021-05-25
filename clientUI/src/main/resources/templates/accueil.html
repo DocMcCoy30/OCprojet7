@@ -36,9 +36,10 @@
                     <img th:src="@{/img/couv.jpg}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${tempLivre.titre}">Card title</h5>
-                        <span th:each="auteur : ${tempLivre.auteurs}">
-                            <span class="card-subtitle mb-2 text-muted" th:text="${auteur.prenom} + ' ' + ${auteur.nom} + ' - '"></span>
-                        </span>
+<!--                        <span th:each="auteur : ${tempLivre.auteurs}">-->
+<!--                            <span class="card-subtitle mb-2 text-muted" th:text="${auteur.prenom} + ' ' + ${auteur.nom} + ' - '"></span>-->
+<!--                        </span>-->
+                        <p class="card-subtitle mb-2 text-muted" th:text="${tempLivre.auteurs}"></p>
                         <p class="card-text" th:text="${tempLivre.editeur.nomMaisonEdition}"></p>
                     </div>
                     <!--                    <ul class="list-group list-group-flush">-->

@@ -26,7 +26,7 @@ public class BibliothequeController {
     }
 
     @PostMapping("/bibliotheque")
-    public Bibliotheque getBibliotheque(@RequestParam("bibliothequeId") Long bibliothequeId) {
+    public Bibliotheque getBibliotheque(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         return bibliothequeService.findById(bibliothequeId);
     }
 }

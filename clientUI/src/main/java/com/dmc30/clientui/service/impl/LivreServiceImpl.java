@@ -1,12 +1,18 @@
 package com.dmc30.clientui.service.impl;
 
 import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
+import com.dmc30.clientui.shared.livre.AuteurDto;
 import com.dmc30.clientui.shared.livre.LivreDto;
 import com.dmc30.clientui.proxy.LivreServiceProxy;
 import com.dmc30.clientui.service.contract.LivreService;
+import com.dmc30.clientui.ui.model.LivreResponseModel;
+import org.apache.commons.lang.StringUtils;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,23 +26,83 @@ public class LivreServiceImpl implements LivreService {
     }
 
     @Override
-    public List<LivreDto> getLivres() {
-        return livreServiceProxy.getLivres();
+    public List<LivreResponseModel> getLivres() {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<LivreResponseModel> livreResponseModelList = new ArrayList<>();
+        List<LivreDto> livreDtos = livreServiceProxy.getLivres();
+        for (LivreDto livre:livreDtos) {
+            LivreResponseModel livreResponseModel = modelMapper.map(livre, LivreResponseModel.class);
+            livreResponseModel.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
+            livreResponseModelList.add(livreResponseModel);
+        }
+        return livreResponseModelList;
     }
 
     @Override
-    public List<LivreDto> get12LastLivres() {
-        return livreServiceProxy.get12LastLivres();
+    public List<LivreResponseModel> get12LastLivres() {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<LivreResponseModel> livreResponseModelList = new ArrayList<>();
+        List<LivreDto> livreDtos = livreServiceProxy.get12LastLivres();
+        for (LivreDto livre:livreDtos) {
+            LivreResponseModel livreResponseModel = modelMapper.map(livre, LivreResponseModel.class);
+            livreResponseModel.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
+            livreResponseModelList.add(livreResponseModel);
+        }
+        return livreResponseModelList;
     }
 
     @Override
-    public List<LivreDto> getLivreByTitre(String motCle) {
-        return livreServiceProxy.getLivreByTitre(motCle);
+    public List<LivreResponseModel> getLivreByTitre(String motCle) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<LivreResponseModel> livreResponseModelList = new ArrayList<>();
+        List<LivreDto> livreDtos = livreServiceProxy.getLivreByTitre(motCle);
+        for (LivreDto livre:livreDtos) {
+            LivreResponseModel livreResponseModel = modelMapper.map(livre, LivreResponseModel.class);
+            livreResponseModel.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
+            livreResponseModelList.add(livreResponseModel);
+        }
+        return livreResponseModelList;
     }
 
     @Override
-    public List<LivreDto> getLivreByAuteur(String motCle) {
-        return livreServiceProxy.getLivreByAuteur(motCle);
+    public List<LivreResponseModel> getLivreByAuteur(String motCle) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<LivreResponseModel> livreResponseModelList = new ArrayList<>();
+        List<LivreDto> livreDtos = livreServiceProxy.getLivreByAuteur(motCle);
+        for (LivreDto livre:livreDtos) {
+            LivreResponseModel livreResponseModel = modelMapper.map(livre, LivreResponseModel.class);
+            livreResponseModel.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
+            livreResponseModelList.add(livreResponseModel);
+        }
+        return livreResponseModelList;
     }
 
+    @Override
+    public String formatListeAuteurs(List<AuteurDto> auteurs) {
+        List<String> nomDesAuteurs = new ArrayList<>();
+        String prenom = "";
+        String nom = "";
+        String prenomNom = "";
+        String auteursPourVue = "";
+        for (AuteurDto auteur : auteurs) {
+            if (auteur.getPrenom() != null) {
+                prenom = auteur.getPrenom();
+            }
+            if (auteur.getNom() != null) {
+                nom = auteur.getNom();
+            }
+            prenomNom = prenom + " " + nom + " ";
+            nomDesAuteurs.add(prenomNom);
+            nomDesAuteurs.add(" - ");
+        }
+        if (nomDesAuteurs.size() > 0)
+            nomDesAuteurs.remove(nomDesAuteurs.size() - 1);
+        auteursPourVue = StringUtils.join(nomDesAuteurs, "");
+        return auteursPourVue;
+    }
 }
+

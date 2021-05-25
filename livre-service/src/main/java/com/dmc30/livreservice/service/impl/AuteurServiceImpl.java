@@ -4,12 +4,15 @@ import com.dmc30.livreservice.exception.IntrouvableException;
 import com.dmc30.livreservice.data.entity.livre.Auteur;
 import com.dmc30.livreservice.data.repository.AuteurRepository;
 import com.dmc30.livreservice.service.contract.AuteurService;
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.StringJoiner;
 
 @Service
 public class AuteurServiceImpl implements AuteurService {
@@ -64,4 +67,5 @@ public class AuteurServiceImpl implements AuteurService {
     public List<Auteur> findAuteurByNomContaining(String motCle) {
         return auteurRepository.findAuteurByNomContaining(motCle);
     }
+
 }

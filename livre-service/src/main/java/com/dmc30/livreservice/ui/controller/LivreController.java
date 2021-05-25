@@ -51,9 +51,10 @@ public class LivreController {
     @PostMapping(path = "/livres/titre")
     public List<Livre> getLivreByTitre(@RequestParam("motCle") String motCle) {
         List<Livre> livres = livreService.findLivreByTitreContaining(motCle);
+        List<Auteur> auteurs = new ArrayList<>();
         for(Livre tempLivre : livres) {
             Long livreId = tempLivre.getId();
-            List<Auteur> auteurs = auteurService.findAuteurByLivres(livreId);
+            auteurs = auteurService.findAuteurByLivres(livreId);
             tempLivre.setAuteurs(auteurs);
         }
         return livres;
