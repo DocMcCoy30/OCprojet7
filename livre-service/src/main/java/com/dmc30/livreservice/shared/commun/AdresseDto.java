@@ -1,4 +1,4 @@
-package com.dmc30.userservice.shared;
+package com.dmc30.livreservice.shared.commun;
 
 import lombok.*;
 

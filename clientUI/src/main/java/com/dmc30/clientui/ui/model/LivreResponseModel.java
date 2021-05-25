@@ -12,6 +12,7 @@ import java.util.Set;
 @Setter
 public class LivreResponseModel {
 
+    private Long id;
     private String titre;
     private String resume;
     private String auteurs;

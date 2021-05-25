@@ -1,17 +1,16 @@
 package com.dmc30.livreservice.data.entity.livre;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data @NoArgsConstructor @AllArgsConstructor @ToString
 @Entity
 @Table(name = "langue")
+@Getter
+@Setter
 public class Langue {
 
     @Id
@@ -22,9 +21,10 @@ public class Langue {
     private String code;
     @Column(name = "langue")
     private String langue;
+
+    @JsonBackReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "langue",
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JsonIgnore
     private List<Livre> livres;
 
 

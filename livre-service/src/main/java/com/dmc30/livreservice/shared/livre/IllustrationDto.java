@@ -1,4 +1,4 @@
-package com.dmc30.clientui.shared.livre;
+package com.dmc30.livreservice.shared.livre;
 
 import lombok.*;
 

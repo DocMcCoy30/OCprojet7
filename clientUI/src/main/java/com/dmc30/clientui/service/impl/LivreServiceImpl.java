@@ -54,6 +54,15 @@ public class LivreServiceImpl implements LivreService {
     }
 
     @Override
+    public LivreResponseModel getLivreById(Long livreId) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        LivreDto livreDto = livreServiceProxy.getLivreById(livreId);
+        LivreResponseModel livreResponseModel = modelMapper.map(livreDto, LivreResponseModel.class);
+        return livreResponseModel;
+    }
+
+    @Override
     public List<LivreResponseModel> getLivreByTitre(String motCle) {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
@@ -86,7 +95,6 @@ public class LivreServiceImpl implements LivreService {
         List<String> nomDesAuteurs = new ArrayList<>();
         String prenom = "";
         String nom = "";
-        String prenomNom = "";
         String auteursPourVue = "";
         for (AuteurDto auteur : auteurs) {
             if (auteur.getPrenom() != null) {
@@ -95,7 +103,7 @@ public class LivreServiceImpl implements LivreService {
             if (auteur.getNom() != null) {
                 nom = auteur.getNom();
             }
-            prenomNom = prenom + " " + nom + " ";
+            String prenomNom = prenom + " " + nom + " ";
             nomDesAuteurs.add(prenomNom);
             nomDesAuteurs.add(" - ");
         }

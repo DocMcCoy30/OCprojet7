@@ -1,9 +1,10 @@
-package com.dmc30.clientui.ui.model;
+package com.dmc30.livreservice.shared.commun;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
-public class Pays {
+@Getter
+@Setter
+public class PaysDto {
 
     private String nom;
     private String codeAlpha2;

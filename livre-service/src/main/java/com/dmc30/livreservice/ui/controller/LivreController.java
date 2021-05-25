@@ -4,6 +4,7 @@ import com.dmc30.livreservice.data.entity.livre.Auteur;
 import com.dmc30.livreservice.data.entity.livre.Livre;
 import com.dmc30.livreservice.service.contract.AuteurService;
 import com.dmc30.livreservice.service.contract.LivreService;
+import com.dmc30.livreservice.shared.livre.LivreDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -69,5 +70,10 @@ public class LivreController {
             livres = livreService.findLivreByAuteur(auteurId);
          }
         return livres;
+    }
+
+    @GetMapping(path = "/livres/id")
+    public LivreDto getLivreById(@RequestParam("livreId") Long livreId) {
+        return livreService.findLivreById(livreId);
     }
 }

@@ -11,6 +11,7 @@ public interface LivreService {
 
     List<LivreResponseModel> getLivres();
     List<LivreResponseModel> get12LastLivres();
+    LivreResponseModel getLivreById(Long id);
     List<LivreResponseModel> getLivreByTitre(String motCle);
     List<LivreResponseModel> getLivreByAuteur(String motCle);
     String formatListeAuteurs (List<AuteurDto> auteurs);

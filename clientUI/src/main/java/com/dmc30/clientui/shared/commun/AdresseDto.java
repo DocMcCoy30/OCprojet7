@@ -1,14 +1,9 @@
 package com.dmc30.clientui.shared.commun;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
+@Getter
+@Setter
 public class AdresseDto {
 
     private String rue;

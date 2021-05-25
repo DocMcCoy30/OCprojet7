@@ -6,9 +6,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 public class UtilisateurDto implements Serializable {
 
     @Getter(value = AccessLevel.NONE)

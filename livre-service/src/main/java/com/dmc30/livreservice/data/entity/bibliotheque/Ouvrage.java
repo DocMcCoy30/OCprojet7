@@ -8,11 +8,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ouvrage")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString(exclude = {"livre", "bibliotheque"})
-@EqualsAndHashCode(exclude = {"livre", "bibliotheque"})
+@Getter
+@Setter
 public class Ouvrage {
 
     @Id
@@ -23,8 +20,6 @@ public class Ouvrage {
     @Column(name = "id_interne")
     private String idInterne;
 
-    //    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-//    @JoinColumn(name = "id_bibliotheque")
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "id_bibliotheque")

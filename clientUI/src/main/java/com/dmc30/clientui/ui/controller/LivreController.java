@@ -37,6 +37,7 @@ public class LivreController {
 
     /**
      * Affiche la page accueil
+     *
      * @param theModel Le Model retourné.
      * @return la vue accueil avec la liste de tous les livres de la BD.
      */
@@ -49,8 +50,9 @@ public class LivreController {
 
     /**
      * Affiche la page accueil
+     *
      * @param theModel le Model retourné.
-     * @param motCle Le mot clé entré dans la vue, chaine de caractères que doit contenir le titre des livres recherchés.
+     * @param motCle   Le mot clé entré dans la vue, chaine de caractères que doit contenir le titre des livres recherchés.
      * @return la vue accueil avec la liste des livres dont le mot clé correspond au titre.
      */
     @PostMapping("/showLivresByTitre")
@@ -63,9 +65,10 @@ public class LivreController {
 
     /**
      * Affiche la page accueil.
+     *
      * @param theModel le Model retourné.
-     * @param motCle la vue accueil avec la liste des livres dont le mot clé correspond au nom de l'auteur.
-     * @return
+     * @param motCle   Le mot-clé pour la recherche
+     * @return la vue accueil avec la liste des livres dont le mot clé correspond au nom de l'auteur.
      */
     @PostMapping("/showLivresByAuteur")
     public String getLivreByAuteur(Model theModel,
@@ -77,8 +80,9 @@ public class LivreController {
 
     /**
      * Affiche la page accueil après une recherche de livres dans BD selon certains critères.
-     * @param searchParam L'identifiant du critère de recherche choisi (titre ou nom de l'auteur)
-     * @param motCle Le mot clé entré dans la vue, chaine de caractères que doit contenir le titre ou le nom de l'auteur des livres recherchés.
+     *
+     * @param searchParam    L'identifiant du critère de recherche choisi (titre ou nom de l'auteur)
+     * @param motCle         Le mot clé entré dans la vue, chaine de caractères que doit contenir le titre ou le nom de l'auteur des livres recherchés.
      * @param bibliothequeId L'identifiant de la bibliothèque selectionnée.
      * @return la vue accueil avec la bibliothèque selectionnée, le résultat de recherche, ou un message si la recherche n'a pas aboutie.
      */
@@ -89,8 +93,8 @@ public class LivreController {
         String errorMessage = null;
         ModelAndView theModel = new ModelAndView("accueil");
         List<LivreResponseModel> livres = new ArrayList<>();
-        logger.info("searchParam = " + searchParam);
-        logger.info("motCle = " + motCle);
+//        logger.info("searchParam = " + searchParam);
+//        logger.info("motCle = " + motCle);
         String lowerMotCle = "";
         if (searchParam != null) {
             lowerMotCle = motCle.toLowerCase();
@@ -114,6 +118,22 @@ public class LivreController {
         }
         theModel.addObject("livres", livres);
         theModel.addObject("errorMessage", errorMessage);
+        return theModel;
+    }
+
+    @GetMapping("/showLivreDetails")
+    public ModelAndView getLivreDetails(@RequestParam(value = "livreId") Long livreId,
+                                        @RequestParam("bibliothequeId") Long bibliothequeId) {
+        ModelAndView theModel = new ModelAndView("livre-detail");
+        logger.info("LivreId = " + livreId);
+        if (livreId != null) {
+            LivreResponseModel livreResponseModel = livreService.getLivreById(livreId);
+            theModel.addObject("livre", livreResponseModel);
+        }
+        if (bibliothequeId != null) {
+            BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
+            theModel.addObject("bibliotheque", bibliotheque);
+        }
         return theModel;
     }
 

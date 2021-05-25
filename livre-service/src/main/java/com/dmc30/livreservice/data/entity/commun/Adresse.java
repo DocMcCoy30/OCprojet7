@@ -1,18 +1,13 @@
 package com.dmc30.livreservice.data.entity.commun;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "adresse")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+@Getter
+@Setter
 public class Adresse {
 
     @Id

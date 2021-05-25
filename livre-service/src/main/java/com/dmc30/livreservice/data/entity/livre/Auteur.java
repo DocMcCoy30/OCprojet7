@@ -1,5 +1,6 @@
 package com.dmc30.livreservice.data.entity.livre;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
@@ -8,11 +9,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "auteur")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString(exclude = "livres")
-@EqualsAndHashCode(exclude = "livres")
+@Getter
+@Setter
 public class Auteur {
 
     @Id
@@ -31,6 +29,7 @@ public class Auteur {
     @Column(name = "date_deces")
     private String dateDeces;
 
+    @JsonBackReference
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
@@ -38,6 +37,5 @@ public class Auteur {
             joinColumns = {@JoinColumn(name = "id_auteur")},
             inverseJoinColumns = {@JoinColumn(name = "id_livre")}
     )
-    @JsonIgnore
     private List<Livre> livres;
 }

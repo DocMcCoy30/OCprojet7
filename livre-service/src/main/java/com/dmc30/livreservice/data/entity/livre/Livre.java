@@ -9,11 +9,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "livre")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString(exclude = {"auteurs","genres","ouvrages"})
-@EqualsAndHashCode(exclude = {"auteurs","genres","ouvrages"})
+@Getter
+@Setter
 public class Livre {
 
     @Id
@@ -33,14 +30,17 @@ public class Livre {
     @Column(name = "numero_isbn13")
     private String numeroIsbn13;
 
+    @JsonManagedReference
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "id_editeur")
     private Editeur editeur;
 
+    @JsonManagedReference
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "id_langue")
     private Langue langue;
 
+    @JsonManagedReference
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
@@ -50,6 +50,7 @@ public class Livre {
     )
     private List<Auteur> auteurs;
 
+    @JsonManagedReference
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
@@ -59,6 +60,7 @@ public class Livre {
     )
     private List<Genre> genres;
 
+    @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
     private List<Illustration> illustrations;
 

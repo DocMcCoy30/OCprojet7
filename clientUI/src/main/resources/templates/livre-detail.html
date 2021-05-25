@@ -23,27 +23,18 @@
     </div>
 
     <h1>Cards</h1>
-    <div th:if="${! #lists.isEmpty(lastLivres)}">
-        <div class="row">
-            <div class="col-md-10" th:each="tempLivre : ${lastLivres}">
-                <div class="card"  style="margin-top: 2em">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${tempLivre.titre}">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted" th:text="${tempLivre.auteurs}">Card
-                            subtitle</h6>
-                        <p class="card-text" th:text="${tempLivre.resume}"></p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item" th:text="${tempLivre.numeroIsbn13}">ISBN</li>
-                        <li class="list-group-item" th:text="${tempLivre.editeur.nomMaisonEdition}">Editeur</li>
-                        <li class="list-group-item" th:text="${tempLivre.dateEdition}">Date d'édition</li>
-                    </ul>
-                    <div class="card-body">
-                        <a th:href="@{#}" class="card-link">Détail du livre</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
+    <div th:if="${livre}">
+        <div class="card">
+            <div class="photo">
+                <img th:src="@{/img/couv.jpg}">
+            </div>
+            <div class="description">
+                <h2 th:text="${livre.titre}">Classic Peace Lily</h2>
+                <h3 th:text="${livre.auteurs}">Popular House Plant</h3>
+                <h4 th:text="${livre.editeur.nomMaisonEdition}">$18</h4>
+                <p th:text="${livre.resume}"></p>
+                <button>Add to Cart</button>
+                <button>Wishlist</button>
             </div>
         </div>
     </div>

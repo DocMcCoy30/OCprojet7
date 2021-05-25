@@ -1,16 +1,14 @@
 package com.dmc30.livreservice.data.entity.livre;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "illustration")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString(exclude = "livre")
-@EqualsAndHashCode(exclude = "livre")
+@Getter
+@Setter
 public class Illustration {
 
     @Id
@@ -24,6 +22,7 @@ public class Illustration {
     @Column(name = "type_illustration")
     private String typeIllustration;
 
+    @JsonBackReference
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "id_livre")
     private Livre livre;

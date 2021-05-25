@@ -1,6 +1,7 @@
-package com.dmc30.clientui.shared.bibliotheque;
+package com.dmc30.livreservice.shared.bibliotheque;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 

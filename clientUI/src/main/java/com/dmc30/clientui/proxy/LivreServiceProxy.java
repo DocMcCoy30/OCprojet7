@@ -27,6 +27,11 @@ public interface LivreServiceProxy {
     @GetMapping("/bibliotheques")
     List<BibliothequeDto> getBibliotheques();
 
+    @GetMapping("livres/id")
+    LivreDto getLivreById(@RequestParam("livreId") Long livreId);
+
     @PostMapping("/bibliotheque")
     BibliothequeDto getBibliotheque(@RequestParam("bibliothequeId") Long bibliothequeId);
+
+
 }

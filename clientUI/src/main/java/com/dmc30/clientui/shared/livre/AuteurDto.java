@@ -1,14 +1,12 @@
 package com.dmc30.clientui.shared.livre;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import net.minidev.json.annotate.JsonIgnore;
 
 import java.util.List;
 
-@Data @AllArgsConstructor @NoArgsConstructor @ToString
+@Getter
+@Setter
 public class AuteurDto {
 
     private String nom;
@@ -17,13 +15,4 @@ public class AuteurDto {
     private String dateDeces;
     private List<LivreDto> livres;
 
-    @Override
-    public String toString() {
-        return "AuteurDto{" +
-                "nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", dateNaissance='" + dateNaissance + '\'' +
-                ", dateDeces='" + dateDeces + '\'' +
-                '}';
-    }
 }

@@ -10,11 +10,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "bibliotheque")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString(exclude = {"ouvrages"})
-@EqualsAndHashCode(exclude = {"ouvrages"})
+@Getter
+@Setter
 public class Bibliotheque {
 
     @Id

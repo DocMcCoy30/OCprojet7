@@ -1,6 +1,6 @@
-package com.dmc30.clientui.shared.bibliotheque;
+package com.dmc30.livreservice.shared.bibliotheque;
 
-import com.dmc30.clientui.shared.livre.LivreDto;
+import com.dmc30.livreservice.shared.livre.LivreDto;
 import lombok.*;
 
 import java.util.List;
