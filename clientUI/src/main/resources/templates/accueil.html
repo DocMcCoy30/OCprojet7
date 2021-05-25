@@ -48,7 +48,7 @@
                     <!--                        <li class="list-group-item" th:text="${tempLivre.dateEdition}">Date d'édition</li>-->
                     <!--                    </ul>-->
                     <div class="card-body">
-                        <a th:href="@{#}" class="card-link">Détail du livre</a>
+                        <a th:href="@{showLivreDetails(livreId=${tempLivre.id}, bibliothequeId=${bibliotheque.id})}" class="card-link">Détail du livre</a>
                     </div>
                 </div>
             </div>

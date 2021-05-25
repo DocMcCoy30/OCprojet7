@@ -59,6 +59,7 @@ public class LivreServiceImpl implements LivreService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         LivreDto livreDto = livreServiceProxy.getLivreById(livreId);
         LivreResponseModel livreResponseModel = modelMapper.map(livreDto, LivreResponseModel.class);
+        livreResponseModel.setAuteurs(formatListeAuteurs(livreDto.getAuteurs()));
         return livreResponseModel;
     }
 

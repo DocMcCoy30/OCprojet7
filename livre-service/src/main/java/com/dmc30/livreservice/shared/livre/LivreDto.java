@@ -2,6 +2,7 @@ package com.dmc30.livreservice.shared.livre;
 
 import com.dmc30.livreservice.shared.bibliotheque.OuvrageDto;
 import com.dmc30.livreservice.shared.livre.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 

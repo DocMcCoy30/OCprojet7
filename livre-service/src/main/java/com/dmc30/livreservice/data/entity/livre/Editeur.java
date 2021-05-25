@@ -21,7 +21,7 @@ public class Editeur {
     @Column(name = "nom_maison_edition")
     private String nomMaisonEdition;
 
-    @JsonBackReference
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "editeur",
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Livre> livres;

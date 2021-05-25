@@ -1,5 +1,6 @@
 package com.dmc30.livreservice.shared.livre;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 public class EditeurDto {
 
     private String nomMaisonEdition;
+    @JsonIgnore
     private List<LivreDto> livres;
 
     @Override

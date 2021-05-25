@@ -1,5 +1,6 @@
 package com.dmc30.clientui.shared.livre;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.List;

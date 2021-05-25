@@ -40,7 +40,7 @@ public class Livre {
     @JoinColumn(name = "id_langue")
     private Langue langue;
 
-    @JsonManagedReference
+//    @JsonManagedReference
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(

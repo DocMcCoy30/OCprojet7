@@ -1,5 +1,7 @@
 package com.dmc30.livreservice.shared.livre;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.List;
@@ -12,6 +14,7 @@ public class AuteurDto {
     private String prenom;
     private String dateNaissance;
     private String dateDeces;
+    @JsonIgnore
     private List<LivreDto> livres;
 
     @Override
