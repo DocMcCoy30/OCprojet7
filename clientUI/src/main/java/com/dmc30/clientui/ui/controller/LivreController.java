@@ -1,6 +1,7 @@
 package com.dmc30.clientui.ui.controller;
 
 import com.dmc30.clientui.service.contract.BibliothequeService;
+import com.dmc30.clientui.service.contract.OuvrageService;
 import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
 import com.dmc30.clientui.shared.livre.LivreDto;
 import com.dmc30.clientui.service.contract.LivreService;
@@ -26,17 +27,19 @@ public class LivreController {
 
     Logger logger = LoggerFactory.getLogger(LivreController.class);
 
-    private LivreService livreService;
-    private BibliothequeService bibliothequeService;
+    LivreService livreService;
+    BibliothequeService bibliothequeService;
+    OuvrageService ouvrageService;
 
     @Autowired
-    public LivreController(LivreService livreService, BibliothequeService bibliothequeService) {
+    public LivreController(LivreService livreService, BibliothequeService bibliothequeService, OuvrageService ouvrageService) {
         this.livreService = livreService;
         this.bibliothequeService = bibliothequeService;
+        this.ouvrageService = ouvrageService;
     }
 
     /**
-     * Affiche la page accueil
+     * Affiche la page accueil et la liste de tous les livres
      *
      * @param theModel Le Model retourné.
      * @return la vue accueil avec la liste de tous les livres de la BD.
@@ -49,7 +52,7 @@ public class LivreController {
     }
 
     /**
-     * Affiche la page accueil
+     * Affiche la page accueil et la liste des livres recherchés
      *
      * @param theModel le Model retourné.
      * @param motCle   Le mot clé entré dans la vue, chaine de caractères que doit contenir le titre des livres recherchés.
@@ -64,7 +67,7 @@ public class LivreController {
     }
 
     /**
-     * Affiche la page accueil.
+     * Affiche la page accueil et la liste des livres recherchés
      *
      * @param theModel le Model retourné.
      * @param motCle   Le mot-clé pour la recherche
@@ -121,6 +124,13 @@ public class LivreController {
         return theModel;
     }
 
+    /**
+     * Affiche la page du détail d'un livre
+     *
+     * @param livreId        l'identifiant du livre selectionné
+     * @param bibliothequeId l'identifiant de la bibliotheque selectionnée
+     * @return le détail d'un livre et le nombre d'exemplaire disponible
+     */
     @GetMapping("/showLivreDetails")
     public ModelAndView getLivreDetails(@RequestParam(value = "livreId") Long livreId,
                                         @RequestParam("bibliothequeId") Long bibliothequeId) {
@@ -129,6 +139,27 @@ public class LivreController {
         if (livreId != null) {
             LivreResponseModel livreResponseModel = livreService.getLivreById(livreId);
             theModel.addObject("livre", livreResponseModel);
+            int nbExDispoInOne = ouvrageService.getOuvrageDispoInOneBibliotheque(livreId, bibliothequeId);
+            logger.info("Nombre d'ouvrage dispo = " + nbExDispoInOne);
+            theModel.addObject("nbExDispoInOne", nbExDispoInOne);
+            // test on nbExDispoInOther
+            List<Object> nbExDispoInOtherElements = ouvrageService.getOuvrageDispoInOtherBibliotheque(livreId, bibliothequeId);
+            if (!nbExDispoInOtherElements.isEmpty()) {
+                logger.info("Nombre d'ex dispo in other : " + nbExDispoInOtherElements);
+                logger.info("String obj1 = " + nbExDispoInOtherElements.get(0));
+                theModel.addObject("nbExDispoInOtherElements", nbExDispoInOtherElements);
+                for (Object elements : nbExDispoInOtherElements) {
+                    logger.info("Objet " + nbExDispoInOtherElements.indexOf(elements) + " : " + elements);
+                    logger.info("Objet " + nbExDispoInOtherElements.indexOf(elements) + " class : " + elements.getClass());
+                    List<Object> elementsList = (List<Object>) elements;
+                    Integer nbEx = (Integer) elementsList.get(0);
+                    Integer bibliothequeIdForEx = (Integer) elementsList.get(1);
+                    String bibliothequeNom = (String) elementsList.get(2);
+                    logger.info("nbEx : " + nbEx);
+                    logger.info("bibliothequeIdForEx : " + bibliothequeIdForEx);
+                    logger.info("bibliothequeNom : " + bibliothequeNom);
+                }
+            }
         }
         if (bibliothequeId != null) {
             BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);

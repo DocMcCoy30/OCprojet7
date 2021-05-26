@@ -22,7 +22,7 @@
          style="color:red;font-style:italic;">
     </div>
 
-    <h1>Détail du livre :</h1>
+    <h3>Détail du livre :</h3>
     <br>
     <div th:if="${livre}">
         <div class="card" style="border: 2px solid darkred;">
@@ -45,9 +45,15 @@
                     <h3 th:text="${livre.auteurs}"></h3>
                     <h4 th:text="${livre.editeur.nomMaisonEdition}"></h4>
                     <br>
-<!--                    <p th:text="${livre.resume}"></p>-->
-<!--                    <button>Add to Cart</button>-->
-<!--                    <button>Wishlist</button>-->
+                    <span>Nombre d'exemplaire disponible : <a th:text="${nbExDispoInOne}"></a></span>
+                    <br>
+                    <hr>
+                    <div th:if="${nbExDispoInOtherElements}">
+                        <div th:each="elements : ${nbExDispoInOtherElements}">
+                            <span><a th:text="${elements[0]}"></a> exemplaire(s) disponible(s)</span>
+                            <span> à la <a th:text="${elements[2]}"></a></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
