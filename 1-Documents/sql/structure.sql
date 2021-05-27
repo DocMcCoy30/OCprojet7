@@ -3,9 +3,9 @@
 --
 
 -- Dumped from database version 13.2
--- Dumped by pg_dump version 13.2
+-- Dumped by pg_dump version 13.3
 
--- Started on 2021-05-12 18:06:07
+-- Started on 2021-05-27 16:17:39
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -24,7 +24,7 @@ SET row_security = off;
 --
 
 CREATE SEQUENCE public.adresse_id_seq1
-    START WITH 5
+    START WITH 1
     INCREMENT BY 1
     MINVALUE -2147483648
     MAXVALUE 2147483647
@@ -820,7 +820,7 @@ ALTER TABLE ONLY public.many_utilisateur_has_many_role
     ADD CONSTRAINT utilisateur_fk FOREIGN KEY (id_utilisateur) REFERENCES public.utilisateur(id) MATCH FULL ON UPDATE CASCADE ON DELETE RESTRICT;
 
 
--- Completed on 2021-05-12 18:06:07
+-- Completed on 2021-05-27 16:17:39
 
 --
 -- PostgreSQL database dump complete

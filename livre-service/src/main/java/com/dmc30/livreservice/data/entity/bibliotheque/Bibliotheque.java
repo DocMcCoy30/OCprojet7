@@ -28,13 +28,11 @@ public class Bibliotheque {
     @Column(name = "nom")
     private String nom;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_adresse")
     private Adresse adresse;
 
-    //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bibliotheque",
-//            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JsonManagedReference
-    @OneToMany(mappedBy = "bibliotheque")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bibliotheque")
     private Set<Ouvrage> ouvrages;
 }
