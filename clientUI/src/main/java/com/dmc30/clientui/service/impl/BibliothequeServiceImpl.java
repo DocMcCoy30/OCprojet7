@@ -23,6 +23,11 @@ public class BibliothequeServiceImpl implements BibliothequeService {
         return livreServiceProxy.getBibliotheques();
     }
 
+    /**
+     * Recherche d'une bibliothèque par son identifiant
+     * @param bibliothequeId l'identifiant de la bibliotheque
+     * @return la bibliothèque recherchée
+     */
     @Override
     public BibliothequeDto getBibliotheque(Long bibliothequeId) {
         return livreServiceProxy.getBibliotheque(bibliothequeId);

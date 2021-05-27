@@ -18,12 +18,24 @@ public class OuvrageController {
         this.ouvrageService = ouvrageService;
     }
 
+    /**
+     * Cherche le nombre d'ouvrages disponibles dans une bibliothèque selectionnée
+     * @param livreId l'identifiant du livre
+     * @param bibliothequeId l'identifiant de la bibliothèque
+     * @return le nombre d'ouvrage disponible dans la bibliotheque selectinnée
+     */
     @GetMapping("/ouvrageDispoInOne")
     public Integer getOuvrageDispoInOneBibliotheque(@RequestParam("livreId") Long livreId,
                                                     @RequestParam("bibliothequeId") Long bibliothequeId) {
         return ouvrageService.findOuvrageDispoInOneBibliotheque(livreId,bibliothequeId);
     }
 
+    /**
+     * Cherche le nombre d'ouvrages disponibles dans les autres bibliothèques que celle selectionné par l'utilisateur
+     * @param livreId l'identifiant du livre
+     * @param bibliothequeId l'identifiant de la bibliothèsue selectionnée
+     * @return le nombre d'ouvrages par bibliothèque (id + nom de la bibliotheque)
+     */
     @GetMapping("/ouvrageDispoInOther")
     public List<Object> getOuvrageDispoInOtherBibliotheque(@RequestParam("livreId") Long livreId,
                                                             @RequestParam("bibliothequeId") Long bibliothequeId) {

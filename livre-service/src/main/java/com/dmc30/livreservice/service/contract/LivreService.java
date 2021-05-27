@@ -8,10 +8,9 @@ import java.util.List;
 
 public interface LivreService {
 
-    List<Livre> findAll();
-    List<Livre> findLivreByTitreContaining(String motCle);
-    void saveLivre(Livre livre);
-    List<Livre> findLivreByAuteur(Long auteurId);
-    List<Livre> findLast12();
+    List<LivreDto> findAll();
+    List<LivreDto> findLivreByTitreContaining(String motCle);
+    List<LivreDto> findLivreByAuteur(Long auteurId);
+    List<LivreDto> findLast12();
     LivreDto findLivreById(Long livreId);
 }

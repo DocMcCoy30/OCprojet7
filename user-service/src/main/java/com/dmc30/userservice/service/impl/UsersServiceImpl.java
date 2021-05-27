@@ -50,7 +50,12 @@ public class UsersServiceImpl implements UsersService {
         this.passwordEncoderHelper = passwordEncoderHelper;
     }
 
-
+    /**
+     * SpringSecutity Method
+     * @param email l'email de l'utilisateur
+     * @return l'utilisateur et ses roles
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UtilisateurEntity utilisateurEntity = utilisateurRepository.findByEmail(email);
@@ -69,6 +74,12 @@ public class UsersServiceImpl implements UsersService {
                 authorities);
     }
 
+    /**
+     * Creation d'un abonné dans la BD
+     * @param utilisateurDto les caractéristique de l'abonné
+     * @param paysId l'identifiant du pays de résidence
+     * @return l'utilisateur créé
+     */
     @Override
     public UtilisateurDto createAbonne(UtilisateurDto utilisateurDto, Long paysId) {
         ModelMapper modelMapper = new ModelMapper();
@@ -101,6 +112,11 @@ public class UsersServiceImpl implements UsersService {
         return returnValue;
     }
 
+    /**
+     * recherche un utilisateur par son email
+     * @param email l'email de l'utilisateur
+     * @return l'utilisateur recherché
+     */
     @Override
     public UtilisateurDto getUserDetailsByEmail(String email) {
         UtilisateurEntity utilisateurEntity = utilisateurRepository.findByEmail(email);
@@ -114,6 +130,11 @@ public class UsersServiceImpl implements UsersService {
     }
 
 
+    /**
+     * recherche un utilisateur par son identifiant public (UUID)
+     * @param publicId l'identifiant de l'utilisateur
+     * @return l'utilisateur recherché
+     */
     @Override
     public UtilisateurDto getUtilisateurByPublicId(String publicId) {
         UtilisateurEntity utilisateurEntity = utilisateurRepository.findByPublicId(publicId);

@@ -15,6 +15,6 @@ public interface AuteurRepository extends JpaRepository<Auteur, Long> {
     @Query(value = "SELECT a.* FROM auteur a INNER JOIN many_livre_has_many_auteur al ON al.id_auteur=a.id WHERE al.id_livre=?1", nativeQuery = true)
     List<Auteur> findAuteurByLivres(@Param("id") Long id);
 
-    @Query(value = "SELECT * FROM auteur WHERE LOWER (nom) LIKE '%' || ?1 || '%' OR LOWER (prenom) LIKE '%' || ?1 || '%';",nativeQuery = true)
+    @Query(value = "SELECT * FROM auteur WHERE (nom) ILIKE  '%' || ?1 || '%' OR (prenom) ILIKE '%' || ?1 || '%';",nativeQuery = true)
     List<Auteur> findAuteurByNomContaining(String motCle);
 }

@@ -33,6 +33,13 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         super.setAuthenticationManager(authenticationManager);
     }
 
+    /**
+     * Spring Security Method : Authentification de l'utilisateur
+     * @param request les identifiant entrés par l'utilisateur dans la vue login
+     * @param response
+     * @return
+     * @throws AuthenticationException
+     */
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         try {
@@ -51,6 +58,15 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         }
     }
 
+    /**
+     * Spring Security Method : succes de l'authentification
+     * @param request
+     * @param response
+     * @param chain
+     * @param authResult
+     * @throws IOException
+     * @throws ServletException
+     */
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         String email = ((User) authResult.getPrincipal()).getUsername();
@@ -65,6 +81,14 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         response.addHeader("roles", userDetails.getRoles().toString());
     }
 
+    /**
+     * Spring Security Method : echec de l'authentification
+     * @param request
+     * @param response
+     * @param failed
+     * @throws IOException
+     * @throws ServletException
+     */
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
         String error = "Email ou Mot de Passe erroné";

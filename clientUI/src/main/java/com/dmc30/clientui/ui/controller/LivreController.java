@@ -96,29 +96,27 @@ public class LivreController {
         String errorMessage = null;
         ModelAndView theModel = new ModelAndView("accueil");
         List<LivreResponseModel> livres = new ArrayList<>();
-//        logger.info("searchParam = " + searchParam);
-//        logger.info("motCle = " + motCle);
-        String lowerMotCle = "";
-        if (searchParam != null) {
-            lowerMotCle = motCle.toLowerCase();
-            switch (searchParam) {
-                case 1:
-                    livres = livreService.getLivreByTitre(lowerMotCle);
-                    break;
-                case 2:
-                    livres = livreService.getLivreByAuteur(lowerMotCle);
-                    break;
-            }
-        } else if (searchParam == null) {
-            errorMessage = "Selectionnez un citère de recherche !";
-        }
-        if (livres.isEmpty()) {
-            errorMessage = "Aucun livre trouvé pour cette recherche !";
-        }
+
         if (bibliothequeId != null) {
             BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
             theModel.addObject("bibliotheque", bibliotheque);
         }
+
+        if (searchParam != null) {
+            switch (searchParam) {
+                case 1:
+                    livres = livreService.getLivreByTitre(motCle);
+                    break;
+                case 2:
+                    livres = livreService.getLivreByAuteur(motCle);
+                    break;
+            }
+        } else if (motCle.equals("")) {
+            livres = livreService.get12LastLivres();
+        } else if (searchParam == null) {
+            errorMessage = "Selectionnez un citère de recherche !";
+        }
+
         theModel.addObject("livres", livres);
         theModel.addObject("errorMessage", errorMessage);
         return theModel;

@@ -62,11 +62,22 @@ public class UserServiceImpl implements UserService {
         return returnValue;
     }
 
+    /**
+     * Crée un abonné dans la BD
+     * @param abonne les détail de l'abonné, renseignés dans la vue
+     * @param paysId l'identifiant du pays de résidence de l'abonné
+     * @return
+     */
     @Override
     public ResponseEntity<CreateAbonneResponseModel> createAbonne(UtilisateurDto abonne, Long paysId) {
         return userServiceProxy.signin(abonne, paysId);
     }
 
+    /**
+     * Cherche un utilisateur par son identifiant public
+     * @param publicId l'identifiant public de l'utilisateur
+     * @return l'utilisateur recherché
+     */
     @Override
     public UtilisateurDto getUtilisateurByPublicId(String publicId) {
         return userServiceProxy.findUtilisateurByPublicId(publicId);

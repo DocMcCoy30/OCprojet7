@@ -14,7 +14,7 @@ public interface LivreRepository extends JpaRepository<Livre, Long> {
 
     Livre findLivreById(Long livreId);
 
-    @Query(value = "SELECT * FROM livre WHERE LOWER (titre) LIKE '%' || ?1 || '%'", nativeQuery = true)
+    @Query(value = "SELECT * FROM livre WHERE (titre) ILIKE '%' || ?1 || '%'", nativeQuery = true)
     List<Livre> findLivreByTitreContaining(String motCle);
 
     @Query(value = "SELECT * FROM livre JOIN many_livre_has_many_auteur mlhma on livre.id = mlhma.id_livre where mlhma.id_auteur = ?1"

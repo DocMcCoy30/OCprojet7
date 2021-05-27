@@ -25,6 +25,10 @@ public class LivreServiceImpl implements LivreService {
         this.livreServiceProxy = livreServiceProxy;
     }
 
+    /**
+     * Cherche la liste de tous les livres enregistrés dans la base de données
+     * @return la liste de tous les livres
+     */
     @Override
     public List<LivreResponseModel> getLivres() {
         ModelMapper modelMapper = new ModelMapper();
@@ -39,6 +43,10 @@ public class LivreServiceImpl implements LivreService {
         return livreResponseModelList;
     }
 
+    /**
+     * Renvoie la liste des 12 derniers livres enregistrés dans la BD au controller
+     * @return la liste des 12 derniers livres
+     */
     @Override
     public List<LivreResponseModel> get12LastLivres() {
         ModelMapper modelMapper = new ModelMapper();
@@ -53,6 +61,11 @@ public class LivreServiceImpl implements LivreService {
         return livreResponseModelList;
     }
 
+    /**
+     * Cherche un livre par son identifiant et le renvoie au controller
+     * @param livreId l'identifiant du livre
+     * @return le livre recherché
+     */
     @Override
     public LivreResponseModel getLivreById(Long livreId) {
         ModelMapper modelMapper = new ModelMapper();
@@ -63,6 +76,11 @@ public class LivreServiceImpl implements LivreService {
         return livreResponseModel;
     }
 
+    /**
+     * Cherche les livres dont le titre contient le mot clé entré par l'utilisateur
+     * @param motCle le mot-clé critère de recherche
+     * @return la liste des livres correcpondants au critère de recherche
+     */
     @Override
     public List<LivreResponseModel> getLivreByTitre(String motCle) {
         ModelMapper modelMapper = new ModelMapper();
@@ -77,6 +95,11 @@ public class LivreServiceImpl implements LivreService {
         return livreResponseModelList;
     }
 
+    /**
+     * Cherche les livres dont l'auteur contient le mot clé renseigné par l'utilisateur
+     * @param motCle le mot clé 4, critère de recherche
+     * @return la liste des livres recherchés
+     */
     @Override
     public List<LivreResponseModel> getLivreByAuteur(String motCle) {
         ModelMapper modelMapper = new ModelMapper();
@@ -91,6 +114,11 @@ public class LivreServiceImpl implements LivreService {
         return livreResponseModelList;
     }
 
+    /**
+     * Formate la liste des auteurs d'un livre pour le renvoyer à la vue
+     * @param auteurs la liste des auteurs d'un livre à transformer en suite de caractères
+     * @return la String formatée des auteurs pour la vue
+     */
     @Override
     public String formatListeAuteurs(List<AuteurDto> auteurs) {
         List<String> nomDesAuteurs = new ArrayList<>();
