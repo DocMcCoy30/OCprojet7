@@ -1,6 +1,5 @@
 package com.dmc30.livreservice.ui.controller;
 
-import com.dmc30.livreservice.data.entity.livre.Auteur;
 import com.dmc30.livreservice.service.contract.AuteurService;
 import com.dmc30.livreservice.shared.livre.AuteurDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class AuteurController {
     }
 
     /**
-     * Cherhce tous les auteurs enregistrés dans la BD
+     * Cherche tous les auteurs enregistrés dans la BD
      * @return le liste de tous les auteurs
      */
     @GetMapping(path = "/auteurs")
@@ -38,7 +37,7 @@ public class AuteurController {
      */
     @PostMapping(path = "/auteurs/nom")
     public List<AuteurDto> getAuteurByNomOrPrenom(@RequestParam("nom") String nom,
-                                              @RequestParam("prenom") String prenom) {
+                                                 @RequestParam("prenom") String prenom) {
         return auteurService.findAuteurByNomOrPrenom(nom, prenom);
     }
 }

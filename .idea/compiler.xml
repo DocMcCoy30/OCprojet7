@@ -15,11 +15,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="clientUI" target="11" />
-      <module name="eureka-server" target="11" />
-      <module name="gateway-server" target="11" />
-      <module name="livre-service" target="11" />
-      <module name="user-service" target="11" />
+      <module name="clientUI" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="gateway-server" target="1.8" />
+      <module name="livre-service" target="1.8" />
+      <module name="user-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

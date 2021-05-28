@@ -22,8 +22,9 @@ public class Illustration {
     @Column(name = "type_illustration")
     private String typeIllustration;
 
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "id_livre")
-    private Livre livre;
+    //bi-directionnal
+//    @JsonBackReference
+//    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+//    @JoinColumn(name = "id_livre")
+//    private Livre livre;
 }

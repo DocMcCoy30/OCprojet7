@@ -1,6 +1,5 @@
 package com.dmc30.livreservice.ui.controller;
 
-import com.dmc30.livreservice.data.entity.bibliotheque.Bibliotheque;
 import com.dmc30.livreservice.service.contract.BibliothequeService;
 import com.dmc30.livreservice.shared.bibliotheque.BibliothequeDto;
 import org.springframework.beans.factory.annotation.Autowired;

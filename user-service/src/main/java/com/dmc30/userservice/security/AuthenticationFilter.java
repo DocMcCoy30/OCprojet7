@@ -1,6 +1,7 @@
 package com.dmc30.userservice.security;
 
 import com.dmc30.userservice.service.contract.UsersService;
+import com.dmc30.userservice.shared.RoleDto;
 import com.dmc30.userservice.shared.UtilisateurDto;
 import com.dmc30.userservice.ui.model.LoginRequestModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,11 +22,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-    private UsersService usersService;
-    private Environment environment;
+    private final UsersService usersService;
+    private final Environment environment;
 
     public AuthenticationFilter(UsersService usersService, Environment environment, AuthenticationManager authenticationManager) {
         this.usersService = usersService;
@@ -78,7 +80,12 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                 .compact();
         response.addHeader("Authorization", token);
         response.addHeader("publicId", userDetails.getPublicId());
-        response.addHeader("roles", userDetails.getRoles().toString());
+        List<String> roleToSend = new ArrayList<>();
+        for (RoleDto role:userDetails.getRoles()) {
+            roleToSend.add(role.getRole());
+        }
+        logger.info("Roles = " + roleToSend);
+        response.addHeader("roles", roleToSend.toString());
     }
 
     /**

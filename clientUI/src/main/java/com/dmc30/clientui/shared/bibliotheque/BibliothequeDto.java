@@ -3,7 +3,7 @@ package com.dmc30.clientui.shared.bibliotheque;
 import com.dmc30.clientui.shared.commun.AdresseDto;
 import lombok.*;
 
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,7 +14,7 @@ public class BibliothequeDto {
     private String numSiret;
     private String nom;
     private AdresseDto adresse;
-    private Set<OuvrageDto> ouvrages;
+    private List<OuvrageDto> ouvrages;
 
 
 

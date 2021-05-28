@@ -1,7 +1,8 @@
 package com.dmc30.clientui.shared.bibliotheque;
 
 import com.dmc30.clientui.shared.livre.LivreDto;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -10,8 +11,6 @@ import java.util.List;
 public class OuvrageDto {
 
     private String idInterne;
-    private BibliothequeDto bibliotheque;
-    private LivreDto livre;
     private boolean emprunte;
     private List<PretDto> prets;
 

@@ -4,7 +4,6 @@ import com.dmc30.clientui.shared.bibliotheque.OuvrageDto;
 import lombok.*;
 
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -20,6 +19,6 @@ public class LivreDto {
     private LangueDto langue;
     private List<GenreDto> genres;
     private List<IllustrationDto> illustrations;
-    private Set<OuvrageDto> ouvrages;
+    private List<OuvrageDto> ouvrages;
 }
 

@@ -1,11 +1,10 @@
 package com.dmc30.livreservice.data.entity.livre;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "auteur")
@@ -29,13 +28,13 @@ public class Auteur {
     @Column(name = "date_deces")
     private String dateDeces;
 
-    @JsonBackReference
-    @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinTable(
-            name = "many_livre_has_many_auteur",
-            joinColumns = {@JoinColumn(name = "id_auteur")},
-            inverseJoinColumns = {@JoinColumn(name = "id_livre")}
-    )
-    private List<Livre> livres;
+//    @JsonBackReference
+//    @ManyToMany(fetch = FetchType.LAZY,
+//            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+//    @JoinTable(
+//            name = "many_livre_has_many_auteur",
+//            joinColumns = {@JoinColumn(name = "id_auteur")},
+//            inverseJoinColumns = {@JoinColumn(name = "id_livre")}
+//    )
+//    private Set<Livre> livres;
 }

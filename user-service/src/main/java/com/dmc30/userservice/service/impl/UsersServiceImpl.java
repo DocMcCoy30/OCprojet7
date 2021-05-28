@@ -34,10 +34,10 @@ public class UsersServiceImpl implements UsersService {
 
     Logger logger = LoggerFactory.getLogger(UsersServiceImpl.class);
 
-    private UtilisateurRepository utilisateurRepository;
-    private RoleRepository roleRepository;
-    private PaysRepository paysRepository;
-    private PasswordEncoderHelper passwordEncoderHelper;
+    UtilisateurRepository utilisateurRepository;
+    RoleRepository roleRepository;
+    PaysRepository paysRepository;
+    PasswordEncoderHelper passwordEncoderHelper;
 
     @Autowired
     public UsersServiceImpl(UtilisateurRepository utilisateurRepository,

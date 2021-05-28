@@ -1,7 +1,6 @@
 package com.dmc30.clientui.security;
 
 import com.dmc30.clientui.proxy.UserServiceProxy;
-import com.dmc30.clientui.shared.utilisateur.RoleDto;
 import io.jsonwebtoken.Jwts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,17 +10,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.stereotype.Component;
-import org.springframework.web.filter.OncePerRequestFilter;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -89,6 +80,7 @@ public class TokenValidationHelper extends BasicAuthenticationFilter {
      * @return un set de string roles
      */
     public Set<String> stringTokenizerHelper(String subject) {
+        logger.info("String subject = "+subject);
         List<String> result = new ArrayList<>();
         List<String> result2 = new ArrayList<>();
         Set<String> rolesList = new HashSet<>();

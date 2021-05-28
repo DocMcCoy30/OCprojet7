@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "editeur")
@@ -21,8 +21,9 @@ public class Editeur {
     @Column(name = "nom_maison_edition")
     private String nomMaisonEdition;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "editeur",
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    private List<Livre> livres;
+    //bi-directionnal
+//    @JsonBackReference
+//    @OneToMany(mappedBy = "editeur",
+//            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+//    private Set<Livre> livres;
 }

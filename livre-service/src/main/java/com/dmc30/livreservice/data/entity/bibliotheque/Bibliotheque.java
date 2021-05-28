@@ -1,11 +1,11 @@
 package com.dmc30.livreservice.data.entity.bibliotheque;
 
 import com.dmc30.livreservice.data.entity.commun.Adresse;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -28,11 +28,12 @@ public class Bibliotheque {
     @Column(name = "nom")
     private String nom;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_adresse")
     private Adresse adresse;
 
-    @JsonManagedReference
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bibliotheque")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_bibliotheque")
     private Set<Ouvrage> ouvrages;
 }

@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,5 +17,5 @@ public class CreateAbonneResponseModel {
     private String nom;
     private String email;
     private String publicId;
-    private Set<RoleDto> role;
+    private List<RoleDto> role;
 }

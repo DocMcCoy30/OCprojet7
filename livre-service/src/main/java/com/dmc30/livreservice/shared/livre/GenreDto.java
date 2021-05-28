@@ -1,6 +1,7 @@
 package com.dmc30.livreservice.shared.livre;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 import net.minidev.json.annotate.JsonIgnore;
 
 import java.util.List;
@@ -10,6 +11,5 @@ import java.util.List;
 public class GenreDto {
 
     private String genre;
-    @JsonIgnore
-    private List<LivreDto> livres;
+
 }

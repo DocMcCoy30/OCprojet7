@@ -1,12 +1,14 @@
 package com.dmc30.clientui.ui.model;
 
 import com.dmc30.clientui.shared.bibliotheque.OuvrageDto;
-import com.dmc30.clientui.shared.livre.*;
+import com.dmc30.clientui.shared.livre.EditeurDto;
+import com.dmc30.clientui.shared.livre.GenreDto;
+import com.dmc30.clientui.shared.livre.IllustrationDto;
+import com.dmc30.clientui.shared.livre.LangueDto;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -22,5 +24,5 @@ public class LivreResponseModel {
     private LangueDto langue;
     private List<GenreDto> genres;
     private List<IllustrationDto> illustrations;
-    private Set<OuvrageDto> ouvrages;
+    private List<OuvrageDto> ouvrages;
 }

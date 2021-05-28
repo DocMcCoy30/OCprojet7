@@ -1,8 +1,6 @@
 package com.dmc30.livreservice.service.contract;
 
-import com.dmc30.livreservice.data.entity.livre.Livre;
 import com.dmc30.livreservice.shared.livre.LivreDto;
-import org.springframework.data.domain.Page;
 
 import java.util.List;
 

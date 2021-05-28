@@ -9,6 +9,5 @@ public class IllustrationDto {
 
     private String url;
     private String typeIllustration;
-    @JsonIgnore
-    private LivreDto livre;
+
 }

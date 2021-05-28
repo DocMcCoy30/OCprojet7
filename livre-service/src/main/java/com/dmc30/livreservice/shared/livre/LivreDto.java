@@ -2,12 +2,10 @@ package com.dmc30.livreservice.shared.livre;
 
 import com.dmc30.livreservice.shared.bibliotheque.OuvrageDto;
 import com.dmc30.livreservice.shared.livre.*;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -23,7 +21,5 @@ public class LivreDto {
     private List<AuteurDto> auteurs;
     private List<GenreDto> genres;
     private List<IllustrationDto> illustrations;
-    private Set<OuvrageDto> ouvrages;
-
-
+    private List<OuvrageDto> ouvrages;
 }

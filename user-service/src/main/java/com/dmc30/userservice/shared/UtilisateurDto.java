@@ -26,7 +26,7 @@ public class UtilisateurDto implements Serializable {
     private AdresseDto adresse;
     //    //Abonne
     private Date dateCreationCompte;
-//    private List<Pret> prets
+//    private Set<Pret> prets
 
 //    //Employe
     private String matricule;

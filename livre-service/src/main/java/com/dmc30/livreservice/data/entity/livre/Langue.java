@@ -1,11 +1,10 @@
 package com.dmc30.livreservice.data.entity.livre;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "langue")
@@ -22,10 +21,11 @@ public class Langue {
     @Column(name = "langue")
     private String langue;
 
-    @JsonBackReference
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "langue",
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    private List<Livre> livres;
+    //bi-directionnal
+//    @JsonBackReference
+//    @OneToMany(mappedBy = "langue",
+//            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+//    private Set<Livre> livres;
 
 
 }

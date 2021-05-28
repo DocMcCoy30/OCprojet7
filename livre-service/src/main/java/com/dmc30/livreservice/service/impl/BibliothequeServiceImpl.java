@@ -1,20 +1,18 @@
 package com.dmc30.livreservice.service.impl;
 
 import com.dmc30.livreservice.data.entity.bibliotheque.Bibliotheque;
-import com.dmc30.livreservice.data.entity.livre.Auteur;
 import com.dmc30.livreservice.data.repository.BibliothequeRepository;
 import com.dmc30.livreservice.exception.IntrouvableException;
 import com.dmc30.livreservice.service.contract.BibliothequeService;
 import com.dmc30.livreservice.shared.bibliotheque.BibliothequeDto;
-import com.dmc30.livreservice.shared.livre.AuteurDto;
+import com.dmc30.livreservice.shared.commun.AdresseDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import javax.transaction.Transactional;
+import java.util.*;
 
 @Service
 public class BibliothequeServiceImpl implements BibliothequeService {
@@ -28,6 +26,7 @@ public class BibliothequeServiceImpl implements BibliothequeService {
 
     /**
      * Récupère la liste de toutes les bibliothèques de la BD
+     *
      * @return la liste des bibliothèques
      */
     @Override
@@ -41,14 +40,21 @@ public class BibliothequeServiceImpl implements BibliothequeService {
         } else {
             for (Bibliotheque bibliotheque : bibliotheques) {
                 bibliothequeDtos.add(modelMapper.map(bibliotheque, BibliothequeDto.class));
+//                BibliothequeDto bibliothequeDto =
+//                        new BibliothequeDto(bibliotheque.getId(),
+//                                bibliotheque.getCode(),
+//                                bibliotheque.getNumeroSiret(),
+//                                bibliotheque.getNom(),
+//                                modelMapper.map(bibliotheque.getAdresse(), AdresseDto.class));
+//                bibliothequeDtos.add(bibliothequeDto);
             }
         }
         return bibliothequeDtos;
     }
 
-
     /**
      * Cherche un objet bibliothèque dans la BD par son identifiant. Si l'identifiant n'est pas précisé, renvoie la 1ère bibliothèque enregistrée.
+     *
      * @param bibliothequeid L'identifiant de la bibliothèque rcherchée
      * @return un objet bibliothèque
      */
@@ -57,7 +63,7 @@ public class BibliothequeServiceImpl implements BibliothequeService {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         Bibliotheque bibliotheque = new Bibliotheque();
-        if (bibliothequeid==null) {
+        if (bibliothequeid == null) {
             bibliothequeid = 1L;
         }
         Optional<Bibliotheque> result = bibliothequeRepository.findById(bibliothequeid);

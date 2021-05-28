@@ -1,13 +1,10 @@
 package com.dmc30.livreservice.ui.controller;
 
-import com.dmc30.livreservice.data.entity.livre.Auteur;
-import com.dmc30.livreservice.data.entity.livre.Livre;
 import com.dmc30.livreservice.service.contract.AuteurService;
 import com.dmc30.livreservice.service.contract.LivreService;
 import com.dmc30.livreservice.shared.livre.AuteurDto;
 import com.dmc30.livreservice.shared.livre.LivreDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,7 +34,7 @@ public class LivreController {
         List<LivreDto> livres = livreService.findAll();
         for(LivreDto tempLivre : livres) {
            Long livreId = tempLivre.getId();
-           List<AuteurDto> auteurs = auteurService.findAuteurByLivres(livreId);
+            List<AuteurDto> auteurs = auteurService.findAuteurByLivres(livreId);
            tempLivre.setAuteurs(auteurs);
         }
         return livres;

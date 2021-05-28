@@ -14,9 +14,9 @@ public enum ErrorMessage {
     TECHNICAL_ERROR(400, "Une erreur technique est survenue.", "Une erreur technique est survenue."),
     BAD_CREDENTIAL_ERROR(401, "Adresse email ou mot de passe erronés", "Identification impossible" );
 
-    private Integer errorCode;
-    private String errorMessage;
-    private String errorDescription;
+    private final Integer errorCode;
+    private final String errorMessage;
+    private final String errorDescription;
 
     ErrorMessage(int errorCode, String errorMessage, String errorDescription) {
         this.errorCode = errorCode;

@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -24,12 +24,12 @@ public class UtilisateurDto implements Serializable {
     private String password;
     private String encryptedPassword;
     private String publicId;
-    private Set<RoleDto> roles;
+    private List<RoleDto> roles;
     private String numTelephone;
     private AdresseDto adresse;
     //Abonne
     private Date dateCreationCompte;
-//    private List<Pret> prets;
+//    private Set<Pret> prets;
 
     //Employe
     private String matricule;

@@ -20,19 +20,23 @@ public class Ouvrage {
     @Column(name = "id_interne")
     private String idInterne;
 
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_bibliotheque")
-    private Bibliotheque bibliotheque;
-
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "id_livre")
-    private Livre livre;
-
     @Column(name = "emprunte")
     private boolean emprunte;
 
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ouvrage")
-//    private List<Pret> prets;
+//    private Set<Pret> prets;
+
+    //bi-directionnal
+//    @JsonBackReference
+//    @ManyToOne
+//    @JoinColumn(name = "id_bibliotheque")
+//    private Bibliotheque bibliotheque;
+
+    //bi-directionnal
+//    @JsonBackReference
+//    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+//    @JoinColumn(name = "id_livre")
+//    private Livre livre;
+
+
 }

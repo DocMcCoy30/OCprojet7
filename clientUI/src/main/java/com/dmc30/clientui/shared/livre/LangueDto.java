@@ -10,5 +10,5 @@ public class LangueDto {
 
     private String code;
     private String langue;
-    private List<LivreDto> livres;
+
 }

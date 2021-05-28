@@ -13,9 +13,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private UsersService usersService;
-    private Environment environment;
-    private PasswordEncoderHelper passwordEncoderHelper;
+    private final UsersService usersService;
+    private final Environment environment;
+    private final PasswordEncoderHelper passwordEncoderHelper;
 
     @Autowired
     public WebSecurityConfig(UsersService usersService, Environment environment, PasswordEncoderHelper passwordEncoderHelper) {

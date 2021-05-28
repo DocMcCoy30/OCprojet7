@@ -10,6 +10,4 @@ import java.util.List;
 public class GenreDto {
 
     private String genre;
-    @JsonIgnore
-    private List<LivreDto> livres;
 }

@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * A terme, connecte l'interface utilisateur (Front) avec le microservice User (user-service) via la couche service et proxy.
@@ -31,9 +30,9 @@ public class UserController {
 
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    private UserService userService;
-    private BibliothequeService bibliothequeService;
-    private PasswordEncoderHelper passwordEncoderHelper;
+    private final UserService userService;
+    private final BibliothequeService bibliothequeService;
+    private final PasswordEncoderHelper passwordEncoderHelper;
 
     @Autowired
     public UserController(UserService userService, BibliothequeService bibliothequeService, PasswordEncoderHelper passwordEncoderHelper) {

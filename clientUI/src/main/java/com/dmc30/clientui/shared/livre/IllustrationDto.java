@@ -8,5 +8,5 @@ public class IllustrationDto {
 
     private String url;
     private String typeIllustration;
-    private LivreDto livre;
+
 }

@@ -3,7 +3,6 @@ package com.dmc30.clientui.ui.controller;
 import com.dmc30.clientui.service.contract.BibliothequeService;
 import com.dmc30.clientui.service.contract.OuvrageService;
 import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
-import com.dmc30.clientui.shared.livre.LivreDto;
 import com.dmc30.clientui.service.contract.LivreService;
 import com.dmc30.clientui.ui.model.LivreResponseModel;
 import org.slf4j.Logger;
@@ -102,7 +101,7 @@ public class LivreController {
             theModel.addObject("bibliotheque", bibliotheque);
         }
 
-        if (searchParam != null) {
+        if (searchParam != null && !motCle.equals("")) {
             switch (searchParam) {
                 case 1:
                     livres = livreService.getLivreByTitre(motCle);
@@ -111,12 +110,14 @@ public class LivreController {
                     livres = livreService.getLivreByAuteur(motCle);
                     break;
             }
-        } else if (motCle.equals("")) {
-            livres = livreService.get12LastLivres();
-        } else if (searchParam == null) {
-            errorMessage = "Selectionnez un citère de recherche !";
         }
-
+        if (motCle.equals("") && searchParam == null) {
+            livres = livreService.getLivres();
+        } else if (motCle.equals("")) {
+            errorMessage = "Veuillez entrer une recherche";
+        } else if (searchParam == null) {
+            errorMessage = "Selectionnez un critère de recherche !";
+        }
         theModel.addObject("livres", livres);
         theModel.addObject("errorMessage", errorMessage);
         return theModel;

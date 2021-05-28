@@ -1,6 +1,5 @@
 package com.dmc30.userservice.ui.model;
 
-import com.dmc30.userservice.shared.RoleDto;
 import lombok.Data;
 
 import java.util.Set;

@@ -19,8 +19,8 @@ public class UserServiceImpl implements UserService {
 
     Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
-    private TokenValidationHelper tokenValidationHelper;
-    private UserServiceProxy userServiceProxy;
+    private final TokenValidationHelper tokenValidationHelper;
+    private final UserServiceProxy userServiceProxy;
 
     @Autowired
     public UserServiceImpl(TokenValidationHelper tokenValidationHelper, UserServiceProxy userApiProxy, UserServiceProxy userServiceProxy) {

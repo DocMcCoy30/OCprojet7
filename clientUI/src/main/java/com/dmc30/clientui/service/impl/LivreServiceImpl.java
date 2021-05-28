@@ -1,6 +1,5 @@
 package com.dmc30.clientui.service.impl;
 
-import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
 import com.dmc30.clientui.shared.livre.AuteurDto;
 import com.dmc30.clientui.shared.livre.LivreDto;
 import com.dmc30.clientui.proxy.LivreServiceProxy;

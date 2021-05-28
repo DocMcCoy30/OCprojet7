@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "livre")
@@ -30,16 +30,19 @@ public class Livre {
     @Column(name = "numero_isbn13")
     private String numeroIsbn13;
 
+    //uni-directionnal cf Editeur.class
     @JsonManagedReference
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "id_editeur")
     private Editeur editeur;
 
+    //uni-directionnal cf Langue.class
     @JsonManagedReference
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "id_langue")
     private Langue langue;
 
+    //uni-directionnal cf Auteur.class
     @JsonManagedReference
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
@@ -48,8 +51,9 @@ public class Livre {
             joinColumns = {@JoinColumn(name = "id_livre")},
             inverseJoinColumns = {@JoinColumn(name = "id_auteur")}
     )
-    private List<Auteur> auteurs;
+    private Set<Auteur> auteurs;
 
+    //uni-directionnal cf Genre.class
     @JsonManagedReference
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
@@ -58,15 +62,28 @@ public class Livre {
             joinColumns = {@JoinColumn(name = "id_livre")},
             inverseJoinColumns = {@JoinColumn(name = "id_genre")}
     )
-    private List<Genre> genres;
+    private Set<Genre> genres;
 
+    //uni-directionnal
     @JsonManagedReference
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
-    private List<Illustration> illustrations;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_livre")
+    private Set<Illustration> illustrations;
 
+    //uni-directionnal
     @JsonManagedReference
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "livre")
-    private List<Ouvrage> ouvrages;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_livre")
+    private Set<Ouvrage> ouvrages;
 
 
+    //bi-directionnal
+//    @JsonManagedReference
+//    @OneToMany(mappedBy = "livre")
+//    private Set<Illustration> illustrations;
+
+    //bi-directionnal
+//    @JsonManagedReference
+//    @OneToMany(mappedBy = "livre")
+//    private Set<Ouvrage> ouvrages;
 }

@@ -1,14 +1,14 @@
 package com.dmc30.livreservice.shared.bibliotheque;
 
 import com.dmc30.livreservice.shared.commun.AdresseDto;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class BibliothequeDto {
 
     private Long id;
@@ -16,7 +16,6 @@ public class BibliothequeDto {
     private String numSiret;
     private String nom;
     private AdresseDto adresse;
-    private Set<OuvrageDto> ouvrages;
-
+    private List<OuvrageDto> ouvrages;
 
 }
