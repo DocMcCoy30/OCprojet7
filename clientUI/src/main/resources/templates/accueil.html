@@ -27,6 +27,9 @@
     <div sec:authorize="hasRole('ROLE_ABONNE')">
         Authentifié en tant qu'abonné.
     </div>
+    <div sec:authorize="hasRole('ROLE_EMPLOYE')">
+        Authentifié en tant qu'employé.
+    </div>
 
     <div th:if="${! #lists.isEmpty(lastLivres)}">
         <h5>Derniers livres :</h5>

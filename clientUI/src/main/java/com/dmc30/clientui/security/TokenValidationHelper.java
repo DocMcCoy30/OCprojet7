@@ -33,6 +33,7 @@ public class TokenValidationHelper extends BasicAuthenticationFilter {
 
     /**
      * Vérifie le token envoyé par user-service
+     *
      * @param jwt le token
      * @return un boolean selon le résultat positif/négatif de la vérification
      */
@@ -51,6 +52,7 @@ public class TokenValidationHelper extends BasicAuthenticationFilter {
 
     /**
      * Récupère le token et l'utilise afin de définir l'utilisateur à intégrer dans le context de sécurité pour connexion.
+     *
      * @param token le token envoyé par user-service
      * @param roles le(s) rôles de l'utilisateur.
      * @return un objet UsernamePasswordAuthenticationToken définissant l'utilisateur et ses roles si la vérification est un succès.
@@ -76,23 +78,33 @@ public class TokenValidationHelper extends BasicAuthenticationFilter {
 
     /**
      * Permet de formater le(s) roles de l'utilisateur qui souhaite se connecter (string -> set<GrantedAuthorities>)
+     *
      * @param subject le(s) role(s) de l'utilisateur sous forme d'une chaine de caracteres
      * @return un set de string roles
      */
     public Set<String> stringTokenizerHelper(String subject) {
-        logger.info("String subject = "+subject);
-        List<String> result = new ArrayList<>();
-        List<String> result2 = new ArrayList<>();
+        logger.info("String subject = " + subject);
+        String st1 = subject.replace("[", "");
+        String st2 = st1.replace("]", "");
+        String st3 = st2.replace(" ", "");
         Set<String> rolesList = new HashSet<>();
-        StringTokenizer st = new StringTokenizer(subject, ",");
+        StringTokenizer st = new StringTokenizer(st3, ",");
         while (st.hasMoreTokens()) {
-            result.add(st.nextToken());
+            rolesList.add(st.nextToken());
         }
-        StringTokenizer st2 = new StringTokenizer(result.get(0), "=");
-        while (st2.hasMoreTokens()) {
-            result2.add(st2.nextToken());
-        }
-        rolesList.add(result2.get(1));
+//        List<String> result = new ArrayList<>();
+//        List<String> result2 = new ArrayList<>();
+//        Set<String> rolesList = new HashSet<>();
+//        StringTokenizer st = new StringTokenizer(subject, ",");
+//        while (st.hasMoreTokens()) {
+//            result.add(st.nextToken());
+//        }
+//        String st2 = result.toString();
+//        StringTokenizer st2 = new StringTokenizer(result.get(0), "=");
+//        while (st2.hasMoreTokens()) {
+//            result2.add(st2.nextToken());
+//        }
+//        rolesList.add(result2.get(1));
         return rolesList;
     }
 }
