@@ -1,6 +1,6 @@
-## OpenClassrooms Projet 7 - Developpeur d'Application Java
+# OpenClassrooms Projet 7 - Developpeur d'Application Java
 
-###Développez le nouveau système d’information de la bibliothèque d’une grande ville
+##Développez le nouveau système d’information de la bibliothèque d’une grande ville
 
 *Créer une API web avec un microservice REST*
 
@@ -13,18 +13,36 @@
 *Interagir avec des composants externes*
 
 
-###Architecture du projet (microservice) : 
+##Architecture du projet (microservice) : 
 
 ![](.README_images/26d22c6c.png)
 
-###Documentation 
+##Langages et Technologies utilisées :
+
++ Java / Javascript / Html / Css
+
++ SpringBoot / Web / Jpa / Actuator / Lombok
+
++ PostgreSQL
+
++ SpringSecurity
+
++ SpringCloud Gateway
+
++ Eureka
+
++ Feign
+
++ Thymeleaf / Bootstrap
+
+##Documentation 
+
 La documentation se trouve dans le dossier "1-Documents" : 
 + sql : structure et data de la base de données PostgreSQL
 + uml : diagrammes UML (classes, MPD, arborescence, usecase, activité)
 
+##application.properties => modification de la configuration
 
-
-###application.properties => modification de la configuration
 + configuration du port server :
 
 ![](.README_images/3844bc63.png)
@@ -32,8 +50,6 @@ La documentation se trouve dans le dossier "1-Documents" :
 + configuration de la base de données (livre-service, utilisateur-service- emprunt-service) :
 
 ![](.README_images/5be63c66.png)
-
-
 
 ## Installation
 
@@ -54,8 +70,6 @@ $mvn install pour chaque service si nécessaire
 
 ## Demarrage des services
 
-
-
 1- eureka-server
 
 2- gateway-server
@@ -63,6 +77,7 @@ $mvn install pour chaque service si nécessaire
 3- clientUI
 
 4- utilsateur-service / livre-service / emprunt-service
+
 
 Pour chaque service
 ```
