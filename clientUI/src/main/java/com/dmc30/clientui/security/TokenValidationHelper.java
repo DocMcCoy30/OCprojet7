@@ -17,7 +17,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
-//public class TokenValidationHelper extends OncePerRequestFilter {
 public class TokenValidationHelper extends BasicAuthenticationFilter {
 
     Logger logger = LoggerFactory.getLogger(TokenValidationHelper.class);
@@ -92,19 +91,6 @@ public class TokenValidationHelper extends BasicAuthenticationFilter {
         while (st.hasMoreTokens()) {
             rolesList.add(st.nextToken());
         }
-//        List<String> result = new ArrayList<>();
-//        List<String> result2 = new ArrayList<>();
-//        Set<String> rolesList = new HashSet<>();
-//        StringTokenizer st = new StringTokenizer(subject, ",");
-//        while (st.hasMoreTokens()) {
-//            result.add(st.nextToken());
-//        }
-//        String st2 = result.toString();
-//        StringTokenizer st2 = new StringTokenizer(result.get(0), "=");
-//        while (st2.hasMoreTokens()) {
-//            result2.add(st2.nextToken());
-//        }
-//        rolesList.add(result2.get(1));
         return rolesList;
     }
 }

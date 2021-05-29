@@ -1,6 +1,7 @@
 package com.dmc30.livreservice.ui.controller;
 
 import com.dmc30.livreservice.service.contract.OuvrageService;
+import com.dmc30.livreservice.shared.bibliotheque.OuvrageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,6 +41,12 @@ public class OuvrageController {
     public List<Object> getOuvrageDispoInOtherBibliotheque(@RequestParam("livreId") Long livreId,
                                                             @RequestParam("bibliothequeId") Long bibliothequeId) {
         return ouvrageService.findOuvrageDispoInOtherBibiotheque(livreId,bibliothequeId);
+    }
+
+    @GetMapping("/ouvragesDispo")
+    public List<OuvrageDto> getOuvrageDispoByLivreId(@RequestParam("livreId") Long livreId,
+                                                     @RequestParam("bibliothequeId") Long bibliothequeId) {
+        return ouvrageService.findOuvrageDispoByLivreId(livreId, bibliothequeId);
     }
 
 }
