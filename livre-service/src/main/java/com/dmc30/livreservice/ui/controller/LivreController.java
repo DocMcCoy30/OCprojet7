@@ -73,20 +73,29 @@ public class LivreController {
     }
 
     /**
-     * Cherche les livres dont l'auteur correspond aux critères de recherche renseignés par l'utilisateur
-     * @param motCle les critères de recherche
-     * @return la liste des livres correspondant à la recherche
+     * Cherche et renvoie la liste des livres pour un auteur
+     * @param auteurId l'identifiant de l'auteur
+     * @return la liste des livres recherchés
      */
-    @PostMapping(path = "/livres/auteur")
-    public List<LivreDto> getLivreByAuteur(@RequestParam("motCle") String motCle) {
-        List<AuteurDto> auteurs = auteurService.findAuteurByNomContaining(motCle);
-        List<LivreDto> livres = new ArrayList<>();
-        for(AuteurDto tempAuteur : auteurs) {
-            Long auteurId = tempAuteur.getId();
-            livres = livreService.findLivreByAuteur(auteurId);
-         }
-        return livres;
+    @GetMapping(path = "/livres/auteur")
+    public List<LivreDto> getLivreByAuteur(@RequestParam("auteurId") Long auteurId) {
+        return livreService.findLivreByAuteur(auteurId);
     }
+//    /**
+//     * Cherche les livres dont l'auteur correspond aux critères de recherche renseignés par l'utilisateur
+//     * @param motCle les critères de recherche
+//     * @return la liste des livres correspondant à la recherche
+//     */
+//    @PostMapping(path = "/livres/auteur")
+//    public List<LivreDto> getLivreByAuteur(@RequestParam("motCle") String motCle) {
+//        List<AuteurDto> auteurs = auteurService.findAuteurByNomContaining(motCle);
+//        List<LivreDto> livres = new ArrayList<>();
+//        for(AuteurDto tempAuteur : auteurs) {
+//            Long auteurId = tempAuteur.getId();
+//            livres = livreService.findLivreByAuteur(auteurId);
+//         }
+//        return livres;
+//    }
 
     /**
      * Cherche un livre par son identifiant

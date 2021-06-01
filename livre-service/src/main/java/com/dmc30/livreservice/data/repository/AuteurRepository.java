@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface AuteurRepository extends JpaRepository<Auteur, Long> {
 
-    List<Auteur> findAuteurByNomOrPrenom(String nom, String prenom);
     Auteur findAuteurById(Long id);
 
     @Query(value = "SELECT a.* FROM auteur a INNER JOIN many_livre_has_many_auteur al ON al.id_auteur=a.id WHERE al.id_livre=?1", nativeQuery = true)

@@ -11,12 +11,17 @@
     <title>Recherche</title>
 </head>
 <body>
-<br>
-<br>
-
-<div>
-    <span th:text ="${#authentication.getPrincipal()}"></span>
+<div sec:authorize="isAuthenticated()">
+    Secured Authentication OK
 </div>
+<div sec:authorize="hasRole('ROLE_ABONNE')">
+    Authentifié en tant qu'abonné.
+</div>
+<div sec:authorize="hasRole('ROLE_EMPLOYE')">
+    Authentifié en tant qu'employé.
+</div>
+<br>
+<br>
 <h5>Rechercher un livre</h5>
 <br>
 <div>
@@ -69,6 +74,32 @@
             <td th:text="${tempLivre.auteurs}"></td>
             <td><a th:href="@{showLivreDetails(livreId=${tempLivre.id}, bibliothequeId=${bibliotheque.id})}"
                    class="card-link">Détail</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:if="${! #lists.isEmpty(auteurs)}">
+    <h4>Résultat de recherche</h4>
+    <table class="table table-striped  table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Test id</th>
+            <th>Prenom</th>
+            <th>Nom</th>
+            <th>Date de naissance</th>
+            <th>Date de décès</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tempAuteur : ${auteurs}">
+            <td th:text="${tempAuteur.id}"></td>
+            <td th:text="${tempAuteur.prenom}"></td>
+            <td th:text="${tempAuteur.nom}"></td>
+            <td th:text="${tempAuteur.dateNaissance}"></td>
+            <td th:text="${tempAuteur.dateDeces}"></td>
+            <td><a th:href="@{searchLivreByAuteurs(auteurId=${tempAuteur.id}, bibliothequeId=${bibliotheque.id})}"
+                   class="card-link">Liste des livres disponibles</a></td>
         </tr>
         </tbody>
     </table>

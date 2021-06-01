@@ -44,6 +44,10 @@
                     <h2 th:text="${livre.titre}"></h2>
                     <h3 th:text="${livre.auteurs}"></h3>
                     <h4 th:text="${livre.editeur.nomMaisonEdition}"></h4>
+                    <div>
+                        <span>Numéro ISBN : <a th:text="${livre.numeroIsbn13}"></a></span>
+                        <span> / Langue :  <a th:text="${livre.langue.getLangue()}"></a></span>
+                    </div>
                     <br>
                     <span>Nombre d'exemplaire disponible : <a th:text="${nbExDispoInOne}"></a></span>
                     <br>

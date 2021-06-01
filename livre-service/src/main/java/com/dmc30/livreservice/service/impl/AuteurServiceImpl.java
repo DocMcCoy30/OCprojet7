@@ -44,28 +44,6 @@ public class AuteurServiceImpl implements AuteurService {
     }
 
     /**
-     * Cherche les auteurs corespondants au nom ou prenom passés en parametres
-     * @param nom le nom renseigné
-     * @param prenom le prénom renseigné
-     * @return la liste des auteurs correspondants aux critères de recherche
-     */
-    @Override
-    public List<AuteurDto> findAuteurByNomOrPrenom(String nom, String prenom) {
-        ModelMapper modelMapper = new ModelMapper();
-        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        List<AuteurDto>auteurDtos = new ArrayList<>();
-        List<Auteur> auteurs = auteurRepository.findAuteurByNomOrPrenom(nom, prenom);
-        if (auteurs == null) {
-            throw new IntrouvableException("Aucun résultat de recherche");
-        } else {
-            for (Auteur auteur:auteurs) {
-                auteurDtos.add(modelMapper.map(auteur, AuteurDto.class));
-            }
-        }
-        return auteurDtos;
-    }
-
-    /**
      * Cherche les auteurs d'un livre
      * @param livreId l'identifiant du livre
      * @return les auteurs du livre

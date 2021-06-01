@@ -95,16 +95,16 @@ public class LivreServiceImpl implements LivreService {
     }
 
     /**
-     * Cherche les livres dont l'auteur contient le mot clé renseigné par l'utilisateur
-     * @param motCle le mot clé 4, critère de recherche
+     * Cherche les livres pour un auteur
+     * @param auteurId l'identifiant de l'auteur
      * @return la liste des livres recherchés
      */
     @Override
-    public List<LivreResponseModel> getLivreByAuteur(String motCle) {
+    public List<LivreResponseModel> getLivreByAuteur(Long auteurId) {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         List<LivreResponseModel> livreResponseModelList = new ArrayList<>();
-        List<LivreDto> livreDtos = livreServiceProxy.getLivreByAuteur(motCle);
+        List<LivreDto> livreDtos = livreServiceProxy.getLivreByAuteur(auteurId);
         for (LivreDto livre:livreDtos) {
             LivreResponseModel livreResponseModel = modelMapper.map(livre, LivreResponseModel.class);
             livreResponseModel.setAuteurs(formatListeAuteurs(livre.getAuteurs()));

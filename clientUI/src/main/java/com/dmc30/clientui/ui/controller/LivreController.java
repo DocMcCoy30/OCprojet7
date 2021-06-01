@@ -1,10 +1,8 @@
 package com.dmc30.clientui.ui.controller;
 
-import com.dmc30.clientui.service.contract.BibliothequeService;
-import com.dmc30.clientui.service.contract.OuvrageService;
-import com.dmc30.clientui.service.contract.UserService;
+import com.dmc30.clientui.service.contract.*;
 import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
-import com.dmc30.clientui.service.contract.LivreService;
+import com.dmc30.clientui.shared.livre.AuteurDto;
 import com.dmc30.clientui.shared.utilisateur.UtilisateurDto;
 import com.dmc30.clientui.ui.model.LivreResponseModel;
 import org.slf4j.Logger;
@@ -29,16 +27,19 @@ public class LivreController {
     Logger logger = LoggerFactory.getLogger(LivreController.class);
 
     LivreService livreService;
+    AuteurService auteurService;
     BibliothequeService bibliothequeService;
     OuvrageService ouvrageService;
     UserService userService;
 
     @Autowired
     public LivreController(LivreService livreService,
+                           AuteurService auteurService,
                            BibliothequeService bibliothequeService,
                            OuvrageService ouvrageService,
                            UserService userService) {
         this.livreService = livreService;
+        this.auteurService = auteurService;
         this.bibliothequeService = bibliothequeService;
         this.ouvrageService = ouvrageService;
         this.userService = userService;
@@ -60,7 +61,7 @@ public class LivreController {
     /**
      * Affiche la page accueil et la liste des livres recherchés
      *
-     * @param motCle   Le mot clé entré dans la vue, chaine de caractères que doit contenir le titre des livres recherchés.
+     * @param motCle Le mot clé entré dans la vue, chaine de caractères que doit contenir le titre des livres recherchés.
      * @return la vue accueil avec la liste des livres dont le mot clé correspond au titre.
      */
     @PostMapping("/showLivresByTitre")
@@ -71,19 +72,19 @@ public class LivreController {
         return theModel;
     }
 
-    /**
-     * Affiche la page accueil et la liste des livres recherchés
-     *
-     * @param motCle   Le mot-clé pour la recherche
-     * @return la vue accueil avec la liste des livres dont le mot clé correspond au nom de l'auteur.
-     */
-    @PostMapping("/showLivresByAuteur")
-    public ModelAndView getLivreByAuteur(@RequestParam("motCle") String motCle) {
-        ModelAndView theModel = new ModelAndView("accueil");
-        List<LivreResponseModel> livres = livreService.getLivreByAuteur(motCle);
-        theModel.addObject("livresParAuteur", livres);
-        return theModel;
-    }
+//    /**
+//     * Affiche la page accueil et la liste des livres recherchés
+//     *
+//     * @param motCle Le mot-clé pour la recherche
+//     * @return la vue accueil avec la liste des livres dont le mot clé correspond au nom de l'auteur.
+//     */
+//    @PostMapping("/showLivresByAuteur")
+//    public ModelAndView getLivreByAuteur(@RequestParam("motCle") String motCle) {
+//        ModelAndView theModel = new ModelAndView("accueil");
+//        List<LivreResponseModel> livres = livreService.getLivreByAuteur(motCle);
+//        theModel.addObject("livresParAuteur", livres);
+//        return theModel;
+//    }
 
     /**
      * Affiche la page accueil après une recherche de livres dans BD selon certains critères.
@@ -100,6 +101,7 @@ public class LivreController {
         String errorMessage = null;
         ModelAndView theModel = new ModelAndView("accueil");
         List<LivreResponseModel> livres = new ArrayList<>();
+        List<AuteurDto> auteurs = new ArrayList<>();
         if (bibliothequeId != null) {
             BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
             theModel.addObject("bibliotheque", bibliotheque);
@@ -108,9 +110,12 @@ public class LivreController {
             switch (searchParam) {
                 case 1:
                     livres = livreService.getLivreByTitre(motCle);
+                    theModel.addObject("livres", livres);
                     break;
                 case 2:
-                    livres = livreService.getLivreByAuteur(motCle);
+                    auteurs = auteurService.getAuteurByNomContaining(motCle);
+                    theModel.addObject("auteurs", auteurs);
+//                    livres = livreService.getLivreByAuteur(motCle);
                     break;
             }
         }
@@ -121,8 +126,27 @@ public class LivreController {
         } else if (searchParam == null) {
             errorMessage = "Selectionnez un critère de recherche !";
         }
-        theModel.addObject("livres", livres);
         theModel.addObject("errorMessage", errorMessage);
+        return theModel;
+    }
+
+    /**
+     * Cherche et renvoir la liste des livres pour un auteur
+     * @param auteurId l'identifiant de l'auteur
+     * @param bibliothequeId l'identifiant de la bibliotheque
+     * @return la liste des livres recherchés
+     */
+    @GetMapping("/searchLivreByAuteurs")
+    public ModelAndView searchLivreByAuteurs(@RequestParam(value = "auteurId") Long auteurId,
+                                             @RequestParam("bibliothequeId") Long bibliothequeId) {
+        ModelAndView theModel = new ModelAndView("accueil");
+        List<LivreResponseModel> livres = new ArrayList<>();
+        if (bibliothequeId != null) {
+            BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
+            theModel.addObject("bibliotheque", bibliotheque);
+        }
+        livres = livreService.getLivreByAuteur(auteurId);
+        theModel.addObject("livres", livres);
         return theModel;
     }
 

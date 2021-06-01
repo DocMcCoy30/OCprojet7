@@ -31,13 +31,11 @@ public class AuteurController {
 
     /**
      * Cherche un auteur par son nom ou son prénom
-     * @param nom le nom de l'auteur
-     * @param prenom le prénom de l'auteur
+     * @param motCle le mot-clé critere de recherche
      * @return les auteurs dont le nom ou le prénom correspondent aux critères renseignés
      */
-    @PostMapping(path = "/auteurs/nom")
-    public List<AuteurDto> getAuteurByNomOrPrenom(@RequestParam("nom") String nom,
-                                                 @RequestParam("prenom") String prenom) {
-        return auteurService.findAuteurByNomOrPrenom(nom, prenom);
+    @PostMapping(path = "/auteurs")
+    public List<AuteurDto> getAuteurByNomContaining(@RequestParam("motCle") String motCle) {
+        return auteurService.findAuteurByNomContaining(motCle);
     }
 }

@@ -21,14 +21,8 @@
     <div th:if="${message}" th:utext="${message}"
          style="color:red;font-style:italic;">
     </div>
-    <div sec:authorize="isAuthenticated()">
-        Secured Authentication OK
-    </div>
-    <div sec:authorize="hasRole('ROLE_ABONNE')">
-        Authentifié en tant qu'abonné.
-    </div>
     <div sec:authorize="hasRole('ROLE_EMPLOYE')">
-        Authentifié en tant qu'employé.
+        <a th:href="@{createEmprunt}">Créer un nouvel emprunt</a>
     </div>
 
     <div th:if="${! #lists.isEmpty(lastLivres)}">

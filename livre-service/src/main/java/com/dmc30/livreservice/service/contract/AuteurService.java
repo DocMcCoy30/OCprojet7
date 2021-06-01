@@ -7,7 +7,6 @@ import java.util.List;
 public interface AuteurService {
 
     List<AuteurDto> findAll();
-    List<AuteurDto> findAuteurByNomOrPrenom(String nom, String prenom);
     List<AuteurDto> findAuteurByLivres(Long livreId);
     List<AuteurDto> findAuteurByNomContaining(String motCle);
 }

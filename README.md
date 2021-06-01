@@ -15,7 +15,7 @@
 
 ##Architecture du projet (microservice) : 
 
-![](.README_images/26d22c6c.png)
+![](.README_images/df230d44.png)
 
 ##Langages et Technologies utilisées :
 
