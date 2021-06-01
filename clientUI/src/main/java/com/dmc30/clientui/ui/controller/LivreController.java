@@ -2,8 +2,10 @@ package com.dmc30.clientui.ui.controller;
 
 import com.dmc30.clientui.service.contract.BibliothequeService;
 import com.dmc30.clientui.service.contract.OuvrageService;
+import com.dmc30.clientui.service.contract.UserService;
 import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
 import com.dmc30.clientui.service.contract.LivreService;
+import com.dmc30.clientui.shared.utilisateur.UtilisateurDto;
 import com.dmc30.clientui.ui.model.LivreResponseModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,12 +31,17 @@ public class LivreController {
     LivreService livreService;
     BibliothequeService bibliothequeService;
     OuvrageService ouvrageService;
+    UserService userService;
 
     @Autowired
-    public LivreController(LivreService livreService, BibliothequeService bibliothequeService, OuvrageService ouvrageService) {
+    public LivreController(LivreService livreService,
+                           BibliothequeService bibliothequeService,
+                           OuvrageService ouvrageService,
+                           UserService userService) {
         this.livreService = livreService;
         this.bibliothequeService = bibliothequeService;
         this.ouvrageService = ouvrageService;
+        this.userService = userService;
     }
 
     /**
@@ -53,31 +60,29 @@ public class LivreController {
     /**
      * Affiche la page accueil et la liste des livres recherchés
      *
-     * @param theModel le Model retourné.
      * @param motCle   Le mot clé entré dans la vue, chaine de caractères que doit contenir le titre des livres recherchés.
      * @return la vue accueil avec la liste des livres dont le mot clé correspond au titre.
      */
     @PostMapping("/showLivresByTitre")
-    public String getLivreByTitre(Model theModel,
-                                  @RequestParam("motCle") String motCle) {
+    public ModelAndView getLivreByTitre(@RequestParam("motCle") String motCle) {
+        ModelAndView theModel = new ModelAndView("accueil");
         List<LivreResponseModel> livres = livreService.getLivreByTitre(motCle);
-        theModel.addAttribute("livresParTitre", livres);
-        return "accueil";
+        theModel.addObject("livresParTitre", livres);
+        return theModel;
     }
 
     /**
      * Affiche la page accueil et la liste des livres recherchés
      *
-     * @param theModel le Model retourné.
      * @param motCle   Le mot-clé pour la recherche
      * @return la vue accueil avec la liste des livres dont le mot clé correspond au nom de l'auteur.
      */
     @PostMapping("/showLivresByAuteur")
-    public String getLivreByAuteur(Model theModel,
-                                   @RequestParam("motCle") String motCle) {
+    public ModelAndView getLivreByAuteur(@RequestParam("motCle") String motCle) {
+        ModelAndView theModel = new ModelAndView("accueil");
         List<LivreResponseModel> livres = livreService.getLivreByAuteur(motCle);
-        theModel.addAttribute("livresParAuteur", livres);
-        return "accueil";
+        theModel.addObject("livresParAuteur", livres);
+        return theModel;
     }
 
     /**
@@ -95,12 +100,10 @@ public class LivreController {
         String errorMessage = null;
         ModelAndView theModel = new ModelAndView("accueil");
         List<LivreResponseModel> livres = new ArrayList<>();
-
         if (bibliothequeId != null) {
             BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
             theModel.addObject("bibliotheque", bibliotheque);
         }
-
         if (searchParam != null && !motCle.equals("")) {
             switch (searchParam) {
                 case 1:
@@ -135,6 +138,10 @@ public class LivreController {
                                         @RequestParam("bibliothequeId") Long bibliothequeId) {
         ModelAndView theModel = new ModelAndView("livre-detail");
         logger.info("LivreId = " + livreId);
+        if (bibliothequeId != null) {
+            BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
+            theModel.addObject("bibliotheque", bibliotheque);
+        }
         if (livreId != null) {
             LivreResponseModel livreResponseModel = livreService.getLivreById(livreId);
             theModel.addObject("livre", livreResponseModel);
@@ -159,10 +166,6 @@ public class LivreController {
                     logger.info("bibliothequeNom : " + bibliothequeNom);
                 }
             }
-        }
-        if (bibliothequeId != null) {
-            BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
         }
         return theModel;
     }

@@ -52,6 +52,7 @@ public class UsersServiceImpl implements UsersService {
 
     /**
      * SpringSecutity Method
+     *
      * @param email l'email de l'utilisateur
      * @return l'utilisateur et ses roles
      * @throws UsernameNotFoundException
@@ -76,8 +77,9 @@ public class UsersServiceImpl implements UsersService {
 
     /**
      * Creation d'un abonné dans la BD
+     *
      * @param utilisateurDto les caractéristique de l'abonné
-     * @param paysId l'identifiant du pays de résidence
+     * @param paysId         l'identifiant du pays de résidence
      * @return l'utilisateur créé
      */
     @Override
@@ -114,6 +116,7 @@ public class UsersServiceImpl implements UsersService {
 
     /**
      * recherche un utilisateur par son email
+     *
      * @param email l'email de l'utilisateur
      * @return l'utilisateur recherché
      */
@@ -132,6 +135,7 @@ public class UsersServiceImpl implements UsersService {
 
     /**
      * recherche un utilisateur par son identifiant public (UUID)
+     *
      * @param publicId l'identifiant de l'utilisateur
      * @return l'utilisateur recherché
      */
@@ -142,6 +146,42 @@ public class UsersServiceImpl implements UsersService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UtilisateurDto abonneDto = modelMapper.map(utilisateurEntity, UtilisateurDto.class);
         return abonneDto;
+    }
+
+    @Override
+    public UtilisateurDto GetUtilisateurByUsername(String username) {
+        UtilisateurEntity utilisateurEntity = utilisateurRepository.findByUsername(username);
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        UtilisateurDto abonneDto = modelMapper.map(utilisateurEntity, UtilisateurDto.class);
+        return abonneDto;
+    }
+
+    @Override
+    public void updateUtilisateur(UtilisateurDto utilisateurDto) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        UtilisateurEntity oldUser = utilisateurRepository.findByPublicId(utilisateurDto.getPublicId());
+        UtilisateurDto newUserDto = modelMapper.map(oldUser, UtilisateurDto.class);
+//        newUserDto.setUsername(utilisateurDto.getUsername());
+        newUserDto.setPrenom(utilisateurDto.getPrenom());
+        newUserDto.setNom(utilisateurDto.getNom());
+        newUserDto.setEmail(utilisateurDto.getEmail());
+        newUserDto.setNumTelephone(utilisateurDto.getNumTelephone());
+        //Adresse
+        AdresseDto newAdresse = newUserDto.getAdresse();
+        newAdresse.setRue(utilisateurDto.getAdresse().getRue());
+        newAdresse.setCodePostal(utilisateurDto.getAdresse().getCodePostal());
+        newAdresse.setVille(utilisateurDto.getAdresse().getVille());
+        AdresseEntity adresseEntity = modelMapper.map(newAdresse, AdresseEntity.class);
+        adresseEntity.setId(oldUser.getAdresse().getId());
+        adresseEntity.setPaysEntity(oldUser.getAdresse().getPaysEntity());
+        UtilisateurEntity utilisateurEntity = modelMapper.map(newUserDto, UtilisateurEntity.class);
+        utilisateurEntity.setUsername(oldUser.getUsername());
+        utilisateurEntity.setId(oldUser.getId());
+        utilisateurEntity.setRoles(oldUser.getRoles());
+        utilisateurEntity.setAdresse(adresseEntity);
+        utilisateurRepository.save(utilisateurEntity);
     }
 
 }

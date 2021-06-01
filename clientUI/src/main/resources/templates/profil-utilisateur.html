@@ -10,17 +10,56 @@
 <body>
 <header th:insert="fragments/header.html"></header>
 <div class="container">
-    <h2>Profil Abonné</h2>
+    <h2>Profil Abonné</h2><a
+        th:href="@{/showProfil(username=${#authentication.getPrincipal()}, bibliothequeId=${bibliotheque.id}, modification=${true})}">
+    Modifier mon profil
+</a>
     <hr>
-    <div><a style="text-decoration: underline"> Prénom : </a><span style="font-weight: bold" th:text="${abonne.prenom}"></span></div>
-    <div><a style="text-decoration: underline">Nom : </a><span style="font-weight: bold" th:text="${abonne.nom}"></span></div>
-    <div><a style="text-decoration: underline">Email : </a><span style="font-weight: bold" th:text="${abonne.email}"></span></div>
-    <div><a style="text-decoration: underline">Adresse : </a><span style="font-weight: bold"
-            th:text="${abonne.adresse.rue} + ' '+  ${abonne.adresse.codePostal} + ' '+  ${abonne.adresse.ville}"></span>
-    </div>
-    <div><a style="text-decoration: underline">Numéro de téléphone : </a><span style="font-weight: bold"
-                                                                               th:text="${abonne.numTelephone}"></span>
-    </div>
+    <form class="form" action="#" th:action="@{/update(bibliothequeId=${bibliotheque.id})}" th:object="${abonne}"
+          method="post">
+        <span th:if="${modification}"><input class="form-control" type="hidden" th:field="*{publicId}"></span>
+<!--        <div><a style="text-decoration: underline"> Username : </a><span style="font-weight: bold"-->
+<!--                                                                         th:text="${abonne.username}"></span>-->
+<!--            &nbsp;<span th:if="${modification}"><input class="form-control" type="text"-->
+<!--                                                       th:placeholder="${abonne.username}"-->
+<!--                                                       th:field="*{username}"></span>-->
+<!--        </div>-->
+        <div><a style="text-decoration: underline"> Prénom : </a><span style="font-weight: bold"
+                                                                       th:text="${abonne.prenom}"></span>
+            &nbsp;<span th:if="${modification}"><input class="form-control" type="text"
+                                                       th:placeholder="${abonne.prenom}" th:field="*{prenom}"></span>
+        </div>
+        <div><a style="text-decoration: underline">Nom : </a><span style="font-weight: bold"
+                                                                   th:text="${abonne.nom}"></span>
+            &nbsp;<span th:if="${modification}"><input class="form-control" type="text" th:placeholder="${abonne.nom}"
+                                                       th:field="*{nom}"></span>
+        </div>
+        <div><a style="text-decoration: underline">Email : </a><span style="font-weight: bold"
+                                                                     th:text="${abonne.email}"></span>
+            &nbsp;<span th:if="${modification}"><input class="form-control" type="email"
+                                                       th:placeholder="${abonne.email}" th:field="*{email}"></span>
+        </div>
+        <div><a style="text-decoration: underline">Adresse : </a><span style="font-weight: bold"
+                                                                       th:text="${abonne.adresse.rue} + ' '+  ${abonne.adresse.codePostal} + ' '+  ${abonne.adresse.ville}"></span>
+            &nbsp;<span th:if="${modification}"><input class="form-control" type="text"
+                                                       th:placeholder="${abonne.adresse.rue}" th:field="*{adresse.rue}"></span>
+            &nbsp;<span th:if="${modification}"><input class="form-control" type="text"
+                                                       th:placeholder="${abonne.adresse.codePostal}"
+                                                       th:field="*{adresse.codePostal}"></span>
+            &nbsp;<span th:if="${modification}"><input class="form-control" type="text"
+                                                       th:placeholder="${abonne.adresse.ville}"
+                                                       th:field="*{adresse.ville}"></span>
+        </div>
+        <div><a style="text-decoration: underline">Numéro de téléphone : </a><span style="font-weight: bold"
+                                                                                   th:text="${abonne.numTelephone}"></span>
+            &nbsp;<span th:if="${modification}"><input class="form-control" type="text"
+                                                       th:placeholder="${abonne.numTelephone}"
+                                                       th:field="*{numTelephone}"></span>
+        </div>
+        <div th:if="${modification}">
+            <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Modifier</button>
+        </div>
+    </form>
 </div>
 <footer th:insert="fragments/footer.html"></footer>
 </body>

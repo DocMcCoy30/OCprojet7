@@ -83,5 +83,25 @@ public class UserServiceImpl implements UserService {
         return userServiceProxy.findUtilisateurByPublicId(publicId);
     }
 
+    /**
+     * Cherche un utilisateur par son username
+     * @param username l' username de l'utilisateur
+     * @return l'utilisateur recherché
+     */
+    @Override
+    public UtilisateurDto getUtilisateurByUsername(String username) {
+        return userServiceProxy.findUtilisateurByUsername(username);
+    }
+
+    /**
+     * Met à jour le profil de l'utilisateur
+     * @param userDetails les données de profil de l'utilisateur
+     */
+    @Override
+    public void updateAbonne(UtilisateurDto userDetails) {
+
+        userServiceProxy.updateUser(userDetails);
+    }
+
 }
 

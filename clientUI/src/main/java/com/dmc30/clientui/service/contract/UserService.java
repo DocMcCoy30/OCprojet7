@@ -18,4 +18,7 @@ public interface UserService {
 
     UtilisateurDto getUtilisateurByPublicId(String publicId);
 
+    UtilisateurDto getUtilisateurByUsername(String username);
+
+    void updateAbonne(UtilisateurDto userDetails);
 }

@@ -46,6 +46,17 @@ public class UsersController {
     }
 
     /**
+     * Recherche d'un utilisateur par son username
+     * @param username l'identifiant de l'utilisateur
+     * @return l'utilisateur recherché
+     */
+    @GetMapping("/utilisateur/{username}")
+    public UtilisateurDto findUtilisateurByUsername(@RequestParam String username) {
+        UtilisateurDto abonne = usersService.GetUtilisateurByUsername(username);
+        return abonne;
+    }
+
+    /**
      * Création d'un nouvel utilisateur dans la BD
      * @param utilisateurDto Les caractéristiques de l'utilisateur entrées dans la vue
      * @param paysId L'identifiant du pays de résidence choisi
@@ -60,5 +71,10 @@ public class UsersController {
         UtilisateurDto createdAbonne = usersService.createAbonne(utilisateurDto, paysId);
         CreateAbonneResponseModel returnValue = modelMapper.map(createdAbonne, CreateAbonneResponseModel.class);
         return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
+    }
+
+    @PostMapping("/update")
+    public void updateUtilisateur(@RequestBody UtilisateurDto utilisateurDto) {
+        usersService.updateUtilisateur(utilisateurDto);
     }
 }

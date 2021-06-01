@@ -15,12 +15,12 @@
     <div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
         <header th:case="${true}"
                 class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-5 border-bottom">
-            <a th:href="@{/(publicId=${abonne.publicId})}" class="col-md-5 mb-2 mb-md-0 text-dark text-decoration-none">
+            <a th:href="@{/(username=${#authentication.getPrincipal()})}" class="col-md-5 mb-2 mb-md-0 text-dark text-decoration-none">
                 <h4 th:text="${bibliotheque.nom}">Bibliothèque</h4>
             </a>
             <input type="hidden" name="bibliothequeId" th:value="${bibliotheque.id}">
             <div class="col-md-3 text-right">
-                Bonjour <a th:href="@{/showProfil(publicId=${abonne.publicId}, bibliothequeId=${bibliotheque.id})}"><span
+                Bonjour <a th:href="@{/showProfil(username=${#authentication.getPrincipal()}, bibliothequeId=${bibliotheque.id}, modification = ${false})}"><span
                     sec:authentication="name"></span></a>
                 <a th:href="@{/logout(bibliothequeId=${bibliotheque.id})}">
                     <button type="button" class="btn btn-success me-2">Se deconnecter</button>

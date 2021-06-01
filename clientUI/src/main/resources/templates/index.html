@@ -45,7 +45,7 @@
         <div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
             <div th:case="${true}">
                 <div th:if="${bibliotheques}">
-                    <form th:action="@{/showAccueil(publicId=${abonne.publicId})}" method="post">
+                    <form th:action="@{/showAccueil}" method="post">
                         <select name="bibliothequeId" class="form-select col-md-5"
                                 title="Rechercher par ...">
                             <option disabled selected>Bibliotheque ...</option>

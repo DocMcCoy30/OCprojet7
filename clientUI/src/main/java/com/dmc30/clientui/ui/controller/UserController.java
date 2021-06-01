@@ -168,20 +168,50 @@ public class UserController {
 
     /**
      * affiche la page profil de l'utilisateur pour consultation et modification de ses données personnelles
-     * @param publicId L'identifiant public de l'utilisateur connecté.
      * @param bibliothequeId L'identiant de la bibliothèque selectionnées
      * @return la vue profil-utilisateur avec la bibliothèque selectionnée, et le détail des données de l'utilisateur connecté.
      */
     @GetMapping(value = "/showProfil")
-    public ModelAndView showProfil(@RequestParam("publicId") String publicId,
-                                   @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
+    public ModelAndView showProfil(@RequestParam(value = "username", required = false) String username,
+                                   @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId,
+                                   @RequestParam(value = "modification",required = false) boolean modification) {
         ModelAndView theModel = new ModelAndView("profil-utilisateur");
-        UtilisateurDto abonne = userService.getUtilisateurByPublicId(publicId);
+        UtilisateurDto abonne = userService.getUtilisateurByUsername(username);
         theModel.addObject("abonne", abonne);
         if (bibliothequeId != null) {
             BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
             theModel.addObject("bibliotheque", bibliotheque);
         }
+        theModel.addObject("modification", modification);
         return theModel;
+    }
+
+    /**
+     * Modification d'un profil utilisateur.
+     * @param userDetails Les données personnelles de l'utilisateur à la modification d'un compte abonné.
+     * @param paysId L'identifiant du pays de résidence selectionné.
+     * @param bibliothequeId L'identifiant de la bibliothèque selectionnée.
+     * @return La page profil avec la bibliothèque selectionnée et un message e confirmation de la modification du compte.
+     */
+    @PostMapping("/update")
+    public ModelAndView updateAbonne(@ModelAttribute UtilisateurDto userDetails,
+                               @RequestParam(value = "paysId", required = false) Long paysId,
+                               @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
+        ModelAndView theModel = new ModelAndView("profil-utilisateur");
+        logger.info(userDetails.getPublicId());
+        logger.info(userDetails.getUsername());
+        logger.info(userDetails.getNom());
+        logger.info(userDetails.getPrenom());
+        logger.info(userDetails.getAdresse().getRue());
+        logger.info(userDetails.getEmail());
+        logger.info(userDetails.getNumTelephone());
+        if (bibliothequeId != null) {
+            BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
+            theModel.addObject("bibliotheque", bibliotheque);
+        }
+        userService.updateAbonne(userDetails);
+        UtilisateurDto abonne = userService.getUtilisateurByPublicId(userDetails.getPublicId());
+        theModel.addObject("abonne", abonne);
+    return theModel;
     }
 }
