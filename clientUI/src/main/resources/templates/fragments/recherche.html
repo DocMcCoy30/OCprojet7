@@ -26,7 +26,7 @@
 <br>
 <div>
 
-<form th:action="@{searchLivres(bibliothequeId=${bibliotheque.id})}" method="post">
+<form th:action="@{searchLivresOrAuteurs(bibliothequeId=${bibliotheque.id})}" method="post">
     <div class="input-group">
                         <span class="input-group-btn col-md-7">
             <input type="text" class="form-control" name="mot-cle" placeholder="Rechercher ..."/>
@@ -56,7 +56,7 @@
     <table class="table table-striped  table-bordered">
         <thead class="thead-dark">
         <tr>
-            <th>Test id</th>
+<!--            <th>Test id</th>-->
             <th>Titre</th>
             <!--                <th>Resume</th>-->
             <th>Date d'edition</th>
@@ -67,7 +67,7 @@
         </thead>
         <tbody>
         <tr th:each="tempLivre : ${livres}">
-            <td th:text="${tempLivre.id}"></td>
+<!--            <td th:text="${tempLivre.id}"></td>-->
             <td th:text="${tempLivre.titre}"></td>
             <td th:text="${tempLivre.dateEdition}"></td>
             <td th:text="${tempLivre.editeur.nomMaisonEdition}"></td>
@@ -83,7 +83,7 @@
     <table class="table table-striped  table-bordered">
         <thead class="thead-dark">
         <tr>
-            <th>Test id</th>
+<!--            <th>Test id</th>-->
             <th>Prenom</th>
             <th>Nom</th>
             <th>Date de naissance</th>
@@ -93,7 +93,7 @@
         </thead>
         <tbody>
         <tr th:each="tempAuteur : ${auteurs}">
-            <td th:text="${tempAuteur.id}"></td>
+<!--            <td th:text="${tempAuteur.id}"></td>-->
             <td th:text="${tempAuteur.prenom}"></td>
             <td th:text="${tempAuteur.nom}"></td>
             <td th:text="${tempAuteur.dateNaissance}"></td>

@@ -3,7 +3,6 @@ package com.dmc30.clientui.ui.controller;
 import com.dmc30.clientui.service.contract.*;
 import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
 import com.dmc30.clientui.shared.livre.AuteurDto;
-import com.dmc30.clientui.shared.utilisateur.UtilisateurDto;
 import com.dmc30.clientui.ui.model.LivreResponseModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,29 +70,15 @@ public class LivreController {
         return theModel;
     }
 
-//    /**
-//     * Affiche la page accueil et la liste des livres recherchés
-//     *
-//     * @param motCle Le mot-clé pour la recherche
-//     * @return la vue accueil avec la liste des livres dont le mot clé correspond au nom de l'auteur.
-//     */
-//    @PostMapping("/showLivresByAuteur")
-//    public ModelAndView getLivreByAuteur(@RequestParam("motCle") String motCle) {
-//        ModelAndView theModel = new ModelAndView("accueil");
-//        List<LivreResponseModel> livres = livreService.getLivreByAuteur(motCle);
-//        theModel.addObject("livresParAuteur", livres);
-//        return theModel;
-//    }
-
     /**
-     * Affiche la page accueil après une recherche de livres dans BD selon certains critères.
+     * Affiche la page accueil après une recherche de livres ou d'auteurs dans BD selon certains critères.
      *
      * @param searchParam    L'identifiant du critère de recherche choisi (titre ou nom de l'auteur)
      * @param motCle         Le mot clé entré dans la vue, chaine de caractères que doit contenir le titre ou le nom de l'auteur des livres recherchés.
      * @param bibliothequeId L'identifiant de la bibliothèque selectionnée.
      * @return la vue accueil avec la bibliothèque selectionnée, le résultat de recherche, ou un message si la recherche n'a pas aboutie.
      */
-    @PostMapping("/searchLivres")
+    @PostMapping("/searchLivresOrAuteurs")
     public ModelAndView searchLivres(@RequestParam(value = "search-param", required = false) Integer searchParam,
                                      @RequestParam(value = "mot-cle", required = false) String motCle,
                                      @RequestParam("bibliothequeId") Long bibliothequeId) {
@@ -121,6 +105,7 @@ public class LivreController {
         }
         if (motCle.equals("") && searchParam == null) {
             livres = livreService.getLivres();
+            theModel.addObject("livres", livres);
         } else if (motCle.equals("")) {
             errorMessage = "Veuillez entrer une recherche";
         } else if (searchParam == null) {
@@ -131,7 +116,7 @@ public class LivreController {
     }
 
     /**
-     * Cherche et renvoir la liste des livres pour un auteur
+     * Cherche et renvoie la liste des livres pour un auteur
      * @param auteurId l'identifiant de l'auteur
      * @param bibliothequeId l'identifiant de la bibliotheque
      * @return la liste des livres recherchés
