@@ -98,6 +98,9 @@ public class UsersServiceImpl implements UsersService {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
         utilisateurDto.setDateCreationCompte(new Date());
+        //Set Numero d'abonné
+        utilisateurDto.setNumAbonne(utilisateurDto.getPrenom().substring(0,3).toUpperCase() + utilisateurDto.getNom().substring(0,3).toUpperCase() + "-" + utilisateurDto.getPublicId().substring(0,4));
+        logger.info("Numéro Abonné de " + utilisateurDto.getPrenom() + " " + utilisateurDto.getNom() + " = " + utilisateurDto.getNumAbonne());
         //Mapping AbonneEntity
         UtilisateurEntity utilisateurEntity = modelMapper.map(utilisateurDto, UtilisateurEntity.class);
         //Set Role
@@ -182,6 +185,27 @@ public class UsersServiceImpl implements UsersService {
         utilisateurEntity.setRoles(oldUser.getRoles());
         utilisateurEntity.setAdresse(adresseEntity);
         utilisateurRepository.save(utilisateurEntity);
+    }
+
+    @Override
+    public UtilisateurDto getUtilisateurByNumAbonne(String numAbonne) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        UtilisateurEntity utilisateurEntity = utilisateurRepository.findUtilisateurByNumAbonne(numAbonne);
+        return modelMapper.map(utilisateurEntity, UtilisateurDto.class);
+    }
+
+    @Override
+    public List<UtilisateurDto> getUtilisateursByNumAbonne(String numAbonne) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<UtilisateurDto> abonnesDto = new ArrayList<>();
+        List<UtilisateurEntity> abonnes = utilisateurRepository.findUtilisateursByNumAbonne(numAbonne);
+        for (UtilisateurEntity abonne:abonnes) {
+            UtilisateurDto abonneDto = modelMapper.map(abonne, UtilisateurDto.class);
+            abonnesDto.add(abonneDto);
+        }
+        return abonnesDto;
     }
 
 }

@@ -17,6 +17,7 @@ public class UtilisateurDto implements Serializable {
     @Setter(value = AccessLevel.NONE)
     private static final long serialVersionUID = 9136135314128148124L;
 
+    private Long id;
     private String username;
     private String prenom;
     private String nom;
@@ -28,6 +29,7 @@ public class UtilisateurDto implements Serializable {
     private String numTelephone;
     private AdresseDto adresse;
     //Abonne
+    private String numAbonne;
     private Date dateCreationCompte;
 //    private Set<Pret> prets;
 

@@ -7,6 +7,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @FeignClient(name = "user-api", url = "localhost:9001")
 public interface UserServiceProxy {
 
@@ -18,9 +20,6 @@ public interface UserServiceProxy {
 
     @GetMapping("/users/utilisateur/{username}")
     UtilisateurDto findUtilisateurByUsername(@RequestParam String username);
-//
-//    @GetMapping("/employe")
-//    UtilisateurDto findEmployeByPublicId(String publicId);
 
     @PostMapping("/users/login")
     String login(@RequestBody LoginRequestDto user);
@@ -33,4 +32,12 @@ public interface UserServiceProxy {
 
     @PostMapping("users/update")
     void updateUser(@RequestBody UtilisateurDto userDetails);
+
+
+    @GetMapping("users/utilisateur/numAb")
+    UtilisateurDto getUtilisateurByNumAbonne(@RequestParam String numAbonne);
+
+    @PostMapping("users/utilisateurs")
+    List<UtilisateurDto> getUtilisateursByNumAbonne(@RequestParam String numAbonne);
+
 }

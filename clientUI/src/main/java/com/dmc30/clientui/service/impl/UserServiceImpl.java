@@ -14,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -101,6 +103,16 @@ public class UserServiceImpl implements UserService {
     public void updateAbonne(UtilisateurDto userDetails) {
 
         userServiceProxy.updateUser(userDetails);
+    }
+
+    @Override
+    public UtilisateurDto getUtilisateurByNumAbonné(String numAbonne) {
+        return userServiceProxy.getUtilisateurByNumAbonne(numAbonne);
+    }
+
+    @Override
+    public List<UtilisateurDto> getUtilisateursByNumAbonne(String numAbonne) {
+        return userServiceProxy.getUtilisateursByNumAbonne(numAbonne);
     }
 
 }

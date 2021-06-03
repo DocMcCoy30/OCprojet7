@@ -5,13 +5,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
 public class OuvrageDto {
 
+    private Long id;
     private String idInterne;
     private boolean emprunte;
-    private List<PretDto> prets;
+    private Set<PretDto> prets;
 
 }

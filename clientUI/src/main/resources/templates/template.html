@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet">
+    <title>Template</title>
+</head>
+<body>
+<header th:insert="fragments/header.html"></header>
+<div class="container">
+    <div th:insert="fragments/recherche.html"></div>
+    <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+    </div>
+
+</div>
+<br>
+<br>
+<footer th:insert="fragments/footer.html"></footer>
+</body>
+</html>

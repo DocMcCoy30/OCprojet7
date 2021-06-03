@@ -46,28 +46,30 @@
                     <h4 th:text="${livre.editeur.nomMaisonEdition}"></h4>
                     <a th:text="${livre.dateEdition}"></a>
                     <div>Genre : <a th:text="${livre.genres}"></a>
-                    <div>
-                        <span>Numéro ISBN : <a th:text="${livre.numeroIsbn13}"></a></span>
-                        <span> / Langue :  <a th:text="${livre.langue.getLangue()}"></a></span>
-                    </div>
-                    <br>
-                    <span>Nombre d'exemplaire disponible : <a th:text="${nbExDispoInOne}"></a></span>
-                    <br>
-                    <hr>
-                    <div th:if="${nbExDispoInOtherElements}">
-                        <div th:each="elements : ${nbExDispoInOtherElements}">
-                            <span><a th:text="${elements[0]}"></a> exemplaire(s) disponible(s)</span>
-                            <span> à la <a th:text="${elements[2]}"></a></span>
+                        <div>
+                            <span>Numéro ISBN : <a th:text="${livre.numeroIsbn13}"></a></span>
+                            <span> / Langue :  <a th:text="${livre.langue.getLangue()}"></a></span>
+                        </div>
+                        <br>
+                        <span>Nombre d'exemplaire disponible : <a th:text="${nbExDispoInOne}"></a></span>
+                        <br>
+                        <hr>
+                        <div th:if="${nbExDispoInOtherElements}">
+                            <div th:each="elements : ${nbExDispoInOtherElements}">
+                                <span><a th:text="${elements[0]}"></a> exemplaire(s) disponible(s)</span>
+                                <span> à la <a th:text="${elements[2]}"></a></span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <br>
         </div>
-        <br>
     </div>
 </div>
 <br>
 <br>
+
 
 <footer th:insert="fragments/footer.html"></footer>
 </body>

@@ -1,9 +1,11 @@
 package com.dmc30.livreservice.service.impl;
 
 import com.dmc30.livreservice.data.entity.bibliotheque.Ouvrage;
+import com.dmc30.livreservice.data.entity.livre.Livre;
 import com.dmc30.livreservice.data.repository.OuvrageRepository;
 import com.dmc30.livreservice.service.contract.OuvrageService;
 import com.dmc30.livreservice.shared.bibliotheque.OuvrageDto;
+import com.dmc30.livreservice.shared.livre.LivreDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,5 +62,62 @@ public class OuvrageServiceImpl implements OuvrageService {
             ouvrageDtos.add(modelMapper.map(ouvrage, OuvrageDto.class));
         }
         return ouvrageDtos;
+    }
+
+    /**
+     * Cherche un ouvrage selon l'identifiant interne renseigné dans la vue
+     * @param idInterne l'identifiant interne (complet)
+     * @return la liste des ouvrages correspondants
+     */
+    @Override
+    public OuvrageDto findouvrageByIdInterne(String idInterne) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        Ouvrage ouvrage = ouvrageRepository.findOuvrageByIdInterne(idInterne);
+        return modelMapper.map(ouvrage, OuvrageDto.class);
+    }
+
+    /**
+     * Cherche une liste d'ouvrage selon l'identifiant interne renseigné dans la vue
+     * @param idInterne l'identifiant interne (partiel ou complet)
+     * @return la liste des ouvrages correspondants
+     */
+    @Override
+    public List<OuvrageDto> findOuvragesByIdInterne(String idInterne) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<OuvrageDto> ouvrageDtos = new ArrayList<>();
+        List<Ouvrage> ouvrages = ouvrageRepository.findOuvragesByIdInterne(idInterne);
+        for (Ouvrage ouvrage: ouvrages) {
+            ouvrageDtos.add(modelMapper.map(ouvrage, OuvrageDto.class));
+        }
+        return ouvrageDtos;
+    }
+
+    /**
+     * Cherche un ouvrage par son identifiant
+     * @param ouvrageId l'identifiant de l'ouvrage
+     * @return l'ouvrage recherché
+     */
+    @Override
+    public OuvrageDto findOuvrageById(Long ouvrageId) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        Ouvrage ouvrage = ouvrageRepository.findOuvrageById(ouvrageId);
+        OuvrageDto ouvrageDto = modelMapper.map(ouvrage, OuvrageDto.class);
+        return ouvrageDto;
+    }
+
+    /**
+     * Cherche un livre en fonction de l'identifiant d'un ouvrage
+     * @param ouvrageId l'identifiant de l'ouvrage
+     * @return le livre recherché
+     */
+    @Override
+    public Long findLivreIdByOuvrageId(Long ouvrageId) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        Long livreId = ouvrageRepository.findLivreByOuvrageId(ouvrageId);
+        return livreId;
     }
 }

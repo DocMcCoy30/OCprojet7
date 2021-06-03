@@ -15,7 +15,8 @@
     <main class="text-center">
         <div class="py-5">
             <h1 class="h3 mb-3 font-weight-normal">Créer un compte</h1>
-            <form class="form" action="#" th:action="@{/signin(bibliothequeId=${bibliotheque.id})}" th:object="${abonne}" method="post">
+            <form class="form" action="#" th:action="@{/signin(bibliothequeId=${bibliotheque.id})}"
+                  th:object="${abonne}" method="post">
                 <div class="row g-3">
                     <div class="col-sm-6">
                         <label for="prenom" class="form-label">Prenom</label>
@@ -36,16 +37,15 @@
                     </div>
                     <div class="col-sm-6">
                         <label for="username" class="form-label">Username</label>
-                        <div class="input-group has-validation">
-                            <span class="input-group-text">@</span>
-                            <input type="text" th:field="*{username}" class="form-control" id="username"
-                                   placeholder=""
-                                   value="" required>
-                            <div class="invalid-feedback">
-                                Your username is required.
-                            </div>
+                        <!--                        <div class="input-group">-->
+                        <input type="text" th:field="*{username}" class="form-control" id="username"
+                               placeholder=""
+                               value="" required>
+                        <div class="invalid-feedback">
+                            Your username is required.
                         </div>
                     </div>
+                    <!--                    </div>-->
                     <div class="col-sm-6">
                         <label for="telephone" class="form-label">Numéro de Téléphone</label>
                         <input type="text" th:field="*{numTelephone}" class="form-control" id="telephone"
@@ -67,18 +67,21 @@
                         <label for="passwordVerif" class="form-label">Verifier mot de passe</label>
                         <input type="text" class="form-control" id="passwordVerif"
                                placeholder=""
-                               value="" required>
+                               value="">
                         <div class="invalid-feedback">
                             Valid password is required.
                         </div>
                     </div>
                     <div class="col-12">
                         <label for="email" class="form-label">Email <span class="text-muted"></span></label>
-                        <input type="email" th:field="*{email}" class="form-control" id="email" placeholder=""
-                               value=""
-                               required>
-                        <div class="invalid-feedback">
-                            Please enter a valid email address for shipping updates.
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">@</span>
+                            <input type="email" th:field="*{email}" class="form-control" id="email" placeholder=""
+                                   value=""
+                                   required>
+                            <div class="invalid-feedback">
+                                Please enter a valid email address for shipping updates.
+                            </div>
                         </div>
                     </div>
                     <div class="col-12">
@@ -92,6 +95,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="code-postal" class="form-label">Code Postal</label>
+                        <!--                        <div class="input-group">-->
                         <input type="text" th:field="*{adresse.codePostal}" class="form-control" id="code-postal"
                                placeholder="" value="" required>
                         <div class="invalid-feedback">

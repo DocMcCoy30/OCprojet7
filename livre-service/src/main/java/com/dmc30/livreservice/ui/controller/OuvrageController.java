@@ -2,6 +2,7 @@ package com.dmc30.livreservice.ui.controller;
 
 import com.dmc30.livreservice.service.contract.OuvrageService;
 import com.dmc30.livreservice.shared.bibliotheque.OuvrageDto;
+import com.dmc30.livreservice.shared.livre.LivreDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,10 +44,35 @@ public class OuvrageController {
         return ouvrageService.findOuvrageDispoInOtherBibiotheque(livreId,bibliothequeId);
     }
 
+    /**
+     * Cherche les ouvrages disponibles par identifiant du livre
+     * @param livreId l'identifiant du livre
+     * @param bibliothequeId l'identifiant de la bibliotheque
+     * @return
+     */
     @GetMapping("/ouvragesDispo")
     public List<OuvrageDto> getOuvrageDispoByLivreId(@RequestParam("livreId") Long livreId,
                                                      @RequestParam("bibliothequeId") Long bibliothequeId) {
         return ouvrageService.findOuvrageDispoByLivreId(livreId, bibliothequeId);
     }
 
+    @GetMapping("/ouvrage")
+    public OuvrageDto getOuvrageByIdInterne (@RequestParam("idInterne") String idInterne) {
+        return ouvrageService.findouvrageByIdInterne(idInterne);
+    }
+
+    @GetMapping("/ouvrages")
+    public List<OuvrageDto> getOuvragesByIdInterne (@RequestParam("idInterne") String idInterne) {
+        return ouvrageService.findOuvragesByIdInterne(idInterne);
+    }
+
+    @GetMapping("/ouvrage/id")
+    public OuvrageDto getOuvrageById (@RequestParam("ouvrageId") Long ouvrageId) {
+        return ouvrageService.findOuvrageById(ouvrageId);
+    }
+
+    @GetMapping(path = "/livres/ouvrage")
+    public Long getLivreIdByOuvrageId(Long ouvrageId) {
+        return ouvrageService.findLivreIdByOuvrageId(ouvrageId);
+    }
 }

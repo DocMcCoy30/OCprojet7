@@ -6,6 +6,8 @@ import com.dmc30.clientui.shared.utilisateur.LoginRequestDto;
 import com.dmc30.clientui.ui.model.CreateAbonneResponseModel;
 import org.springframework.http.ResponseEntity;
 
+import java.util.List;
+
 public interface UserService {
 
     String check();
@@ -21,4 +23,9 @@ public interface UserService {
     UtilisateurDto getUtilisateurByUsername(String username);
 
     void updateAbonne(UtilisateurDto userDetails);
+
+    UtilisateurDto getUtilisateurByNumAbonné(String numAbonne);
+
+    List<UtilisateurDto> getUtilisateursByNumAbonne(String numAbonne);
+
 }

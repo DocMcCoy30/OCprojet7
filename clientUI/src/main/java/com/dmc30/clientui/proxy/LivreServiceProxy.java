@@ -1,6 +1,8 @@
 package com.dmc30.clientui.proxy;
 
 import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
+import com.dmc30.clientui.shared.bibliotheque.OuvrageDto;
+import com.dmc30.clientui.shared.bibliotheque.OuvrageResponseModelDto;
 import com.dmc30.clientui.shared.livre.AuteurDto;
 import com.dmc30.clientui.shared.livre.LivreDto;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -45,4 +47,15 @@ public interface LivreServiceProxy {
     List<Object> getOuvrageDispoInOtherBibliotheque(@RequestParam("livreId") Long livreId,
                                                             @RequestParam("bibliothequeId") Long bibliothequeId);
 
+    @GetMapping("/ouvrages")
+    List<OuvrageDto> getOuvragesByIdInterne (@RequestParam("idInterne") String idInterne);
+
+    @GetMapping("/ouvrage")
+    OuvrageDto getOuvrageByIdInterne (@RequestParam("idInterne") String idInterne);
+
+    @GetMapping("/ouvrage/id")
+    OuvrageDto getOuvrageById(@RequestParam("ouvrageId") Long ouvrageId);
+
+    @GetMapping("/livres/ouvrage")
+    Long getLivreIdByOuvrageId(@RequestParam("ouvrageId") Long ouvrageId);
 }

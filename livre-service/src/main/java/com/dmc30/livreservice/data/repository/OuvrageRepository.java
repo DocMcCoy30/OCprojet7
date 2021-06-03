@@ -1,6 +1,7 @@
 package com.dmc30.livreservice.data.repository;
 
 import com.dmc30.livreservice.data.entity.bibliotheque.Ouvrage;
+import com.dmc30.livreservice.shared.bibliotheque.OuvrageDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -17,5 +18,14 @@ public interface OuvrageRepository extends JpaRepository<Ouvrage, Long> {
     @Query(value = "SELECT * FROM ouvrage WHERE ouvrage.emprunte = false AND ouvrage.id_livre = ?1 AND ouvrage.id_bibliotheque = ?2", nativeQuery = true)
     List<Ouvrage> findOuvrageDispoByLivreId(Long LivreId, Long BibliothequeId);
 
+    Ouvrage findOuvrageByIdInterne(String idInterne);
+
+    @Query(value = "SELECT * FROM ouvrage WHERE (id_interne) ILIKE '%' || ?1 || '%'", nativeQuery = true)
+    List<Ouvrage> findOuvragesByIdInterne(String idInterne);
+
+    Ouvrage findOuvrageById(Long ouvrageId);
+
+    @Query(value = "SELECT id_livre FROM ouvrage WHERE id=?1", nativeQuery = true)
+    Long findLivreByOuvrageId(Long ouvrageId);
 }
 

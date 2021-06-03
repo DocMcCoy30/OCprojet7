@@ -3,6 +3,8 @@ package com.dmc30.userservice.service.contract;
 import com.dmc30.userservice.shared.UtilisateurDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import java.util.List;
+
 public interface UsersService extends UserDetailsService {
 
     UtilisateurDto createAbonne(UtilisateurDto utilisateurDto, Long paysId);
@@ -14,4 +16,9 @@ public interface UsersService extends UserDetailsService {
     UtilisateurDto GetUtilisateurByUsername(String username);
 
     void updateUtilisateur(UtilisateurDto utilisateurDto);
+
+    UtilisateurDto getUtilisateurByNumAbonne(String numAbonne);
+
+    List<UtilisateurDto> getUtilisateursByNumAbonne(String numAbonne);
+
 }

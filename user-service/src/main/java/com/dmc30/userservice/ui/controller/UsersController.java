@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/users")
 public class UsersController {
@@ -43,6 +45,22 @@ public class UsersController {
     public UtilisateurDto findUtilisateurByPublicId(@RequestParam String publicId) {
         UtilisateurDto abonne = usersService.getUtilisateurByPublicId(publicId);
         return abonne;
+    }
+
+    @GetMapping("utilisateur/numAb")
+    public UtilisateurDto getUtilisateurByNumAbonne(@RequestParam String numAbonne) {
+        return usersService.getUtilisateurByNumAbonne(numAbonne);
+    }
+
+    /**
+     * Recherche d'une liste d'utilisateurs par un numero d'abonné (partiel)
+     * @param numAbonne le numero d'abonné partiel renseigné dans la vue
+     * @return la liste d'utilisateurs recherchés
+     */
+    @PostMapping("/utilisateurs")
+    public List<UtilisateurDto> findUtilisateursByNumAbonne(@RequestParam String numAbonne) {
+        List<UtilisateurDto> abonnes = usersService.getUtilisateursByNumAbonne(numAbonne);
+        return abonnes;
     }
 
     /**
