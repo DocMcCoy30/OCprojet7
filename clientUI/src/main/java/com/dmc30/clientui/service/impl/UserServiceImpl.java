@@ -4,9 +4,8 @@ import com.dmc30.clientui.web.exception.TechnicalException;
 import com.dmc30.clientui.proxy.UserServiceProxy;
 import com.dmc30.clientui.security.TokenValidationHelper;
 import com.dmc30.clientui.service.contract.UserService;
-import com.dmc30.clientui.service.dto.utilisateur.LoginRequestDto;
-import com.dmc30.clientui.service.dto.utilisateur.UtilisateurDto;
-import com.dmc30.clientui.web.model.CreateAbonneResponseModel;
+import com.dmc30.clientui.bean.utilisateur.LoginRequestBean;
+import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,13 +37,13 @@ public class UserServiceImpl implements UserService {
 
     /**
      * Traitement des données de connexion (validation du token renvoyé par user-service)
-     * @param loginRequestDto Les données de connexion de l'utilisateur
+     * @param loginRequestBean Les données de connexion de l'utilisateur
      * @return un message définissant le résultet du processus d'identification (succès ou échec)
      * @throws TechnicalException
      */
     @Override
-    public String[] secureLogin(LoginRequestDto loginRequestDto) throws TechnicalException {
-        ResponseEntity<String> responseEntity = userServiceProxy.secureLogin(loginRequestDto);
+    public String[] secureLogin(LoginRequestBean loginRequestBean) throws TechnicalException {
+        ResponseEntity<String> responseEntity = userServiceProxy.secureLogin(loginRequestBean);
         String[] returnValue = new String[0];
         String publicId = "";
 
@@ -71,7 +70,7 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public ResponseEntity<CreateAbonneResponseModel> createAbonne(UtilisateurDto abonne, Long paysId) {
+    public UtilisateurBean createAbonne(UtilisateurBean abonne, Long paysId) {
         return userServiceProxy.signin(abonne, paysId);
     }
 
@@ -81,7 +80,7 @@ public class UserServiceImpl implements UserService {
      * @return l'utilisateur recherché
      */
     @Override
-    public UtilisateurDto getUtilisateurByPublicId(String publicId) {
+    public UtilisateurBean getUtilisateurByPublicId(String publicId) {
         return userServiceProxy.findUtilisateurByPublicId(publicId);
     }
 
@@ -91,7 +90,7 @@ public class UserServiceImpl implements UserService {
      * @return l'utilisateur recherché
      */
     @Override
-    public UtilisateurDto getUtilisateurByUsername(String username) {
+    public UtilisateurBean getUtilisateurByUsername(String username) {
         return userServiceProxy.findUtilisateurByUsername(username);
     }
 
@@ -100,18 +99,18 @@ public class UserServiceImpl implements UserService {
      * @param userDetails les données de profil de l'utilisateur
      */
     @Override
-    public void updateAbonne(UtilisateurDto userDetails) {
+    public void updateAbonne(UtilisateurBean userDetails) {
 
         userServiceProxy.updateUser(userDetails);
     }
 
     @Override
-    public UtilisateurDto getUtilisateurByNumAbonné(String numAbonne) {
+    public UtilisateurBean getUtilisateurByNumAbonné(String numAbonne) {
         return userServiceProxy.getUtilisateurByNumAbonne(numAbonne);
     }
 
     @Override
-    public List<UtilisateurDto> getUtilisateursByNumAbonne(String numAbonne) {
+    public List<UtilisateurBean> getUtilisateursByNumAbonne(String numAbonne) {
         return userServiceProxy.getUtilisateursByNumAbonne(numAbonne);
     }
 

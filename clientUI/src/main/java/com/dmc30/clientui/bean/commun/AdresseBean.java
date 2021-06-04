@@ -1,13 +1,13 @@
-package com.dmc30.clientui.service.dto.commun;
+package com.dmc30.clientui.bean.commun;
 
 import lombok.*;
 
 @Getter
 @Setter
-public class AdresseDto {
+public class AdresseBean {
 
     private String rue;
     private String codePostal;
     private String ville;
-    private PaysDto pays;
+    private PaysBean pays;
 }

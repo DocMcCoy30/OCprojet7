@@ -38,13 +38,6 @@ public class BibliothequeServiceImpl implements BibliothequeService {
         } else {
             for (Bibliotheque bibliotheque : bibliotheques) {
                 bibliothequeDtos.add(modelMapper.map(bibliotheque, BibliothequeDto.class));
-//                BibliothequeDto bibliothequeDto =
-//                        new BibliothequeDto(bibliotheque.getId(),
-//                                bibliotheque.getCode(),
-//                                bibliotheque.getNumeroSiret(),
-//                                bibliotheque.getNom(),
-//                                modelMapper.map(bibliotheque.getAdresse(), AdresseDto.class));
-//                bibliothequeDtos.add(bibliothequeDto);
             }
         }
         return bibliothequeDtos;

@@ -1,4 +1,4 @@
-package com.dmc30.clientui.service.dto.utilisateur;
+package com.dmc30.clientui.bean.utilisateur;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,9 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class RoleDto {
+public class RoleBean {
 
     private String role;
     private String description;
-    private List<UtilisateurDto> utilisateurs;
+    private List<UtilisateurBean> utilisateurs;
 }

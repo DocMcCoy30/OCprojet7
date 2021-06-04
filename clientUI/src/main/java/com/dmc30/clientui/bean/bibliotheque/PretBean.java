@@ -1,4 +1,4 @@
-package com.dmc30.clientui.service.dto.bibliotheque;
+package com.dmc30.clientui.bean.bibliotheque;
 
 import lombok.*;
 
@@ -6,9 +6,9 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class PretDto {
+public class PretBean {
 
-    private OuvrageDto ouvrage;
+    private OuvrageBean ouvrage;
     private Date dateEmprunt;
     private Date dateRestitution;
     private boolean prolongation;

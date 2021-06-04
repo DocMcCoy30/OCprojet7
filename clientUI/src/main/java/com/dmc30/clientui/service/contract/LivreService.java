@@ -1,17 +1,17 @@
 package com.dmc30.clientui.service.contract;
 
-import com.dmc30.clientui.service.dto.livre.AuteurDto;
-import com.dmc30.clientui.web.model.LivreResponseModel;
+import com.dmc30.clientui.bean.livre.AuteurBean;
+import com.dmc30.clientui.bean.livre.LivreResponseModelBean;
 
 import java.util.List;
 
 public interface LivreService {
 
-    List<LivreResponseModel> getLivres();
-    List<LivreResponseModel> get12LastLivres();
-    LivreResponseModel getLivreById(Long id);
-    List<LivreResponseModel> getLivreByTitre(String motCle);
-    List<LivreResponseModel> getLivreByAuteur(Long auteurId);
-    String formatListeAuteurs (List<AuteurDto> auteurs);
+    List<LivreResponseModelBean> getLivres();
+    List<LivreResponseModelBean> get12LastLivres();
+    LivreResponseModelBean getLivreById(Long id);
+    List<LivreResponseModelBean> getLivreByTitre(String motCle);
+    List<LivreResponseModelBean> getLivreByAuteur(Long auteurId);
+    String formatListeAuteurs (List<AuteurBean> auteurs);
 
 }

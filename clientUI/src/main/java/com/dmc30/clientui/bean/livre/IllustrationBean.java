@@ -1,10 +1,10 @@
-package com.dmc30.clientui.service.dto.livre;
+package com.dmc30.clientui.bean.livre;
 
 import lombok.*;
 
 @Getter
 @Setter
-public class IllustrationDto {
+public class IllustrationBean {
 
     private String url;
     private String typeIllustration;

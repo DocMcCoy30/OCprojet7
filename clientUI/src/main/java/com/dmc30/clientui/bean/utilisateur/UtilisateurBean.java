@@ -1,6 +1,6 @@
-package com.dmc30.clientui.service.dto.utilisateur;
+package com.dmc30.clientui.bean.utilisateur;
 
-import com.dmc30.clientui.service.dto.commun.AdresseDto;
+import com.dmc30.clientui.bean.commun.AdresseBean;
 import lombok.*;
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class UtilisateurDto implements Serializable {
+public class UtilisateurBean implements Serializable {
 
     @Getter(value = AccessLevel.NONE)
     @Setter(value = AccessLevel.NONE)
@@ -25,9 +25,9 @@ public class UtilisateurDto implements Serializable {
     private String password;
     private String encryptedPassword;
     private String publicId;
-    private List<RoleDto> roles;
+    private List<RoleBean> roles;
     private String numTelephone;
-    private AdresseDto adresse;
+    private AdresseBean adresse;
     //Abonne
     private String numAbonne;
     private Date dateCreationCompte;

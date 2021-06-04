@@ -1,8 +1,8 @@
 package com.dmc30.clientui.service.contract;
 
-import com.dmc30.clientui.service.dto.bibliotheque.CreateEmpruntDto;
-import com.dmc30.clientui.service.dto.bibliotheque.OuvrageResponseModelDto;
-import com.dmc30.clientui.service.dto.utilisateur.UtilisateurDto;
+import com.dmc30.clientui.bean.bibliotheque.CreateEmpruntBean;
+import com.dmc30.clientui.bean.bibliotheque.OuvrageResponseModelBean;
+import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ public interface OuvrageService {
 
     Integer getOuvrageDispoInOneBibliotheque(Long livreId, Long bibliothequeId);
     List<Object> getOuvrageDispoInOtherBibliotheque(Long livreId, Long bibliothequeId);
-    OuvrageResponseModelDto getOuvrageById(Long ouvrageId);
-    List<OuvrageResponseModelDto> getOuvragesByIdInterne(String idInterne);
-    OuvrageResponseModelDto getOuvrageByIdInterne(String idInterne);
-    CreateEmpruntDto createEmpruntForm(UtilisateurDto utilisateurDto, OuvrageResponseModelDto ouvrageResponseModelDto);
+    OuvrageResponseModelBean getOuvrageById(Long ouvrageId);
+    List<OuvrageResponseModelBean> getOuvragesByIdInterne(String idInterne);
+    OuvrageResponseModelBean getOuvrageByIdInterne(String idInterne);
+    CreateEmpruntBean createEmpruntForm(UtilisateurBean utilisateurBean, OuvrageResponseModelBean ouvrageResponseModelBean);
 }

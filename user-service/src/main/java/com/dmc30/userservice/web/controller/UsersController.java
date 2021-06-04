@@ -2,7 +2,6 @@ package com.dmc30.userservice.web.controller;
 
 import com.dmc30.userservice.service.contract.UsersService;
 import com.dmc30.userservice.service.dto.UtilisateurDto;
-import com.dmc30.userservice.web.model.CreateAbonneResponseModel;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.slf4j.Logger;
@@ -41,13 +40,24 @@ public class UsersController {
      * @param publicId l'identifiant de l'utilisateur
      * @return l'utilisateur recherché
      */
-    @GetMapping("/utilisateur")
+    @GetMapping("/publicId")
     public UtilisateurDto findUtilisateurByPublicId(@RequestParam String publicId) {
         UtilisateurDto abonne = usersService.getUtilisateurByPublicId(publicId);
         return abonne;
     }
 
-    @GetMapping("utilisateur/numAb")
+    /**
+     * Recherche d'un utilisateur par son username
+     * @param username le username de l'utilisateur
+     * @return l'utilisateur recherché
+     */
+    @GetMapping("/username")
+    public UtilisateurDto findUtilisateurByUsername(@RequestParam String username) {
+        UtilisateurDto abonne = usersService.GetUtilisateurByUsername(username);
+        return abonne;
+    }
+
+    @GetMapping("/numAb")
     public UtilisateurDto getUtilisateurByNumAbonne(@RequestParam String numAbonne) {
         return usersService.getUtilisateurByNumAbonne(numAbonne);
     }
@@ -57,21 +67,10 @@ public class UsersController {
      * @param numAbonne le numero d'abonné partiel renseigné dans la vue
      * @return la liste d'utilisateurs recherchés
      */
-    @PostMapping("/utilisateurs")
+    @GetMapping("/utilisateurs")
     public List<UtilisateurDto> findUtilisateursByNumAbonne(@RequestParam String numAbonne) {
         List<UtilisateurDto> abonnes = usersService.getUtilisateursByNumAbonne(numAbonne);
         return abonnes;
-    }
-
-    /**
-     * Recherche d'un utilisateur par son username
-     * @param username l'identifiant de l'utilisateur
-     * @return l'utilisateur recherché
-     */
-    @GetMapping("/utilisateur/{username}")
-    public UtilisateurDto findUtilisateurByUsername(@RequestParam String username) {
-        UtilisateurDto abonne = usersService.GetUtilisateurByUsername(username);
-        return abonne;
     }
 
     /**
@@ -81,16 +80,16 @@ public class UsersController {
      * @return Response entity : le statut + les données utiles pour la réponse à retourner au client (Response Model)
      */
     @PostMapping("/signin")
-    public ResponseEntity<CreateAbonneResponseModel> createAbonne(@RequestBody UtilisateurDto utilisateurDto,
+    public UtilisateurDto createAbonne(@RequestBody UtilisateurDto utilisateurDto,
                                                                   @RequestParam Long paysId) {
-        ModelMapper modelMapper = new ModelMapper();
-        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        logger.info(utilisateurDto.toString());
         UtilisateurDto createdAbonne = usersService.createAbonne(utilisateurDto, paysId);
-        CreateAbonneResponseModel returnValue = modelMapper.map(createdAbonne, CreateAbonneResponseModel.class);
-        return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
+        return createdAbonne;
     }
 
+    /**
+     * Modifie le profil d'un utilisateur
+     * @param utilisateurDto l'utilisateur concerné
+     */
     @PostMapping("/update")
     public void updateUtilisateur(@RequestBody UtilisateurDto utilisateurDto) {
         usersService.updateUtilisateur(utilisateurDto);

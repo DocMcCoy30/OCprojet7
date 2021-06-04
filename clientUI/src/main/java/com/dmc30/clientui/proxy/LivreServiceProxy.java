@@ -1,9 +1,9 @@
 package com.dmc30.clientui.proxy;
 
-import com.dmc30.clientui.service.dto.bibliotheque.BibliothequeDto;
-import com.dmc30.clientui.service.dto.bibliotheque.OuvrageDto;
-import com.dmc30.clientui.service.dto.livre.AuteurDto;
-import com.dmc30.clientui.service.dto.livre.LivreDto;
+import com.dmc30.clientui.bean.bibliotheque.BibliothequeBean;
+import com.dmc30.clientui.bean.bibliotheque.OuvrageBean;
+import com.dmc30.clientui.bean.livre.AuteurBean;
+import com.dmc30.clientui.bean.livre.LivreBean;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,47 +14,50 @@ import java.util.List;
 @FeignClient(name = "livre-api", url = "localhost:9002")
 public interface LivreServiceProxy {
 
-    @GetMapping("/livres")
-    List<LivreDto> getLivres();
+    @GetMapping("/livres/all") //
+    List<LivreBean> getLivres();
 
-    @GetMapping("/livres/12")
-    List<LivreDto> get12LastLivres();
+    @GetMapping("/livres/id") //
+    LivreBean getLivreById(@RequestParam("livreId") Long livreId);
 
-    @PostMapping("/livres/titre")
-    List<LivreDto> getLivreByTitre(@RequestParam("motCle") String motCle);
+    @PostMapping("/livres/titre") //
+    List<LivreBean> getLivreByTitre(@RequestParam("motCle") String motCle);
 
-    @GetMapping("livres/auteur")
-    List<LivreDto> getLivreByAuteur(@RequestParam("auteurId") Long auteurId);
+    @GetMapping("/livres/auteur") //
+    List<LivreBean> getLivreByAuteur(@RequestParam("auteurId") Long auteurId);
 
-    @PostMapping("auteurs")
-    List<AuteurDto> getAuteurByNomContaining(@RequestParam("motCle") String motCle);
+    @GetMapping("/livres/12") //
+    List<LivreBean> get12LastLivres();
 
-    @GetMapping("/bibliotheques")
-    List<BibliothequeDto> getBibliotheques();
+    @GetMapping("/auteurs/all")
+    List<AuteurBean> getAuteurs();
 
-    @GetMapping("livres/id")
-    LivreDto getLivreById(@RequestParam("livreId") Long livreId);
+    @GetMapping("auteurs/nom")
+    List<AuteurBean> getAuteurByNomContaining(@RequestParam("motCle") String motCle);
 
-    @PostMapping("/bibliotheque")
-    BibliothequeDto getBibliotheque(@RequestParam("bibliothequeId") Long bibliothequeId);
+    @GetMapping("/bibliotheques/all")
+    List<BibliothequeBean> getBibliotheques();
 
-    @GetMapping("/ouvrageDispoInOne")
+    @PostMapping("/bibliotheques/id")
+    BibliothequeBean getBibliothequeById(@RequestParam("bibliothequeId") Long bibliothequeId);
+
+    @GetMapping("/ouvrages/ouvrageDispoInOne")
     Integer getOuvrageDispoInOneBibliotheque(@RequestParam("livreId") Long livreId,
                                                     @RequestParam("bibliothequeId") Long bibliothequeId);
 
-    @GetMapping("/ouvrageDispoInOther")
+    @GetMapping("/ouvrages/ouvrageDispoInOther")
     List<Object> getOuvrageDispoInOtherBibliotheque(@RequestParam("livreId") Long livreId,
                                                             @RequestParam("bibliothequeId") Long bibliothequeId);
 
-    @GetMapping("/ouvrages")
-    List<OuvrageDto> getOuvragesByIdInterne (@RequestParam("idInterne") String idInterne);
+    @GetMapping("/ouvrages/idInterne")
+    List<OuvrageBean> getOuvragesByIdInterne (@RequestParam("idInterne") String idInterne);
 
-    @GetMapping("/ouvrage")
-    OuvrageDto getOuvrageByIdInterne (@RequestParam("idInterne") String idInterne);
+    @GetMapping("/ouvrages/ouvrage/idInterne")
+    OuvrageBean getOuvrageByIdInterne (@RequestParam("idInterne") String idInterne);
 
-    @GetMapping("/ouvrage/id")
-    OuvrageDto getOuvrageById(@RequestParam("ouvrageId") Long ouvrageId);
+    @GetMapping("/ouvrages/ouvrage/id")
+    OuvrageBean getOuvrageById(@RequestParam("ouvrageId") Long ouvrageId);
 
-    @GetMapping("/livres/ouvrage")
+    @GetMapping("ouvrages/livres")
     Long getLivreIdByOuvrageId(@RequestParam("ouvrageId") Long ouvrageId);
 }

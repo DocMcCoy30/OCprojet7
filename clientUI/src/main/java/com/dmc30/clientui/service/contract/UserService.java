@@ -1,10 +1,8 @@
 package com.dmc30.clientui.service.contract;
 
 import com.dmc30.clientui.web.exception.TechnicalException;
-import com.dmc30.clientui.service.dto.utilisateur.UtilisateurDto;
-import com.dmc30.clientui.service.dto.utilisateur.LoginRequestDto;
-import com.dmc30.clientui.web.model.CreateAbonneResponseModel;
-import org.springframework.http.ResponseEntity;
+import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
+import com.dmc30.clientui.bean.utilisateur.LoginRequestBean;
 
 import java.util.List;
 
@@ -14,18 +12,18 @@ public interface UserService {
 
 //    String login(LoginRequestDto userAuthentication);
 
-    String[] secureLogin(LoginRequestDto loginRequestDto) throws TechnicalException;
+    String[] secureLogin(LoginRequestBean loginRequestBean) throws TechnicalException;
 
-    ResponseEntity<CreateAbonneResponseModel> createAbonne(UtilisateurDto abonne, Long paysId);
+    UtilisateurBean createAbonne(UtilisateurBean abonne, Long paysId);
 
-    UtilisateurDto getUtilisateurByPublicId(String publicId);
+    UtilisateurBean getUtilisateurByPublicId(String publicId);
 
-    UtilisateurDto getUtilisateurByUsername(String username);
+    UtilisateurBean getUtilisateurByUsername(String username);
 
-    void updateAbonne(UtilisateurDto userDetails);
+    void updateAbonne(UtilisateurBean userDetails);
 
-    UtilisateurDto getUtilisateurByNumAbonné(String numAbonne);
+    UtilisateurBean getUtilisateurByNumAbonné(String numAbonne);
 
-    List<UtilisateurDto> getUtilisateursByNumAbonne(String numAbonne);
+    List<UtilisateurBean> getUtilisateursByNumAbonne(String numAbonne);
 
 }

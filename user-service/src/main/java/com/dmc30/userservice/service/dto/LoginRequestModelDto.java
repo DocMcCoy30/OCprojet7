@@ -1,11 +1,10 @@
-package com.dmc30.clientui.web.model;
+package com.dmc30.userservice.service.dto;
 
 import lombok.Data;
 
 @Data
-public class LoginRequestModel {
+public class LoginRequestModelDto {
 
     private String email;
     private String password;
 }
-

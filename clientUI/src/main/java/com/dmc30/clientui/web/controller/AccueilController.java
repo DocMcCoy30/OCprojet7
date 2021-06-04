@@ -3,9 +3,9 @@ package com.dmc30.clientui.web.controller;
 import com.dmc30.clientui.service.contract.BibliothequeService;
 import com.dmc30.clientui.service.contract.LivreService;
 import com.dmc30.clientui.service.contract.UserService;
-import com.dmc30.clientui.service.dto.bibliotheque.BibliothequeDto;
-import com.dmc30.clientui.service.dto.utilisateur.UtilisateurDto;
-import com.dmc30.clientui.web.model.LivreResponseModel;
+import com.dmc30.clientui.bean.bibliotheque.BibliothequeBean;
+import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
+import com.dmc30.clientui.bean.livre.LivreResponseModelBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +40,9 @@ public class AccueilController {
      */
     @GetMapping("/")
     public ModelAndView showIndex(@RequestParam(value = "username", required = false) String username) {
-        UtilisateurDto abonneDto = new UtilisateurDto();
+        UtilisateurBean abonneDto = new UtilisateurBean();
         ModelAndView theModel = new ModelAndView("index");
-        List<BibliothequeDto> bibliotheques = bibliothequeService.getBibliotheques();
+        List<BibliothequeBean> bibliotheques = bibliothequeService.getBibliotheques();
         theModel.addObject("bibliotheques", bibliotheques);
         return theModel;
     }
@@ -57,9 +57,9 @@ public class AccueilController {
     public ModelAndView getToLast12(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
 
         ModelAndView theModel = new ModelAndView("accueil");
-        List<LivreResponseModel> livres = livreService.get12LastLivres();
+        List<LivreResponseModelBean> livres = livreService.get12LastLivres();
         theModel.addObject("lastLivres", livres);
-        BibliothequeDto bibliotheque = bibliothequeService.getBibliotheque(bibliothequeId);
+        BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
         theModel.addObject("bibliotheque", bibliotheque);
         return theModel;
     }

@@ -37,17 +37,14 @@ public class UsersServiceImpl implements UsersService {
     UtilisateurRepository utilisateurRepository;
     RoleRepository roleRepository;
     PaysRepository paysRepository;
-    PasswordEncoderHelper passwordEncoderHelper;
 
     @Autowired
     public UsersServiceImpl(UtilisateurRepository utilisateurRepository,
                             RoleRepository roleRepository,
-                            PaysRepository paysRepository,
-                            PasswordEncoderHelper passwordEncoderHelper) {
+                            PaysRepository paysRepository) {
         this.utilisateurRepository = utilisateurRepository;
         this.roleRepository = roleRepository;
         this.paysRepository = paysRepository;
-        this.passwordEncoderHelper = passwordEncoderHelper;
     }
 
     /**

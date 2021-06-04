@@ -5,15 +5,13 @@ import com.dmc30.livreservice.service.contract.LivreService;
 import com.dmc30.livreservice.service.dto.livre.AuteurDto;
 import com.dmc30.livreservice.service.dto.livre.LivreDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/livres")
 public class LivreController {
 
     LivreService livreService;
@@ -27,27 +25,13 @@ public class LivreController {
 
     /**
      * Cherche tous les livres dans la BD
+     *
      * @return la liste des livres
      */
-    @GetMapping(path = "/livres")
+    @GetMapping(path = "/all")
     public List<LivreDto> getLivres() {
         List<LivreDto> livres = livreService.findAll();
-        for(LivreDto tempLivre : livres) {
-           Long livreId = tempLivre.getId();
-            List<AuteurDto> auteurs = auteurService.findAuteurByLivres(livreId);
-           tempLivre.setAuteurs(auteurs);
-        }
-        return livres;
-    }
-
-    /**
-     * Cherche les 12 derniers livres enregistrés dans la BD
-     * @return la liste des 12 derniers livres pour alimenter la page d'accueil
-     */
-    @GetMapping(path = "/livres/12")
-    public List<LivreDto> get12LastLivres() {
-        List<LivreDto>livres = livreService.findLast12();
-        for(LivreDto tempLivre : livres) {
+        for (LivreDto tempLivre : livres) {
             Long livreId = tempLivre.getId();
             List<AuteurDto> auteurs = auteurService.findAuteurByLivres(livreId);
             tempLivre.setAuteurs(auteurs);
@@ -56,15 +40,27 @@ public class LivreController {
     }
 
     /**
+     * Cherche un livre par son identifiant
+     *
+     * @param livreId l'identifiant du livre
+     * @return le livre recherché
+     */
+    @GetMapping(path = "/id")
+    public LivreDto getLivreById(@RequestParam("livreId") Long livreId) {
+        return livreService.findLivreById(livreId);
+    }
+
+    /**
      * Cherche les livres dont le titre correspond aux critères de recherche renseignés par l'utilisateur
+     *
      * @param motCle les critères de recherche
      * @return la liste des livres correspondant à la recherche
      */
-    @PostMapping(path = "/livres/titre")
+    @PostMapping(path = "/titre")
     public List<LivreDto> getLivreByTitre(@RequestParam("motCle") String motCle) {
         List<LivreDto> livres = livreService.findLivreByTitreContaining(motCle);
         List<AuteurDto> auteurs = new ArrayList<>();
-        for(LivreDto tempLivre : livres) {
+        for (LivreDto tempLivre : livres) {
             Long livreId = tempLivre.getId();
             auteurs = auteurService.findAuteurByLivres(livreId);
             tempLivre.setAuteurs(auteurs);
@@ -74,37 +70,30 @@ public class LivreController {
 
     /**
      * Cherche et renvoie la liste des livres pour un auteur
+     *
      * @param auteurId l'identifiant de l'auteur
      * @return la liste des livres recherchés
      */
-    @GetMapping(path = "/livres/auteur")
+    @GetMapping(path = "/auteur")
     public List<LivreDto> getLivreByAuteur(@RequestParam("auteurId") Long auteurId) {
         return livreService.findLivreByAuteur(auteurId);
     }
-//    /**
-//     * Cherche les livres dont l'auteur correspond aux critères de recherche renseignés par l'utilisateur
-//     * @param motCle les critères de recherche
-//     * @return la liste des livres correspondant à la recherche
-//     */
-//    @PostMapping(path = "/livres/auteur")
-//    public List<LivreDto> getLivreByAuteur(@RequestParam("motCle") String motCle) {
-//        List<AuteurDto> auteurs = auteurService.findAuteurByNomContaining(motCle);
-//        List<LivreDto> livres = new ArrayList<>();
-//        for(AuteurDto tempAuteur : auteurs) {
-//            Long auteurId = tempAuteur.getId();
-//            livres = livreService.findLivreByAuteur(auteurId);
-//         }
-//        return livres;
-//    }
 
     /**
-     * Cherche un livre par son identifiant
-     * @param livreId l'identifiant du livre
-     * @return le livre recherché
+     * Cherche les 12 derniers livres enregistrés dans la BD
+     *
+     * @return la liste des 12 derniers livres pour alimenter la page d'accueil
      */
-    @GetMapping(path = "/livres/id")
-    public LivreDto getLivreById(@RequestParam("livreId") Long livreId) {
-        return livreService.findLivreById(livreId);
+    @GetMapping(path = "/12")
+    public List<LivreDto> get12LastLivres() {
+        List<LivreDto> livres = livreService.findLast12();
+        for (LivreDto tempLivre : livres) {
+            Long livreId = tempLivre.getId();
+            List<AuteurDto> auteurs = auteurService.findAuteurByLivres(livreId);
+            tempLivre.setAuteurs(auteurs);
+        }
+        return livres;
     }
-
 }
+
+

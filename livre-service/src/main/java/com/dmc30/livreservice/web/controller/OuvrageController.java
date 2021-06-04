@@ -4,12 +4,14 @@ import com.dmc30.livreservice.service.contract.OuvrageService;
 import com.dmc30.livreservice.service.dto.bibliotheque.OuvrageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/ouvrages")
 public class OuvrageController {
 
     OuvrageService ouvrageService;
@@ -55,22 +57,42 @@ public class OuvrageController {
         return ouvrageService.findOuvrageDispoByLivreId(livreId, bibliothequeId);
     }
 
-    @GetMapping("/ouvrage")
-    public OuvrageDto getOuvrageByIdInterne (@RequestParam("idInterne") String idInterne) {
-        return ouvrageService.findouvrageByIdInterne(idInterne);
-    }
-
-    @GetMapping("/ouvrages")
+    /**
+     * Cherche la liste des ouvrages correspondants au mot clé renseigné (identifiant interne partiel ou complet)
+     * @param idInterne l'identifiant interne renseigné
+     * @return la liste des ouvrages correspondants
+     */
+    @GetMapping("/idInterne")
     public List<OuvrageDto> getOuvragesByIdInterne (@RequestParam("idInterne") String idInterne) {
         return ouvrageService.findOuvragesByIdInterne(idInterne);
     }
 
+    /**
+     * Cherche un ouvrage par son identifiant interne (complet)
+     * @param idInterne l'identifiant interne renseigné
+     * @return l'ouvrage recherché
+     */
+    @GetMapping("/ouvrage/idInterne")
+    public OuvrageDto getOuvrageByIdInterne (@RequestParam("idInterne") String idInterne) {
+        return ouvrageService.findouvrageByIdInterne(idInterne);
+    }
+
+    /**
+     * Recherche un ouvrage par son identifiant
+     * @param ouvrageId l'identifiant de l'ouvrage
+     * @return l'ouvrage recherché
+     */
     @GetMapping("/ouvrage/id")
     public OuvrageDto getOuvrageById (@RequestParam("ouvrageId") Long ouvrageId) {
         return ouvrageService.findOuvrageById(ouvrageId);
     }
 
-    @GetMapping(path = "/livres/ouvrage")
+    /**
+     * Recherche l'identifiant du livre correspondant à un ouvrage
+     * @param ouvrageId l'identifiant de l'ouvrage
+     * @return l'identifiant du livre recherché
+     */
+    @GetMapping(path = "/livres")
     public Long getLivreIdByOuvrageId(Long ouvrageId) {
         return ouvrageService.findLivreIdByOuvrageId(ouvrageId);
     }

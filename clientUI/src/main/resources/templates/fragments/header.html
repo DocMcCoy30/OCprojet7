@@ -36,14 +36,19 @@
             <input type="hidden" name="bibliothequeId" th:value="${bibliotheque.id}">
             <div class="col-md-3 text-right">
                 <a th:href="@{/login(bibliothequeId=${bibliotheque.id})}">
-                    <button type="button" class="btn btn-outline-primary me-2">Se connecter</button>
+                    <button type="button" class="btn btn-outline-primary">Se connecter</button>
                 </a>
                 <a th:href="@{/signin(bibliothequeId=${bibliotheque.id})}">
                     <button type="button" class="btn btn-primary">S'inscrire</button>
                 </a>
             </div>
         </header>
-
+        <div sec:authorize="hasRole('ROLE_EMPLOYE')">
+             <a th:href="@{/showEmpruntPage(bibliothequeId=${bibliotheque.id})}">Créer un nouvel emprunt</a>
+        </div>
+        <div sec:authorize="hasRole('ROLE_EMPLOYE')">
+            <a th:href="@{#}">Liste des emprunts en cours</a>
+        </div>
     </div>
 </div>
 </body>

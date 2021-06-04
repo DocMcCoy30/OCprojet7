@@ -2,7 +2,7 @@ package com.dmc30.clientui.service.impl;
 
 import com.dmc30.clientui.proxy.LivreServiceProxy;
 import com.dmc30.clientui.service.contract.BibliothequeService;
-import com.dmc30.clientui.service.dto.bibliotheque.BibliothequeDto;
+import com.dmc30.clientui.bean.bibliotheque.BibliothequeBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +18,12 @@ public class BibliothequeServiceImpl implements BibliothequeService {
         this.livreServiceProxy = livreServiceProxy;
     }
 
+    /**
+     * Cherche la liste de toutes les bibliotheques
+     * @return la liste
+     */
     @Override
-    public List<BibliothequeDto> getBibliotheques() {
+    public List<BibliothequeBean> getBibliotheques() {
         return livreServiceProxy.getBibliotheques();
     }
 
@@ -29,8 +33,8 @@ public class BibliothequeServiceImpl implements BibliothequeService {
      * @return la bibliothèque recherchée
      */
     @Override
-    public BibliothequeDto getBibliotheque(Long bibliothequeId) {
-        return livreServiceProxy.getBibliotheque(bibliothequeId);
+    public BibliothequeBean getBibliothequeById(Long bibliothequeId) {
+        return livreServiceProxy.getBibliothequeById(bibliothequeId);
     }
 
 }

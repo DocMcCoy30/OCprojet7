@@ -3,14 +3,12 @@ package com.dmc30.livreservice.web.controller;
 import com.dmc30.livreservice.service.contract.BibliothequeService;
 import com.dmc30.livreservice.service.dto.bibliotheque.BibliothequeDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/bibliotheques")
 public class BibliothequeController {
 
     BibliothequeService bibliothequeService;
@@ -24,7 +22,7 @@ public class BibliothequeController {
      * Cherche la liste de toutes les bibliothèques enregistrées dans la BD pour alimenter la page Index
      * @return la liste de toutes les bibliothèques
      */
-    @GetMapping("/bibliotheques")
+    @GetMapping("/all")
     public List<BibliothequeDto> getBibliotheques() {
         return bibliothequeService.findAll();
     }
@@ -34,8 +32,8 @@ public class BibliothequeController {
      * @param bibliothequeId l'identifiant de la bibliothèque recherchée
      * @return la bibliothèque recherchée
      */
-    @PostMapping("/bibliotheque")
-    public BibliothequeDto getBibliotheque(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
+    @PostMapping("/id")
+    public BibliothequeDto getBibliothequeById(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         return bibliothequeService.findById(bibliothequeId);
     }
 }

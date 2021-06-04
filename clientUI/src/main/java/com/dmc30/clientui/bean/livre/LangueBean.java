@@ -1,10 +1,10 @@
-package com.dmc30.clientui.service.dto.livre;
+package com.dmc30.clientui.bean.livre;
 
 import lombok.*;
 
 @Getter
 @Setter
-public class LangueDto {
+public class LangueBean {
 
     private String code;
     private String langue;

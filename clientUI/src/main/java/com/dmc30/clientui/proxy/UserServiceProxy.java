@@ -1,8 +1,7 @@
 package com.dmc30.clientui.proxy;
 
-import com.dmc30.clientui.service.dto.utilisateur.UtilisateurDto;
-import com.dmc30.clientui.service.dto.utilisateur.LoginRequestDto;
-import com.dmc30.clientui.web.model.CreateAbonneResponseModel;
+import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
+import com.dmc30.clientui.bean.utilisateur.LoginRequestBean;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,29 +14,24 @@ public interface UserServiceProxy {
     @GetMapping("/users/check")
     String check();
 
-    @GetMapping("/users/utilisateur")
-    UtilisateurDto findUtilisateurByPublicId(@RequestParam String publicId);
+    @GetMapping("/users/publicId")
+    UtilisateurBean findUtilisateurByPublicId(@RequestParam String publicId);
 
-    @GetMapping("/users/utilisateur/{username}")
-    UtilisateurDto findUtilisateurByUsername(@RequestParam String username);
+    @GetMapping("/users/username")
+    UtilisateurBean findUtilisateurByUsername(@RequestParam String username);
 
-    @PostMapping("/users/login")
-    String login(@RequestBody LoginRequestDto user);
+    @GetMapping("users/numAb")
+    UtilisateurBean getUtilisateurByNumAbonne(@RequestParam String numAbonne);
 
-    @PostMapping("/secure/login")
-    ResponseEntity<String> secureLogin(LoginRequestDto loginRequestDto);
+    @GetMapping("users/utilisateurs")
+    List<UtilisateurBean> getUtilisateursByNumAbonne(@RequestParam String numAbonne);
 
     @PostMapping("/users/signin")
-    ResponseEntity<CreateAbonneResponseModel> signin(@RequestBody UtilisateurDto abonne, @RequestParam Long paysId);
+    UtilisateurBean signin(@RequestBody UtilisateurBean abonne, @RequestParam Long paysId);
 
     @PostMapping("users/update")
-    void updateUser(@RequestBody UtilisateurDto userDetails);
+    void updateUser(@RequestBody UtilisateurBean userDetails);
 
-
-    @GetMapping("users/utilisateur/numAb")
-    UtilisateurDto getUtilisateurByNumAbonne(@RequestParam String numAbonne);
-
-    @PostMapping("users/utilisateurs")
-    List<UtilisateurDto> getUtilisateursByNumAbonne(@RequestParam String numAbonne);
-
+    @PostMapping("/secure/login")
+    ResponseEntity<String> secureLogin(LoginRequestBean loginRequestBean);
 }

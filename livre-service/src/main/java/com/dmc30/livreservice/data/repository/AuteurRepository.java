@@ -11,6 +11,9 @@ public interface AuteurRepository extends JpaRepository<Auteur, Long> {
 
     Auteur findAuteurById(Long id);
 
+    @Query(value = "SELECT * FROM auteur", nativeQuery = true)
+    List<Auteur> findAll();
+
     @Query(value = "SELECT a.* FROM auteur a INNER JOIN many_livre_has_many_auteur al ON al.id_auteur=a.id WHERE al.id_livre=?1", nativeQuery = true)
     List<Auteur> findAuteurByLivres(@Param("id") Long id);
 

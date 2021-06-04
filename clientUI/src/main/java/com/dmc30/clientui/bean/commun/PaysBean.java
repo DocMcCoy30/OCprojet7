@@ -1,10 +1,10 @@
-package com.dmc30.clientui.service.dto.commun;
+package com.dmc30.clientui.bean.commun;
 
 import lombok.*;
 
 @Getter
 @Setter
-public class PaysDto {
+public class PaysBean {
 
     private String nom;
     private String codeAlpha2;

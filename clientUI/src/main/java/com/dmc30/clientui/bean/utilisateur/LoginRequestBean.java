@@ -1,4 +1,4 @@
-package com.dmc30.clientui.service.dto.utilisateur;
+package com.dmc30.clientui.bean.utilisateur;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class LoginRequestDto {
+public class LoginRequestBean {
 
     private String email;
     private String password;

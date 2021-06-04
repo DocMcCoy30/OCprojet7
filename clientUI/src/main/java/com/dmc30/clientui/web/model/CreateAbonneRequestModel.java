@@ -1,6 +1,6 @@
 package com.dmc30.clientui.web.model;
 
-import com.dmc30.clientui.service.dto.commun.AdresseDto;
+import com.dmc30.clientui.bean.commun.AdresseBean;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,6 +30,6 @@ public class CreateAbonneRequestModel {
     @Size(min=8, max=16, message="Password must be equal or grater than 8 characters and less than 16 characters")
     private String password;
     private String numTelephone;
-    private AdresseDto adresse;
+    private AdresseBean adresse;
     private int paysId;
 }

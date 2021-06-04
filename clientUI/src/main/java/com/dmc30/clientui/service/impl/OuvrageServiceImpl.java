@@ -1,13 +1,13 @@
 package com.dmc30.clientui.service.impl;
 
+import com.dmc30.clientui.bean.bibliotheque.CreateEmpruntBean;
 import com.dmc30.clientui.proxy.LivreServiceProxy;
 import com.dmc30.clientui.service.contract.LivreService;
 import com.dmc30.clientui.service.contract.OuvrageService;
-import com.dmc30.clientui.service.dto.bibliotheque.CreateEmpruntDto;
-import com.dmc30.clientui.service.dto.bibliotheque.OuvrageDto;
-import com.dmc30.clientui.service.dto.bibliotheque.OuvrageResponseModelDto;
-import com.dmc30.clientui.service.dto.livre.LivreDto;
-import com.dmc30.clientui.service.dto.utilisateur.UtilisateurDto;
+import com.dmc30.clientui.bean.bibliotheque.OuvrageBean;
+import com.dmc30.clientui.bean.bibliotheque.OuvrageResponseModelBean;
+import com.dmc30.clientui.bean.livre.LivreBean;
+import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,16 +54,16 @@ public class OuvrageServiceImpl implements OuvrageService {
      * @return l'ouvrage recherché sous forme de modèle pour la vue
      */
     @Override
-    public OuvrageResponseModelDto getOuvrageById(Long ouvrageId) {
-        OuvrageDto ouvrageDto = livreServiceProxy.getOuvrageById(ouvrageId);
-        OuvrageResponseModelDto ouvrageResponseModelDto = new OuvrageResponseModelDto();
-        ouvrageResponseModelDto.setId(ouvrageDto.getId());
-        ouvrageResponseModelDto.setIdInterne((ouvrageDto.getIdInterne()));
-        Long livreId = livreServiceProxy.getLivreIdByOuvrageId(ouvrageDto.getId());
-        LivreDto livreDto = livreServiceProxy.getLivreById(livreId);
-        ouvrageResponseModelDto.setTitre(livreDto.getTitre());
-        ouvrageResponseModelDto.setAuteur(livreService.formatListeAuteurs(livreDto.getAuteurs()));
-        return ouvrageResponseModelDto;
+    public OuvrageResponseModelBean getOuvrageById(Long ouvrageId) {
+        OuvrageBean ouvrageBean = livreServiceProxy.getOuvrageById(ouvrageId);
+        OuvrageResponseModelBean ouvrageResponseModelBean = new OuvrageResponseModelBean();
+        ouvrageResponseModelBean.setId(ouvrageBean.getId());
+        ouvrageResponseModelBean.setIdInterne((ouvrageBean.getIdInterne()));
+        Long livreId = livreServiceProxy.getLivreIdByOuvrageId(ouvrageBean.getId());
+        LivreBean livreBean = livreServiceProxy.getLivreById(livreId);
+        ouvrageResponseModelBean.setTitre(livreBean.getTitre());
+        ouvrageResponseModelBean.setAuteur(livreService.formatListeAuteurs(livreBean.getAuteurs()));
+        return ouvrageResponseModelBean;
     }
 
     /**
@@ -72,20 +72,20 @@ public class OuvrageServiceImpl implements OuvrageService {
      * @return la liste des ouvrages correspondants
      */
     @Override
-    public List<OuvrageResponseModelDto> getOuvragesByIdInterne(String idInterne) {
-        List<OuvrageDto> ouvrageDtos = livreServiceProxy.getOuvragesByIdInterne(idInterne);
-        List<OuvrageResponseModelDto> ouvrageResponseModelDtos = new ArrayList<>();
-        for (OuvrageDto ouvrageDto:ouvrageDtos) {
-            OuvrageResponseModelDto ouvrageResponseModelDto = new OuvrageResponseModelDto();
-            ouvrageResponseModelDto.setId(ouvrageDto.getId());
-            ouvrageResponseModelDto.setIdInterne((ouvrageDto.getIdInterne()));
-            Long livreId = livreServiceProxy.getLivreIdByOuvrageId(ouvrageDto.getId());
-            LivreDto livreDto = livreServiceProxy.getLivreById(livreId);
-            ouvrageResponseModelDto.setTitre(livreDto.getTitre());
-            ouvrageResponseModelDto.setAuteur(livreService.formatListeAuteurs(livreDto.getAuteurs()));
-            ouvrageResponseModelDtos.add(ouvrageResponseModelDto);
+    public List<OuvrageResponseModelBean> getOuvragesByIdInterne(String idInterne) {
+        List<OuvrageBean> ouvrageBeans = livreServiceProxy.getOuvragesByIdInterne(idInterne);
+        List<OuvrageResponseModelBean> ouvrageResponseModelBeans = new ArrayList<>();
+        for (OuvrageBean ouvrageBean : ouvrageBeans) {
+            OuvrageResponseModelBean ouvrageResponseModelBean = new OuvrageResponseModelBean();
+            ouvrageResponseModelBean.setId(ouvrageBean.getId());
+            ouvrageResponseModelBean.setIdInterne((ouvrageBean.getIdInterne()));
+            Long livreId = livreServiceProxy.getLivreIdByOuvrageId(ouvrageBean.getId());
+            LivreBean livreBean = livreServiceProxy.getLivreById(livreId);
+            ouvrageResponseModelBean.setTitre(livreBean.getTitre());
+            ouvrageResponseModelBean.setAuteur(livreService.formatListeAuteurs(livreBean.getAuteurs()));
+            ouvrageResponseModelBeans.add(ouvrageResponseModelBean);
         }
-        return ouvrageResponseModelDtos;
+        return ouvrageResponseModelBeans;
     }
 
     /**
@@ -94,30 +94,30 @@ public class OuvrageServiceImpl implements OuvrageService {
      * @return l'ouvrage recherché
      */
     @Override
-    public OuvrageResponseModelDto getOuvrageByIdInterne(String idInterne) {
-        OuvrageDto ouvrageDto = livreServiceProxy.getOuvrageByIdInterne(idInterne);
-        OuvrageResponseModelDto ouvrageResponseModelDto = new OuvrageResponseModelDto();
-        ouvrageResponseModelDto.setId(ouvrageDto.getId());
-        ouvrageResponseModelDto.setIdInterne((ouvrageDto.getIdInterne()));
-        Long livreId = livreServiceProxy.getLivreIdByOuvrageId(ouvrageDto.getId());
-        LivreDto livreDto = livreServiceProxy.getLivreById(livreId);
-        ouvrageResponseModelDto.setTitre(livreDto.getTitre());
-        ouvrageResponseModelDto.setAuteur(livreService.formatListeAuteurs(livreDto.getAuteurs()));
-        return ouvrageResponseModelDto;
+    public OuvrageResponseModelBean getOuvrageByIdInterne(String idInterne) {
+        OuvrageBean ouvrageBean = livreServiceProxy.getOuvrageByIdInterne(idInterne);
+        OuvrageResponseModelBean ouvrageResponseModelBean = new OuvrageResponseModelBean();
+        ouvrageResponseModelBean.setId(ouvrageBean.getId());
+        ouvrageResponseModelBean.setIdInterne((ouvrageBean.getIdInterne()));
+        Long livreId = livreServiceProxy.getLivreIdByOuvrageId(ouvrageBean.getId());
+        LivreBean livreBean = livreServiceProxy.getLivreById(livreId);
+        ouvrageResponseModelBean.setTitre(livreBean.getTitre());
+        ouvrageResponseModelBean.setAuteur(livreService.formatListeAuteurs(livreBean.getAuteurs()));
+        return ouvrageResponseModelBean;
     }
 
     @Override
-    public CreateEmpruntDto createEmpruntForm(UtilisateurDto utilisateurDto, OuvrageResponseModelDto ouvrageResponseModelDto) {
-        CreateEmpruntDto createEmpruntDto = new CreateEmpruntDto();
-        createEmpruntDto.setAbonneId(utilisateurDto.getId());
-        createEmpruntDto.setNumAbonne(utilisateurDto.getNumAbonne());
-        createEmpruntDto.setPrenom(utilisateurDto.getPrenom());
-        createEmpruntDto.setNom(utilisateurDto.getNom());
-        createEmpruntDto.setNumTelephone(utilisateurDto.getNumTelephone());
-        createEmpruntDto.setOuvrageId(ouvrageResponseModelDto.getId());
-        createEmpruntDto.setIdInterne(ouvrageResponseModelDto.getIdInterne());
-        createEmpruntDto.setTitre(ouvrageResponseModelDto.getTitre());
-        createEmpruntDto.setAuteur(ouvrageResponseModelDto.getAuteur());
-        return createEmpruntDto;
+    public CreateEmpruntBean createEmpruntForm(UtilisateurBean utilisateurBean, OuvrageResponseModelBean ouvrageResponseModelBean) {
+        CreateEmpruntBean createEmpruntBean = new CreateEmpruntBean();
+        createEmpruntBean.setAbonneId(utilisateurBean.getId());
+        createEmpruntBean.setNumAbonne(utilisateurBean.getNumAbonne());
+        createEmpruntBean.setPrenom(utilisateurBean.getPrenom());
+        createEmpruntBean.setNom(utilisateurBean.getNom());
+        createEmpruntBean.setNumTelephone(utilisateurBean.getNumTelephone());
+        createEmpruntBean.setOuvrageId(ouvrageResponseModelBean.getId());
+        createEmpruntBean.setIdInterne(ouvrageResponseModelBean.getIdInterne());
+        createEmpruntBean.setTitre(ouvrageResponseModelBean.getTitre());
+        createEmpruntBean.setAuteur(ouvrageResponseModelBean.getAuteur());
+        return createEmpruntBean;
     }
 }

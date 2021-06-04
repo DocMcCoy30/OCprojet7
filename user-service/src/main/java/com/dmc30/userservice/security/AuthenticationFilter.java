@@ -3,7 +3,7 @@ package com.dmc30.userservice.security;
 import com.dmc30.userservice.service.contract.UsersService;
 import com.dmc30.userservice.service.dto.RoleDto;
 import com.dmc30.userservice.service.dto.UtilisateurDto;
-import com.dmc30.userservice.web.model.LoginRequestModel;
+import com.dmc30.userservice.service.dto.LoginRequestModelDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -45,8 +45,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         try {
-            LoginRequestModel creds = new ObjectMapper()
-                    .readValue(request.getInputStream(), LoginRequestModel.class);
+            LoginRequestModelDto creds = new ObjectMapper()
+                    .readValue(request.getInputStream(), LoginRequestModelDto.class);
 
             return getAuthenticationManager().authenticate(
                     new UsernamePasswordAuthenticationToken(

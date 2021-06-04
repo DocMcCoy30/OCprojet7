@@ -21,9 +21,6 @@
     <div th:if="${message}" th:utext="${message}"
          style="color:red;font-style:italic;">
     </div>
-    <div sec:authorize="hasRole('ROLE_EMPLOYE')">
-        <a th:href="@{/showEmpruntPage(bibliothequeId=${bibliotheque.id})}">Créer un nouvel emprunt</a>
-    </div>
 
     <div th:if="${! #lists.isEmpty(lastLivres)}">
         <h5>Derniers livres :</h5>
