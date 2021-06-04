@@ -1,12 +1,12 @@
 package com.dmc30.clientui.service.impl;
 
-import com.dmc30.clientui.exception.TechnicalException;
+import com.dmc30.clientui.web.exception.TechnicalException;
 import com.dmc30.clientui.proxy.UserServiceProxy;
 import com.dmc30.clientui.security.TokenValidationHelper;
 import com.dmc30.clientui.service.contract.UserService;
-import com.dmc30.clientui.shared.utilisateur.LoginRequestDto;
-import com.dmc30.clientui.shared.utilisateur.UtilisateurDto;
-import com.dmc30.clientui.ui.model.CreateAbonneResponseModel;
+import com.dmc30.clientui.service.dto.utilisateur.LoginRequestDto;
+import com.dmc30.clientui.service.dto.utilisateur.UtilisateurDto;
+import com.dmc30.clientui.web.model.CreateAbonneResponseModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.dmc30.userservice.service.contract;
 
-import com.dmc30.userservice.shared.UtilisateurDto;
+import com.dmc30.userservice.service.dto.UtilisateurDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;

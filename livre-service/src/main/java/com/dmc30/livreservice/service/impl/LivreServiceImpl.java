@@ -2,9 +2,9 @@ package com.dmc30.livreservice.service.impl;
 
 import com.dmc30.livreservice.data.entity.livre.Livre;
 import com.dmc30.livreservice.data.repository.LivreRepository;
-import com.dmc30.livreservice.exception.IntrouvableException;
+import com.dmc30.livreservice.web.exception.IntrouvableException;
 import com.dmc30.livreservice.service.contract.LivreService;
-import com.dmc30.livreservice.shared.livre.LivreDto;
+import com.dmc30.livreservice.service.dto.livre.LivreDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.slf4j.Logger;

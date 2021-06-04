@@ -1,6 +1,6 @@
 package com.dmc30.livreservice.service.contract;
 
-import com.dmc30.livreservice.shared.livre.AuteurDto;
+import com.dmc30.livreservice.service.dto.livre.AuteurDto;
 
 import java.util.List;
 

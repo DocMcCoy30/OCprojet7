@@ -1,8 +1,8 @@
 package com.dmc30.clientui.proxy;
 
-import com.dmc30.clientui.shared.utilisateur.UtilisateurDto;
-import com.dmc30.clientui.shared.utilisateur.LoginRequestDto;
-import com.dmc30.clientui.ui.model.CreateAbonneResponseModel;
+import com.dmc30.clientui.service.dto.utilisateur.UtilisateurDto;
+import com.dmc30.clientui.service.dto.utilisateur.LoginRequestDto;
+import com.dmc30.clientui.web.model.CreateAbonneResponseModel;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,9 +1,9 @@
 package com.dmc30.clientui.service.contract;
 
-import com.dmc30.clientui.exception.TechnicalException;
-import com.dmc30.clientui.shared.utilisateur.UtilisateurDto;
-import com.dmc30.clientui.shared.utilisateur.LoginRequestDto;
-import com.dmc30.clientui.ui.model.CreateAbonneResponseModel;
+import com.dmc30.clientui.web.exception.TechnicalException;
+import com.dmc30.clientui.service.dto.utilisateur.UtilisateurDto;
+import com.dmc30.clientui.service.dto.utilisateur.LoginRequestDto;
+import com.dmc30.clientui.web.model.CreateAbonneResponseModel;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;

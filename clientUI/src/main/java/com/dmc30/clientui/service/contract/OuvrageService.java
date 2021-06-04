@@ -1,10 +1,8 @@
 package com.dmc30.clientui.service.contract;
 
-import com.dmc30.clientui.shared.bibliotheque.CreateEmpruntDto;
-import com.dmc30.clientui.shared.bibliotheque.OuvrageDto;
-import com.dmc30.clientui.shared.bibliotheque.OuvrageResponseModelDto;
-import com.dmc30.clientui.shared.utilisateur.UtilisateurDto;
-import com.dmc30.clientui.ui.model.OuvrageResponseModel;
+import com.dmc30.clientui.service.dto.bibliotheque.CreateEmpruntDto;
+import com.dmc30.clientui.service.dto.bibliotheque.OuvrageResponseModelDto;
+import com.dmc30.clientui.service.dto.utilisateur.UtilisateurDto;
 
 import java.util.List;
 

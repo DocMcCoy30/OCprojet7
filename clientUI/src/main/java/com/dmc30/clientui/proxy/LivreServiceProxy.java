@@ -1,10 +1,9 @@
 package com.dmc30.clientui.proxy;
 
-import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
-import com.dmc30.clientui.shared.bibliotheque.OuvrageDto;
-import com.dmc30.clientui.shared.bibliotheque.OuvrageResponseModelDto;
-import com.dmc30.clientui.shared.livre.AuteurDto;
-import com.dmc30.clientui.shared.livre.LivreDto;
+import com.dmc30.clientui.service.dto.bibliotheque.BibliothequeDto;
+import com.dmc30.clientui.service.dto.bibliotheque.OuvrageDto;
+import com.dmc30.clientui.service.dto.livre.AuteurDto;
+import com.dmc30.clientui.service.dto.livre.LivreDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

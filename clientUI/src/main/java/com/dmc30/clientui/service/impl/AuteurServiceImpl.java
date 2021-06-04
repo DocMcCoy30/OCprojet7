@@ -2,7 +2,7 @@ package com.dmc30.clientui.service.impl;
 
 import com.dmc30.clientui.proxy.LivreServiceProxy;
 import com.dmc30.clientui.service.contract.AuteurService;
-import com.dmc30.clientui.shared.livre.AuteurDto;
+import com.dmc30.clientui.service.dto.livre.AuteurDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,11 +1,10 @@
 package com.dmc30.livreservice.service.impl;
 
-import com.dmc30.livreservice.exception.IntrouvableException;
+import com.dmc30.livreservice.web.exception.IntrouvableException;
 import com.dmc30.livreservice.data.entity.livre.Auteur;
 import com.dmc30.livreservice.data.repository.AuteurRepository;
 import com.dmc30.livreservice.service.contract.AuteurService;
-import com.dmc30.livreservice.shared.livre.AuteurDto;
-import org.hibernate.Hibernate;
+import com.dmc30.livreservice.service.dto.livre.AuteurDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;

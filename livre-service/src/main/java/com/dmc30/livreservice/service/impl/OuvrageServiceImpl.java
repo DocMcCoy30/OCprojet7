@@ -1,11 +1,9 @@
 package com.dmc30.livreservice.service.impl;
 
 import com.dmc30.livreservice.data.entity.bibliotheque.Ouvrage;
-import com.dmc30.livreservice.data.entity.livre.Livre;
 import com.dmc30.livreservice.data.repository.OuvrageRepository;
 import com.dmc30.livreservice.service.contract.OuvrageService;
-import com.dmc30.livreservice.shared.bibliotheque.OuvrageDto;
-import com.dmc30.livreservice.shared.livre.LivreDto;
+import com.dmc30.livreservice.service.dto.bibliotheque.OuvrageDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;

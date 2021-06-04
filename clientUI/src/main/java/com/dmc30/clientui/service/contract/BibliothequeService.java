@@ -1,6 +1,6 @@
 package com.dmc30.clientui.service.contract;
 
-import com.dmc30.clientui.shared.bibliotheque.BibliothequeDto;
+import com.dmc30.clientui.service.dto.bibliotheque.BibliothequeDto;
 
 import java.util.List;
 

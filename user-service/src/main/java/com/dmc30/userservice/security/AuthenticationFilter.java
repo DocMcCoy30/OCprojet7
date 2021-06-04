@@ -1,9 +1,9 @@
 package com.dmc30.userservice.security;
 
 import com.dmc30.userservice.service.contract.UsersService;
-import com.dmc30.userservice.shared.RoleDto;
-import com.dmc30.userservice.shared.UtilisateurDto;
-import com.dmc30.userservice.ui.model.LoginRequestModel;
+import com.dmc30.userservice.service.dto.RoleDto;
+import com.dmc30.userservice.service.dto.UtilisateurDto;
+import com.dmc30.userservice.web.model.LoginRequestModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

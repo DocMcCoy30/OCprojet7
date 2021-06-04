@@ -1,10 +1,10 @@
 package com.dmc30.clientui.service.impl;
 
-import com.dmc30.clientui.shared.livre.AuteurDto;
-import com.dmc30.clientui.shared.livre.LivreDto;
+import com.dmc30.clientui.service.dto.livre.AuteurDto;
+import com.dmc30.clientui.service.dto.livre.LivreDto;
 import com.dmc30.clientui.proxy.LivreServiceProxy;
 import com.dmc30.clientui.service.contract.LivreService;
-import com.dmc30.clientui.ui.model.LivreResponseModel;
+import com.dmc30.clientui.web.model.LivreResponseModel;
 import org.apache.commons.lang.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;

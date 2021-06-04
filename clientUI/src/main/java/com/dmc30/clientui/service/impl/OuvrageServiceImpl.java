@@ -3,11 +3,11 @@ package com.dmc30.clientui.service.impl;
 import com.dmc30.clientui.proxy.LivreServiceProxy;
 import com.dmc30.clientui.service.contract.LivreService;
 import com.dmc30.clientui.service.contract.OuvrageService;
-import com.dmc30.clientui.shared.bibliotheque.CreateEmpruntDto;
-import com.dmc30.clientui.shared.bibliotheque.OuvrageDto;
-import com.dmc30.clientui.shared.bibliotheque.OuvrageResponseModelDto;
-import com.dmc30.clientui.shared.livre.LivreDto;
-import com.dmc30.clientui.shared.utilisateur.UtilisateurDto;
+import com.dmc30.clientui.service.dto.bibliotheque.CreateEmpruntDto;
+import com.dmc30.clientui.service.dto.bibliotheque.OuvrageDto;
+import com.dmc30.clientui.service.dto.bibliotheque.OuvrageResponseModelDto;
+import com.dmc30.clientui.service.dto.livre.LivreDto;
+import com.dmc30.clientui.service.dto.utilisateur.UtilisateurDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -88,6 +88,11 @@ public class OuvrageServiceImpl implements OuvrageService {
         return ouvrageResponseModelDtos;
     }
 
+    /**
+     * Cherche un ouvrage par son identifiant interne
+     * @param idInterne l'identifiant interne de l'ouvrage
+     * @return l'ouvrage recherché
+     */
     @Override
     public OuvrageResponseModelDto getOuvrageByIdInterne(String idInterne) {
         OuvrageDto ouvrageDto = livreServiceProxy.getOuvrageByIdInterne(idInterne);

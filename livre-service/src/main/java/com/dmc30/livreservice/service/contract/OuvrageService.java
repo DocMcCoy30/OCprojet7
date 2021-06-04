@@ -1,7 +1,6 @@
 package com.dmc30.livreservice.service.contract;
 
-import com.dmc30.livreservice.shared.bibliotheque.OuvrageDto;
-import com.dmc30.livreservice.shared.livre.LivreDto;
+import com.dmc30.livreservice.service.dto.bibliotheque.OuvrageDto;
 
 import java.util.List;
 
