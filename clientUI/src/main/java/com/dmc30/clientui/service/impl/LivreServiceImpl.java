@@ -1,6 +1,7 @@
 package com.dmc30.clientui.service.impl;
 
 import com.dmc30.clientui.bean.livre.AuteurBean;
+import com.dmc30.clientui.bean.livre.GenreBean;
 import com.dmc30.clientui.bean.livre.LivreBean;
 import com.dmc30.clientui.proxy.LivreServiceProxy;
 import com.dmc30.clientui.service.contract.LivreService;
@@ -26,6 +27,7 @@ public class LivreServiceImpl implements LivreService {
 
     /**
      * Cherche la liste de tous les livres enregistrés dans la base de données
+     *
      * @return la liste de tous les livres
      */
     @Override
@@ -34,9 +36,10 @@ public class LivreServiceImpl implements LivreService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         List<LivreResponseModelBean> livreResponseModelBeanList = new ArrayList<>();
         List<LivreBean> livreBeans = livreServiceProxy.getLivres();
-        for (LivreBean livre: livreBeans) {
+        for (LivreBean livre : livreBeans) {
             LivreResponseModelBean livreResponseModelBean = modelMapper.map(livre, LivreResponseModelBean.class);
             livreResponseModelBean.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
+            livreResponseModelBean.setGenres(formatListeGenres(livre.getGenres()));
             livreResponseModelBeanList.add(livreResponseModelBean);
         }
         return livreResponseModelBeanList;
@@ -44,6 +47,7 @@ public class LivreServiceImpl implements LivreService {
 
     /**
      * Renvoie la liste des 12 derniers livres enregistrés dans la BD au controller
+     *
      * @return la liste des 12 derniers livres
      */
     @Override
@@ -52,9 +56,10 @@ public class LivreServiceImpl implements LivreService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         List<LivreResponseModelBean> livreResponseModelBeanList = new ArrayList<>();
         List<LivreBean> livreBeans = livreServiceProxy.get12LastLivres();
-        for (LivreBean livre: livreBeans) {
+        for (LivreBean livre : livreBeans) {
             LivreResponseModelBean livreResponseModelBean = modelMapper.map(livre, LivreResponseModelBean.class);
             livreResponseModelBean.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
+            livreResponseModelBean.setGenres(formatListeGenres(livre.getGenres()));
             livreResponseModelBeanList.add(livreResponseModelBean);
         }
         return livreResponseModelBeanList;
@@ -62,6 +67,7 @@ public class LivreServiceImpl implements LivreService {
 
     /**
      * Cherche un livre par son identifiant et le renvoie au controller
+     *
      * @param livreId l'identifiant du livre
      * @return le livre recherché
      */
@@ -72,11 +78,13 @@ public class LivreServiceImpl implements LivreService {
         LivreBean livreBean = livreServiceProxy.getLivreById(livreId);
         LivreResponseModelBean livreResponseModelBean = modelMapper.map(livreBean, LivreResponseModelBean.class);
         livreResponseModelBean.setAuteurs(formatListeAuteurs(livreBean.getAuteurs()));
+        livreResponseModelBean.setGenres(formatListeGenres(livreBean.getGenres()));
         return livreResponseModelBean;
     }
 
     /**
      * Cherche les livres dont le titre contient le mot clé entré par l'utilisateur
+     *
      * @param motCle le mot-clé critère de recherche
      * @return la liste des livres correcpondants au critère de recherche
      */
@@ -86,9 +94,10 @@ public class LivreServiceImpl implements LivreService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         List<LivreResponseModelBean> livreResponseModelBeanList = new ArrayList<>();
         List<LivreBean> livreBeans = livreServiceProxy.getLivreByTitre(motCle);
-        for (LivreBean livre: livreBeans) {
+        for (LivreBean livre : livreBeans) {
             LivreResponseModelBean livreResponseModelBean = modelMapper.map(livre, LivreResponseModelBean.class);
             livreResponseModelBean.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
+            livreResponseModelBean.setGenres(formatListeGenres(livre.getGenres()));
             livreResponseModelBeanList.add(livreResponseModelBean);
         }
         return livreResponseModelBeanList;
@@ -96,6 +105,7 @@ public class LivreServiceImpl implements LivreService {
 
     /**
      * Cherche les livres pour un auteur
+     *
      * @param auteurId l'identifiant de l'auteur
      * @return la liste des livres recherchés
      */
@@ -105,9 +115,10 @@ public class LivreServiceImpl implements LivreService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         List<LivreResponseModelBean> livreResponseModelBeanList = new ArrayList<>();
         List<LivreBean> livreBeans = livreServiceProxy.getLivreByAuteur(auteurId);
-        for (LivreBean livre: livreBeans) {
+        for (LivreBean livre : livreBeans) {
             LivreResponseModelBean livreResponseModelBean = modelMapper.map(livre, LivreResponseModelBean.class);
             livreResponseModelBean.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
+            livreResponseModelBean.setGenres(formatListeGenres(livre.getGenres()));
             livreResponseModelBeanList.add(livreResponseModelBean);
         }
         return livreResponseModelBeanList;
@@ -115,6 +126,7 @@ public class LivreServiceImpl implements LivreService {
 
     /**
      * Formate la liste des auteurs d'un livre pour le renvoyer à la vue
+     *
      * @param auteurs la liste des auteurs d'un livre à transformer en suite de caractères
      * @return la String formatée des auteurs pour la vue
      */
@@ -139,6 +151,28 @@ public class LivreServiceImpl implements LivreService {
             nomDesAuteurs.remove(nomDesAuteurs.size() - 1);
         auteursPourVue = StringUtils.join(nomDesAuteurs, "");
         return auteursPourVue;
+    }
+
+    /**
+     * Formate la liste des genres d'un livre pour le renvoyer à la vue
+     *
+     * @param genres la liste des genres d'un livre à transformer en suite de caractères
+     * @return la String formatée des genres pour la vue
+     */
+    @Override
+    public String formatListeGenres(List<GenreBean> genres) {
+        List<String> nomDesGenres = new ArrayList<>();
+        String genrePourVue = "";
+        for (GenreBean genre : genres) {
+            String nomDuGenre = genre.getGenre();
+            nomDesGenres.add(nomDuGenre);
+            nomDesGenres.add(" - ");
+        }
+        if (nomDesGenres.size() > 0) {
+            nomDesGenres.remove(nomDesGenres.size() - 1);
+            genrePourVue = StringUtils.join(nomDesGenres, "");
+        }
+        return genrePourVue;
     }
 }
 

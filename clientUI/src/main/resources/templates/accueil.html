@@ -25,16 +25,28 @@
     <div th:if="${! #lists.isEmpty(lastLivres)}">
         <h5>Derniers livres :</h5>
         <div class="row">
-            <div class="col-md-4" th:each="tempLivre : ${lastLivres}">
-                <div class="card" style="margin-top: 2em">
-                    <img th:src="@{/img/couv.jpg}" class="card-img-top" alt="...">
+            <div class="col-md-3" th:each="tempLivre : ${lastLivres}">
+                <div class="card" style="margin-top: 2em; padding: 2px">
+                    <div th:if="${!#lists.isEmpty(tempLivre.illustrations)}">
+                        <div th:each="illustration : ${tempLivre.illustrations}">
+                            <div class="text-center">
+                                <img th:src="@{${illustration.url}}" class="img-fluid" alt="couverture">
+                            </div>
+                        </div>
+                    </div>
+                    <div th:if="${#lists.isEmpty(tempLivre.illustrations)}">
+                        <img th:src="@{http://localhost:8081/imageserver/static/couv.jpg}" class="card-img-top"
+                             alt="...">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title" th:text="${tempLivre.titre}">Card title</h5>
                         <p class="card-subtitle mb-2 text-muted" th:text="${tempLivre.auteurs}"></p>
                         <p class="card-text" th:text="${tempLivre.editeur.nomMaisonEdition}"></p>
                     </div>
-                    <a th:href="@{showLivreDetails(livreId=${tempLivre.id}, bibliothequeId=${bibliotheque.id})}"
-                       class="card-link">Détail du livre</a>
+                    <div class="text-center">
+                        <a th:href="@{showLivreDetails(livreId=${tempLivre.id}, bibliothequeId=${bibliotheque.id})}"
+                           class="card-link">Détail du livre</a>
+                    </div>
                 </div>
             </div>
         </div>

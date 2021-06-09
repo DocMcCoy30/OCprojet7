@@ -7,7 +7,7 @@ import com.dmc30.clientui.security.PasswordEncoderHelper;
 import com.dmc30.clientui.service.contract.BibliothequeService;
 import com.dmc30.clientui.service.contract.UserService;
 import com.dmc30.clientui.web.exception.TechnicalException;
-import com.dmc30.clientui.web.model.CreateAbonneRequestModel;
+import com.dmc30.clientui.bean.utilisateur.CreateAbonneBean;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.slf4j.Logger;
@@ -15,12 +15,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -130,7 +132,7 @@ public class UserController {
     @GetMapping(path = "/signin")
     public ModelAndView signinPage(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         ModelAndView theModel = new ModelAndView("signin-page");
-        UtilisateurBean abonne = new UtilisateurBean();
+        CreateAbonneBean abonne = new CreateAbonneBean();
         if (bibliothequeId != null) {
             BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
             theModel.addObject("bibliotheque", bibliotheque);
@@ -147,20 +149,32 @@ public class UserController {
      * @return La page accueil avec la bibliothèque selectionnée et un message e confirmation de la création du compte.
      */
     @PostMapping("/signin")
-    public ModelAndView createAbonne(@ModelAttribute CreateAbonneRequestModel userDetails,
+    public ModelAndView createAbonne(@ModelAttribute @Valid CreateAbonneBean userDetails,
+                               BindingResult bindingResult,
                                @RequestParam("paysId") Long paysId,
                                @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        ModelAndView theModel = new ModelAndView("accueil");
+        ModelAndView theModel = new ModelAndView();
+        String message = "";
+        String path = "";
         if (bibliothequeId != null) {
             BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
             theModel.addObject("bibliotheque", bibliotheque);
+
         }
-        UtilisateurBean createdAbonne = modelMapper.map(userDetails, UtilisateurBean.class);
-        createdAbonne.setEncryptedPassword(passwordEncoderHelper.encodePwd(userDetails.getPassword()));
-        createdAbonne = userService.createAbonne(createdAbonne, paysId);
-        String message = "L'abonné " + createdAbonne.getUsername() + " / " + createdAbonne.getEmail() + " a bien été enregistré.";
+        if (bindingResult.hasErrors()) {
+            theModel.addObject("abonne", userDetails);
+            message = "Les informations renseignées ne sont pas conformes";
+            path = "signin-page";
+        } else {
+            UtilisateurBean createdAbonne = modelMapper.map(userDetails, UtilisateurBean.class);
+            createdAbonne.setEncryptedPassword(passwordEncoderHelper.encodePwd(userDetails.getPassword()));
+            createdAbonne = userService.createAbonne(createdAbonne, paysId);
+            message = "L'abonné " + createdAbonne.getUsername() + " / " + createdAbonne.getEmail() + " a bien été enregistré.";
+            path = "accueil";
+        }
+        theModel.setViewName(path);
         theModel.addObject("message", message);
         return theModel;
     }

@@ -22,7 +22,7 @@ public class LivreResponseModelBean {
     private String dateEdition;
     private String numeroIsbn13;
     private LangueBean langue;
-    private List<GenreBean> genres;
+    private String genres;
     private List<IllustrationBean> illustrations;
     private List<OuvrageBean> ouvrages;
 }

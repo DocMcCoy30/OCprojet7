@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="lib3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../OFA/imageserver/lib/javax.annotation.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../OFA/imageserver/lib/javax.servlet.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../OFA/imageserver/lib/javax.transaction.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../OFA/imageserver/lib/javax.jms.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../OFA/imageserver/lib/javax.servlet.jsp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../OFA/imageserver/lib/javax.persistence.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../OFA/imageserver/lib/javax.resource.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../OFA/imageserver/lib/javax.ejb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../OFA/imageserver/lib/javax.servlet.jsp.jstl.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

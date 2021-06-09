@@ -1,4 +1,4 @@
-package com.dmc30.clientui.web.model;
+package com.dmc30.clientui.bean.utilisateur;
 
 import com.dmc30.clientui.bean.commun.AdresseBean;
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateAbonneRequestModel {
+public class CreateAbonneBean {
 
     @NotNull(message="Username cannot be null")
     @Size(min=2, message= "Username must not be less than two characters")

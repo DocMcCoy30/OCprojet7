@@ -5,7 +5,7 @@
 -- Dumped from database version 13.2
 -- Dumped by pg_dump version 13.3
 
--- Started on 2021-05-27 16:30:53
+-- Started on 2021-06-08 20:15:32
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -37,7 +37,15 @@ INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (1, 'Pl
 INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (2, '1 Place Debussy', '30900', 'Nîmes', 1);
 INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (3, '297 avenue Monseigneur Robert Dalverny', '30000', 'Nîmes', 1);
 INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (4, '31 rue Ambroise Croizat', '30000', 'Nîmes', 1);
-INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (5, '8 rue Vespasien', '30000', 'Nîmes', NULL);
+INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (13, '8 rue Vespasien', '30000', 'Nîmes', 1);
+INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (14, 'place du jeu de boules', '30000', 'Nîmes', NULL);
+INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (15, '8 rue Vespasien', '30000', 'Nîmes', NULL);
+INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (16, '8 rue Vespasien', '30000', 'Nîmes', NULL);
+INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (17, '8 rue Vespasien', '30000', 'Nîmes', NULL);
+INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (18, '8 rue Vespasien', '30000', 'Nîmes', NULL);
+INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (19, '8 rue Vespasien', '30000', 'Nîmes', NULL);
+INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (20, '8', '30000', 'nimes', NULL);
+INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (21, 'kjlkjlkj', 'klkm', 'mlmkm', NULL);
 
 
 --
@@ -94,6 +102,7 @@ INSERT INTO public.auteur (id, nom, prenom, date_naissance, date_deces) VALUES (
 INSERT INTO public.auteur (id, nom, prenom, date_naissance, date_deces) VALUES (47, 'Proust', 'Marcel', '1871', '1922');
 INSERT INTO public.auteur (id, nom, prenom, date_naissance, date_deces) VALUES (48, 'Shakespeare', 'William', '1564', '1616');
 INSERT INTO public.auteur (id, nom, prenom, date_naissance, date_deces) VALUES (14, 'Céline', 'Louis Ferdinand', '1894', '1961');
+INSERT INTO public.auteur (id, nom, prenom, date_naissance, date_deces) VALUES (49, 'Herbert', 'Franck', '1920', '1986');
 
 
 --
@@ -114,35 +123,12 @@ INSERT INTO public.bibliotheque (id, code, numero_siret, nom, id_adresse) VALUES
 -- Data for Name: editeur; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (1, 'Hachette');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (2, 'Flammarion');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (3, 'Bayard');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (4, 'Gallimard');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (5, 'Albin Michel');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (6, 'Actes Sud');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (7, 'Eyrolles');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (8, 'Les Editions de Minuit');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (9, 'Belin');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (10, 'Larousse');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (11, 'JC Lattès');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (12, 'Seuil');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (13, 'Grasset');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (14, 'PLON');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (15, 'Stock');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (16, 'Fayard');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (17, 'Nathan');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (18, 'Presses Universitaires de France');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (19, 'Folio');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (20, 'Le Livre de Poche');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (21, 'J''ai Lu');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (22, '10X18');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (23, 'Robert Laffont');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (24, 'Penguin Classics');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (25, 'New Edition');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (26, 'Point');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (27, 'Rivages/Noir');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (28, 'Pocket');
-INSERT INTO public.editeur (id, nom_maison_edition) VALUES (29, 'Seuil');
+INSERT INTO public.editeur (id, nom_maison_edition) VALUES (1, 'Gallimard');
+INSERT INTO public.editeur (id, nom_maison_edition) VALUES (2, 'J''''ai lu');
+INSERT INTO public.editeur (id, nom_maison_edition) VALUES (3, 'Le Livre de Poche');
+INSERT INTO public.editeur (id, nom_maison_edition) VALUES (4, 'Albin Michel');
+INSERT INTO public.editeur (id, nom_maison_edition) VALUES (5, 'JC Lattès');
+INSERT INTO public.editeur (id, nom_maison_edition) VALUES (6, 'Ace');
 
 
 --
@@ -192,130 +178,42 @@ INSERT INTO public.langue (id, code, langue) VALUES (5, 'it', 'italien');
 -- Data for Name: livre; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (1, 'Zadig ou La Destinée', 'xxxxxxxxxxxxxx', '5 juin 2015', '978-2070466610', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (2, 'Candide et autres contes', 'xxxxxxxxxxxxxx', '22 mai 1992', '978-2070384822', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (3, 'Les confessions', 'xxxxxxxxxxxxxx', '26 mars 2009', '978-2070399697', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (5, 'La Nouvelle Héloïse', 'xxxxxxxxxxxxxx', '02 octobre 2002', '978-2253161097', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (6, 'Les Misérables', 'xxxxxxxxxxxxxx', '29 juin 2017', '978-2072730672', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (7, 'Notre-Dame de Paris', 'xxxxxxxxxxxxxx', '1 avril 1975', '978-2253009689', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (8, 'Oeuvres poétiques - Anthologies', 'xxxxxxxxxxxxxx', '27 décembre 2001', '978-2253160816', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (10, 'Au bonheur des dames', 'xxxxxxxxxxxxxx', '1 janvier 1997', '978-2253002864', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (11, 'Germinal', 'xxxxxxxxxxxxxx', '1 janvier 2000', '978-2253004226', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (13, 'La condition humaine', 'xxxxxxxxxxxxxx', '7 janvier 1972', '978-2070360017', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (14, 'Malraux : Oeuvres complètes, tome 1', 'xxxxxxxxxxxxxx', '3 mai 1989', '978-2070111428', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (15, 'La Voie royale', 'xxxxxxxxxxxxxx', '1 décembre 1976', '978-2253010357', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (16, 'Le Comte de Monte-Cristo, tome 1', 'xxxxxxxxxxxxxx', '26 août 1998', '978-2070405374', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (17, 'Le Comte de Monte-Cristo, tome 2', 'xxxxxxxxxxxxxx', '26 août 1998', '978-2070405923', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (18, 'Les Trois mousquetaires', 'xxxxxxxxxxxxxx', '1 août 2011', '978-2253008880', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (19, 'La Reine Margot', 'xxxxxxxxxxxxxx', '4 septembre 2002', '978-2253099994', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (20, 'Essais (Tome 1-Livre premier)', 'xxxxxxxxxxxxxx', '31 décembre 1999', '978-2070423811', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (21, 'Essais (Tome 2-Livre second)', 'xxxxxxxxxxxxxx', '24 septembre 2009', '978-2070423828', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (22, 'Essais (Tome 3-Livre troisième)', 'xxxxxxxxxxxxxx', '24 septembre 2009', '978-2070423835', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (23, 'La Fontaine : Fables', 'xxxxxxxxxxxxxx', '12 juin 2002', '978-2253010043', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (24, 'Les Fourberies de Scapin ', 'xxxxxxxxxxxxxx', '23 mai 2018', '978-2091887630', 17, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (25, 'Dom Juan', 'xxxxxxxxxxxxxx', '23 août 2018', '978-2091891187', 17, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (27, 'Bibliocollège - Le Médecin malgré lui', 'xxxxxxxxxxxxxx', '7 juin 2017', '978-2013949774', 1, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (28, 'Le Misanthrope', 'xxxxxxxxxxxxxx', '10 janvier 2013', '978-2070449934', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (30, 'Œuvres complètes (Tome 1)', 'xxxxxxxxxxxxxx', '17 mai 2010', '978-2070117413', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (32, 'Bibliocollège - Le Malade imaginaire', 'xxxxxxxxxxxxxx', '27 février 2019', '978-2017064572', 1, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (31, 'Bibliolycée - L''Ecole des femmes, Molière - Parcours Comédie et satire (texte intégral)', 'xxxxxxxxxxxxxx', '22 mai 2019', '978-2017064671', 1, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (29, 'L''Avare', 'xxxxxxxxxxxxxx', '9 août 2013', '978-2701175980', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (9, 'L''Assommoir', 'xxxxxxxxxxxxxx', '7 décembre 1971', '978-2253002857', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (26, 'Bibliocollège - L''Avare', 'xxxxxxxxxxxxxx', '26 août 2015', '978-2012706132', 1, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (12, 'L''Affaire Dreyfus: "J''accuse !" et autres textes', 'xxxxxxxxxxxxxx', '25 août 2010', '978-2253088721', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (4, 'Discours sur l''origine et les fondements de l''inégalité parmi les hommes', 'xxxxxxxxxxxxxx', '31 décembre 2011', '978-2081275256', 2, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (33, 'La Chartreuse de Parme', 'xxxxxxxxxxxxxx', '1 septembre 2000', '978-2253160687', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (34, 'Le Rouge et le noir (Nouvelle édition)', 'xxxxxxxxxxxxxx', '19 août 2020', '978-2253077497', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (35, 'De l''amour', 'xxxxxxxxxxxxxx', '24 avril 1980', '978-2070371891', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (36, 'L"Education sentimentale', 'xxxxxxxxxxxxxx', '16 mai 2002', '978-2253010692', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (37, 'Baudelaire : Oeuvres complètes, tome 1', 'xxxxxxxxxxxxxx', '27 novembre 1975', '978-2070108299', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (38, 'Baudelaire : Oeuvres Complètes, tome 2', 'xxxxxxxxxxxxxx', '14 octobre 1976', '978-2070108534', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (39, 'Les Fleurs du mal', 'xxxxxxxxxxxxxx', '29 mai 2019', '979-1035805319', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (40, 'Bibliolycée - Bel-Ami', 'xxxxxxxxxxxxxx', '6 juin 2018', '978-2013949873', 1, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (41, 'Une vie', 'xxxxxxxxxxxxxx', '1 juillet 1979', '978-2253004240', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (42, 'Le Horla', 'xxxxxxxxxxxxxx', '18 février 2011', '978-2701156422', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (43, 'Bibliocollège - Le Horla et six contes fantastiques', 'xxxxxxxxxxxxxx', '21 mars 2018', '978-2013949958', 1, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (44, 'Contes du jour et de la nuit', 'xxxxxxxxxxxxxx', '1 mai 1988', '978-2253046547', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (45, 'Guignol''s band, tomes 1 et 2', 'xxxxxxxxxxxxxx', '21 avril 1989', '978-2070381487', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (46, 'D''un château l''autre', 'xxxxxxxxxxxxxx', '4 août 1976', '978-2070367764', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (47, 'Mort à crédit', 'xxxxxxxxxxxxxx', '24 septembre 1985', '978-2070376926', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (48, 'Voyage au bout de la nuit', 'xxxxxxxxxxxxxx', '16 février 1972', '978-2253030225', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (49, 'L''étranger', 'xxxxxxxxxxxxxx', '1 décembre 1971', '978-2070360024', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (50, 'Des souris et des hommes', 'xxxxxxxxxxxxxx', '16 février 1972', '978-2070360376', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (51, 'Les raisins de la colère', 'xxxxxxxxxxxxxx', '9 mai 1972', '978-2266002707', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (52, 'Étoiles, garde à vous: Starship troopers', 'xxxxxxxxxxxxxx', '13 octobre 2003', '978-2290332238', 21, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (53, 'Marionnettes humaines', 'xxxxxxxxxxxxxx', '7 avril 2011', '978-2070441266', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (54, 'Le Chat passe-muraille', 'xxxxxxxxxxxxxx', '5 mars 1993', '978-2277222484', 21, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (55, 'Une porte sur l''été', 'xxxxxxxxxxxxxx', '19 mai 2010', '978-2253023401', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (56, 'La route de Los Angeles', 'xxxxxxxxxxxxxx', '3 janvier 2002', '978-2264032232', 22, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (57, 'Bandini', 'xxxxxxxxxxxxxx', '3 janvier 2002', '978-2264033000', 22, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (58, 'Demande à la poussière', 'xxxxxxxxxxxxxx', '3 janvier 2002', '978-2264033024', 22, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (59, 'La Chatte sur un toit brûlant', 'xxxxxxxxxxxxxx', '22 novembre 2018', '978-2221216217', 23, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (60, 'Un tramway nommé Désir', 'xxxxxxxxxxxxxx', '9 novembre 2017', '978-2221203743', 23, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (61, 'A Streetcar Named Desire', 'xxxxxxxxxxxxxx', '9 février 2009', '978-0141190273', 24, 2);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (62, 'Death of a Salesman: Certain Private Conversations in Two Acts and a Requiem', 'xxxxxxxxxxxxxx', '1 septembre 2000', '978-0141182742', 25, 2);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (63, 'Les Sorcières de Salem', 'xxxxxxxxxxxxxx', '1 octobre 2015', '978-2221191453', 23, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (64, 'Les Misfits', 'xxxxxxxxxxxxxx', '14 juin 2018', '978-2221218181', 23, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (65, 'Mort d''un commis voyageur', 'xxxxxxxxxxxxxx', '7 avril 2016', '978-2221193358', 23, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (66, 'Le cycle des robots, tome 1 : Les robots', 'xxxxxxxxxxxxxx', '8 janvier 2020', '978-2290227268', 21, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (67, 'Le cycle des robots, tome 2 : Un défilé de robots', 'xxxxxxxxxxxxxx', '10 avril 2001', '978-2290311257', 21, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (68, 'Le cycle des robots, tome 3 : Les cavernes d''acier', 'xxxxxxxxxxxxxx', '23 septembre 2002', '978-2290319024', 21, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (69, 'Fondation (Tome 1)', 'xxxxxxxxxxxxxx', '22 octobre 2015', '978-2070463619', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (70, 'Le cycle de Fondation, II : Fondation et Empire', 'xxxxxxxxxxxxxx', '26 mars 2009', '978-2070360550', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (71, 'Le cycle de Fondation, III : Seconde Fondation', 'xxxxxxxxxxxxxx', '26 mars 2009', '978-2070360529', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (72, 'Chroniques martiennes', 'xxxxxxxxxxxxxx', '8 décembre 2002', '978-2070417742', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (73, 'Fahrenheit 451', 'xxxxxxxxxxxxxx', '22 août 2018', '979-1035801823', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (74, 'Souvenirs d''un pas grand-chose', 'xxxxxxxxxxxxxx', '4 mars 1987', '978-2253041030', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (75, 'Journal d''un vieux dégueulasse', 'xxxxxxxxxxxxxx', '1 février 1998', '978-2253143840', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (76, 'Contes de la folie ordinaire', 'xxxxxxxxxxxxxx', '1 janvier 1983', '978-2253031338', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (77, 'Le postier', 'xxxxxxxxxxxxxx', '8 octobre 2020', '978-2264076281', 22, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (78, 'Women', 'xxxxxxxxxxxxxx', '1 mars 1984', '978-2253033974', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (79, 'Les Jours s''en vont comme des chevaux sauvages dans les collines', 'xxxxxxxxxxxxxx', '17 novembre 2011', '978-2757825655', 26, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (80, 'Au sud de nulle part', 'xxxxxxxxxxxxxx', '1 février 1986', '978-2253038368', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (81, 'Sur la route', 'xxxxxxxxxxxxxx', '20 juillet 1976', '978-2070367665', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (82, 'American Death Trip', 'xxxxxxxxxxxxxx', '23 août 2018', '978-2743611705', 27, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (83, 'Underworld Usa', 'xxxxxxxxxxxxxx', '5 octobre 2011', '978-2743622732', 27, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (84, 'Le Grand Nulle part', 'xxxxxxxxxxxxxx', '1 juin 1991', '978-2869304673', 27, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (85, 'Le dahlia noir', 'xxxxxxxxxxxxxx', '18 octobre 2006', '978-2743615871', 27, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (86, 'American Psycho', 'xxxxxxxxxxxxxx', '21 avril 2005', '978-2264039378', 22, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (87, 'Lunar Park', 'xxxxxxxxxxxxxx', '16 septembre 2010', '978-2264051134', 22, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (88, 'Mystic River', 'xxxxxxxxxxxxxx', '7 mai 2004', '978-2743612818', 27, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (89, 'Shutter Island', 'xxxxxxxxxxxxxx', '16 septembre 2009', '978-2743620066', 27, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (90, 'Gone baby gone', 'xxxxxxxxxxxxxx', '14 novembre 2007', '978-2743617424', 27, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (91, 'La Guerre et la Paix, tome 1', 'xxxxxxxxxxxxxx', '30 juin 2002', '978-2070425174', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (92, 'La Guerre et la Paix, tome 2', 'xxxxxxxxxxxxxx', '25 août 2010', '978-2253089018', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (93, 'Marcovaldo ou Les saisons en ville', 'xxxxxxxxxxxxxx', '17 février 2017', '978-2070453009', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (94, 'Le Signal', 'xxxxxxxxxxxxxx', '6 février 2020', '978-2266269100', 28, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (95, 'Carnages ', 'xxxxxxxxxxxxxx', '12 mai 2010', '978-2266201711', 28, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (96, 'In Tenebris', 'xxxxxxxxxxxxxx', '11 mars 2004', '978-2266138086', 28, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (97, 'Maléfices ', 'xxxxxxxxxxxxxx', '15 mars 2005', '978-2266143752', 28, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (98, 'Les Aventures d''Oliver Twist', 'xxxxxxxxxxxxxx', '24 août 2005', '978-2253081098', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (99, 'Les grandes espérances', 'xxxxxxxxxxxxxx', '26 mai 1999', '978-2070388301', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (100, 'L''Amour aux temps du choléra', 'xxxxxxxxxxxxxx', '1 janvier 1992', '978-2253060543', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (101, 'Cent ans de solitude', 'xxxxxxxxxxxxxx', '21 février 1995', '978-2020238113', 29, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (102, 'Chronique d''une mort annoncée', 'xxxxxxxxxxxxxx', '1 novembre 1987', '978-2253043973', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (103, 'La Métamorphose', 'xxxxxxxxxxxxxx', '1 janvier 2015', '978-2070462872', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (104, 'Le Procès', 'xxxxxxxxxxxxxx', '25 mai 1987', '978-2070378401', 19, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (105, 'Salem', 'xxxxxxxxxxxxxx', '25 février 2009', '978-2253124993', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (106, 'Carrie', 'xxxxxxxxxxxxxx', '6 janvier 2010', '978-2253096764', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (107, 'Shining', 'xxxxxxxxxxxxxx', '31 octobre 2007', '978-2253151623', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (108, 'Docteur Sleep', 'xxxxxxxxxxxxxx', '4 mars 2015', '978-2253183600', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (109, 'Simetierre', 'xxxxxxxxxxxxxx', '3 septembre 2003', '978-2253151432', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (110, 'Misery ', 'xxxxxxxxxxxxxx', '4 septembre 2002', '978-2253151371', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (111, 'Histoires comme ça', 'xxxxxxxxxxxxxx', '6 juin 2007', '978-2013223997', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (112, 'Le Livre de la Jungle', 'xxxxxxxxxxxxxx', '5 avril 2017', '978-2410003796', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (113, 'Histoires extraordinaires', 'xxxxxxxxxxxxxx', '1 mars 1972', '978-2253006923', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (114, 'Nouvelles Histoires extraordinaires', 'xxxxxxxxxxxxxx', '7 novembre 2008', '978-2081221147', 2, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (115, 'Voyage au centre de la Terre', 'xxxxxxxxxxxxxx', '22 octobre 2014', '978-2010023705', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (116, 'Le tour du monde en 80 jours', 'xxxxxxxxxxxxxx', '27 août 2014', '978-2010015809', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (117, 'L''île mystérieuse', 'xxxxxxxxxxxxxx', '27 août 2014', '978-2010009310', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (119, 'Le Portrait de Dorian Gray', '«Au centre de la pièce, fixé à un chevalet droit, se dressait le portrait en pied d''un jeune homme d''une extraordinaire beauté physique, devant lequel, à peu de distance, se tenait assis le peintre lui-même, Basil Hallward, celui dont, il y a quelques années, la disparition soudaine a, sur le moment, tant ému le public et donné lieu à d''étranges conjectures.»
-Or Dorian Gray, jeune dandy séducteur et mondain, a fait ce voeu insensé : garder toujours l''éclat de sa beauté, tandis que le visage peint sur la toile assumerait le fardeau de ses passions et de ses péchés. Et de fait, seul vieillit le portrait où se peint l''âme noire de Dorian qui, bien plus tard, dira au peintre : «Chacun de nous porte en soi le ciel et l''enfer.»
-Et ce livre lui-même est double : il nous conduit dans un Londres lugubre et louche, noyé dans le brouillard et les vapeurs d''opium, mais nous ouvre également la comédie de salon des beaux quartiers. Lorsqu''il parut, en 1890, il fut considéré comme immoral. Mais sa singularité, bien plutôt, est d''être un roman réaliste, tout ensemble, et un roman d''esthète - fascinants, l''un et l''autre, d''une étrangeté qui touche au fantastique.', '19 décembre 1972', '978-2253002888', 20, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (118, 'Vingt mille lieues sous les mers', 'Un monstre marin, « une chose énorme », ayant été signalé par plusieurs navires à travers le monde, une expédition est organisée sur l’Abraham Lincoln, frégate américaine, pour purger les mers de ce monstre inquiétant. A bord se trouvent le Français Pierre Aronnax, professeur au Muséum de Paris, et Conseil, son fidèle domestique.
-Une fois parvenus en vue du monstre, deux immenses trombes d’eau s’abattent sur le pont de la frégate, précipitant Aronnax, Conseil et le harponneur canadien Ned Land sur le dos du monstre… qui se révèle être un fabuleux sous-marin, le Nautilus, conçu et commandé par un étrange personnage, le capitaine Nemo, qui paraît farouchement hostile à toute l’humanité !
-Condamnés à ne plus jamais revoir leur patrie, leurs parents, leurs amis, la plus extraordinaire aventure commence pourtant pour les trois hommes...
-La mer était une passion pour Jules Verne ; c’est elle l’héroïne de Vingt mille lieues sous les mers, l’un de ses meilleurs et plus célèbres romans.', '13 novembre 2014', '978-2012031975', 20, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (5, 'Féerie pour une autre fois', 'Cette édition est la première qui réunisse en un seul volume et sous le même titre, conformément à l''intention initiale de Céline, les deux parties de Féerie pour une autre fois. Depuis leur édition originale, respectivement en 1952 et 1954, et jusqu''à la publication, en 1993, du tome IV des Romans de Céline dans la Bibliothèque de la Pléiade qui les contient, elles avaient été éditées à part, la seconde, qui plus est, sous le titre de "Normance", alors que c''est aux épisodes qu''elle raconte que le titre Féerie pour une autre fois avait été plus spécialement destiné.Céline, tandis qu''il y travaillait, pensait à ce roman comme à un second Voyage au bout de la nuit, de nature, vingt ans après, à étonner le public autant que le roman de 1932, et ouvrant comme lui des voies nouvelles qu''il pourrait ensuite explorer. Il n''est pas dit que, son oeuvre romanesque désormais considérée et appréciée dans sa totalité, Féerie pour une autre fois n''y trouve pas cette place qu''il lui avait assignée', '1 mai 2014', '978-2070360284', 1, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (3, 'Guignol''s band I – Guignol''s band II', 'On est parti dans la vie avec les conseils des parents. Ils n''ont pas tenu devant l''existence. On est tombé dans les salades qu''étaient plus affreuses l''une que l''autre. On est sorti comme on a pu de ces conflagrations funestes, plutôt de traviole, tout crabe baveux, à reculons, pattes en moins. On s''est bien marré quelques fois, faut être juste, même avec la merde, mais toujours en proie d''inquiétudes que les vacheries recommenceraient... Et toujours elles ont recommencé... Rappelons-nous !', '6 février 2014', '978-2070360284', 1, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (2, 'Mort à crédit', 'Deuxième grand roman de Louis-Ferdinand Céline, Mort à crédit, publié en 1936, raconte l''enfance du Bardamu de Voyage au bout de la nuit, paru quatre ans auparavant. Après un prologue situant son présent, médecin dans les années trente, le héros narrateur, Ferdinand, se rappelle ses jeunes années, dans un milieu petit bourgeois, vers 1900. Il est fils unique, élevé dans un passage parisien entre une grand-mère éducatrice fine et intuitive, une mère sacrificielle propriétaire d''un petit magasin de dentelles et objets de curiosité et un père violent et acariâtre, employé dans une compagnie d''assurances. Il grandit maladroitement, sans cesse victime des reproches amers de ses parents, multiplie les apprentissages et les échecs sentimentaux et professionnels, séjourne dans un collège anglais avant de voir son destin basculer avec la rencontre d''un inventeur loufoque, Léonard de Vinci de la fumisterie scientifique, pour vivre des aventures toujours tragi-comiques...
+Texte des origines, marqué par le sceau de l''image maternelle, Mort à crédit est un parcours initiatique, tout en violence et en émotion, où les souvenirs s''accompagnent des misères et des révoltes de l''enfance. C''est aussi une formidable évocation de Paris au tournant du siècle, drôle et riche de cocasseries irrésistibles, dans un style propre à Céline, fait d''exclamation, cassant la syntaxe traditionnelle, transposant le parler populaire dru et vert dans le langage écrit.', '6 février 2014', '978-2070376926', 1, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (4, 'D''un château l''autre', 'En 1932, avec le Voyage au bout de la nuit, Louis-Ferdinand Céline s''imposait d''emblée comme un des grands novateurs de notre temps. Le Voyage était traduit dans le monde entier et de nombreux écrivains ont reconnu ce qu''ils devaient à Céline, de Henry Miller à Marcel Aymé, de Sartre à Jacques Perret, de Simenon à Félicien Marceau. D''un château l''autre pourrait s''intituler "le bout de la nuit". Les châteaux dont parle Céline sont en effet douloureux, agités de spectres qui se nomment la Guerre, la Haine, la Misère. Céline s''y montre trois fois châtelain : à Sigmaringen en compagnie du maréchal Pétain et de ses ministres ; au Danemark où il demeure dix-huit mois dans un cachot, puis quelques années dans une ferme délabrée ; enfin à Meudon où sa clientèle de médecin se réduit à quelques pauvres, aussi miséreux que lui. Il s''agit pourtant d''un roman autant que d''une confession, car Céline n''est pas fait pour l''objectivité. Avec un comique somptueux, il décrit les Allemands affolés, l''Europe entière leur retombant sur la tête, les ministres de Vichy sans ministère, et le Maréchal à la veille de la Haute Cour. D''un château l''autre doit être considéré au même titre que le Voyage au bout de la nuit et Mort à crédit comme un des grands livres de Céline auqel il donna du reste une suite avec Nord (1960) et Rigodon (1969).', '21 décembre 2011', '978-2070367764', 1, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (1, 'Voyage au bout de la nuit', 'Le premier et le plus célèbre roman de Céline, le Voyage au bout de la nuit, est une geste contemporaine dont le héros, Ferdinand Bardamu, issu de la petite bourgeoisie faubourienne, nous emporte avec lui jusqu''au bout de ses expériences. De la Première Guerre mondiale aux prémices de la Seconde, on suit son chemin hasardeux en Afrique, aux Etats-Unis, dans la banlieue parisienne, à Toulouse... Publié en 1932, le Voyage au bout de la nuit obtint le prix Renaudot et fut accueilli comme un grand événement littéraire.', '14 février 2014', '978-2070360284', 1, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (9, 'Simetierre', 'Louis Creed, un jeune médecin de Chicago, vient s''installer avec sa famille à Ludlow, petite bourgade du Maine. Leur voisin, le vieux Jud Grandall les emmène visiter le pittoresque « simetierre » où des générations d''enfants ont enterré leurs animaux familiers. Mais au-delà de ce « simetierre », tout au fond de la forêt, se trouvent les terres sacrées des Indiens, lieu interdit qui séduit pourtant par ses monstrueuses promesses. Un drame atroce va bientôt déchirer l''existence des Creed, et l''on se retrouve happé dans un suspense cauchemardesque...', '31 octobre 1985', '978-2226024824', 4, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (11, 'Docteur Sleep', 'Depuis Shining, le petit Danny Torrance a grandi. Ses démons aussi...', '30 octobre 2013', '978-2226252005', 4, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (7, 'Ça Tome 2', 'Tout avait commencé juste avant les vacances d''été quand le petit Browers avait gravé ses initiales au couteau sur le ventre de son copain Ben Hascom. Tout s''était terminé deux mois plus tard dans les égouts par la poursuite infernale d''une créature étrange, incarnation même du mal. Mais aujourd''hui tout recommence. Les enfants terrorisés sont devenus des adultes. Le présent retrouve le passé, le destin reprend ses droits, l''horreur ressurgit. Chacun retrouvera dans ce roman à la construction saisissante ses propres souvenirs, ses angoisses et ses terreurs d''enfant, la peur de grandir dans un monde de violence.', '9 novembre 1988', '978-2226034540', 4, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (10, 'Salem', 'Le Maine, 1970. Ben Mears revient à Salem, s''installer à Marsten House, inhabitée depuis la mort tragique de ses propriétaires, vingt-ans auparavant. Mais très vite, il devra se rendre à l''évidence : il se passe des choses étranges dans cette petite bourgade. Un chien est immolé, un enfant disparaît et l''horreur s''infiltre, s''étend, se répand, aussi inéluctable que la nuit qui descend sur Salem.', '30 octobre 2013', '978-2226252005', 5, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (8, 'Shining', 'Situé dans les montagnes Rocheuses, l’Overlook Hotel est tenu pour être l’un des plus beaux lieux du monde. Beauté, confort, luxe, volupté…L’hiver, l’hôtel est fermé, coupé du monde par le froid, la neige, les glaces. Seul l’habite un gardien. Cet hiver-là, c’est Jack Torrance, un alcoolique qui tente d’échapper à l’échec et au désespoir. Il est venu accompagné de sa femme, Wendy, qui espère, grâce à cet isolement, reconstruire son foyer menacé, et de leur enfant, Danny.
+Mais Danny possède le don de sentir, de voir, de ressusciter les choses et les êtres à jamais disparus. Dans les cent dix chambres vides de l’Overlook, le démon est omniprésent. Cauchemar ou réalité, le corps de cette femme assassinée, ces bruits de fête qui derivent dans les couloirs, cette vie si étrange qui anime l’hôtel ?
+Stephen King est considéré dans le monde entier comme le maître de la littérature d’épouvante. Shining – dont Docteur Sleep est la suite – demeure son roman le plus célèbre, adapté prodigieusement par Stanley Kubrick, avec Jack Nicholson dans le rôle principal.', '30 octobre 2013', '978-2709646048', 5, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (6, 'Ça Tome 1', 'Tout avait commencé juste avant les vacances d''été quand le petit Browers avait gravé ses initiales au couteau sur le ventre de son copain Ben Hascom. Tout s''était terminé deux mois plus tard dans les égouts par la poursuite infernale d''une créature étrange, incarnation même du mal. Mais aujourd''hui tout recommence. Les enfants terrorisés sont devenus des adultes. Le présent retrouve le passé, le destin reprend ses droits, l''horreur ressurgit. Chacun retrouvera dans ce roman à la construction saisissante ses propres souvenirs, ses angoisses et ses terreurs d''enfant, la peur de grandir dans un monde de violence.', '9 novembre 1988', '978-2226034533', 4, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (16, 'God Emperor of Dune', 'Millennia have passed on Arrakis, and the once-desert planet is green with life. Leto Atreides, the son of the world’s savior, the Emperor Paul Muad’Dib, is still alive but far from human. To preserve humanity’s future, he sacrificed his own by merging with a sandworm, granting him near immortality as God Emperor of Dune for the past thirty-five hundred years.
+
+Leto’s rule is not a benevolent one. His transformation has made not only his appearance but his morality inhuman. A rebellion, led by Siona, a member of the Atreides family, has risen to oppose the despot’s rule. But Siona is unaware that Leto’s vision of a Golden Path for humanity requires her to fulfill a destiny she never wanted—or could possibly conceive....', '4 juin 2019', '978-0593098257', 6, 2);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (12, 'Dune', 'Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the “spice” melange, a drug capable of extending life and enhancing consciousness. Coveted across the known universe, melange is a prize worth killing for....
+
+When House Atreides is betrayed, the destruction of Paul’s family will set the boy on a journey toward a destiny greater than he could ever have imagined. And as he evolves into the mysterious man known as Muad’Dib, he will bring to fruition humankind’s most ancient and unattainable dream. 
+
+A stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.', '1 septembre 1990', '978-0441172719', 6, 2);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (14, 'Children of Dune', 'The Children of Dune are twin siblings Leto and Ghanima Atreides, whose father, the Emperor Paul Muad’Dib, disappeared in the desert wastelands of Arrakis nine years ago. Like their father, the twins possess supernormal abilities—making them valuable to their manipulative aunt Alia, who rules the Empire in the name of House Atreides.
+
+Facing treason and rebellion on two fronts, Alia’s rule is not absolute. The displaced House Corrino is plotting to regain the throne while the fanatical Fremen are being provoked into open revolt by the enigmatic figure known only as The Preacher. Alia believes that by obtaining the secrets of the twins’ prophetic visions, she can maintain control over her dynasty.
+
+But Leto and Ghanima have their own plans for their visions—and their destinies....', '4 juin 2019', '978-0593098240', 6, 2);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (15, 'Heretics of Dune', 'Leto Atreides, the God Emperor of Dune, is dead. In the fifteen hundred years since his passing, the Empire has fallen into ruin. The great Scattering saw millions abandon the crumbling civilization and spread out beyond the reaches of known space. The planet Arrakis—now called Rakis—has reverted to its desert climate, and its great sandworms are dying.
+
+Now the Lost Ones are returning home in pursuit of power. And as these factions vie for control over the remnants of the Empire, a girl named Sheeana rises to prominence in the wastelands of Rakis, sending religious fervor throughout the galaxy. For she possesses the abilities of the Fremen sandriders—fulfilling a prophecy foretold by the late God Emperor....', '4 juin 2019', '978-0593098264', 6, 2);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (13, 'Dune Messiah', 'Dune Messiah continues the story of Paul Atreides, better known—and feared—as the man christened Muad’Dib. As Emperor of the known universe, he possesses more power than a single man was ever meant to wield. Worshipped as a religious icon by the fanatical Fremen, Paul faces the enmity of the political houses he displaced when he assumed the throne—and a conspiracy conducted within his own sphere of influence.
+
+And even as House Atreides begins to crumble around him from the machinations of his enemies, the true threat to Paul comes to his lover, Chani, and the unborn heir to his family’s dynasty...', '4 juin 2019', '978-0593098233', 6, 2);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (17, 'Chapterhouse: Dune', 'The desert planet Arrakis, called Dune, has been destroyed. The remnants of the Old Empire have been consumed by the violent matriarchal cult known as the Honored Matres. Only one faction remains a viable threat to their total conquest—the Bene Gesserit, heirs to Dune’s power.
+
+Under the leadership of Mother Superior Darwi Odrade, the Bene Gesserit have colonized a green world on the planet Chapterhouse and are turning it into a desert, mile by scorched mile. And once they’ve mastered breeding sandworms, the Sisterhood will control the production of the greatest commodity in the known galaxy—the spice melange. But their true weapon remains a man who has lived countless lifetimes—a man who served under the God Emperor Paul Muad’Dib....', '4 juin 2019', '978-0593098271', 6, 2);
 
 
 --
@@ -332,127 +230,23 @@ La mer était une passion pour Jules Verne ; c’est elle l’héroïne de Vingt
 -- Data for Name: many_livre_has_many_auteur; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (1, 1);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (2, 1);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (3, 2);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (4, 2);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (5, 2);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (6, 3);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (7, 3);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (8, 3);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (9, 4);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (10, 4);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (11, 4);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (12, 4);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (13, 5);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (14, 5);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (15, 5);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (16, 6);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (17, 6);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (18, 6);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (19, 6);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (20, 7);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (21, 7);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (22, 7);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (23, 8);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (24, 9);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (25, 9);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (26, 9);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (27, 9);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (28, 9);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (29, 9);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (30, 9);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (31, 9);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (32, 9);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (33, 10);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (34, 10);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (35, 10);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (36, 11);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (37, 12);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (38, 12);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (39, 12);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (40, 13);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (41, 13);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (42, 13);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (43, 13);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (44, 13);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (45, 14);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (46, 14);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (47, 14);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (48, 14);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (49, 15);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (50, 16);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (51, 16);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (52, 17);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (53, 17);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (54, 17);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (55, 17);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (56, 18);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (57, 18);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (58, 18);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (59, 19);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (60, 19);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (61, 19);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (62, 20);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (63, 20);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (64, 20);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (65, 20);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (66, 21);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (67, 21);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (68, 21);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (69, 21);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (70, 21);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (71, 21);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (72, 22);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (73, 22);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (74, 23);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (75, 23);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (76, 23);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (77, 23);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (78, 23);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (79, 23);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (80, 23);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (81, 24);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (82, 25);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (83, 25);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (84, 25);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (85, 25);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (86, 26);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (87, 26);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (88, 27);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (89, 27);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (90, 27);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (91, 28);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (92, 28);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (93, 29);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (94, 30);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (95, 30);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (96, 30);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (97, 30);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (98, 31);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (99, 31);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (100, 32);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (101, 32);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (102, 32);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (103, 33);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (104, 33);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (105, 34);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (106, 34);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (107, 34);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (108, 34);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (109, 34);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (110, 34);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (111, 35);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (112, 35);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (113, 36);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (114, 36);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (115, 38);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (116, 38);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (117, 38);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (118, 38);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (119, 39);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (119, 1);
-INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (119, 25);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (1, 14);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (2, 14);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (3, 14);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (4, 14);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (5, 14);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (6, 34);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (7, 34);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (8, 34);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (9, 34);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (10, 34);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (11, 34);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (12, 49);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (13, 49);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (14, 49);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (15, 49);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (16, 49);
+INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (17, 49);
 
 
 --
@@ -461,6 +255,40 @@ INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (119,
 -- Data for Name: many_livre_has_many_genre; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (1, 2);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (1, 4);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (2, 2);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (2, 4);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (3, 2);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (3, 4);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (4, 2);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (4, 4);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (5, 2);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (5, 4);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (6, 4);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (6, 8);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (7, 4);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (7, 8);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (8, 4);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (8, 8);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (9, 4);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (9, 8);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (10, 4);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (10, 8);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (11, 4);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (11, 8);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (12, 3);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (12, 9);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (13, 3);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (13, 9);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (14, 3);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (14, 9);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (15, 3);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (15, 9);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (16, 3);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (16, 9);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (17, 3);
+INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (17, 9);
 
 
 --
@@ -469,24 +297,210 @@ INSERT INTO public.many_livre_has_many_auteur (id_livre, id_auteur) VALUES (119,
 -- Data for Name: ouvrage; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (17, 'CEN_1', false, 1, 1);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (18, 'VAL_1', false, 2, 1);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (19, 'JDO_1', false, 3, 1);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (20, 'SER_1', false, 4, 1);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (21, 'CEN_2', false, 1, 2);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (22, 'VAL_2', false, 2, 2);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (23, 'JDO_2', false, 3, 2);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (24, 'SER_2', false, 4, 2);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (25, 'CEN_119_1', false, 1, 119);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (26, 'CEN_119_2', false, 1, 119);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (27, 'CEN_119_3', false, 1, 119);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (28, 'CEN_119_4', true, 1, 119);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (29, 'VAL_119_1', false, 2, 119);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (31, 'VAL_119_3', true, 2, 119);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (32, 'JDO_119_1', false, 3, 119);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (33, 'SER_119_1', true, 4, 119);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (30, 'VAL_119_2', false, 2, 119);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (34, 'CEN_118_1', false, 1, 118);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (1, 'CEN_VOY_1_1', false, 1, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (2, 'CEN_VOY_1_2', false, 1, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (3, 'CEN_VOY_1_3', false, 1, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (4, 'VAL_VOY_1_1', false, 2, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (5, 'VAL_VOY_1_2', false, 2, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (6, 'VAL_VOY_1_3', false, 2, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (7, 'JDO_VOY_1_1', false, 3, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (8, 'JDO_VOY_1_2', false, 3, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (9, 'JDO_VOY_1_3', false, 3, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (10, 'SER_VOY_1_1', false, 4, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (13, 'CEN_MOR_2_1', false, 1, 2);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (14, 'CEN_MOR_2_2', false, 1, 2);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (15, 'CEN_MOR_2_3', false, 1, 2);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (16, 'VAL_MOR_2_1', false, 2, 2);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (17, 'VAL_MOR_2_2', false, 2, 2);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (18, 'VAL_MOR_2_3', false, 2, 2);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (19, 'JDO_MOR_2_1', false, 3, 2);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (20, 'JDO_MOR_2_2', false, 3, 2);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (21, 'JDO_MOR_2_3', false, 3, 2);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (22, 'SER_MOR_2_1', false, 4, 2);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (23, 'SER_MOR_2_2', false, 4, 2);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (24, 'SER_MOR_2_3', false, 4, 2);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (11, 'SER_VOY_1_2', false, 4, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (12, 'SER_VOY_1_3', false, 4, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (25, 'CEN_GUI_3_1', false, 1, 3);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (26, 'CEN_GUI_3_2', false, 1, 3);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (27, 'CEN_GUI_3_3', false, 1, 3);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (28, 'VAL_GUI_3_1', false, 2, 3);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (29, 'VAL_GUI_3_2', false, 2, 3);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (30, 'VAL_GUI_3_3', false, 2, 3);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (31, 'JDO_GUI_3_1', false, 3, 3);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (32, 'JDO_GUI_3_2', false, 3, 3);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (33, 'JDO_GUI_3_3', false, 3, 3);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (34, 'SER_GUI_3_1', false, 4, 3);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (35, 'SER_GUI_3_2', false, 4, 3);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (36, 'SER_GUI_3_3', false, 4, 3);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (37, 'CEN_CHA_4_1', false, 1, 4);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (38, 'CEN_CHA_4_2', false, 1, 4);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (39, 'CEN_CHA_4_3', false, 1, 4);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (40, 'VAL_CHA_4_1', false, 2, 4);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (41, 'VAL_CHA_4_2', false, 2, 4);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (42, 'VAL_CHA_4_3', false, 2, 4);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (43, 'JDO_CHA_4_1', false, 3, 4);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (44, 'JDO_CHA_4_2', false, 3, 4);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (45, 'JDO_CHA_4_3', false, 3, 4);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (46, 'SER_CHA_4_1', false, 4, 4);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (47, 'SER_CHA_4_2', false, 4, 4);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (48, 'SER_CHA_4_3', false, 4, 4);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (49, 'CEN_FEE_5_1', false, 1, 5);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (50, 'CEN_FEE_5_2', false, 1, 5);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (51, 'CEN_FEE_5_3', false, 1, 5);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (52, 'VAL_FEE_5_1', false, 2, 5);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (53, 'VAL_FEE_5_2', false, 2, 5);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (54, 'VAL_FEE_5_3', false, 2, 5);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (55, 'JDO_FEE_5_1', false, 3, 5);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (56, 'JDO_FEE_5_2', false, 3, 5);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (57, 'JDO_FEE_5_3', false, 3, 5);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (58, 'SER_FEE_5_1', false, 4, 5);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (59, 'SER_FEE_5_2', false, 4, 5);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (60, 'SER_FEE_5_3', false, 4, 5);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (61, 'CEN_CA1_6_1', false, 1, 6);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (62, 'CEN_CA1_6_2', false, 1, 6);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (63, 'CEN_CA1_6_3', false, 1, 6);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (64, 'VAL_CA1_6_1', false, 2, 6);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (65, 'VAL_CA1_6_2', false, 2, 6);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (66, 'VAL_CA1_6_3', false, 2, 6);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (67, 'JDO_CA1_6_1', false, 3, 6);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (68, 'JDO_CA1_6_2', false, 3, 6);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (69, 'JDO_CA1_6_3', false, 3, 6);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (70, 'SER_CA1_6_1', false, 4, 6);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (71, 'SER_CA1_6_2', false, 4, 6);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (72, 'SER_CA1_6_3', false, 4, 6);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (73, 'CEN_CA2_7_1', false, 1, 7);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (74, 'CEN_CA2_7_2', false, 1, 7);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (75, 'CEN_CA2_7_3', false, 1, 7);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (76, 'VAL_CA2_7_1', false, 2, 7);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (77, 'VAL_CA2_7_2', false, 2, 7);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (78, 'VAL_CA2_7_3', false, 2, 7);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (79, 'JDO_CA2_7_1', false, 3, 7);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (80, 'JDO_CA2_7_2', false, 3, 7);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (81, 'JDO_CA2_7_3', false, 3, 7);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (82, 'SER_CA2_7_1', false, 4, 7);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (83, 'SER_CA2_7_2', false, 4, 7);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (84, 'SER_CA2_7_3', false, 4, 7);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (85, 'CEN_SHI_8_1', false, 1, 8);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (86, 'CEN_SHI_8_2', false, 1, 8);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (87, 'CEN_SHI_8_3', false, 1, 8);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (88, 'VAL_SHI_8_1', false, 2, 8);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (89, 'VAL_SHI_8_2', false, 2, 8);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (90, 'VAL_SHI_8_3', false, 2, 8);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (91, 'JDO_SHI_8_1', false, 3, 8);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (92, 'JDO_SHI_8_2', false, 3, 8);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (93, 'JDO_SHI_8_3', false, 3, 8);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (94, 'SER_SHI_8_1', false, 4, 8);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (95, 'SER_SHI_8_2', false, 4, 8);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (96, 'SER_SHI_8_3', false, 4, 8);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (97, 'CEN_SIM_9_1', false, 1, 9);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (98, 'CEN_SIM_9_2', false, 1, 9);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (99, 'CEN_SIM_9_3', false, 1, 9);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (100, 'VAL_SIM_9_1', false, 2, 9);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (101, 'VAL_SIM_9_2', false, 2, 9);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (102, 'VAL_SIM_9_3', false, 2, 9);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (103, 'JDO_SIM_9_1', false, 3, 9);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (104, 'JDO_SIM_9_2', false, 3, 9);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (105, 'JDO_SIM_9_3', false, 3, 9);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (106, 'SER_SIM_9_1', false, 4, 9);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (107, 'SER_SIM_9_2', false, 4, 9);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (108, 'SER_SIM_9_3', false, 4, 9);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (109, 'CEN_SAL_10_1', false, 1, 10);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (110, 'CEN_SAL_10_2', false, 1, 10);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (111, 'CEN_SAL_10_3', false, 1, 10);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (112, 'VAL_SAL_10_1', false, 2, 10);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (113, 'VAL_SAL_10_2', false, 2, 10);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (114, 'VAL_SAL_10_3', false, 2, 10);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (115, 'JDO_SAL_10_1', false, 3, 10);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (116, 'JDO_SAL_10_2', false, 3, 10);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (117, 'JDO_SAL_10_3', false, 3, 10);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (118, 'SER_SAL_10_1', false, 4, 10);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (119, 'SER_SAL_10_2', false, 4, 10);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (120, 'SER_SAL_10_3', false, 4, 10);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (121, 'CEN_DOC_11_1', false, 1, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (122, 'CEN_DOC_11_2', false, 1, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (123, 'CEN_DOC_11_3', false, 1, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (124, 'VAL_DOC_11_1', false, 2, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (125, 'VAL_DOC_11_2', false, 2, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (126, 'VAL_DOC_11_3', false, 2, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (127, 'JDO_DOC_11_1', false, 3, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (128, 'JDO_DOC_11_2', false, 3, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (129, 'JDO_DOC_11_3', false, 3, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (130, 'SER_DOC_11_1', false, 4, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (131, 'SER_DOC_11_2', false, 4, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (132, 'SER_DOC_11_3', false, 4, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (133, 'CEN_DUN1_12_1', false, 1, 12);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (134, 'CEN_DUN1_12_2', false, 1, 12);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (135, 'CEN_DUN1_12_3', false, 1, 12);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (136, 'VAL_DUN1_12_1', false, 2, 12);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (137, 'VAL_DUN1_12_2', false, 2, 12);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (138, 'VAL_DUN1_12_3', false, 2, 12);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (139, 'JDO_DUN1_12_1', false, 3, 12);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (140, 'JDO_DUN1_12_2', false, 3, 12);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (141, 'JDO_DUN1_12_3', false, 3, 12);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (142, 'SER_DUN1_12_1', false, 4, 12);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (143, 'SER_DUN1_12_2', false, 4, 12);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (144, 'SER_DUN1_12_3', false, 4, 12);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (145, 'CEN_DUN2_13_1', false, 1, 13);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (146, 'CEN_DUN2_13_2', false, 1, 13);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (147, 'CEN_DUN2_13_3', false, 1, 13);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (148, 'VAL_DUN2_13_1', false, 2, 13);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (149, 'VAL_DUN2_13_2', false, 2, 13);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (150, 'VAL_DUN2_13_3', false, 2, 13);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (151, 'JDO_DUN2_13_1', false, 3, 13);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (152, 'JDO_DUN2_13_2', false, 3, 13);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (153, 'JDO_DUN2_13_3', false, 3, 13);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (154, 'SER_DUN2_13_1', false, 4, 13);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (155, 'SER_DUN2_13_2', false, 4, 13);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (156, 'SER_DUN2_13_3', false, 4, 13);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (157, 'CEN_DUN3_14_1', false, 1, 14);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (158, 'CEN_DUN3_14_2', false, 1, 14);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (159, 'CEN_DUN3_14_3', false, 1, 14);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (160, 'VAL_DUN3_14_1', false, 2, 14);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (161, 'VAL_DUN3_14_2', false, 2, 14);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (162, 'VAL_DUN3_14_3', false, 2, 14);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (163, 'JDO_DUN3_14_1', false, 3, 14);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (164, 'JDO_DUN3_14_2', false, 3, 14);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (165, 'JDO_DUN3_14_3', false, 3, 14);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (166, 'SER_DUN3_14_1', false, 4, 14);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (167, 'SER_DUN3_14_2', false, 4, 14);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (168, 'SER_DUN3_14_3', false, 4, 14);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (169, 'CEN_DUN4_15_1', false, 1, 15);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (170, 'CEN_DUN4_15_2', false, 1, 15);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (171, 'CEN_DUN4_15_3', false, 1, 15);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (172, 'VAL_DUN4_15_1', false, 2, 15);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (173, 'VAL_DUN4_15_2', false, 2, 15);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (174, 'VAL_DUN4_15_3', false, 2, 15);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (175, 'JDO_DUN4_15_1', false, 3, 15);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (176, 'JDO_DUN4_15_2', false, 3, 15);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (177, 'JDO_DUN4_15_3', false, 3, 15);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (178, 'SER_DUN4_15_1', false, 4, 15);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (179, 'SER_DUN4_15_2', false, 4, 15);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (180, 'SER_DUN4_15_3', false, 4, 15);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (181, 'CEN_DUN5_16_1', false, 1, 16);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (182, 'CEN_DUN5_16_2', false, 1, 16);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (183, 'CEN_DUN5_16_3', false, 1, 16);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (184, 'VAL_DUN5_16_1', false, 2, 16);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (185, 'VAL_DUN5_16_2', false, 2, 16);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (186, 'VAL_DUN5_16_3', false, 2, 16);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (187, 'JDO_DUN5_16_1', false, 3, 16);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (188, 'JDO_DUN5_16_2', false, 3, 16);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (189, 'JDO_DUN5_16_3', false, 3, 16);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (190, 'SER_DUN5_16_1', false, 4, 16);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (191, 'SER_DUN5_16_2', false, 4, 16);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (192, 'SER_DUN5_16_3', false, 4, 16);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (193, 'CEN_DUN6_17_1', false, 1, 17);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (194, 'CEN_DUN6_17_2', false, 1, 17);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (195, 'CEN_DUN6_17_3', false, 1, 17);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (196, 'VAL_DUN6_17_1', false, 2, 17);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (197, 'VAL_DUN6_17_2', false, 2, 17);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (198, 'VAL_DUN6_17_3', false, 2, 17);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (199, 'JDO_DUN6_17_1', false, 3, 17);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (200, 'JDO_DUN6_17_2', false, 3, 17);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (201, 'JDO_DUN6_17_3', false, 3, 17);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (202, 'SER_DUN6_17_1', false, 4, 17);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (203, 'SER_DUN6_17_2', false, 4, 17);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (204, 'SER_DUN6_17_3', false, 4, 17);
 
 
 --
@@ -503,7 +517,14 @@ INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre)
 -- Data for Name: utilisateur; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (1, 'dmc30', 'Thomas', 'Pretet', 'thomas.pretet@outlook.fr', '$2a$10$sjOHCAWaaABliL/cruNAhe3rKMeLe8D81e2G1x2vT9mcGzIVcnLlC', '0627004392', '4509e731-c2cf-46d1-ae5e-297182288578', '2021-05-12', NULL, NULL, NULL, NULL, 5);
+INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (6, 'thedude', 'jeffrey', 'lebowski', 'thedude@mail.com', '$2a$10$mpIIic8jqugt1JwF/GSQauJVaZmttX5qy2tSZ9HmYlBAE/VL8nN0G', '0665656565', '4f194c81-d093-4a0a-9a2c-dd9709002fcf', '2021-06-02', 'JEFLEB-4f19', NULL, NULL, NULL, 14);
+INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (8, 'elodie', 'Elodie', 'Pretet', 'elodie.pretet@gmail.com', '$2a$10$AGfOlHz/fWRKyb1VAZvVT.oZlBA7AxQ80WnSvgmth/WTB7nBOt43.', '0660866166', '28c6295b-fe92-4188-9cab-5569571a08ab', '2021-06-03', 'ELOPRE-28c6', NULL, NULL, NULL, 16);
+INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (9, 'gabriel', 'gabriel', 'pretet', 'gabriel.pretet08@gmail.com', '$2a$10$yV/DUVPZeRCZMswOMmG.XOWUpMFwXRnfkaJP.m2cm0Gf0zLeqszk2', '0600000000', '75408707-87e5-42dc-a5fc-f96ea19a18b5', '2021-06-03', 'GABPRE-7540', NULL, NULL, NULL, 17);
+INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (10, 'maelys', 'Maelys', 'Pretet', 'maelys.pretet@gmail.com', '$2a$10$Z9JOmqGBPivvio9oM/DzrO0812DFHREC.Ac/8o4WLK4.qDvmDPVHG', '0600000000', 'aaedcbbc-0e9b-47d8-9cc3-85485dd0ca4a', '2021-06-03', 'MAEPRE-aaed', NULL, NULL, NULL, 18);
+INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (11, 'toma', 'toma', 'pretet', 'toma.pretet@gmail.com', '$2a$10$44fSndkPunl21b1fL36VU.JgCERr3uUUhiT5qt6Un9Qz2J4SOvUr6', '0627004392', 'e3ae561e-3cba-40a7-8bd4-d5b0c1188009', '2021-06-04', 'TOMPRE-e3ae', NULL, NULL, NULL, 19);
+INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (12, 'alain', 'alain', 'lombard', 'alain@mail.com', '$2a$10$cwCyZsgykirZo52xu2mfLudXX6WKHLR9FWr3.Fz5Rg6vZ06VBmyC6', '0600000000', '740a9635-10c0-4578-a90e-bb8ed36c25ec', '2021-06-04', 'ALALOM-740a', NULL, NULL, NULL, 20);
+INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (13, 'q', 'jean', 'bobombeur', 'j@b.com', '$2a$10$rCInQULdYm1lHybdYL7f2eiUauOCnvGALUPoHlUlxYUg1vUg7UTxG', '0000000', '2bd2bae1-419c-4338-baf8-561b2ef382b6', '2021-06-04', 'JEABOB-2bd2', NULL, NULL, NULL, 21);
+INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (7, 'dmc30', 'Thomas', 'Pretet', 'thomas.pretet@outlook.fr', '$2a$10$mHXet568qShP7U6opg0qGON6vgs1KuNcchtBcxU6zz3LiTvTljqYG', '0627004392', 'a39e39f2-c77f-4c7a-ab27-3113a2b47843', '2021-06-02', 'THOPRE-a39e', NULL, NULL, NULL, 15);
 
 
 --
@@ -532,8 +553,15 @@ INSERT INTO public.role (id, role, description) VALUES (4, 'ROLE_ADMIN', 'accès
 -- Data for Name: many_utilisateur_has_many_role; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (1, 2);
-INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (1, 3);
+INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (6, 2);
+INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (7, 2);
+INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (7, 3);
+INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (8, 2);
+INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (9, 2);
+INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (10, 2);
+INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (11, 2);
+INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (12, 2);
+INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (13, 2);
 
 
 --
@@ -542,7 +570,7 @@ INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALU
 -- Name: adresse_id_seq1; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.adresse_id_seq1', 5, true);
+SELECT pg_catalog.setval('public.adresse_id_seq1', 21, true);
 
 
 --
@@ -551,7 +579,7 @@ SELECT pg_catalog.setval('public.adresse_id_seq1', 5, true);
 -- Name: auteur_id_seq1; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.auteur_id_seq1', 1, false);
+SELECT pg_catalog.setval('public.auteur_id_seq1', 1, true);
 
 
 --
@@ -569,7 +597,7 @@ SELECT pg_catalog.setval('public.bibliotheque_id_seq1', 1, false);
 -- Name: editeur_id_seq1; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.editeur_id_seq1', 1, false);
+SELECT pg_catalog.setval('public.editeur_id_seq1', 2, true);
 
 
 --
@@ -605,7 +633,7 @@ SELECT pg_catalog.setval('public.langue_id_seq1', 1, false);
 -- Name: livre_id_seq1; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.livre_id_seq1', 1, false);
+SELECT pg_catalog.setval('public.livre_id_seq1', 17, true);
 
 
 --
@@ -614,7 +642,7 @@ SELECT pg_catalog.setval('public.livre_id_seq1', 1, false);
 -- Name: ouvrage_id_seq1; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.ouvrage_id_seq1', 34, true);
+SELECT pg_catalog.setval('public.ouvrage_id_seq1', 204, true);
 
 
 --
@@ -650,10 +678,10 @@ SELECT pg_catalog.setval('public.role_id_seq1', 1, false);
 -- Name: utilisateur_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.utilisateur_id_seq', 1, true);
+SELECT pg_catalog.setval('public.utilisateur_id_seq', 13, true);
 
 
--- Completed on 2021-05-27 16:30:54
+-- Completed on 2021-06-08 20:15:33
 
 --
 -- PostgreSQL database dump complete

@@ -14,6 +14,9 @@
 <div class="container">
     <main class="text-center">
         <div class="py-5">
+            <span th:if="${message}">
+                <a th:text="${message}" style="color: red"></a>
+            </span>
             <h1 class="h3 mb-3 font-weight-normal">Créer un compte</h1>
             <form class="form" action="#" th:action="@{/signin(bibliothequeId=${bibliotheque.id})}"
                   th:object="${abonne}" method="post">
@@ -23,6 +26,7 @@
                         <input type="text" th:field="*{prenom}" class="form-control" id="prenom" placeholder=""
                                value=""
                                required>
+                        <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}">Name Error</span>
                         <div class="invalid-feedback">
                             Valid first name is required.
                         </div>
@@ -31,6 +35,7 @@
                         <label for="nom" class="form-label">Nom</label>
                         <input type="text" th:field="*{nom}" class="form-control" id="nom" placeholder="" value=""
                                required>
+                        <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}">Name Error</span>
                         <div class="invalid-feedback">
                             Valid last name is required.
                         </div>
@@ -41,6 +46,7 @@
                         <input type="text" th:field="*{username}" class="form-control" id="username"
                                placeholder=""
                                value="" required>
+                        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</span>
                         <div class="invalid-feedback">
                             Your username is required.
                         </div>
@@ -59,6 +65,8 @@
                         <input type="password" th:field="*{password}" class="form-control" id="password"
                                placeholder=""
                                value="" required>
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</span>
+                        <span th:if="${messagePw}" th:text="${messagePw}"></span>
                         <div class="invalid-feedback">
                             Valid password is required.
                         </div>
@@ -67,7 +75,8 @@
                         <label for="passwordVerif" class="form-label">Verifier mot de passe</label>
                         <input type="text" class="form-control" id="passwordVerif"
                                placeholder=""
-                               value="">
+                               value=""
+                        >
                         <div class="invalid-feedback">
                             Valid password is required.
                         </div>
@@ -79,6 +88,7 @@
                             <input type="email" th:field="*{email}" class="form-control" id="email" placeholder=""
                                    value=""
                                    required>
+                            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</span>
                             <div class="invalid-feedback">
                                 Please enter a valid email address for shipping updates.
                             </div>
@@ -123,11 +133,13 @@
                     </div>
                 </div>
                 <hr class="my-4">
-                <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Créer un compte</button>
+                <button class="btn btn-lg btn-primary btn-block mb-3" type="submit" onclick="matchPassword()">Créer un compte</button>
             </form>
         </div>
     </main>
 </div>
+
+<footer th:insert="fragments/footer.html"></footer>
 </body>
 </html>
 
