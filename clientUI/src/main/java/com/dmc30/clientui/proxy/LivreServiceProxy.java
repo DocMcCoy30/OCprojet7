@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(name = "livre-api", url = "localhost:9002")
+@FeignClient(name = "livre-service", url = "localhost:9002")
 public interface LivreServiceProxy {
 
     @GetMapping("/livres/all") //

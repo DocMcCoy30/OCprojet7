@@ -1,21 +1,21 @@
 package com.dmc30.userservice.data.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "adresse")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class AdresseEntity {
 
     @Id
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
     @Column(name = "rue")
@@ -30,4 +30,18 @@ public class AdresseEntity {
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_pays")
     private PaysEntity paysEntity;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        AdresseEntity that = (AdresseEntity) o;
+
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 993389274;
+    }
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "user-api", url = "localhost:9001")
+@FeignClient(name = "user-service", url = "localhost:9001")
 public interface UserServiceProxy {
 
     @GetMapping("/users/check")

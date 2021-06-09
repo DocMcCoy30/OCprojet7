@@ -1,23 +1,21 @@
 package com.dmc30.userservice.data.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Set;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(exclude={"roles"})
+@Getter
+@Setter
+@RequiredArgsConstructor
 @Entity
 @Table(name = "utilisateur")
 public class UtilisateurEntity {
 
     @Id
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -59,4 +57,18 @@ public class UtilisateurEntity {
 
     @Column(name = "date_sortie")
     private Date dateSortie;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        UtilisateurEntity that = (UtilisateurEntity) o;
+
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 2028891216;
+    }
 }

@@ -1,9 +1,9 @@
 package com.dmc30.livreservice.data.entity.bibliotheque;
 
 import com.dmc30.livreservice.data.entity.commun.Adresse;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -12,11 +12,13 @@ import java.util.Set;
 @Table(name = "bibliotheque")
 @Getter
 @Setter
+@ToString
+@RequiredArgsConstructor
 public class Bibliotheque {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(name = "code")
@@ -35,5 +37,20 @@ public class Bibliotheque {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_bibliotheque")
+    @ToString.Exclude
     private Set<Ouvrage> ouvrages;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Bibliotheque that = (Bibliotheque) o;
+
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 1045053730;
+    }
 }

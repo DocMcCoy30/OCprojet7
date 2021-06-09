@@ -3,22 +3,22 @@ package com.dmc30.userservice.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table(name = "role")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString(exclude = {"utilisateurEntities"})
-@EqualsAndHashCode(exclude = {"utilisateurEntities"})
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class RoleEntity {
 
     @Id
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
     @Column(name = "role")
@@ -35,6 +35,20 @@ public class RoleEntity {
             inverseJoinColumns = {@JoinColumn(name = "id_utilisateur")}
     )
     @JsonIgnore
+    @ToString.Exclude
     private Set<UtilisateurEntity> utilisateurEntities;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        RoleEntity that = (RoleEntity) o;
+
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 1197319562;
+    }
 }

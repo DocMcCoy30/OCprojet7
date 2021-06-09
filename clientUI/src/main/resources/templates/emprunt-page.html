@@ -46,7 +46,7 @@
     </form>
     <br><br>
     <div th:if="${createEmpruntBean}">
-        <form th:action="@{createEmprunt}" th:object="${createEmpruntBean}" method="post">
+        <form th:action="@{createEmprunt(bibliothequeId=${bibliotheque.id})}" th:object="${createEmpruntBean}" method="post">
             <h5>Enregistrer cet emprunt ?</h5>
             <table class="table table-striped  table-bordered">
                 <thead class="thead-dark">

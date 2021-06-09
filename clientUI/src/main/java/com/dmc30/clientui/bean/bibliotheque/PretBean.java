@@ -8,9 +8,10 @@ import java.util.Date;
 @Setter
 public class PretBean {
 
-    private OuvrageBean ouvrage;
+    private Long id;
     private Date dateEmprunt;
     private Date dateRestitution;
-    private boolean prolongation;
     private Date dateProlongation;
+    private boolean prolongation;
+    private OuvrageBean ouvrage;
 }

@@ -1,7 +1,7 @@
 package com.dmc30.livreservice.data.entity.livre;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 
@@ -9,11 +9,13 @@ import javax.persistence.*;
 @Table(name = "illustration")
 @Getter
 @Setter
+@ToString
+@RequiredArgsConstructor
 public class Illustration {
 
     @Id
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
     @Column(name = "url")
@@ -27,4 +29,18 @@ public class Illustration {
 //    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 //    @JoinColumn(name = "id_livre")
 //    private Livre livre;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Illustration that = (Illustration) o;
+
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 1119417603;
+    }
 }

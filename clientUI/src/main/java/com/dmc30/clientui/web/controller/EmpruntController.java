@@ -2,6 +2,7 @@ package com.dmc30.clientui.web.controller;
 
 import com.dmc30.clientui.bean.bibliotheque.CreateEmpruntBean;
 import com.dmc30.clientui.service.contract.BibliothequeService;
+import com.dmc30.clientui.service.contract.EmpruntService;
 import com.dmc30.clientui.service.contract.OuvrageService;
 import com.dmc30.clientui.service.contract.UserService;
 import com.dmc30.clientui.bean.bibliotheque.BibliothequeBean;
@@ -25,12 +26,17 @@ public class EmpruntController {
     BibliothequeService bibliothequeService;
     UserService userService;
     OuvrageService ouvrageService;
+    EmpruntService empruntService;
 
     @Autowired
-    public EmpruntController(BibliothequeService bibliothequeService, UserService userService, OuvrageService ouvrageService) {
+    public EmpruntController(BibliothequeService bibliothequeService,
+                             UserService userService,
+                             OuvrageService ouvrageService,
+                             EmpruntService empruntService) {
         this.bibliothequeService = bibliothequeService;
         this.userService = userService;
         this.ouvrageService = ouvrageService;
+        this.empruntService = empruntService;
     }
 
     @GetMapping("/showEmpruntPage")
@@ -132,6 +138,23 @@ public class EmpruntController {
             theModel.addObject("createEmpruntBean", createEmpruntBean);
         }
         theModel.addObject("message", message);
+        return theModel;
+    }
+
+    @PostMapping("/createEmprunt")
+    public ModelAndView createEmprunt(@RequestParam("bibliothequeId") Long bibliothequeId,
+                                      @ModelAttribute CreateEmpruntBean createEmpruntBean) {
+        ModelAndView theModel = new ModelAndView("emprunt-page");
+        List<UtilisateurBean> abonnes = new ArrayList<>();
+        List<OuvrageResponseModelBean> ouvrages = new ArrayList<>();
+        theModel.addObject("abonnes", abonnes);
+        theModel.addObject("ouvrages", ouvrages);
+        String message = "";
+
+        logger.info("AbonneId = " + createEmpruntBean.getAbonneId());
+        logger.info("OuvrageId = " + createEmpruntBean.getOuvrageId());
+        empruntService.createEmprunt(createEmpruntBean);
+
         return theModel;
     }
 

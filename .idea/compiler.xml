@@ -10,12 +10,14 @@
         <module name="gateway-server" />
         <module name="clientUI" />
         <module name="user-service" />
+        <module name="emprunt-service" />
         <module name="eureka-server" />
         <module name="livre-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="clientUI" target="1.8" />
+      <module name="emprunt-service" target="1.8" />
       <module name="eureka-server" target="1.8" />
       <module name="gateway-server" target="1.8" />
       <module name="livre-service" target="1.8" />
@@ -25,6 +27,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="clientUI" options="-parameters" />
+      <module name="emprunt-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="gateway-server" options="-parameters" />
       <module name="livre-service" options="-parameters" />

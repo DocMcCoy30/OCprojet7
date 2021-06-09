@@ -24,6 +24,8 @@
 <!--                                                       th:placeholder="${abonne.username}"-->
 <!--                                                       th:field="*{username}"></span>-->
 <!--        </div>-->
+        <div><a style="text-decoration: underline"> Abonné(e) depuis le : </a><span style="font-weight: bold"
+                                                                       th:text="${abonne.dateCreationCompte}"></span>
         <div><a style="text-decoration: underline"> Prénom : </a><span style="font-weight: bold"
                                                                        th:text="${abonne.prenom}"></span>
             &nbsp;<span th:if="${modification}"><input class="form-control" type="text"

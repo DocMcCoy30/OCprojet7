@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 public class OuvrageDto {
 
-    Long id;
+    private Long id;
     private String idInterne;
     private boolean emprunte;
     @JsonIgnore

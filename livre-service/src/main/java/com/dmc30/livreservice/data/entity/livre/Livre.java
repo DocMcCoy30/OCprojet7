@@ -3,6 +3,7 @@ package com.dmc30.livreservice.data.entity.livre;
 import com.dmc30.livreservice.data.entity.bibliotheque.Ouvrage;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -11,11 +12,13 @@ import java.util.Set;
 @Table(name = "livre")
 @Getter
 @Setter
+@ToString
+@RequiredArgsConstructor
 public class Livre {
 
     @Id
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
     @Column(name = "titre")
@@ -51,6 +54,7 @@ public class Livre {
             joinColumns = {@JoinColumn(name = "id_livre")},
             inverseJoinColumns = {@JoinColumn(name = "id_auteur")}
     )
+    @ToString.Exclude
     private Set<Auteur> auteurs;
 
     //uni-directionnal cf Genre.class
@@ -62,18 +66,21 @@ public class Livre {
             joinColumns = {@JoinColumn(name = "id_livre")},
             inverseJoinColumns = {@JoinColumn(name = "id_genre")}
     )
+    @ToString.Exclude
     private Set<Genre> genres;
 
     //uni-directionnal
     @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_livre")
+    @ToString.Exclude
     private Set<Illustration> illustrations;
 
     //uni-directionnal
     @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_livre")
+    @ToString.Exclude
     private Set<Ouvrage> ouvrages;
 
 
@@ -86,4 +93,18 @@ public class Livre {
 //    @JsonManagedReference
 //    @OneToMany(mappedBy = "livre")
 //    private Set<Ouvrage> ouvrages;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Livre livre = (Livre) o;
+
+        return id != null && id.equals(livre.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 1572184743;
+    }
 }
