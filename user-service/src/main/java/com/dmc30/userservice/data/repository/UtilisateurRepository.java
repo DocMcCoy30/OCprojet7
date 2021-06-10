@@ -5,8 +5,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UtilisateurRepository extends JpaRepository<UtilisateurEntity, Long> {
+
+    @Query(value = "SELECT * FROM utilisateur WHERE id=?1", nativeQuery = true)
+    UtilisateurEntity findUtilisateurById(Long id);
 
     UtilisateurEntity findByEmail(String email);
 

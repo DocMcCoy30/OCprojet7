@@ -16,4 +16,6 @@ public class OuvrageDto {
     private String idInterne;
 
     private boolean emprunte;
+
+    private Long bibliothequeId;
 }

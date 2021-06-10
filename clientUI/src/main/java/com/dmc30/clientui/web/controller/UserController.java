@@ -1,10 +1,15 @@
 package com.dmc30.clientui.web.controller;
 
 import com.dmc30.clientui.bean.bibliotheque.BibliothequeBean;
+import com.dmc30.clientui.bean.bibliotheque.EmpruntModelBean;
+import com.dmc30.clientui.bean.bibliotheque.OuvrageResponseModelBean;
+import com.dmc30.clientui.bean.bibliotheque.PretBean;
 import com.dmc30.clientui.bean.utilisateur.LoginRequestBean;
 import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
 import com.dmc30.clientui.security.PasswordEncoderHelper;
 import com.dmc30.clientui.service.contract.BibliothequeService;
+import com.dmc30.clientui.service.contract.EmpruntService;
+import com.dmc30.clientui.service.contract.OuvrageService;
 import com.dmc30.clientui.service.contract.UserService;
 import com.dmc30.clientui.web.exception.TechnicalException;
 import com.dmc30.clientui.bean.utilisateur.CreateAbonneBean;
@@ -23,6 +28,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,14 +40,22 @@ public class UserController {
 
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    private final UserService userService;
-    private final BibliothequeService bibliothequeService;
-    private final PasswordEncoderHelper passwordEncoderHelper;
+   UserService userService;
+    BibliothequeService bibliothequeService;
+    OuvrageService ouvrageService;
+    EmpruntService empruntService;
+    PasswordEncoderHelper passwordEncoderHelper;
 
     @Autowired
-    public UserController(UserService userService, BibliothequeService bibliothequeService, PasswordEncoderHelper passwordEncoderHelper) {
+    public UserController(UserService userService,
+                          BibliothequeService bibliothequeService,
+                          EmpruntService empruntService,
+                          OuvrageService ouvrageService,
+                          PasswordEncoderHelper passwordEncoderHelper) {
         this.userService = userService;
         this.bibliothequeService = bibliothequeService;
+        this.empruntService = empruntService;
+        this.ouvrageService = ouvrageService;
         this.passwordEncoderHelper = passwordEncoderHelper;
     }
 
@@ -189,7 +204,36 @@ public class UserController {
                                    @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId,
                                    @RequestParam(value = "modification",required = false) boolean modification) {
         ModelAndView theModel = new ModelAndView("profil-utilisateur");
+        String message = "";
+        Date dateRetourPrévu;
         UtilisateurBean abonne = userService.getUtilisateurByUsername(username);
+        Long utilisateurId = abonne.getId();
+        List<PretBean> empruntList = empruntService.getEmpruntByUtilisateurId(utilisateurId);
+        List<EmpruntModelBean> empruntModelBeans = new ArrayList<>();
+        if (empruntList.isEmpty()) {
+            message = "Aucun emprunt en cours";
+            theModel.addObject("message", message);
+        } else {
+            for (PretBean pret : empruntList) {
+                EmpruntModelBean empruntModelBean = new EmpruntModelBean();
+                empruntModelBean.setAbonne(abonne.getPrenom() + " " + abonne.getNom());
+                empruntModelBean.setAbonneId(abonne.getId());
+                OuvrageResponseModelBean ouvrage = ouvrageService.getOuvrageById(pret.getOuvrageId());
+                empruntModelBean.setIdentifiantOuvrage(ouvrage.getIdInterne());
+                empruntModelBean.setTitreDuLivre(ouvrage.getTitre());
+                empruntModelBean.setEmpruntId(pret.getId());
+                empruntModelBean.setDateEmprunt(pret.getDateEmprunt());
+                if (pret.isProlongation()) {
+                    dateRetourPrévu = pret.getDateProlongation();
+                } else {
+                    dateRetourPrévu = pret.getDateRestitution();
+                }
+                empruntModelBean.setDateRetourPrevu(dateRetourPrévu);
+                empruntModelBean.setProlongation(pret.isProlongation());
+                empruntModelBeans.add(empruntModelBean);
+            }
+            theModel.addObject("empruntEnCours", empruntModelBeans);
+        }
         theModel.addObject("abonne", abonne);
         if (bibliothequeId != null) {
             BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);

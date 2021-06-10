@@ -19,7 +19,7 @@
                 <h4 th:text="${bibliotheque.nom}">Bibliothèque</h4>
             </a>
             <input type="hidden" name="bibliothequeId" th:value="${bibliotheque.id}">
-            <div class="col-md-3 text-right">
+            <div class="col-md-4 text-right">
                 Bonjour <a th:href="@{/showProfil(username=${#authentication.getPrincipal()}, bibliothequeId=${bibliotheque.id}, modification = ${false})}"><span
                     sec:authentication="name"></span></a>
                 <a th:href="@{/logout(bibliothequeId=${bibliotheque.id})}">
@@ -47,7 +47,7 @@
              <a th:href="@{/showEmpruntPage(bibliothequeId=${bibliotheque.id})}">Créer un nouvel emprunt</a>
         </div>
         <div sec:authorize="hasRole('ROLE_EMPLOYE')">
-            <a th:href="@{#}">Liste des emprunts en cours</a>
+            <a th:href="@{/searchEmpruntsEnCours(bibliothequeId=${bibliotheque.id})}">Liste des emprunts en cours</a>
         </div>
     </div>
 </div>

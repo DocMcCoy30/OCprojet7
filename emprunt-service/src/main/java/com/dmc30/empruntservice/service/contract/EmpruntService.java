@@ -4,7 +4,13 @@ import com.dmc30.empruntservice.dto.CreateEmpruntDto;
 import com.dmc30.empruntservice.dto.PretDto;
 import org.springframework.http.ResponseEntity;
 
+import java.util.List;
+
 public interface EmpruntService {
 
     PretDto createEmprunt(CreateEmpruntDto createEmpruntDto);
+
+    List<PretDto> findEmpruntEnCours(Long bibliothequeId);
+
+    List<PretDto> findEmpruntByUtilisateurId(Long utilisateurId);
 }

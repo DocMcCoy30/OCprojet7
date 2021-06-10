@@ -75,6 +75,16 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * Cherche un utilisateur par son identifiant
+     * @param utilisateurId l'identifiant de l'utilisateur
+     * @return l'utilisateur recherché
+     */
+    @Override
+    public UtilisateurBean getUtilisateurById(Long utilisateurId) {
+        return userServiceProxy.findUtilisateurById(utilisateurId);
+    }
+
+    /**
      * Cherche un utilisateur par son identifiant public
      * @param publicId l'identifiant public de l'utilisateur
      * @return l'utilisateur recherché

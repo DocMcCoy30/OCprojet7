@@ -14,6 +14,9 @@ public interface UserServiceProxy {
     @GetMapping("/users/check")
     String check();
 
+    @GetMapping("/users/id")
+    UtilisateurBean findUtilisateurById(@RequestParam Long utilisateurId);
+
     @GetMapping("/users/publicId")
     UtilisateurBean findUtilisateurByPublicId(@RequestParam String publicId);
 

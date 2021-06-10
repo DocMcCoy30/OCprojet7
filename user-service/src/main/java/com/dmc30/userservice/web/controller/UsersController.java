@@ -35,6 +35,12 @@ public class UsersController {
         return "User_Api ' s working";
     }
 
+    @GetMapping("/id")
+    UtilisateurDto findUtilisateurById(@RequestParam Long utilisateurId) {
+                return usersService.getUtilisateurById(utilisateurId);
+    }
+
+
     /**
      * Recherche d'un utilisateur par son identifiant public (UUID)
      * @param publicId l'identifiant de l'utilisateur

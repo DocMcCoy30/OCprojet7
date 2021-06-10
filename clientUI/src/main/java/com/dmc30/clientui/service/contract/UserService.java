@@ -16,6 +16,8 @@ public interface UserService {
 
     UtilisateurBean createAbonne(UtilisateurBean abonne, Long paysId);
 
+    UtilisateurBean getUtilisateurById(Long utilisateurId);
+
     UtilisateurBean getUtilisateurByPublicId(String publicId);
 
     UtilisateurBean getUtilisateurByUsername(String username);
@@ -25,5 +27,6 @@ public interface UserService {
     UtilisateurBean getUtilisateurByNumAbonné(String numAbonne);
 
     List<UtilisateurBean> getUtilisateursByNumAbonne(String numAbonne);
+
 
 }

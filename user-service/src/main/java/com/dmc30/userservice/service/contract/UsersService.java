@@ -9,6 +9,8 @@ public interface UsersService extends UserDetailsService {
 
     UtilisateurDto createAbonne(UtilisateurDto utilisateurDto, Long paysId);
 
+    UtilisateurDto getUtilisateurById(Long utilisateurId);
+
     UtilisateurDto getUserDetailsByEmail(String email);
 
     UtilisateurDto getUtilisateurByPublicId(String publicId);
@@ -20,5 +22,6 @@ public interface UsersService extends UserDetailsService {
     UtilisateurDto getUtilisateurByNumAbonne(String numAbonne);
 
     List<UtilisateurDto> getUtilisateursByNumAbonne(String numAbonne);
+
 
 }

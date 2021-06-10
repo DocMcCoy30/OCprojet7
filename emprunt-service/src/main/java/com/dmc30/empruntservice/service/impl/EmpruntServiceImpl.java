@@ -18,8 +18,10 @@ import org.springframework.stereotype.Service;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class EmpruntServiceImpl implements EmpruntService {
@@ -40,6 +42,8 @@ public class EmpruntServiceImpl implements EmpruntService {
      */
     @Override
     public PretDto createEmprunt(CreateEmpruntDto createEmpruntDto) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date dateEmprunt = new Date();
         Calendar c = Calendar.getInstance();
@@ -49,8 +53,6 @@ public class EmpruntServiceImpl implements EmpruntService {
         Ouvrage ouvrage = ouvrageRepository.getById(createEmpruntDto.getOuvrageId());
         ouvrage.setEmprunte(true);
         ouvrageRepository.save(ouvrage);
-        ModelMapper modelMapper = new ModelMapper();
-        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         PretDto pretDto = new PretDto();
         pretDto.setDateEmprunt(dateEmprunt);
         pretDto.setDateRestitution(dateRestitution);
@@ -59,5 +61,46 @@ public class EmpruntServiceImpl implements EmpruntService {
         pretDto.setUtilisateurId(createEmpruntDto.getAbonneId());
         pretRepository.save(modelMapper.map(pretDto, Pret.class));
         return pretDto;
+    }
+
+    @Override
+    public List<PretDto> findEmpruntEnCours(Long bibliothequeId) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        Date currentDate = new Date();
+        List<PretDto> pretDtoList = new ArrayList<>();
+        List<PretDto> pretDtoByBibliothequeList = new ArrayList<>();
+        List<PretDto> pretDtoEnCoursList = new ArrayList<>();
+        List<Pret> prets = pretRepository.findAll();
+        for (Pret pret : prets) {
+            PretDto pretDto = modelMapper.map(pret, PretDto.class);
+            pretDtoList.add(pretDto);
+        }
+        for (PretDto pretDtoByBibliotheque : pretDtoList) {
+            Long ouvrageId = pretDtoByBibliotheque.getOuvrageId();
+            OuvrageDto ouvrageDto = modelMapper.map(ouvrageRepository.getById(ouvrageId), OuvrageDto.class);
+            if (ouvrageDto.getBibliothequeId().equals(bibliothequeId)) {
+                pretDtoByBibliothequeList.add(pretDtoByBibliotheque);
+            }
+        }
+        for (PretDto pretDtoEnCours : pretDtoByBibliothequeList) {
+            if (pretDtoEnCours.getDateRestitution() != null) {
+                pretDtoEnCoursList.add(pretDtoEnCours);
+            }
+        }
+        return pretDtoEnCoursList;
+    }
+
+    @Override
+    public List<PretDto> findEmpruntByUtilisateurId(Long utilisateurId) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<PretDto>empruntsByUtilisateur = new ArrayList<>();
+        List<Pret> pretsByUtilisateur = pretRepository.findEmpruntByUtilisateurId(utilisateurId);
+        for (Pret pretByUtilisateur:pretsByUtilisateur) {
+            PretDto pretDtoByUtilisateur = modelMapper.map(pretByUtilisateur, PretDto.class);
+            empruntsByUtilisateur.add(pretDtoByUtilisateur);
+        }
+        return empruntsByUtilisateur;
     }
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -68,6 +69,7 @@ public class EmpruntController {
                 createEmpruntBean.setPrenom(abonnes.get(0).getPrenom());
                 createEmpruntBean.setNom(abonnes.get(0).getNom());
                 createEmpruntBean.setNumTelephone(abonnes.get(0).getNumTelephone());
+                theModel.addObject("createEmpruntBean", createEmpruntBean);
             } else {
                 message = "Il y a plusieurs abonnés correspondants à votre choix";
                 theModel.addObject("abonnes", abonnes);
@@ -78,8 +80,9 @@ public class EmpruntController {
                 createEmpruntBean.setIdInterne(ouvrages.get(0).getIdInterne());
                 createEmpruntBean.setTitre(ouvrages.get(0).getTitre());
                 createEmpruntBean.setAuteur(ouvrages.get(0).getAuteur());
+                theModel.addObject("createEmpruntBean", createEmpruntBean);
             } else {
-                for (OuvrageResponseModelBean ouvrage: ouvrages) {
+                for (OuvrageResponseModelBean ouvrage : ouvrages) {
                     if (ouvrage.getBibliothequeId().equals(bibliothequeId)) {
                         ouvragesByBibliotheque.add(ouvrage);
                     }
@@ -87,17 +90,6 @@ public class EmpruntController {
                 message = "Il y a plusieurs ouvrages correspondants à votre choix";
                 theModel.addObject("ouvrages", ouvragesByBibliotheque);
             }
-//            abonneSelectionne = userService.getUtilisateurByNumAbonné(numAbonne);
-//            ouvrageSelectionne = ouvrageService.getOuvrageByIdInterne(idInterne);
-//            createEmpruntBean.setAbonneId(abonneSelectionne.getId());
-//            createEmpruntBean.setNumAbonne(abonneSelectionne.getNumAbonne());
-//            createEmpruntBean.setPrenom(abonneSelectionne.getPrenom());
-//            createEmpruntBean.setNom(abonneSelectionne.getNom());
-//            createEmpruntBean.setNumTelephone(abonneSelectionne.getNumTelephone());
-//            createEmpruntBean.setOuvrageId(ouvrageSelectionne.getId());
-//            createEmpruntBean.setIdInterne(ouvrageSelectionne.getIdInterne());
-//            createEmpruntBean.setTitre(ouvrageSelectionne.getTitre());
-//            createEmpruntBean.setAuteur(ouvrageSelectionne.getAuteur());
         } else if (!numAbonne.equals("")) {
             abonneSelectionne = userService.getUtilisateurByNumAbonné(numAbonne);
             createEmpruntBean.setAbonneId(abonneSelectionne.getId());
@@ -105,14 +97,16 @@ public class EmpruntController {
             createEmpruntBean.setPrenom(abonneSelectionne.getPrenom());
             createEmpruntBean.setNom(abonneSelectionne.getNom());
             createEmpruntBean.setNumTelephone(abonneSelectionne.getNumTelephone());
+            theModel.addObject("createEmpruntBean", createEmpruntBean);
         } else if (!idInterne.equals("")) {
             ouvrageSelectionne = ouvrageService.getOuvrageByIdInterne(idInterne);
             createEmpruntBean.setOuvrageId(ouvrageSelectionne.getId());
             createEmpruntBean.setIdInterne(ouvrageSelectionne.getIdInterne());
             createEmpruntBean.setTitre(ouvrageSelectionne.getTitre());
             createEmpruntBean.setAuteur(ouvrageSelectionne.getAuteur());
+            theModel.addObject("createEmpruntBean", createEmpruntBean);
         }
-        theModel.addObject("createEmpruntBean", createEmpruntBean);
+
         return theModel;
     }
 
@@ -159,7 +153,7 @@ public class EmpruntController {
                 createEmpruntBean.setTitre(ouvrages.get(0).getTitre());
                 createEmpruntBean.setAuteur(ouvrages.get(0).getAuteur());
             } else {
-                for (OuvrageResponseModelBean ouvrage: ouvrages) {
+                for (OuvrageResponseModelBean ouvrage : ouvrages) {
                     if (ouvrage.getBibliothequeId().equals(bibliothequeId)) {
                         ouvragesByBibliotheque.add(ouvrage);
                     }
@@ -187,6 +181,45 @@ public class EmpruntController {
             theModel.addObject("bibliotheque", bibliotheque);
         }
         PretBean pretBean = empruntService.createEmprunt(createEmpruntBean);
+        return theModel;
+    }
+
+    @GetMapping("/searchEmpruntsEnCours")
+    public ModelAndView getEmpruntEnCours(@RequestParam("bibliothequeId") Long bibliothequeId) {
+        ModelAndView theModel = new ModelAndView("emprunt-en-cours-page");
+        String message = "";
+        List<EmpruntModelBean> empruntModelBeans = new ArrayList<>();
+        Date dateRetourPrévu;
+        if (bibliothequeId != null) {
+            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
+            theModel.addObject("bibliotheque", bibliotheque);
+        }
+        List<PretBean> empruntsEnCours = empruntService.getEmpruntsEnCours(bibliothequeId);
+        if (empruntsEnCours.isEmpty()) {
+            message = "Aucun emprunt en cours pour " + (bibliothequeService.getBibliothequeById(bibliothequeId)).getNom();
+            theModel.addObject("message", message);
+        } else {
+            for (PretBean pret : empruntsEnCours) {
+                EmpruntModelBean empruntModelBean = new EmpruntModelBean();
+                UtilisateurBean abonne = userService.getUtilisateurById(pret.getUtilisateurId());
+                empruntModelBean.setAbonne(abonne.getPrenom() + " " + abonne.getNom());
+                empruntModelBean.setAbonneId(abonne.getId());
+                OuvrageResponseModelBean ouvrage = ouvrageService.getOuvrageById(pret.getOuvrageId());
+                empruntModelBean.setIdentifiantOuvrage(ouvrage.getIdInterne());
+                empruntModelBean.setTitreDuLivre(ouvrage.getTitre());
+                empruntModelBean.setEmpruntId(pret.getId());
+                empruntModelBean.setDateEmprunt(pret.getDateEmprunt());
+                if (pret.isProlongation()) {
+                    dateRetourPrévu = pret.getDateProlongation();
+                } else {
+                    dateRetourPrévu = pret.getDateRestitution();
+                }
+                empruntModelBean.setDateRetourPrevu(dateRetourPrévu);
+                empruntModelBean.setProlongation(pret.isProlongation());
+                empruntModelBeans.add(empruntModelBean);
+            }
+            theModel.addObject("empruntEnCours", empruntModelBeans);
+        }
         return theModel;
     }
 

@@ -114,6 +114,14 @@ public class UsersServiceImpl implements UsersService {
         return returnValue;
     }
 
+    @Override
+    public UtilisateurDto getUtilisateurById(Long utilisateurId) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        UtilisateurDto utilisateurDto = modelMapper.map(utilisateurRepository.findUtilisateurById(utilisateurId), UtilisateurDto.class);
+        return utilisateurDto;
+    }
+
     /**
      * recherche un utilisateur par son email
      *
