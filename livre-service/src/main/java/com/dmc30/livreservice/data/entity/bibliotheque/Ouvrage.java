@@ -24,6 +24,9 @@ public class Ouvrage {
     @Column(name = "emprunte")
     private boolean emprunte;
 
+    @Column(name = "id_bibliotheque")
+    private Long bibliothequeId;
+
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ouvrage")
 //    private Set<Pret> prets;
 

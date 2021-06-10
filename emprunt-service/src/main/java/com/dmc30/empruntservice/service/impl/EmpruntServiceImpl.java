@@ -11,8 +11,12 @@ import com.dmc30.empruntservice.service.contract.EmpruntService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
@@ -31,24 +35,29 @@ public class EmpruntServiceImpl implements EmpruntService {
 
     /**
      * Crée un nouvel emprunt dans la base de données
+     *
      * @param createEmpruntDto les paramètres de l'emprunt
      */
     @Override
-    public void createEmprunt(CreateEmpruntDto createEmpruntDto) {
+    public PretDto createEmprunt(CreateEmpruntDto createEmpruntDto) {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date dateEmprunt = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dateEmprunt);
+        c.add(Calendar.DAY_OF_MONTH, 7);
+        Date dateRestitution = c.getTime();
         Ouvrage ouvrage = ouvrageRepository.getById(createEmpruntDto.getOuvrageId());
+        ouvrage.setEmprunte(true);
+        ouvrageRepository.save(ouvrage);
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        OuvrageDto ouvrageDto = modelMapper.map(ouvrage, OuvrageDto.class);
         PretDto pretDto = new PretDto();
-        LocalDate dateEmprunt = LocalDate.now();
         pretDto.setDateEmprunt(dateEmprunt);
-        LocalDate dateRestitution = LocalDate.now().plusDays(7);
         pretDto.setDateRestitution(dateRestitution);
-        LocalDate dateProlongation = LocalDate.now().plusDays(14);
-        pretDto.setDateProlongation(dateProlongation);
         pretDto.setProlongation(false);
-        pretDto.setOuvrageDto(ouvrageDto);
-        Pret pret = modelMapper.map(pretDto, Pret.class);
-        pretRepository.save(pret);
+        pretDto.setOuvrageId(ouvrage.getId());
+        pretDto.setUtilisateurId(createEmpruntDto.getAbonneId());
+        pretRepository.save(modelMapper.map(pretDto, Pret.class));
+        return pretDto;
     }
 }

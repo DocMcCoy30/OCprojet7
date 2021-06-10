@@ -24,7 +24,7 @@ SET row_security = off;
 --
 
 CREATE SEQUENCE public.adresse_id_seq1
-    START WITH 1
+    START WITH 5
     INCREMENT BY 1
     MINVALUE -2147483648
     MAXVALUE 2147483647

@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -16,13 +15,15 @@ public class PretDto {
 
     private Long id;
 
-    private LocalDate dateEmprunt;
+    private Date dateEmprunt;
 
-    private LocalDate dateRestitution;
+    private Date dateRestitution;
 
-    private LocalDate dateProlongation;
+    private Date dateProlongation;
 
     private Boolean prolongation;
 
-    private OuvrageDto ouvrageDto;
+    private Long ouvrageId;
+
+    private Long utilisateurId;
 }

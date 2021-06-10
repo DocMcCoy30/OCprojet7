@@ -12,6 +12,7 @@ public class OuvrageBean {
     private Long id;
     private String idInterne;
     private boolean emprunte;
+    private Long bibliothequeId;
     private Set<PretBean> prets;
 
 }

@@ -1,6 +1,7 @@
 package com.dmc30.clientui.proxy;
 
 import com.dmc30.clientui.bean.bibliotheque.CreateEmpruntBean;
+import com.dmc30.clientui.bean.bibliotheque.PretBean;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,5 +10,5 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface EmpruntServiceProxy {
 
     @PostMapping("/emprunts/create")
-    void createEmprunt(@RequestBody CreateEmpruntBean createEmpruntBean);
+    PretBean createEmprunt(@RequestBody CreateEmpruntBean createEmpruntBean);
 }

@@ -5,7 +5,7 @@
 -- Dumped from database version 13.2
 -- Dumped by pg_dump version 13.3
 
--- Started on 2021-06-08 20:15:32
+-- Started on 2021-06-10 14:05:04
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -37,15 +37,6 @@ INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (1, 'Pl
 INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (2, '1 Place Debussy', '30900', 'Nîmes', 1);
 INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (3, '297 avenue Monseigneur Robert Dalverny', '30000', 'Nîmes', 1);
 INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (4, '31 rue Ambroise Croizat', '30000', 'Nîmes', 1);
-INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (13, '8 rue Vespasien', '30000', 'Nîmes', 1);
-INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (14, 'place du jeu de boules', '30000', 'Nîmes', NULL);
-INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (15, '8 rue Vespasien', '30000', 'Nîmes', NULL);
-INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (16, '8 rue Vespasien', '30000', 'Nîmes', NULL);
-INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (17, '8 rue Vespasien', '30000', 'Nîmes', NULL);
-INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (18, '8 rue Vespasien', '30000', 'Nîmes', NULL);
-INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (19, '8 rue Vespasien', '30000', 'Nîmes', NULL);
-INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (20, '8', '30000', 'nimes', NULL);
-INSERT INTO public.adresse (id, rue, code_postal, ville, id_pays) VALUES (21, 'kjlkjlkj', 'klkm', 'mlmkm', NULL);
 
 
 --
@@ -137,26 +128,26 @@ INSERT INTO public.editeur (id, nom_maison_edition) VALUES (6, 'Ace');
 -- Data for Name: genre; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.genre (id, genre) VALUES (1, 'classique');
-INSERT INTO public.genre (id, genre) VALUES (2, 'litterature française');
-INSERT INTO public.genre (id, genre) VALUES (3, 'litterature etrangere');
-INSERT INTO public.genre (id, genre) VALUES (4, 'roman');
-INSERT INTO public.genre (id, genre) VALUES (5, 'roman historique');
-INSERT INTO public.genre (id, genre) VALUES (6, 'policier');
-INSERT INTO public.genre (id, genre) VALUES (7, 'thriller');
-INSERT INTO public.genre (id, genre) VALUES (8, 'horreur');
-INSERT INTO public.genre (id, genre) VALUES (9, 'science-fiction');
-INSERT INTO public.genre (id, genre) VALUES (10, 'fantasy');
-INSERT INTO public.genre (id, genre) VALUES (11, 'biographie');
-INSERT INTO public.genre (id, genre) VALUES (12, 'philosophie');
-INSERT INTO public.genre (id, genre) VALUES (13, 'histoire');
-INSERT INTO public.genre (id, genre) VALUES (14, 'economie');
-INSERT INTO public.genre (id, genre) VALUES (15, 'droit');
-INSERT INTO public.genre (id, genre) VALUES (16, 'theatre');
-INSERT INTO public.genre (id, genre) VALUES (17, 'poesie');
-INSERT INTO public.genre (id, genre) VALUES (18, 'dictionnaire');
-INSERT INTO public.genre (id, genre) VALUES (19, 'bandes dessinees');
-INSERT INTO public.genre (id, genre) VALUES (20, 'enfant');
+INSERT INTO public.genre (id, genre) VALUES (12, 'Philosophie');
+INSERT INTO public.genre (id, genre) VALUES (9, 'Science-Fiction');
+INSERT INTO public.genre (id, genre) VALUES (8, 'Horreur');
+INSERT INTO public.genre (id, genre) VALUES (10, 'Fantasy');
+INSERT INTO public.genre (id, genre) VALUES (13, 'Histoire');
+INSERT INTO public.genre (id, genre) VALUES (7, 'Thriller');
+INSERT INTO public.genre (id, genre) VALUES (14, 'Economie');
+INSERT INTO public.genre (id, genre) VALUES (6, 'Policier');
+INSERT INTO public.genre (id, genre) VALUES (11, 'Biographie');
+INSERT INTO public.genre (id, genre) VALUES (2, 'Litterature Française');
+INSERT INTO public.genre (id, genre) VALUES (17, 'Poesie');
+INSERT INTO public.genre (id, genre) VALUES (16, 'Theatre');
+INSERT INTO public.genre (id, genre) VALUES (5, 'Roman Historique');
+INSERT INTO public.genre (id, genre) VALUES (15, 'Droit');
+INSERT INTO public.genre (id, genre) VALUES (19, 'Bandes Dessinees');
+INSERT INTO public.genre (id, genre) VALUES (1, 'Classique');
+INSERT INTO public.genre (id, genre) VALUES (18, 'Dictionnaire');
+INSERT INTO public.genre (id, genre) VALUES (20, 'Enfant');
+INSERT INTO public.genre (id, genre) VALUES (4, 'Roman');
+INSERT INTO public.genre (id, genre) VALUES (3, 'Litterature Etrangere');
 
 
 --
@@ -165,11 +156,11 @@ INSERT INTO public.genre (id, genre) VALUES (20, 'enfant');
 -- Data for Name: langue; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.langue (id, code, langue) VALUES (1, 'fr', 'français');
-INSERT INTO public.langue (id, code, langue) VALUES (2, 'en', 'anglais');
-INSERT INTO public.langue (id, code, langue) VALUES (3, 'de', 'allemand');
-INSERT INTO public.langue (id, code, langue) VALUES (4, 'es', 'espagnol');
-INSERT INTO public.langue (id, code, langue) VALUES (5, 'it', 'italien');
+INSERT INTO public.langue (id, code, langue) VALUES (4, 'es', 'Espagnol');
+INSERT INTO public.langue (id, code, langue) VALUES (2, 'en', 'Anglais');
+INSERT INTO public.langue (id, code, langue) VALUES (3, 'de', 'Allemand');
+INSERT INTO public.langue (id, code, langue) VALUES (5, 'it', 'Italien');
+INSERT INTO public.langue (id, code, langue) VALUES (1, 'fr', 'Français');
 
 
 --
@@ -178,8 +169,8 @@ INSERT INTO public.langue (id, code, langue) VALUES (5, 'it', 'italien');
 -- Data for Name: livre; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (5, 'Féerie pour une autre fois', 'Cette édition est la première qui réunisse en un seul volume et sous le même titre, conformément à l''intention initiale de Céline, les deux parties de Féerie pour une autre fois. Depuis leur édition originale, respectivement en 1952 et 1954, et jusqu''à la publication, en 1993, du tome IV des Romans de Céline dans la Bibliothèque de la Pléiade qui les contient, elles avaient été éditées à part, la seconde, qui plus est, sous le titre de "Normance", alors que c''est aux épisodes qu''elle raconte que le titre Féerie pour une autre fois avait été plus spécialement destiné.Céline, tandis qu''il y travaillait, pensait à ce roman comme à un second Voyage au bout de la nuit, de nature, vingt ans après, à étonner le public autant que le roman de 1932, et ouvrant comme lui des voies nouvelles qu''il pourrait ensuite explorer. Il n''est pas dit que, son oeuvre romanesque désormais considérée et appréciée dans sa totalité, Féerie pour une autre fois n''y trouve pas cette place qu''il lui avait assignée', '1 mai 2014', '978-2070360284', 1, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (3, 'Guignol''s band I – Guignol''s band II', 'On est parti dans la vie avec les conseils des parents. Ils n''ont pas tenu devant l''existence. On est tombé dans les salades qu''étaient plus affreuses l''une que l''autre. On est sorti comme on a pu de ces conflagrations funestes, plutôt de traviole, tout crabe baveux, à reculons, pattes en moins. On s''est bien marré quelques fois, faut être juste, même avec la merde, mais toujours en proie d''inquiétudes que les vacheries recommenceraient... Et toujours elles ont recommencé... Rappelons-nous !', '6 février 2014', '978-2070360284', 1, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (10, 'Salem', 'Le Maine, 1970. Ben Mears revient à Salem, s''installer à Marsten House, inhabitée depuis la mort tragique de ses propriétaires, vingt-ans auparavant. Mais très vite, il devra se rendre à l''évidence : il se passe des choses étranges dans cette petite bourgade. Un chien est immolé, un enfant disparaît et l''horreur s''infiltre, s''étend, se répand, aussi inéluctable que la nuit qui descend sur Salem.', '30 octobre 2013', '978-2709628181', 5, 1);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (5, 'Féerie pour une autre fois', 'Cette édition est la première qui réunisse en un seul volume et sous le même titre, conformément à l''intention initiale de Céline, les deux parties de Féerie pour une autre fois. Depuis leur édition originale, respectivement en 1952 et 1954, et jusqu''à la publication, en 1993, du tome IV des Romans de Céline dans la Bibliothèque de la Pléiade qui les contient, elles avaient été éditées à part, la seconde, qui plus est, sous le titre de "Normance", alors que c''est aux épisodes qu''elle raconte que le titre Féerie pour une autre fois avait été plus spécialement destiné.Céline, tandis qu''il y travaillait, pensait à ce roman comme à un second Voyage au bout de la nuit, de nature, vingt ans après, à étonner le public autant que le roman de 1932, et ouvrant comme lui des voies nouvelles qu''il pourrait ensuite explorer. Il n''est pas dit que, son oeuvre romanesque désormais considérée et appréciée dans sa totalité, Féerie pour une autre fois n''y trouve pas cette place qu''il lui avait assignée', '1 mai 2014', '978-2070393312', 1, 1);
 INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (2, 'Mort à crédit', 'Deuxième grand roman de Louis-Ferdinand Céline, Mort à crédit, publié en 1936, raconte l''enfance du Bardamu de Voyage au bout de la nuit, paru quatre ans auparavant. Après un prologue situant son présent, médecin dans les années trente, le héros narrateur, Ferdinand, se rappelle ses jeunes années, dans un milieu petit bourgeois, vers 1900. Il est fils unique, élevé dans un passage parisien entre une grand-mère éducatrice fine et intuitive, une mère sacrificielle propriétaire d''un petit magasin de dentelles et objets de curiosité et un père violent et acariâtre, employé dans une compagnie d''assurances. Il grandit maladroitement, sans cesse victime des reproches amers de ses parents, multiplie les apprentissages et les échecs sentimentaux et professionnels, séjourne dans un collège anglais avant de voir son destin basculer avec la rencontre d''un inventeur loufoque, Léonard de Vinci de la fumisterie scientifique, pour vivre des aventures toujours tragi-comiques...
 Texte des origines, marqué par le sceau de l''image maternelle, Mort à crédit est un parcours initiatique, tout en violence et en émotion, où les souvenirs s''accompagnent des misères et des révoltes de l''enfance. C''est aussi une formidable évocation de Paris au tournant du siècle, drôle et riche de cocasseries irrésistibles, dans un style propre à Céline, fait d''exclamation, cassant la syntaxe traditionnelle, transposant le parler populaire dru et vert dans le langage écrit.', '6 février 2014', '978-2070376926', 1, 1);
 INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (4, 'D''un château l''autre', 'En 1932, avec le Voyage au bout de la nuit, Louis-Ferdinand Céline s''imposait d''emblée comme un des grands novateurs de notre temps. Le Voyage était traduit dans le monde entier et de nombreux écrivains ont reconnu ce qu''ils devaient à Céline, de Henry Miller à Marcel Aymé, de Sartre à Jacques Perret, de Simenon à Félicien Marceau. D''un château l''autre pourrait s''intituler "le bout de la nuit". Les châteaux dont parle Céline sont en effet douloureux, agités de spectres qui se nomment la Guerre, la Haine, la Misère. Céline s''y montre trois fois châtelain : à Sigmaringen en compagnie du maréchal Pétain et de ses ministres ; au Danemark où il demeure dix-huit mois dans un cachot, puis quelques années dans une ferme délabrée ; enfin à Meudon où sa clientèle de médecin se réduit à quelques pauvres, aussi miséreux que lui. Il s''agit pourtant d''un roman autant que d''une confession, car Céline n''est pas fait pour l''objectivité. Avec un comique somptueux, il décrit les Allemands affolés, l''Europe entière leur retombant sur la tête, les ministres de Vichy sans ministère, et le Maréchal à la veille de la Haute Cour. D''un château l''autre doit être considéré au même titre que le Voyage au bout de la nuit et Mort à crédit comme un des grands livres de Céline auqel il donna du reste une suite avec Nord (1960) et Rigodon (1969).', '21 décembre 2011', '978-2070367764', 1, 1);
@@ -187,7 +178,6 @@ INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_edi
 INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (9, 'Simetierre', 'Louis Creed, un jeune médecin de Chicago, vient s''installer avec sa famille à Ludlow, petite bourgade du Maine. Leur voisin, le vieux Jud Grandall les emmène visiter le pittoresque « simetierre » où des générations d''enfants ont enterré leurs animaux familiers. Mais au-delà de ce « simetierre », tout au fond de la forêt, se trouvent les terres sacrées des Indiens, lieu interdit qui séduit pourtant par ses monstrueuses promesses. Un drame atroce va bientôt déchirer l''existence des Creed, et l''on se retrouve happé dans un suspense cauchemardesque...', '31 octobre 1985', '978-2226024824', 4, 1);
 INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (11, 'Docteur Sleep', 'Depuis Shining, le petit Danny Torrance a grandi. Ses démons aussi...', '30 octobre 2013', '978-2226252005', 4, 1);
 INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (7, 'Ça Tome 2', 'Tout avait commencé juste avant les vacances d''été quand le petit Browers avait gravé ses initiales au couteau sur le ventre de son copain Ben Hascom. Tout s''était terminé deux mois plus tard dans les égouts par la poursuite infernale d''une créature étrange, incarnation même du mal. Mais aujourd''hui tout recommence. Les enfants terrorisés sont devenus des adultes. Le présent retrouve le passé, le destin reprend ses droits, l''horreur ressurgit. Chacun retrouvera dans ce roman à la construction saisissante ses propres souvenirs, ses angoisses et ses terreurs d''enfant, la peur de grandir dans un monde de violence.', '9 novembre 1988', '978-2226034540', 4, 1);
-INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (10, 'Salem', 'Le Maine, 1970. Ben Mears revient à Salem, s''installer à Marsten House, inhabitée depuis la mort tragique de ses propriétaires, vingt-ans auparavant. Mais très vite, il devra se rendre à l''évidence : il se passe des choses étranges dans cette petite bourgade. Un chien est immolé, un enfant disparaît et l''horreur s''infiltre, s''étend, se répand, aussi inéluctable que la nuit qui descend sur Salem.', '30 octobre 2013', '978-2226252005', 5, 1);
 INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (8, 'Shining', 'Situé dans les montagnes Rocheuses, l’Overlook Hotel est tenu pour être l’un des plus beaux lieux du monde. Beauté, confort, luxe, volupté…L’hiver, l’hôtel est fermé, coupé du monde par le froid, la neige, les glaces. Seul l’habite un gardien. Cet hiver-là, c’est Jack Torrance, un alcoolique qui tente d’échapper à l’échec et au désespoir. Il est venu accompagné de sa femme, Wendy, qui espère, grâce à cet isolement, reconstruire son foyer menacé, et de leur enfant, Danny.
 Mais Danny possède le don de sentir, de voir, de ressusciter les choses et les êtres à jamais disparus. Dans les cent dix chambres vides de l’Overlook, le démon est omniprésent. Cauchemar ou réalité, le corps de cette femme assassinée, ces bruits de fête qui derivent dans les couloirs, cette vie si étrange qui anime l’hôtel ?
 Stephen King est considéré dans le monde entier comme le maître de la littérature d’épouvante. Shining – dont Docteur Sleep est la suite – demeure son roman le plus célèbre, adapté prodigieusement par Stanley Kubrick, avec Jack Nicholson dans le rôle principal.', '30 octobre 2013', '978-2709646048', 5, 1);
@@ -214,6 +204,7 @@ And even as House Atreides begins to crumble around him from the machinations of
 INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (17, 'Chapterhouse: Dune', 'The desert planet Arrakis, called Dune, has been destroyed. The remnants of the Old Empire have been consumed by the violent matriarchal cult known as the Honored Matres. Only one faction remains a viable threat to their total conquest—the Bene Gesserit, heirs to Dune’s power.
 
 Under the leadership of Mother Superior Darwi Odrade, the Bene Gesserit have colonized a green world on the planet Chapterhouse and are turning it into a desert, mile by scorched mile. And once they’ve mastered breeding sandworms, the Sisterhood will control the production of the greatest commodity in the known galaxy—the spice melange. But their true weapon remains a man who has lived countless lifetimes—a man who served under the God Emperor Paul Muad’Dib....', '4 juin 2019', '978-0593098271', 6, 2);
+INSERT INTO public.livre (id, titre, resume, date_edition, numero_isbn13, id_editeur, id_langue) VALUES (3, 'Guignol''s band I – Guignol''s band II', 'On est parti dans la vie avec les conseils des parents. Ils n''ont pas tenu devant l''existence. On est tombé dans les salades qu''étaient plus affreuses l''une que l''autre. On est sorti comme on a pu de ces conflagrations funestes, plutôt de traviole, tout crabe baveux, à reculons, pattes en moins. On s''est bien marré quelques fois, faut être juste, même avec la merde, mais toujours en proie d''inquiétudes que les vacheries recommenceraient... Et toujours elles ont recommencé... Rappelons-nous !', '6 février 2014', '978-2070381487', 1, 1);
 
 
 --
@@ -222,6 +213,23 @@ Under the leadership of Mother Superior Darwi Odrade, the Bene Gesserit have col
 -- Data for Name: illustration; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (1, 'http://localhost:8081/imageserver/static/Ca - tome 1.jpg', 'couverture', 6);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (2, 'http://localhost:8081/imageserver/static/Voyage au bout de la nuit.jpg', 'couverture', 1);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (3, 'http://localhost:8081/imageserver/static/Mort à crédit.jpg', 'couverture', 2);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (4, 'http://localhost:8081/imageserver/static/Guignol''s band.jpg', 'couverture', 3);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (5, 'http://localhost:8081/imageserver/static/D''un château l''autre.jpg', 'couverture', 4);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (6, 'http://localhost:8081/imageserver/static/Féerie pour une autre fois.jpg', 'couverture', 5);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (7, 'http://localhost:8081/imageserver/static/Ca - tome 2.jpg', 'couverture', 7);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (8, 'http://localhost:8081/imageserver/static/Shining.jpg', 'couverture', 8);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (9, 'http://localhost:8081/imageserver/static/Simetierre .jpg', 'couverture', 9);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (10, 'http://localhost:8081/imageserver/static/Salem.jpg', 'couverture', 10);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (11, 'http://localhost:8081/imageserver/static/Docteur Sleep.jpg', 'couverture', 11);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (12, 'http://localhost:8081/imageserver/static/Dune.jpg', 'couverture', 12);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (13, 'http://localhost:8081/imageserver/static/Dune Messiah.jpg', 'couverture', 13);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (14, 'http://localhost:8081/imageserver/static/Children of Dune.jpg', 'couverture', 14);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (15, 'http://localhost:8081/imageserver/static/Heretics of Dune.jpg', 'couverture', 15);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (16, 'http://localhost:8081/imageserver/static/God Emperor of Dune.jpg', 'couverture', 16);
+INSERT INTO public.illustration (id, url, type_illustration, id_livre) VALUES (17, 'http://localhost:8081/imageserver/static/Chapterhouse Dune.jpg', 'couverture', 17);
 
 
 --
@@ -297,8 +305,6 @@ INSERT INTO public.many_livre_has_many_genre (id_livre, id_genre) VALUES (17, 9)
 -- Data for Name: ouvrage; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (1, 'CEN_VOY_1_1', false, 1, 1);
-INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (2, 'CEN_VOY_1_2', false, 1, 1);
 INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (3, 'CEN_VOY_1_3', false, 1, 1);
 INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (4, 'VAL_VOY_1_1', false, 2, 1);
 INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (5, 'VAL_VOY_1_2', false, 2, 1);
@@ -429,6 +435,8 @@ INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre)
 INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (130, 'SER_DOC_11_1', false, 4, 11);
 INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (131, 'SER_DOC_11_2', false, 4, 11);
 INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (132, 'SER_DOC_11_3', false, 4, 11);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (1, 'CEN_VOY_1_1', false, 1, 1);
+INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (2, 'CEN_VOY_1_2', false, 1, 1);
 INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (133, 'CEN_DUN1_12_1', false, 1, 12);
 INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (134, 'CEN_DUN1_12_2', false, 1, 12);
 INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre) VALUES (135, 'CEN_DUN1_12_3', false, 1, 12);
@@ -517,14 +525,6 @@ INSERT INTO public.ouvrage (id, id_interne, emprunte, id_bibliotheque, id_livre)
 -- Data for Name: utilisateur; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (6, 'thedude', 'jeffrey', 'lebowski', 'thedude@mail.com', '$2a$10$mpIIic8jqugt1JwF/GSQauJVaZmttX5qy2tSZ9HmYlBAE/VL8nN0G', '0665656565', '4f194c81-d093-4a0a-9a2c-dd9709002fcf', '2021-06-02', 'JEFLEB-4f19', NULL, NULL, NULL, 14);
-INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (8, 'elodie', 'Elodie', 'Pretet', 'elodie.pretet@gmail.com', '$2a$10$AGfOlHz/fWRKyb1VAZvVT.oZlBA7AxQ80WnSvgmth/WTB7nBOt43.', '0660866166', '28c6295b-fe92-4188-9cab-5569571a08ab', '2021-06-03', 'ELOPRE-28c6', NULL, NULL, NULL, 16);
-INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (9, 'gabriel', 'gabriel', 'pretet', 'gabriel.pretet08@gmail.com', '$2a$10$yV/DUVPZeRCZMswOMmG.XOWUpMFwXRnfkaJP.m2cm0Gf0zLeqszk2', '0600000000', '75408707-87e5-42dc-a5fc-f96ea19a18b5', '2021-06-03', 'GABPRE-7540', NULL, NULL, NULL, 17);
-INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (10, 'maelys', 'Maelys', 'Pretet', 'maelys.pretet@gmail.com', '$2a$10$Z9JOmqGBPivvio9oM/DzrO0812DFHREC.Ac/8o4WLK4.qDvmDPVHG', '0600000000', 'aaedcbbc-0e9b-47d8-9cc3-85485dd0ca4a', '2021-06-03', 'MAEPRE-aaed', NULL, NULL, NULL, 18);
-INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (11, 'toma', 'toma', 'pretet', 'toma.pretet@gmail.com', '$2a$10$44fSndkPunl21b1fL36VU.JgCERr3uUUhiT5qt6Un9Qz2J4SOvUr6', '0627004392', 'e3ae561e-3cba-40a7-8bd4-d5b0c1188009', '2021-06-04', 'TOMPRE-e3ae', NULL, NULL, NULL, 19);
-INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (12, 'alain', 'alain', 'lombard', 'alain@mail.com', '$2a$10$cwCyZsgykirZo52xu2mfLudXX6WKHLR9FWr3.Fz5Rg6vZ06VBmyC6', '0600000000', '740a9635-10c0-4578-a90e-bb8ed36c25ec', '2021-06-04', 'ALALOM-740a', NULL, NULL, NULL, 20);
-INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (13, 'q', 'jean', 'bobombeur', 'j@b.com', '$2a$10$rCInQULdYm1lHybdYL7f2eiUauOCnvGALUPoHlUlxYUg1vUg7UTxG', '0000000', '2bd2bae1-419c-4338-baf8-561b2ef382b6', '2021-06-04', 'JEABOB-2bd2', NULL, NULL, NULL, 21);
-INSERT INTO public.utilisateur (id, username, prenom, nom, email, password, numero_telephone, public_id, date_creation_compte, numero_abonne, matricule, date_entree, date_sortie, id_adresse) VALUES (7, 'dmc30', 'Thomas', 'Pretet', 'thomas.pretet@outlook.fr', '$2a$10$mHXet568qShP7U6opg0qGON6vgs1KuNcchtBcxU6zz3LiTvTljqYG', '0627004392', 'a39e39f2-c77f-4c7a-ab27-3113a2b47843', '2021-06-02', 'THOPRE-a39e', NULL, NULL, NULL, 15);
 
 
 --
@@ -553,15 +553,6 @@ INSERT INTO public.role (id, role, description) VALUES (4, 'ROLE_ADMIN', 'accès
 -- Data for Name: many_utilisateur_has_many_role; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (6, 2);
-INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (7, 2);
-INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (7, 3);
-INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (8, 2);
-INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (9, 2);
-INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (10, 2);
-INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (11, 2);
-INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (12, 2);
-INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALUES (13, 2);
 
 
 --
@@ -570,7 +561,7 @@ INSERT INTO public.many_utilisateur_has_many_role (id_utilisateur, id_role) VALU
 -- Name: adresse_id_seq1; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.adresse_id_seq1', 21, true);
+SELECT pg_catalog.setval('public.adresse_id_seq1', 22, true);
 
 
 --
@@ -615,7 +606,7 @@ SELECT pg_catalog.setval('public.genre_id_seq1', 1, false);
 -- Name: illustration_id_seq1; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.illustration_id_seq1', 1, false);
+SELECT pg_catalog.setval('public.illustration_id_seq1', 17, true);
 
 
 --
@@ -660,7 +651,7 @@ SELECT pg_catalog.setval('public.pays_id_seq1', 1, false);
 -- Name: pret_id_seq1; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.pret_id_seq1', 1, false);
+SELECT pg_catalog.setval('public.pret_id_seq1', 6, true);
 
 
 --
@@ -678,10 +669,10 @@ SELECT pg_catalog.setval('public.role_id_seq1', 1, false);
 -- Name: utilisateur_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.utilisateur_id_seq', 13, true);
+SELECT pg_catalog.setval('public.utilisateur_id_seq', 14, true);
 
 
--- Completed on 2021-06-08 20:15:33
+-- Completed on 2021-06-10 14:05:05
 
 --
 -- PostgreSQL database dump complete

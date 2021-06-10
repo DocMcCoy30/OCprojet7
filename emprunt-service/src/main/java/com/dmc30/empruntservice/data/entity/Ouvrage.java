@@ -25,8 +25,7 @@ public class Ouvrage {
     @Column(name = "emprunte")
     private boolean emprunte;
 
-    @JoinColumn(name = "id_ouvrage")
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Pret> prets;
+    @Column(name = "id_bibliotheque")
+    private Long bibliothequeId;
 
 }

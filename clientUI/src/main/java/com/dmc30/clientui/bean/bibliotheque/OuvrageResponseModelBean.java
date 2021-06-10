@@ -11,4 +11,6 @@ public class OuvrageResponseModelBean {
     String idInterne;
     String titre;
     String auteur;
+    Boolean emprunte;
+    Long bibliothequeId;
 }

@@ -16,6 +16,4 @@ public class OuvrageDto {
     private String idInterne;
 
     private boolean emprunte;
-
-    private Set<Pret> prets;
 }

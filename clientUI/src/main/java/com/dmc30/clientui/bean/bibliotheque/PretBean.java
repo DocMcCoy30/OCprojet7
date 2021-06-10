@@ -13,5 +13,6 @@ public class PretBean {
     private Date dateRestitution;
     private Date dateProlongation;
     private boolean prolongation;
-    private OuvrageBean ouvrage;
+    private Long ouvrageId;
+    private Long utilisateurId;
 }

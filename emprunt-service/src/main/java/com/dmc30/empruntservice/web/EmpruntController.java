@@ -1,5 +1,6 @@
 package com.dmc30.empruntservice.web;
 
+import com.dmc30.empruntservice.dto.PretDto;
 import com.dmc30.empruntservice.service.contract.EmpruntService;
 import com.dmc30.empruntservice.dto.CreateEmpruntDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,8 @@ public class EmpruntController {
     }
 
     @PostMapping("/create")
-    public void createEmprunt(@RequestBody CreateEmpruntDto createEmpruntDto) {
-        empruntService.createEmprunt(createEmpruntDto);
+    public PretDto createEmprunt(@RequestBody CreateEmpruntDto createEmpruntDto) {
+        PretDto pretDto = empruntService.createEmprunt(createEmpruntDto);
+        return pretDto;
     }
 }

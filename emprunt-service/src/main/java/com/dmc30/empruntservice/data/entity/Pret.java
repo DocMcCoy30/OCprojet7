@@ -31,8 +31,10 @@ public class Pret {
     @Column(name = "prolongation")
     private Boolean prolongation;
 
-    @JoinColumn(name = "id_ouvrage")
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
-    private Ouvrage ouvrage;
+    @Column(name = "id_ouvrage")
+    private Long ouvrageId;
+
+    @Column(name = "id_utilisateur")
+    private Long utilisateurId;
 
 }
