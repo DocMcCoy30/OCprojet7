@@ -205,7 +205,7 @@ public class UserController {
                                    @RequestParam(value = "modification",required = false) boolean modification) {
         ModelAndView theModel = new ModelAndView("profil-utilisateur");
         String message = "";
-        Date dateRetourPrévu;
+        Date dateRetourPrevu;
         UtilisateurBean abonne = userService.getUtilisateurByUsername(username);
         Long utilisateurId = abonne.getId();
         List<PretBean> empruntList = empruntService.getEmpruntByUtilisateurId(utilisateurId);
@@ -224,11 +224,11 @@ public class UserController {
                 empruntModelBean.setEmpruntId(pret.getId());
                 empruntModelBean.setDateEmprunt(pret.getDateEmprunt());
                 if (pret.isProlongation()) {
-                    dateRetourPrévu = pret.getDateProlongation();
+                    dateRetourPrevu = pret.getDateProlongation();
                 } else {
-                    dateRetourPrévu = pret.getDateRestitution();
+                    dateRetourPrevu = pret.getDateRestitution();
                 }
-                empruntModelBean.setDateRetourPrevu(dateRetourPrévu);
+                empruntModelBean.setDateRetourPrevu(dateRetourPrevu);
                 empruntModelBean.setProlongation(pret.isProlongation());
                 empruntModelBeans.add(empruntModelBean);
             }

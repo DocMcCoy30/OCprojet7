@@ -2,13 +2,9 @@ package com.dmc30.userservice.web.controller;
 
 import com.dmc30.userservice.service.contract.UsersService;
 import com.dmc30.userservice.service.dto.UtilisateurDto;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

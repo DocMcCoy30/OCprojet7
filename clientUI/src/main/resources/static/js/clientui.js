@@ -7,10 +7,10 @@ function matchPassword() {
     console.log(test);
     let pw1 = $('#password').val();
     let pw2 = $('#passwordVerif').val();
-    let messagePw = '';
+    let messagePw;
     console.log(pw1);
     console.log(pw2)
-    if(pw1 != pw2)
+    if(pw1 !== pw2)
     {
         messagePw = 'Ko'
 

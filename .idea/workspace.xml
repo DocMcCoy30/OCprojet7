@@ -1,31 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="626a98ec-6f0a-4fcd-8b60-c183d40dc1d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/bean/bibliotheque/EmpruntModelBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/emprunt-en-cours-page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/images.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/images1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/images2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/images3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/images4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/images5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/images6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/images7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/images8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/bean/livre/LivreResponseModelBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/bean/livre/LivreResponseModelBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/EmpruntServiceProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/EmpruntServiceProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserServiceProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/UserServiceProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/EmpruntService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/EmpruntService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/EmpruntServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/EmpruntServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/EmpruntController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/EmpruntController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/js/clientui.js" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/static/js/clientui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/accueil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/emprunt-en-cours-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/emprunt-en-cours-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/emprunt-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/emprunt-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/profil-utilisateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/profil-utilisateur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/recherche.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/recherche.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/livre-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/livre-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/data/entity/Ouvrage.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/data/entity/Ouvrage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/data/repository/PretRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/data/repository/PretRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/dto/OuvrageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/dto/OuvrageDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/dto/PretDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/dto/PretDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/contract/EmpruntService.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/contract/EmpruntService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/web/EmpruntController.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/web/EmpruntController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/data/repository/UtilisateurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/data/repository/UtilisateurRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/contract/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/contract/UsersService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/impl/UsersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/impl/UsersServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/web/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/web/controller/UsersController.java" afterDir="false" />
     </list>
@@ -71,9 +91,6 @@
       </map>
     </option>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="2" />
-  </component>
   <component name="ProjectId" id="1sRQ4qBw6LzoiwWjeTMcdCxibHl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -95,7 +112,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="jdk.selected.JAVA_MODULE" value="11.0.3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/clientUI/src/main/resources/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/imageserver" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -103,7 +120,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.24367817" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -150,7 +167,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EurekaServerApplication">
+  <component name="RunManager" selected="Tomcat Server.imageserver">
     <configuration name="ClientUIApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dmc30.clientui.ClientUIApplication" />
       <module name="clientUI" />
@@ -265,6 +282,80 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="imageserver" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat-9.0.27" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081/imageserver" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="imageserver:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/imageserver" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="81c00a4d-10e0-45e4-ac58-2397373a466b" />
+        <option name="HTTP_PORT" value="8081" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55625" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="imageserver:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.ClientUIApplication" />
       <item itemvalue="Application.EurekaServerApplication" />
@@ -276,6 +367,7 @@
       <item itemvalue="Spring Boot.GatewayServerApplication" />
       <item itemvalue="Spring Boot.LivreServiceApplication" />
       <item itemvalue="Spring Boot.EmpruntServiceApplication" />
+      <item itemvalue="Tomcat Server.imageserver" />
     </list>
     <recent_temporary>
       <list>
@@ -331,7 +423,9 @@
       <workItem from="1623234913239" duration="13046000" />
       <workItem from="1623257980821" duration="7447000" />
       <workItem from="1623319176823" duration="21650000" />
-      <workItem from="1623342690383" duration="3283000" />
+      <workItem from="1623342690383" duration="4059000" />
+      <workItem from="1623407880021" duration="1856000" />
+      <workItem from="1623416584439" duration="559000" />
     </task>
     <servers />
   </component>
@@ -353,7 +447,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/impl/UsersServiceImpl.java</url>
-          <line>118</line>
+          <line>117</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -362,13 +456,8 @@
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/UserController.java</url>
-          <line>205</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java</url>
-          <line>95</line>
+          <line>92</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>

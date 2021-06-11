@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="images8">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../OFA/imageserver/out/artifacts/imageserver_war_exploded/public/images/images.zip!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

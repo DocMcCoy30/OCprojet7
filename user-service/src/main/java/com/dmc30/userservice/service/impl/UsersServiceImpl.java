@@ -7,7 +7,6 @@ import com.dmc30.userservice.data.entity.UtilisateurEntity;
 import com.dmc30.userservice.data.repository.PaysRepository;
 import com.dmc30.userservice.data.repository.RoleRepository;
 import com.dmc30.userservice.data.repository.UtilisateurRepository;
-import com.dmc30.userservice.security.PasswordEncoderHelper;
 import com.dmc30.userservice.service.contract.UsersService;
 import com.dmc30.userservice.service.dto.AdresseDto;
 import com.dmc30.userservice.service.dto.PaysDto;

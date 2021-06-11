@@ -24,7 +24,7 @@ public interface UserService {
 
     void updateAbonne(UtilisateurBean userDetails);
 
-    UtilisateurBean getUtilisateurByNumAbonné(String numAbonne);
+    UtilisateurBean getUtilisateurByNumAbonne(String numAbonne);
 
     List<UtilisateurBean> getUtilisateursByNumAbonne(String numAbonne);
 

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="images3">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../OFA/imageserver/web/public/images/images.zip!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

@@ -1,7 +1,6 @@
 package com.dmc30.empruntservice.data.repository;
 
 import com.dmc30.empruntservice.data.entity.Pret;
-import com.dmc30.empruntservice.dto.PretDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

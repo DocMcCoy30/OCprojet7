@@ -2,7 +2,6 @@ package com.dmc30.clientui.bean.livre;
 
 import com.dmc30.clientui.bean.bibliotheque.OuvrageBean;
 import com.dmc30.clientui.bean.livre.EditeurBean;
-import com.dmc30.clientui.bean.livre.GenreBean;
 import com.dmc30.clientui.bean.livre.IllustrationBean;
 import com.dmc30.clientui.bean.livre.LangueBean;
 import lombok.Getter;

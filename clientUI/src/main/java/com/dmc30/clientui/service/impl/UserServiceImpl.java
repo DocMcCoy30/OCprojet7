@@ -115,7 +115,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UtilisateurBean getUtilisateurByNumAbonné(String numAbonne) {
+    public UtilisateurBean getUtilisateurByNumAbonne(String numAbonne) {
         return userServiceProxy.getUtilisateurByNumAbonne(numAbonne);
     }
 

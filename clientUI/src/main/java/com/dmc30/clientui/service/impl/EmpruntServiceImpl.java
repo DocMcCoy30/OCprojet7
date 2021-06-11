@@ -1,7 +1,6 @@
 package com.dmc30.clientui.service.impl;
 
 import com.dmc30.clientui.bean.bibliotheque.CreateEmpruntBean;
-import com.dmc30.clientui.bean.bibliotheque.EmpruntModelBean;
 import com.dmc30.clientui.bean.bibliotheque.PretBean;
 import com.dmc30.clientui.proxy.EmpruntServiceProxy;
 import com.dmc30.clientui.service.contract.EmpruntService;

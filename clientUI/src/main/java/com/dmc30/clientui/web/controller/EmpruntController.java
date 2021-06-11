@@ -91,7 +91,7 @@ public class EmpruntController {
                 theModel.addObject("ouvrages", ouvragesByBibliotheque);
             }
         } else if (!numAbonne.equals("")) {
-            abonneSelectionne = userService.getUtilisateurByNumAbonné(numAbonne);
+            abonneSelectionne = userService.getUtilisateurByNumAbonne(numAbonne);
             createEmpruntBean.setAbonneId(abonneSelectionne.getId());
             createEmpruntBean.setNumAbonne(abonneSelectionne.getNumAbonne());
             createEmpruntBean.setPrenom(abonneSelectionne.getPrenom());
@@ -189,7 +189,7 @@ public class EmpruntController {
         ModelAndView theModel = new ModelAndView("emprunt-en-cours-page");
         String message = "";
         List<EmpruntModelBean> empruntModelBeans = new ArrayList<>();
-        Date dateRetourPrévu;
+        Date dateRetourPrevu;
         if (bibliothequeId != null) {
             BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
             theModel.addObject("bibliotheque", bibliotheque);
@@ -210,11 +210,11 @@ public class EmpruntController {
                 empruntModelBean.setEmpruntId(pret.getId());
                 empruntModelBean.setDateEmprunt(pret.getDateEmprunt());
                 if (pret.isProlongation()) {
-                    dateRetourPrévu = pret.getDateProlongation();
+                    dateRetourPrevu = pret.getDateProlongation();
                 } else {
-                    dateRetourPrévu = pret.getDateRestitution();
+                    dateRetourPrevu = pret.getDateRestitution();
                 }
-                empruntModelBean.setDateRetourPrevu(dateRetourPrévu);
+                empruntModelBean.setDateRetourPrevu(dateRetourPrevu);
                 empruntModelBean.setProlongation(pret.isProlongation());
                 empruntModelBeans.add(empruntModelBean);
             }
