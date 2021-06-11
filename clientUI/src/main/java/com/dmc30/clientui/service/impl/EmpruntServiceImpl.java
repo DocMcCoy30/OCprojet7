@@ -46,4 +46,9 @@ public class EmpruntServiceImpl implements EmpruntService {
         return empruntServiceProxy.findEmpruntByUtilisateurId(utilisateurId);
     }
 
+    @Override
+    public void retournerEmprunt(Long empruntId, String ouvrageId) {
+        empruntServiceProxy.retournerEmprunt(empruntId, ouvrageId);
+    }
+
 }

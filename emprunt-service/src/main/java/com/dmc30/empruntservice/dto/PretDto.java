@@ -19,6 +19,8 @@ public class PretDto {
 
     private Boolean prolongation;
 
+    private boolean restitution;
+
     private Long ouvrageId;
 
     private Long utilisateurId;

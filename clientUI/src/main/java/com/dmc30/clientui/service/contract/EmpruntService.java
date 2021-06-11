@@ -19,4 +19,5 @@ public interface EmpruntService {
 
     List<PretBean> getEmpruntByUtilisateurId(Long utilisateurId);
 
+    void retournerEmprunt(Long empruntId, String ouvrageId);
 }

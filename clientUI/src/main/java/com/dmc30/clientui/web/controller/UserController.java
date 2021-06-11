@@ -202,19 +202,25 @@ public class UserController {
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         String message = "";
         Date dateRetourPrevu;
+        List<EmpruntModelBean> empruntsEnCours = new ArrayList<>();
+        List<EmpruntModelBean> empruntsRetournes = new ArrayList<>();
         UtilisateurBean abonne = userService.getUtilisateurByUsername(username);
         Long utilisateurId = abonne.getId();
         List<PretBean> empruntList = empruntService.getEmpruntByUtilisateurId(utilisateurId);
-        List<EmpruntModelBean> empruntModelBeans = new ArrayList<>();
         if (empruntList.isEmpty()) {
             message = "Aucun emprunt en cours";
             theModel.addObject("message", message);
         } else {
             for (PretBean pret : empruntList) {
                 EmpruntModelBean empruntModelBean = new EmpruntModelBean();
-                utilsMethodService.setEmpruntModelBean(empruntModelBeans, pret, empruntModelBean, abonne, ouvrageService);
+                if (pret.isRestitution()) {
+                    utilsMethodService.setEmpruntModelBean(empruntsRetournes, pret, empruntModelBean, abonne, ouvrageService);
+                    theModel.addObject("empruntsRetournes", empruntsRetournes);
+                } else if (!pret.isRestitution()) {
+                    utilsMethodService.setEmpruntModelBean(empruntsEnCours, pret, empruntModelBean, abonne, ouvrageService);
+                    theModel.addObject("empruntEnCours", empruntsEnCours);
+                }
             }
-            theModel.addObject("empruntEnCours", empruntModelBeans);
         }
         theModel.addObject("abonne", abonne);
         theModel.addObject("modification", modification);

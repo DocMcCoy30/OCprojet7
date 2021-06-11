@@ -13,6 +13,7 @@ public class EmpruntModelBean {
     private Date dateEmprunt;
     private Date dateRetourPrevu;
     private boolean prolongation;
+    private boolean restitution;
     private String identifiantOuvrage;
     private String titreDuLivre;
     private Long abonneId;

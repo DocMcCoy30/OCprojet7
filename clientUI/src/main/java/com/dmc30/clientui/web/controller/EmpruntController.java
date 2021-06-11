@@ -158,8 +158,33 @@ public class EmpruntController {
         ModelAndView theModel = new ModelAndView("emprunt-en-cours-page");
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         List<EmpruntModelBean> empruntModelBeans = new ArrayList<>();
-        Date dateRetourPrevu;
         String message = "";
+        List<PretBean> empruntsEnCours = empruntService.getEmpruntsEnCours(bibliothequeId);
+        if (empruntsEnCours.isEmpty()) {
+            message = "Aucun emprunt en cours pour " + (bibliothequeService.getBibliothequeById(bibliothequeId)).getNom();
+            theModel.addObject("message", message);
+        } else {
+            for (PretBean pret : empruntsEnCours) {
+                EmpruntModelBean empruntModelBean = new EmpruntModelBean();
+                UtilisateurBean abonne = userService.getUtilisateurById(pret.getUtilisateurId());
+                utilsMethodService.setEmpruntModelBean(empruntModelBeans, pret, empruntModelBean, abonne, ouvrageService);
+            }
+            theModel.addObject("empruntEnCours", empruntModelBeans);
+        }
+        return theModel;
+    }
+
+    @GetMapping("/retournerEmprunt")
+    public ModelAndView retournerEmprunt(@RequestParam("bibliothequeId") Long bibliothequeId,
+                                         @RequestParam("ouvrageId") String ouvrageId,
+                                         @RequestParam("empruntId") Long empruntId) {
+        ModelAndView theModel = new ModelAndView("emprunt-en-cours-page");
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
+        String message;
+        List<EmpruntModelBean> empruntModelBeans = new ArrayList<>();
+        empruntService.retournerEmprunt(empruntId, ouvrageId);
+        message = "Le retour a bien été enregistré";
+        theModel.addObject("message", message);
         List<PretBean> empruntsEnCours = empruntService.getEmpruntsEnCours(bibliothequeId);
         if (empruntsEnCours.isEmpty()) {
             message = "Aucun emprunt en cours pour " + (bibliothequeService.getBibliothequeById(bibliothequeId)).getNom();

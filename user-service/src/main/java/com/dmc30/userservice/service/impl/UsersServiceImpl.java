@@ -82,14 +82,9 @@ public class UsersServiceImpl implements UsersService {
     public UtilisateurDto createAbonne(UtilisateurDto utilisateurDto, Long paysId) {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-
         utilisateurDto.setPublicId(UUID.randomUUID().toString());
         //get Adresse de l'abonné
         AdresseDto adresseDto = utilisateurDto.getAdresse();
-        //set Pays France to Adresse
-        Optional<PaysEntity> result1 = paysRepository.findById(paysId);
-        PaysDto paysDto = modelMapper.map(result1.get(), PaysDto.class);
-        adresseDto.setPays(paysDto);
         //set Date de Création Compte
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
@@ -105,7 +100,13 @@ public class UsersServiceImpl implements UsersService {
         roles.add(result.get());
         utilisateurEntity.setRoles(roles);
         //set Adresse
-        utilisateurEntity.setAdresse(modelMapper.map(adresseDto, AdresseEntity.class));
+        AdresseEntity adresseEntity = modelMapper.map(adresseDto, AdresseEntity.class);
+        Optional<PaysEntity> result1 = paysRepository.findById(paysId);
+        if (result.isPresent()) {
+            PaysEntity paysEntity = result1.get();
+            adresseEntity.setPaysEntity(paysEntity);
+        }
+        utilisateurEntity.setAdresse(adresseEntity);
         //Save Abonne in DB
         utilisateurRepository.save(utilisateurEntity);
         //Map Return VAlue

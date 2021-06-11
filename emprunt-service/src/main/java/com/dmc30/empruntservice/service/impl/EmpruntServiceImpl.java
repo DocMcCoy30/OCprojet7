@@ -15,10 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class EmpruntServiceImpl implements EmpruntService {
@@ -54,6 +51,7 @@ public class EmpruntServiceImpl implements EmpruntService {
         pretDto.setDateEmprunt(dateEmprunt);
         pretDto.setDateRestitution(dateRestitution);
         pretDto.setProlongation(false);
+        pretDto.setRestitution(false);
         pretDto.setOuvrageId(ouvrage.getId());
         pretDto.setUtilisateurId(createEmpruntDto.getAbonneId());
         pretRepository.save(modelMapper.map(pretDto, Pret.class));
@@ -81,7 +79,7 @@ public class EmpruntServiceImpl implements EmpruntService {
             }
         }
         for (PretDto pretDtoEnCours : pretDtoByBibliothequeList) {
-            if (pretDtoEnCours.getDateRestitution() != null) {
+            if (!pretDtoEnCours.isRestitution()) {
                 pretDtoEnCoursList.add(pretDtoEnCours);
             }
         }
@@ -99,5 +97,26 @@ public class EmpruntServiceImpl implements EmpruntService {
             empruntsByUtilisateur.add(pretDtoByUtilisateur);
         }
         return empruntsByUtilisateur;
+    }
+
+    @Override
+    public void retournerEmprunt(Long empruntId, String ouvrageId) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        Pret pret = new Pret();
+        Optional<Pret> result1 = pretRepository.findById(empruntId);
+        if (result1.isPresent()) {
+            pret = result1.get();
+        }
+        pret.setDateRestitution(new Date());
+        pret.setRestitution(true);
+        pretRepository.save(pret);
+        Ouvrage ouvrage = new Ouvrage();
+        Optional<Ouvrage> result2 = ouvrageRepository.findByIdInterne(ouvrageId);
+        if (result2.isPresent()) {
+            ouvrage = result2.get();
+        }
+        ouvrage.setEmprunte(false);
+        ouvrageRepository.save(ouvrage);
     }
 }

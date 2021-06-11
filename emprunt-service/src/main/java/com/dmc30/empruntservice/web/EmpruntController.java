@@ -36,4 +36,9 @@ public class EmpruntController {
         List<PretDto> pretDtoList = empruntService.findEmpruntByUtilisateurId(utilisateurId);
         return pretDtoList;
     }
+
+    @GetMapping("/retour")
+    public void retournerEmprunt(@RequestParam Long empruntId, @RequestParam String ouvrageId) {
+        empruntService.retournerEmprunt(empruntId, ouvrageId);
+    }
 }

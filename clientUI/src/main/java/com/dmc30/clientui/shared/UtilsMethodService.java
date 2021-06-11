@@ -66,7 +66,7 @@ public class UtilsMethodService {
     }
 
     /**
-     * Methode utils pour remplir le formulaire d'emprunt avec les détails nécessaires de l'ouvrage selectionné
+     * Methode utils pour remplir le formulaire de creation d'un emprunt avec les détails nécessaires de l'ouvrage selectionné
      * et le renvoyer aux controllers et à la vue
      * @param createEmpruntBean l'objet createEmprunt correspondant au formulaire pour la vue
      * @param ouvrageSelectionne l'ouvrage à emprunter
@@ -79,7 +79,7 @@ public class UtilsMethodService {
     }
 
     /**
-     * Methode utils pour remplir le formulaire d'emprunt avec les détails nécessaires de l'abonné selectionné
+     * Methode utils pour remplir le formulaire de création d'un emprunt avec les détails nécessaires de l'abonné selectionné
      * et le renvoyer aux controllers et à la vue
      * @param createEmpruntBean l'objet createEmprunt correspondant au formulaire pour la vue
      * @param abonneSelectionne l'abonné qui souhaite effectuer un emprunt

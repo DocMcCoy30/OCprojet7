@@ -21,4 +21,7 @@ public interface EmpruntServiceProxy {
 
     @GetMapping("/emprunts/utilisateur")
     List<PretBean> findEmpruntByUtilisateurId(@RequestParam Long utilisateurId);
+
+    @GetMapping("/emprunts/retour")
+    void retournerEmprunt(@RequestParam Long empruntId, @RequestParam String ouvrageId);
 }

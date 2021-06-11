@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Table(name = "pret")
 @Entity
@@ -30,6 +30,9 @@ public class Pret {
 
     @Column(name = "prolongation")
     private Boolean prolongation;
+
+    @Column(name = "restitution")
+    private boolean restitution;
 
     @Column(name = "id_ouvrage")
     private Long ouvrageId;
