@@ -1,13 +1,13 @@
 package com.dmc30.clientui.service.impl;
 
-import com.dmc30.clientui.bean.bibliotheque.CreateEmpruntBean;
+import com.dmc30.clientui.shared.bean.bibliotheque.CreateEmpruntBean;
 import com.dmc30.clientui.proxy.LivreServiceProxy;
 import com.dmc30.clientui.service.contract.LivreService;
 import com.dmc30.clientui.service.contract.OuvrageService;
-import com.dmc30.clientui.bean.bibliotheque.OuvrageBean;
-import com.dmc30.clientui.bean.bibliotheque.OuvrageResponseModelBean;
-import com.dmc30.clientui.bean.livre.LivreBean;
-import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
+import com.dmc30.clientui.shared.bean.bibliotheque.OuvrageBean;
+import com.dmc30.clientui.shared.bean.bibliotheque.OuvrageResponseModelBean;
+import com.dmc30.clientui.shared.bean.livre.LivreBean;
+import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

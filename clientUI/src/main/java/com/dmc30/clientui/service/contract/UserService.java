@@ -1,8 +1,8 @@
 package com.dmc30.clientui.service.contract;
 
 import com.dmc30.clientui.web.exception.TechnicalException;
-import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
-import com.dmc30.clientui.bean.utilisateur.LoginRequestBean;
+import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
+import com.dmc30.clientui.shared.bean.utilisateur.LoginRequestBean;
 
 import java.util.List;
 

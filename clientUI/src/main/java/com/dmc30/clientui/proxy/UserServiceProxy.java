@@ -1,7 +1,7 @@
 package com.dmc30.clientui.proxy;
 
-import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
-import com.dmc30.clientui.bean.utilisateur.LoginRequestBean;
+import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
+import com.dmc30.clientui.shared.bean.utilisateur.LoginRequestBean;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

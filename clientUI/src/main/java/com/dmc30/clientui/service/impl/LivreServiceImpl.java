@@ -1,11 +1,11 @@
 package com.dmc30.clientui.service.impl;
 
-import com.dmc30.clientui.bean.livre.AuteurBean;
-import com.dmc30.clientui.bean.livre.GenreBean;
-import com.dmc30.clientui.bean.livre.LivreBean;
+import com.dmc30.clientui.shared.bean.livre.AuteurBean;
+import com.dmc30.clientui.shared.bean.livre.GenreBean;
+import com.dmc30.clientui.shared.bean.livre.LivreBean;
 import com.dmc30.clientui.proxy.LivreServiceProxy;
 import com.dmc30.clientui.service.contract.LivreService;
-import com.dmc30.clientui.bean.livre.LivreResponseModelBean;
+import com.dmc30.clientui.shared.bean.livre.LivreResponseModelBean;
 import org.apache.commons.lang.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;

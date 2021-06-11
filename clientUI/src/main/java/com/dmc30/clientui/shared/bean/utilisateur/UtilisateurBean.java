@@ -1,6 +1,6 @@
-package com.dmc30.clientui.bean.utilisateur;
+package com.dmc30.clientui.shared.bean.utilisateur;
 
-import com.dmc30.clientui.bean.commun.AdresseBean;
+import com.dmc30.clientui.shared.bean.commun.AdresseBean;
 import lombok.*;
 
 import java.io.Serializable;

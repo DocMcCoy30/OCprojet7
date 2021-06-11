@@ -1,8 +1,8 @@
 package com.dmc30.clientui.service.contract;
 
-import com.dmc30.clientui.bean.livre.AuteurBean;
-import com.dmc30.clientui.bean.livre.GenreBean;
-import com.dmc30.clientui.bean.livre.LivreResponseModelBean;
+import com.dmc30.clientui.shared.bean.livre.AuteurBean;
+import com.dmc30.clientui.shared.bean.livre.GenreBean;
+import com.dmc30.clientui.shared.bean.livre.LivreResponseModelBean;
 
 import java.util.List;
 

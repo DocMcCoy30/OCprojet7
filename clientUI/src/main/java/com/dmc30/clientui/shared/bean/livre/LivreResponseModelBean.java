@@ -1,9 +1,6 @@
-package com.dmc30.clientui.bean.livre;
+package com.dmc30.clientui.shared.bean.livre;
 
-import com.dmc30.clientui.bean.bibliotheque.OuvrageBean;
-import com.dmc30.clientui.bean.livre.EditeurBean;
-import com.dmc30.clientui.bean.livre.IllustrationBean;
-import com.dmc30.clientui.bean.livre.LangueBean;
+import com.dmc30.clientui.shared.bean.bibliotheque.OuvrageBean;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -3,9 +3,10 @@ package com.dmc30.clientui.web.controller;
 import com.dmc30.clientui.service.contract.BibliothequeService;
 import com.dmc30.clientui.service.contract.LivreService;
 import com.dmc30.clientui.service.contract.UserService;
-import com.dmc30.clientui.bean.bibliotheque.BibliothequeBean;
-import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
-import com.dmc30.clientui.bean.livre.LivreResponseModelBean;
+import com.dmc30.clientui.shared.UtilsMethodService;
+import com.dmc30.clientui.shared.bean.bibliotheque.BibliothequeBean;
+import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
+import com.dmc30.clientui.shared.bean.livre.LivreResponseModelBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,17 @@ import java.util.List;
 @Controller
 public class AccueilController {
 
+    UtilsMethodService utilsMethodService;
     UserService userService;
     LivreService livreService;
     BibliothequeService bibliothequeService;
 
     @Autowired
-    public AccueilController(UserService userService, LivreService livreService, BibliothequeService bibliothequeService) {
+    public AccueilController(UtilsMethodService utilsMethodService,
+                             UserService userService,
+                             LivreService livreService,
+                             BibliothequeService bibliothequeService) {
+        this.utilsMethodService = utilsMethodService;
         this.userService = userService;
         this.livreService = livreService;
         this.bibliothequeService = bibliothequeService;
@@ -55,12 +61,10 @@ public class AccueilController {
      */
     @PostMapping("/showAccueil")
     public ModelAndView getToLast12(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
-
         ModelAndView theModel = new ModelAndView("accueil");
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         List<LivreResponseModelBean> livres = livreService.get12LastLivres();
         theModel.addObject("lastLivres", livres);
-        BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-        theModel.addObject("bibliotheque", bibliotheque);
         return theModel;
     }
 }

@@ -1,11 +1,12 @@
 package com.dmc30.clientui.web.controller;
 
-import com.dmc30.clientui.bean.bibliotheque.*;
+import com.dmc30.clientui.shared.UtilsMethodService;
+import com.dmc30.clientui.shared.bean.bibliotheque.*;
 import com.dmc30.clientui.service.contract.BibliothequeService;
 import com.dmc30.clientui.service.contract.EmpruntService;
 import com.dmc30.clientui.service.contract.OuvrageService;
 import com.dmc30.clientui.service.contract.UserService;
-import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
+import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,17 +22,19 @@ import java.util.List;
 public class EmpruntController {
 
     Logger logger = LoggerFactory.getLogger(EmpruntController.class);
-
+    UtilsMethodService utilsMethodService;
     BibliothequeService bibliothequeService;
     UserService userService;
     OuvrageService ouvrageService;
     EmpruntService empruntService;
 
     @Autowired
-    public EmpruntController(BibliothequeService bibliothequeService,
+    public EmpruntController(UtilsMethodService utilsMethodService,
+                             BibliothequeService bibliothequeService,
                              UserService userService,
                              OuvrageService ouvrageService,
                              EmpruntService empruntService) {
+        this.utilsMethodService = utilsMethodService;
         this.bibliothequeService = bibliothequeService;
         this.userService = userService;
         this.ouvrageService = ouvrageService;
@@ -43,32 +46,21 @@ public class EmpruntController {
                                         @ModelAttribute CreateEmpruntBean createEmpruntBean,
                                         @RequestParam(value = "numAbonne", required = false) String numAbonne,
                                         @RequestParam(value = "idInterne", required = false) String idInterne) {
-
         ModelAndView theModel = new ModelAndView("emprunt-page");
-        UtilisateurBean abonneSelectionne = new UtilisateurBean();
-        OuvrageResponseModelBean ouvrageSelectionne = new OuvrageResponseModelBean();
-        createEmpruntBean = new CreateEmpruntBean();
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         List<UtilisateurBean> abonnes = new ArrayList<>();
         List<OuvrageResponseModelBean> ouvrages = new ArrayList<>();
-        List<OuvrageResponseModelBean> ouvragesByBibliotheque = new ArrayList<>();
         theModel.addObject("abonnes", abonnes);
         theModel.addObject("ouvrages", ouvrages);
+        String message = "";
+        createEmpruntBean = new CreateEmpruntBean();
+        List<OuvrageResponseModelBean> ouvragesByBibliotheque = new ArrayList<>();
         if (numAbonne == null) numAbonne = "";
         if (idInterne == null) idInterne = "";
-        String message = "";
-
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-        }
         if ((!numAbonne.equals("")) && (!idInterne.equals(""))) {
             abonnes = userService.getUtilisateursByNumAbonne(numAbonne);
             if (abonnes.size() == 1) {
-                createEmpruntBean.setAbonneId(abonnes.get(0).getId());
-                createEmpruntBean.setNumAbonne(abonnes.get(0).getNumAbonne());
-                createEmpruntBean.setPrenom(abonnes.get(0).getPrenom());
-                createEmpruntBean.setNom(abonnes.get(0).getNom());
-                createEmpruntBean.setNumTelephone(abonnes.get(0).getNumTelephone());
+                utilsMethodService.setAbonneForEmpruntBean(createEmpruntBean, abonnes.get(0));
                 theModel.addObject("createEmpruntBean", createEmpruntBean);
             } else {
                 message = "Il y a plusieurs abonnés correspondants à votre choix";
@@ -76,10 +68,7 @@ public class EmpruntController {
             }
             ouvrages = ouvrageService.getOuvragesByIdInterne(idInterne);
             if (ouvrages.size() == 1) {
-                createEmpruntBean.setOuvrageId(ouvrages.get(0).getId());
-                createEmpruntBean.setIdInterne(ouvrages.get(0).getIdInterne());
-                createEmpruntBean.setTitre(ouvrages.get(0).getTitre());
-                createEmpruntBean.setAuteur(ouvrages.get(0).getAuteur());
+                utilsMethodService.setOuvrageForEmpruntBean(createEmpruntBean, ouvrages.get(0));
                 theModel.addObject("createEmpruntBean", createEmpruntBean);
             } else {
                 for (OuvrageResponseModelBean ouvrage : ouvrages) {
@@ -91,54 +80,38 @@ public class EmpruntController {
                 theModel.addObject("ouvrages", ouvragesByBibliotheque);
             }
         } else if (!numAbonne.equals("")) {
-            abonneSelectionne = userService.getUtilisateurByNumAbonne(numAbonne);
-            createEmpruntBean.setAbonneId(abonneSelectionne.getId());
-            createEmpruntBean.setNumAbonne(abonneSelectionne.getNumAbonne());
-            createEmpruntBean.setPrenom(abonneSelectionne.getPrenom());
-            createEmpruntBean.setNom(abonneSelectionne.getNom());
-            createEmpruntBean.setNumTelephone(abonneSelectionne.getNumTelephone());
+            UtilisateurBean abonneSelectionne = userService.getUtilisateurByNumAbonne(numAbonne);
+            utilsMethodService.setAbonneForEmpruntBean(createEmpruntBean, abonneSelectionne);
             theModel.addObject("createEmpruntBean", createEmpruntBean);
         } else if (!idInterne.equals("")) {
-            ouvrageSelectionne = ouvrageService.getOuvrageByIdInterne(idInterne);
-            createEmpruntBean.setOuvrageId(ouvrageSelectionne.getId());
-            createEmpruntBean.setIdInterne(ouvrageSelectionne.getIdInterne());
-            createEmpruntBean.setTitre(ouvrageSelectionne.getTitre());
-            createEmpruntBean.setAuteur(ouvrageSelectionne.getAuteur());
+            OuvrageResponseModelBean ouvrageSelectionne = ouvrageService.getOuvrageByIdInterne(idInterne);
+            utilsMethodService.setOuvrageForEmpruntBean(createEmpruntBean, ouvrageSelectionne);
             theModel.addObject("createEmpruntBean", createEmpruntBean);
         }
-
         return theModel;
     }
+
 
     @PostMapping("/createEmpruntSearchForm")
     public ModelAndView populateTheCreateEmpruntForm(@RequestParam("bibliothequeId") Long bibliothequeId,
                                                      @ModelAttribute CreateEmpruntBean createEmpruntBean,
                                                      @RequestParam(value = "numAbonne", required = false) String numAbonne,
                                                      @RequestParam(value = "idInterne", required = false) String idInterne) {
-
         ModelAndView theModel = new ModelAndView("emprunt-page");
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         List<UtilisateurBean> abonnes = new ArrayList<>();
         List<OuvrageResponseModelBean> ouvrages = new ArrayList<>();
-        List<OuvrageResponseModelBean> ouvragesByBibliotheque = new ArrayList<>();
         theModel.addObject("abonnes", abonnes);
         theModel.addObject("ouvrages", ouvrages);
         String message = "";
-
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-        }
+        List<OuvrageResponseModelBean> ouvragesByBibliotheque = new ArrayList<>();
         if ((numAbonne.equals("")) && (idInterne.equals(""))) {
             message = "Aucuns critères renseignés pour la recherche.";
         }
         if ((numAbonne != null) && (!numAbonne.equals(""))) {
             abonnes = userService.getUtilisateursByNumAbonne(createEmpruntBean.getNumAbonne());
             if (abonnes.size() == 1) {
-                createEmpruntBean.setAbonneId(abonnes.get(0).getId());
-                createEmpruntBean.setNumAbonne(abonnes.get(0).getNumAbonne());
-                createEmpruntBean.setPrenom(abonnes.get(0).getPrenom());
-                createEmpruntBean.setNom(abonnes.get(0).getNom());
-                createEmpruntBean.setNumTelephone(abonnes.get(0).getNumTelephone());
+                utilsMethodService.setAbonneForEmpruntBean(createEmpruntBean, abonnes.get(0));
             } else {
                 message = "Il y a plusieurs abonnés correspondants à votre choix";
                 theModel.addObject("abonnes", abonnes);
@@ -148,10 +121,7 @@ public class EmpruntController {
         if ((idInterne != null) && (!idInterne.equals(""))) {
             ouvrages = ouvrageService.getOuvragesByIdInterne(createEmpruntBean.getIdInterne());
             if (ouvrages.size() == 1) {
-                createEmpruntBean.setOuvrageId(ouvrages.get(0).getId());
-                createEmpruntBean.setIdInterne(ouvrages.get(0).getIdInterne());
-                createEmpruntBean.setTitre(ouvrages.get(0).getTitre());
-                createEmpruntBean.setAuteur(ouvrages.get(0).getAuteur());
+                utilsMethodService.setOuvrageForEmpruntBean(createEmpruntBean, ouvrages.get(0));
             } else {
                 for (OuvrageResponseModelBean ouvrage : ouvrages) {
                     if (ouvrage.getBibliothequeId().equals(bibliothequeId)) {
@@ -171,29 +141,25 @@ public class EmpruntController {
     public ModelAndView createEmprunt(@RequestParam("bibliothequeId") Long bibliothequeId,
                                       @ModelAttribute CreateEmpruntBean createEmpruntBean) {
         ModelAndView theModel = new ModelAndView("emprunt-page");
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
+        String message;
         List<UtilisateurBean> abonnes = new ArrayList<>();
         List<OuvrageResponseModelBean> ouvrages = new ArrayList<>();
         theModel.addObject("abonnes", abonnes);
         theModel.addObject("ouvrages", ouvrages);
-        String message = "";
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-        }
         PretBean pretBean = empruntService.createEmprunt(createEmpruntBean);
+        message = "L'emprunt du livre a bien été enregistré.";
+        theModel.addObject("messageCreateEmprunt", message);
         return theModel;
     }
 
     @GetMapping("/searchEmpruntsEnCours")
     public ModelAndView getEmpruntEnCours(@RequestParam("bibliothequeId") Long bibliothequeId) {
         ModelAndView theModel = new ModelAndView("emprunt-en-cours-page");
-        String message = "";
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         List<EmpruntModelBean> empruntModelBeans = new ArrayList<>();
         Date dateRetourPrevu;
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-        }
+        String message = "";
         List<PretBean> empruntsEnCours = empruntService.getEmpruntsEnCours(bibliothequeId);
         if (empruntsEnCours.isEmpty()) {
             message = "Aucun emprunt en cours pour " + (bibliothequeService.getBibliothequeById(bibliothequeId)).getNom();
@@ -202,25 +168,15 @@ public class EmpruntController {
             for (PretBean pret : empruntsEnCours) {
                 EmpruntModelBean empruntModelBean = new EmpruntModelBean();
                 UtilisateurBean abonne = userService.getUtilisateurById(pret.getUtilisateurId());
-                empruntModelBean.setAbonne(abonne.getPrenom() + " " + abonne.getNom());
-                empruntModelBean.setAbonneId(abonne.getId());
-                OuvrageResponseModelBean ouvrage = ouvrageService.getOuvrageById(pret.getOuvrageId());
-                empruntModelBean.setIdentifiantOuvrage(ouvrage.getIdInterne());
-                empruntModelBean.setTitreDuLivre(ouvrage.getTitre());
-                empruntModelBean.setEmpruntId(pret.getId());
-                empruntModelBean.setDateEmprunt(pret.getDateEmprunt());
-                if (pret.isProlongation()) {
-                    dateRetourPrevu = pret.getDateProlongation();
-                } else {
-                    dateRetourPrevu = pret.getDateRestitution();
-                }
-                empruntModelBean.setDateRetourPrevu(dateRetourPrevu);
-                empruntModelBean.setProlongation(pret.isProlongation());
-                empruntModelBeans.add(empruntModelBean);
+                utilsMethodService.setEmpruntModelBean(empruntModelBeans, pret, empruntModelBean, abonne, ouvrageService);
             }
             theModel.addObject("empruntEnCours", empruntModelBeans);
         }
         return theModel;
     }
 
+
 }
+
+
+

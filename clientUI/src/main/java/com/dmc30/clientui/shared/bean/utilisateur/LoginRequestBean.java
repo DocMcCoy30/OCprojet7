@@ -1,4 +1,4 @@
-package com.dmc30.clientui.bean.utilisateur;
+package com.dmc30.clientui.shared.bean.utilisateur;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

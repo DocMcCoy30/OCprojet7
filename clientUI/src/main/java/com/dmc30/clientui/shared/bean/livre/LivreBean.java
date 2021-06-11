@@ -1,6 +1,6 @@
-package com.dmc30.clientui.bean.livre;
+package com.dmc30.clientui.shared.bean.livre;
 
-import com.dmc30.clientui.bean.bibliotheque.OuvrageBean;
+import com.dmc30.clientui.shared.bean.bibliotheque.OuvrageBean;
 import lombok.*;
 
 import java.util.List;

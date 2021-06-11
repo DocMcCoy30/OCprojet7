@@ -68,7 +68,7 @@
                 <td th:text="${tempEmpruntEnCours.dateEmprunt}"></td>
                 <td th:text="${tempEmpruntEnCours.dateRetourPrevu}"></td>
                 <td>
-                    <a th:href="@{retournerEmprun(bibliothequeId=${bibliotheque.id},
+                    <a th:href="@{retournerEmprunt(bibliothequeId=${bibliotheque.id},
                      empruntId=${tempEmpruntEnCours.empruntId}, ouvrageId=${tempEmpruntEnCours.identifiantOuvrage})}"
                        class="card-link">Retour</a></td>
             </tr>

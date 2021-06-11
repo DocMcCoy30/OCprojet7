@@ -1,9 +1,9 @@
 package com.dmc30.clientui.proxy;
 
-import com.dmc30.clientui.bean.bibliotheque.BibliothequeBean;
-import com.dmc30.clientui.bean.bibliotheque.OuvrageBean;
-import com.dmc30.clientui.bean.livre.AuteurBean;
-import com.dmc30.clientui.bean.livre.LivreBean;
+import com.dmc30.clientui.shared.bean.bibliotheque.BibliothequeBean;
+import com.dmc30.clientui.shared.bean.bibliotheque.OuvrageBean;
+import com.dmc30.clientui.shared.bean.livre.AuteurBean;
+import com.dmc30.clientui.shared.bean.livre.LivreBean;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,18 +1,18 @@
 package com.dmc30.clientui.web.controller;
 
-import com.dmc30.clientui.bean.bibliotheque.BibliothequeBean;
-import com.dmc30.clientui.bean.bibliotheque.EmpruntModelBean;
-import com.dmc30.clientui.bean.bibliotheque.OuvrageResponseModelBean;
-import com.dmc30.clientui.bean.bibliotheque.PretBean;
-import com.dmc30.clientui.bean.utilisateur.LoginRequestBean;
-import com.dmc30.clientui.bean.utilisateur.UtilisateurBean;
+import com.dmc30.clientui.shared.UtilsMethodService;
+import com.dmc30.clientui.shared.bean.bibliotheque.BibliothequeBean;
+import com.dmc30.clientui.shared.bean.bibliotheque.EmpruntModelBean;
+import com.dmc30.clientui.shared.bean.bibliotheque.PretBean;
+import com.dmc30.clientui.shared.bean.utilisateur.LoginRequestBean;
+import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
 import com.dmc30.clientui.security.PasswordEncoderHelper;
 import com.dmc30.clientui.service.contract.BibliothequeService;
 import com.dmc30.clientui.service.contract.EmpruntService;
 import com.dmc30.clientui.service.contract.OuvrageService;
 import com.dmc30.clientui.service.contract.UserService;
 import com.dmc30.clientui.web.exception.TechnicalException;
-import com.dmc30.clientui.bean.utilisateur.CreateAbonneBean;
+import com.dmc30.clientui.shared.bean.utilisateur.CreateAbonneBean;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.slf4j.Logger;
@@ -39,19 +39,21 @@ import java.util.List;
 public class UserController {
 
     Logger logger = LoggerFactory.getLogger(UserController.class);
-
-   UserService userService;
+    UtilsMethodService utilsMethodService;
+    UserService userService;
     BibliothequeService bibliothequeService;
     OuvrageService ouvrageService;
     EmpruntService empruntService;
     PasswordEncoderHelper passwordEncoderHelper;
 
     @Autowired
-    public UserController(UserService userService,
+    public UserController(UtilsMethodService utilsMethodService,
+                          UserService userService,
                           BibliothequeService bibliothequeService,
                           EmpruntService empruntService,
                           OuvrageService ouvrageService,
                           PasswordEncoderHelper passwordEncoderHelper) {
+        this.utilsMethodService = utilsMethodService;
         this.userService = userService;
         this.bibliothequeService = bibliothequeService;
         this.empruntService = empruntService;
@@ -61,6 +63,7 @@ public class UserController {
 
     /**
      * méthode test - affiche la page accueil.
+     *
      * @param theModel le model renvoyé.
      * @return la vue avec un message compte rendu de vérification du bon fonctionnement du service.
      */
@@ -73,7 +76,8 @@ public class UserController {
 
     /**
      * Affiche la vue login-page pour que l'utilisateur renseigne ses identifiants / mot de passe ou la page index en cas de demande de déconnexion
-     * @param logout si présent, deconnecte l'utilisateur.
+     *
+     * @param logout         si présent, deconnecte l'utilisateur.
      * @param bibliothequeId l'identifiant de la bibliothèque selectionnée
      * @return la vue login-page avec un objet LoginRequest (identifiant/mot de passe) ou la page index avec la liste des bibliothèque en cas de deconnexion.
      */
@@ -81,6 +85,7 @@ public class UserController {
     public ModelAndView loginPage(@RequestParam(value = "logout", required = false) String logout,
                                   @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         ModelAndView theModel = new ModelAndView("login-page");
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         LoginRequestBean user = new LoginRequestBean();
         if (logout != null) {
             List<BibliothequeBean> bibliotheques = bibliothequeService.getBibliotheques();
@@ -88,19 +93,16 @@ public class UserController {
             theModel.addObject("logoutMessage", "Vous êtes deconnecté !");
             theModel.setViewName("index");
         }
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-        }
         theModel.addObject("user", user);
         return theModel;
     }
 
     /**
      * Traitement des données pour identification et connexion sécurisée de l'utilisateur (SpringSecurity)
+     *
      * @param userLoginDetails Les identifiants/mot de passe de l'utilisateur entrés sur la page login-page
-     * @param bibliothequeId L'identifiant de la bibliothèque selectionnée.
-     * @param theModel Le Model renvoyé.
+     * @param bibliothequeId   L'identifiant de la bibliothèque selectionnée.
+     * @param theModel         Le Model renvoyé.
      * @return la vue accueil si l'identification est un succès, la page login avec un messge d'erreur si les identifiant/mot de passe renseignés sont erronés.
      * @throws TechnicalException
      */
@@ -108,6 +110,7 @@ public class UserController {
     public ModelAndView secureLogin(@ModelAttribute LoginRequestBean userLoginDetails,
                                     @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId,
                                     ModelAndView theModel) throws TechnicalException {
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         UtilisateurBean abonneDto = new UtilisateurBean();
         String errorMessage = "";
         String viewName = "login-page";
@@ -131,53 +134,44 @@ public class UserController {
             errorMessage = e.getMessage();
             theModel.addObject("errorMessage", errorMessage);
         }
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-        }
         theModel.setViewName(viewName);
         return theModel;
     }
 
     /**
      * Affiche la page signin-page permettant à l'utilisateur de renseigner ses données personnelles afin de créer un compte (abonné)
+     *
      * @param bibliothequeId L'identifiant de la bibliothèque selectionnée.
      * @return la vue signin-page avec la bibliothèque selectionnée.
      */
     @GetMapping(path = "/signin")
     public ModelAndView signinPage(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         ModelAndView theModel = new ModelAndView("signin-page");
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         CreateAbonneBean abonne = new CreateAbonneBean();
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-        }
         theModel.addObject("abonne", abonne);
         return theModel;
     }
 
     /**
      * Traitement des données pour création d'un compte abonné avec cryptage du mot de passe.
-     * @param userDetails Les données personnelles de l'utilisateur nécessaire à la création d'un compte abonné.
-     * @param paysId L'identifiant du pays de résidence selectionné.
+     *
+     * @param userDetails    Les données personnelles de l'utilisateur nécessaire à la création d'un compte abonné.
+     * @param paysId         L'identifiant du pays de résidence selectionné.
      * @param bibliothequeId L'identifiant de la bibliothèque selectionnée.
      * @return La page accueil avec la bibliothèque selectionnée et un message e confirmation de la création du compte.
      */
     @PostMapping("/signin")
     public ModelAndView createAbonne(@ModelAttribute @Valid CreateAbonneBean userDetails,
-                               BindingResult bindingResult,
-                               @RequestParam("paysId") Long paysId,
-                               @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
+                                     BindingResult bindingResult,
+                                     @RequestParam("paysId") Long paysId,
+                                     @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
+        ModelAndView theModel = new ModelAndView();
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        ModelAndView theModel = new ModelAndView();
         String message = "";
         String path = "";
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-
-        }
         if (bindingResult.hasErrors()) {
             theModel.addObject("abonne", userDetails);
             message = "Les informations renseignées ne sont pas conformes";
@@ -196,14 +190,16 @@ public class UserController {
 
     /**
      * affiche la page profil de l'utilisateur pour consultation et modification de ses données personnelles
+     *
      * @param bibliothequeId L'identiant de la bibliothèque selectionnées
      * @return la vue profil-utilisateur avec la bibliothèque selectionnée, et le détail des données de l'utilisateur connecté.
      */
     @GetMapping(value = "/showProfil")
     public ModelAndView showProfil(@RequestParam(value = "username", required = false) String username,
                                    @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId,
-                                   @RequestParam(value = "modification",required = false) boolean modification) {
+                                   @RequestParam(value = "modification", required = false) boolean modification) {
         ModelAndView theModel = new ModelAndView("profil-utilisateur");
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         String message = "";
         Date dateRetourPrevu;
         UtilisateurBean abonne = userService.getUtilisateurByUsername(username);
@@ -216,59 +212,32 @@ public class UserController {
         } else {
             for (PretBean pret : empruntList) {
                 EmpruntModelBean empruntModelBean = new EmpruntModelBean();
-                empruntModelBean.setAbonne(abonne.getPrenom() + " " + abonne.getNom());
-                empruntModelBean.setAbonneId(abonne.getId());
-                OuvrageResponseModelBean ouvrage = ouvrageService.getOuvrageById(pret.getOuvrageId());
-                empruntModelBean.setIdentifiantOuvrage(ouvrage.getIdInterne());
-                empruntModelBean.setTitreDuLivre(ouvrage.getTitre());
-                empruntModelBean.setEmpruntId(pret.getId());
-                empruntModelBean.setDateEmprunt(pret.getDateEmprunt());
-                if (pret.isProlongation()) {
-                    dateRetourPrevu = pret.getDateProlongation();
-                } else {
-                    dateRetourPrevu = pret.getDateRestitution();
-                }
-                empruntModelBean.setDateRetourPrevu(dateRetourPrevu);
-                empruntModelBean.setProlongation(pret.isProlongation());
-                empruntModelBeans.add(empruntModelBean);
+                utilsMethodService.setEmpruntModelBean(empruntModelBeans, pret, empruntModelBean, abonne, ouvrageService);
             }
             theModel.addObject("empruntEnCours", empruntModelBeans);
         }
         theModel.addObject("abonne", abonne);
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-        }
         theModel.addObject("modification", modification);
         return theModel;
     }
 
     /**
      * Modification d'un profil utilisateur.
-     * @param userDetails Les données personnelles de l'utilisateur à la modification d'un compte abonné.
-     * @param paysId L'identifiant du pays de résidence selectionné.
+     *
+     * @param userDetails    Les données personnelles de l'utilisateur à la modification d'un compte abonné.
+     * @param paysId         L'identifiant du pays de résidence selectionné.
      * @param bibliothequeId L'identifiant de la bibliothèque selectionnée.
      * @return La page profil avec la bibliothèque selectionnée et un message e confirmation de la modification du compte.
      */
     @PostMapping("/update")
     public ModelAndView updateAbonne(@ModelAttribute UtilisateurBean userDetails,
-                               @RequestParam(value = "paysId", required = false) Long paysId,
-                               @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
+                                     @RequestParam(value = "paysId", required = false) Long paysId,
+                                     @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         ModelAndView theModel = new ModelAndView("profil-utilisateur");
-        logger.info(userDetails.getPublicId());
-        logger.info(userDetails.getUsername());
-        logger.info(userDetails.getNom());
-        logger.info(userDetails.getPrenom());
-        logger.info(userDetails.getAdresse().getRue());
-        logger.info(userDetails.getEmail());
-        logger.info(userDetails.getNumTelephone());
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-        }
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         userService.updateAbonne(userDetails);
         UtilisateurBean abonne = userService.getUtilisateurByPublicId(userDetails.getPublicId());
         theModel.addObject("abonne", abonne);
-    return theModel;
+        return theModel;
     }
 }

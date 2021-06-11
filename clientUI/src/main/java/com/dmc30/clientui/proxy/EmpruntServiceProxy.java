@@ -1,7 +1,7 @@
 package com.dmc30.clientui.proxy;
 
-import com.dmc30.clientui.bean.bibliotheque.CreateEmpruntBean;
-import com.dmc30.clientui.bean.bibliotheque.PretBean;
+import com.dmc30.clientui.shared.bean.bibliotheque.CreateEmpruntBean;
+import com.dmc30.clientui.shared.bean.bibliotheque.PretBean;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

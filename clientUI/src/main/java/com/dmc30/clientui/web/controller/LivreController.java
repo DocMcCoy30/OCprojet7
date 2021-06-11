@@ -1,9 +1,10 @@
 package com.dmc30.clientui.web.controller;
 
 import com.dmc30.clientui.service.contract.*;
-import com.dmc30.clientui.bean.bibliotheque.BibliothequeBean;
-import com.dmc30.clientui.bean.livre.AuteurBean;
-import com.dmc30.clientui.bean.livre.LivreResponseModelBean;
+import com.dmc30.clientui.shared.UtilsMethodService;
+import com.dmc30.clientui.shared.bean.bibliotheque.BibliothequeBean;
+import com.dmc30.clientui.shared.bean.livre.AuteurBean;
+import com.dmc30.clientui.shared.bean.livre.LivreResponseModelBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +25,7 @@ import java.util.List;
 public class LivreController {
 
     Logger logger = LoggerFactory.getLogger(LivreController.class);
-
+    UtilsMethodService utilsMethodService;
     LivreService livreService;
     AuteurService auteurService;
     BibliothequeService bibliothequeService;
@@ -31,11 +33,13 @@ public class LivreController {
     UserService userService;
 
     @Autowired
-    public LivreController(LivreService livreService,
+    public LivreController(UtilsMethodService utilsMethodService,
+                           LivreService livreService,
                            AuteurService auteurService,
                            BibliothequeService bibliothequeService,
                            OuvrageService ouvrageService,
                            UserService userService) {
+        this.utilsMethodService = utilsMethodService;
         this.livreService = livreService;
         this.auteurService = auteurService;
         this.bibliothequeService = bibliothequeService;
@@ -82,14 +86,11 @@ public class LivreController {
     public ModelAndView searchLivres(@RequestParam(value = "search-param", required = false) Integer searchParam,
                                      @RequestParam(value = "mot-cle", required = false) String motCle,
                                      @RequestParam("bibliothequeId") Long bibliothequeId) {
-        String errorMessage = null;
         ModelAndView theModel = new ModelAndView("accueil");
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         List<LivreResponseModelBean> livres = new ArrayList<>();
         List<AuteurBean> auteurs = new ArrayList<>();
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-        }
+        String errorMessage = "";
         if (searchParam != null && !motCle.equals("")) {
             switch (searchParam) {
                 case 1:
@@ -128,7 +129,8 @@ public class LivreController {
 
     /**
      * Cherche et renvoie la liste des livres pour un auteur
-     * @param auteurId l'identifiant de l'auteur
+     *
+     * @param auteurId       l'identifiant de l'auteur
      * @param bibliothequeId l'identifiant de la bibliotheque
      * @return la liste des livres recherchés
      */
@@ -136,11 +138,8 @@ public class LivreController {
     public ModelAndView searchLivreByAuteurs(@RequestParam(value = "auteurId") Long auteurId,
                                              @RequestParam("bibliothequeId") Long bibliothequeId) {
         ModelAndView theModel = new ModelAndView("accueil");
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         List<LivreResponseModelBean> livres = new ArrayList<>();
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-        }
         livres = livreService.getLivreByAuteur(auteurId);
         theModel.addObject("livres", livres);
         return theModel;
@@ -157,11 +156,8 @@ public class LivreController {
     public ModelAndView getLivreDetails(@RequestParam(value = "livreId") Long livreId,
                                         @RequestParam("bibliothequeId") Long bibliothequeId) {
         ModelAndView theModel = new ModelAndView("livre-detail");
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         logger.info("LivreId = " + livreId);
-        if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
-        }
         if (livreId != null) {
             LivreResponseModelBean livreResponseModelBean = livreService.getLivreById(livreId);
             theModel.addObject("livre", livreResponseModelBean);

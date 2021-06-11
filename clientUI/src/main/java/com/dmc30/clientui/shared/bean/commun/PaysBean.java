@@ -1,4 +1,4 @@
-package com.dmc30.clientui.bean.commun;
+package com.dmc30.clientui.shared.bean.commun;
 
 import lombok.*;
 
