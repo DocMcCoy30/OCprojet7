@@ -31,6 +31,7 @@ public class UtilisateurBean implements Serializable {
     //Abonne
     private String numAbonne;
     private Date dateCreationCompte;
+    private String dateCreationCompteFormat;
 //    private Set<Pret> prets;
 
     //Employe

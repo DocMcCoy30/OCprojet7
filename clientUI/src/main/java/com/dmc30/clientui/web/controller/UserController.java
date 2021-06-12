@@ -202,29 +202,6 @@ public class UserController {
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         String message = "";
         utilsMethodService.setEmpruntListForProfilView(username, theModel, modification);
-
-//        UtilisateurBean abonne = userService.getUtilisateurByUsername(username);
-//        List<EmpruntModelBean> empruntsEnCours = new ArrayList<>();
-//        List<EmpruntModelBean> empruntsRetournes = new ArrayList<>();
-//        Long utilisateurId = abonne.getId();
-//        List<PretBean> empruntList = empruntService.getEmpruntByUtilisateurId(utilisateurId);
-//        if (empruntList.isEmpty()) {
-//            message = "Aucun emprunt en cours";
-//            theModel.addObject("message", message);
-//        } else {
-//            for (PretBean pret : empruntList) {
-//                EmpruntModelBean empruntModelBean = new EmpruntModelBean();
-//                if (pret.isRestitution()) {
-//                    utilsMethodService.setEmpruntModelBean(empruntsRetournes, pret, empruntModelBean, abonne, ouvrageService);
-//                    theModel.addObject("empruntsRetournes", empruntsRetournes);
-//                } else if (!pret.isRestitution()) {
-//                    utilsMethodService.setEmpruntModelBean(empruntsEnCours, pret, empruntModelBean, abonne, ouvrageService);
-//                    theModel.addObject("empruntEnCours", empruntsEnCours);
-//                }
-//            }
-//        }
-//        theModel.addObject("abonne", abonne);
-//        theModel.addObject("modification", modification);
         return theModel;
     }
 

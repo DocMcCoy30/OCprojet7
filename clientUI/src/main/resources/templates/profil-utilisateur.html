@@ -23,12 +23,11 @@
           method="post">
         <span th:if="${modification}"><input class="form-control" type="hidden" th:field="*{publicId}"></span>
 
-        <div><a style="text-decoration: underline"> Abonné(e) depuis le : </a><span style="font-weight: bold"
-                                                                                    th:text="${abonne.dateCreationCompte}"></span>
-            <br><br>
+        <div><a style="font-style: italic"> Abonné(e) depuis le : </a><span style="font-weight: bold"
+                                                                                    th:text="${abonne.dateCreationCompteFormat}"></span>
             <div class="row">
                 <div class="col-md-4">
-                    <span style="text-decoration: underline"> Prénom : </span><span style="font-weight: bold"
+                    <span style="font-style: italic"> Prénom : </span><span style="font-weight: bold"
                                                                                     th:text="${abonne.prenom}"></span>
                 </div>
                 <div class="col-md-5">
@@ -39,7 +38,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <span style="text-decoration: underline"> Nom : </span><span style="font-weight: bold"
+                    <span style="font-style: italic"> Nom : </span><span style="font-weight: bold"
                                                                                  th:text="${abonne.nom}"></span>
                 </div>
                 <div class="col-md-5">
@@ -50,7 +49,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <span style="text-decoration: underline"> Email : </span><span style="font-weight: bold"
+                    <span style="font-style: italic"> Email : </span><span style="font-weight: bold"
                                                                                    th:text="${abonne.email}"></span>
                 </div>
                 <div class="col-md-5">
@@ -61,7 +60,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <span style="text-decoration: underline"> Adresse : </span><span style="font-weight: bold"
+                    <span style="font-style: italic"> Adresse : </span><span style="font-weight: bold"
                                                                                      th:text="${abonne.adresse.rue} + ' '+  ${abonne.adresse.codePostal} + ' '+  ${abonne.adresse.ville}"></span>
                 </div>
                 <div class="row col-md-8">
@@ -81,7 +80,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <span style="text-decoration: underline">Numéro de téléphone : </span><span
+                    <span style="font-style: italic">Numéro de téléphone : </span><span
                         style="font-weight: bold"
                         th:text="${abonne.numTelephone}"></span>
                 </div>
@@ -125,8 +124,8 @@
                     <td th:text="${tempEmpruntEnCours.abonne}"></td>
                     <td th:text="${tempEmpruntEnCours.titreDuLivre}"></td>
                     <td th:text="${tempEmpruntEnCours.identifiantOuvrage}"></td>
-                    <td th:text="${tempEmpruntEnCours.dateEmprunt}"></td>
-                    <td th:text="${tempEmpruntEnCours.dateRetour}"></td>
+                    <td th:text="${tempEmpruntEnCours.dateEmpruntFormat}"></td>
+                    <td th:text="${tempEmpruntEnCours.dateRetourFormat}"></td>
                     <td>
                         <a th:if="${!tempEmpruntEnCours.prolongation}" th:href="@{prolongerEmprunt(bibliothequeId=${bibliotheque.id},
                      empruntId=${tempEmpruntEnCours.empruntId}, username=${abonne.username})}"
@@ -152,8 +151,8 @@
                     <td th:text="${tempEmpruntsRetournes.abonne}"></td>
                     <td th:text="${tempEmpruntsRetournes.titreDuLivre}"></td>
                     <td th:text="${tempEmpruntsRetournes.identifiantOuvrage}"></td>
-                    <td th:text="${tempEmpruntsRetournes.dateEmprunt}"></td>
-                    <td th:text="${tempEmpruntsRetournes.dateRetour}"></td>
+                    <td th:text="${tempEmpruntsRetournes.dateEmpruntFormat}"></td>
+                    <td th:text="${tempEmpruntsRetournes.dateRetourFormat}"></td>
                 </tr>
                 </tbody>
             </table>

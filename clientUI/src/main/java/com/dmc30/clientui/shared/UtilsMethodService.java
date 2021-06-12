@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -66,6 +67,8 @@ public class UtilsMethodService {
         empruntModelBean.setIdentifiantOuvrage(ouvrage.getIdInterne());
         empruntModelBean.setTitreDuLivre(ouvrage.getTitre());
         empruntModelBean.setEmpruntId(pret.getId());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        empruntModelBean.setDateEmpruntFormat(dateFormat.format(pret.getDateEmprunt()));
         empruntModelBean.setDateEmprunt(pret.getDateEmprunt());
         if (pret.isProlongation()) {
             dateRestitution = pret.getDateProlongation();
@@ -76,6 +79,7 @@ public class UtilsMethodService {
             dateRestitution = pret.getDateRestitution();
         }
         empruntModelBean.setDateRetour(dateRestitution);
+        empruntModelBean.setDateRetourFormat(dateFormat.format(dateRestitution));
         empruntModelBean.setProlongation(pret.isProlongation());
         empruntModelBeans.add(empruntModelBean);
     }
@@ -138,6 +142,8 @@ public class UtilsMethodService {
     public void setEmpruntListForProfilView(String username, ModelAndView theModel, boolean modification) {
         String message;
         UtilisateurBean abonne = userService.getUtilisateurByUsername(username);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        abonne.setDateCreationCompteFormat(dateFormat.format(abonne.getDateCreationCompte()));
         List<EmpruntModelBean> empruntsEnCours = new ArrayList<>();
         List<EmpruntModelBean> empruntsRetournes = new ArrayList<>();
         Long utilisateurId = abonne.getId();

@@ -43,8 +43,8 @@
                 <td th:text="${tempEmpruntEnCours.abonne}"></td>
                 <td th:text="${tempEmpruntEnCours.titreDuLivre}"></td>
                 <td th:text="${tempEmpruntEnCours.identifiantOuvrage}"></td>
-                <td th:text="${tempEmpruntEnCours.dateEmprunt}"></td>
-                <td th:text="${tempEmpruntEnCours.dateRetour}"></td>
+                <td th:text="${tempEmpruntEnCours.dateEmpruntFormat}"></td>
+                <td th:text="${tempEmpruntEnCours.dateRetourFormat}"></td>
                 <td>
                     <a th:href="@{retournerEmprunt(bibliothequeId=${bibliotheque.id},
                      empruntId=${tempEmpruntEnCours.empruntId}, ouvrageId=${tempEmpruntEnCours.identifiantOuvrage})}"
