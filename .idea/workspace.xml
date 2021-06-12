@@ -13,27 +13,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="626a98ec-6f0a-4fcd-8b60-c183d40dc1d5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/edec9058-78da-494b-a38d-e99d3ce07e86.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/edec9058-78da-494b-a38d-e99d3ce07e86.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/edec9058-78da-494b-a38d-e99d3ce07e86/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/edec9058-78da-494b-a38d-e99d3ce07e86/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-Documents/uml/UML_P7_Bibliothèque_V1 .pdf" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/uml/UML_P7_Bibliothèque_V1 .pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/EmpruntServiceProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/EmpruntServiceProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/EmpruntService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/EmpruntService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/EmpruntServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/EmpruntServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/UtilsMethodService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/UtilsMethodService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bean/bibliotheque/EmpruntModelBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bean/bibliotheque/EmpruntModelBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bean/bibliotheque/PretBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bean/bibliotheque/PretBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/AccueilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/AccueilController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/EmpruntController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/EmpruntController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/emprunt-en-cours-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/emprunt-en-cours-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/profil-utilisateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/profil-utilisateur.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/data/entity/Pret.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/data/entity/Pret.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/data/repository/OuvrageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/data/repository/OuvrageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/dto/PretDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/dto/PretDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/contract/EmpruntService.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/contract/EmpruntService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/web/EmpruntController.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/web/EmpruntController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/data/entity/UtilisateurEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/data/entity/UtilisateurEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/impl/UsersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/impl/UsersServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -420,7 +413,8 @@
       <workItem from="1623319176823" duration="21650000" />
       <workItem from="1623342690383" duration="4059000" />
       <workItem from="1623407880021" duration="1856000" />
-      <workItem from="1623416584439" duration="15471000" />
+      <workItem from="1623416584439" duration="16863000" />
+      <workItem from="1623483545608" duration="7415000" />
     </task>
     <servers />
   </component>
@@ -436,39 +430,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/impl/UsersServiceImpl.java</url>
-          <line>118</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/web/EmpruntController.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/EmpruntController.java</url>
-          <line>145</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/UserController.java</url>
-          <line>168</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/impl/UsersServiceImpl.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="56" />
+          <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/AccueilController.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

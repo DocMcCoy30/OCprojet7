@@ -41,4 +41,9 @@ public class EmpruntController {
     public void retournerEmprunt(@RequestParam Long empruntId, @RequestParam String ouvrageId) {
         empruntService.retournerEmprunt(empruntId, ouvrageId);
     }
+
+    @GetMapping("/prolongation")
+    public void prolongerEmprunt(@RequestParam Long empruntId) {
+        empruntService.prolongerEmprunt(empruntId);
+    }
 }

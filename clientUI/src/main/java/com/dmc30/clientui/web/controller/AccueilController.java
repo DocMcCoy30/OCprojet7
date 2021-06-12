@@ -62,6 +62,9 @@ public class AccueilController {
     @PostMapping("/showAccueil")
     public ModelAndView getToLast12(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         ModelAndView theModel = new ModelAndView("accueil");
+        if (bibliothequeId==null) {
+            bibliothequeId=1L;
+        }
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         List<LivreResponseModelBean> livres = livreService.get12LastLivres();
         theModel.addObject("lastLivres", livres);

@@ -202,9 +202,9 @@ public class UserController {
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         String message = "";
         Date dateRetourPrevu;
+        UtilisateurBean abonne = userService.getUtilisateurByUsername(username);
         List<EmpruntModelBean> empruntsEnCours = new ArrayList<>();
         List<EmpruntModelBean> empruntsRetournes = new ArrayList<>();
-        UtilisateurBean abonne = userService.getUtilisateurByUsername(username);
         Long utilisateurId = abonne.getId();
         List<PretBean> empruntList = empruntService.getEmpruntByUtilisateurId(utilisateurId);
         if (empruntList.isEmpty()) {

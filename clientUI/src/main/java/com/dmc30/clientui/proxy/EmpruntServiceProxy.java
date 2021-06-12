@@ -24,4 +24,7 @@ public interface EmpruntServiceProxy {
 
     @GetMapping("/emprunts/retour")
     void retournerEmprunt(@RequestParam Long empruntId, @RequestParam String ouvrageId);
+
+    @GetMapping("/emprunts/prolongation")
+    void prolongerEmprunt(@RequestParam Long empruntId);
 }

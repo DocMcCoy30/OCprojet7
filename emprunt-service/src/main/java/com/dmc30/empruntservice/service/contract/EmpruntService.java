@@ -14,4 +14,6 @@ public interface EmpruntService {
     List<PretDto> findEmpruntByUtilisateurId(Long utilisateurId);
 
     void retournerEmprunt(Long empruntId, String ouvrageId);
+
+    void prolongerEmprunt(Long empruntId);
 }

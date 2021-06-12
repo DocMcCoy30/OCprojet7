@@ -71,8 +71,11 @@
         <a th:text="${message}"></a>
     </div>
     <div th:if="${!#lists.isEmpty(empruntEnCours)}">
+        <span>
         <h4>Liste des emprunts en cours : <a th:text="${abonne.prenom}"></a><a>  </a><a th:text="${abonne.nom}"></a></h4>
-        <table class="table table-striped  table-bordered">
+        <a th:if="${messageProlongation}" th:text="${messageProlongation}"></a>
+            </span>
+            <table class="table table-striped  table-bordered">
             <thead class="thead-dark">
             <tr>
                 <th>Abonné</th>
@@ -89,10 +92,10 @@
                 <td th:text="${tempEmpruntEnCours.titreDuLivre}"></td>
                 <td th:text="${tempEmpruntEnCours.identifiantOuvrage}"></td>
                 <td th:text="${tempEmpruntEnCours.dateEmprunt}"></td>
-                <td th:text="${tempEmpruntEnCours.dateRetourPrevu}"></td>
+                <td th:text="${tempEmpruntEnCours.dateRetour}"></td>
                 <td>
-                    <a th:if="${!tempEmpruntEnCours.prolongation}" th:href="@{prologerEmprunt(bibliothequeId=${bibliotheque.id},
-                     empruntId=${tempEmpruntEnCours.empruntId}, ouvrageId=${tempEmpruntEnCours.identifiantOuvrage})}"
+                    <a th:if="${!tempEmpruntEnCours.prolongation}" th:href="@{prolongerEmprunt(bibliothequeId=${bibliotheque.id},
+                     empruntId=${tempEmpruntEnCours.empruntId}, username=${abonne.username})}"
                        class="card-link">Prolonger</a></td>
             </tr>
             </tbody>
@@ -116,7 +119,7 @@
                 <td th:text="${tempEmpruntsRetournes.titreDuLivre}"></td>
                 <td th:text="${tempEmpruntsRetournes.identifiantOuvrage}"></td>
                 <td th:text="${tempEmpruntsRetournes.dateEmprunt}"></td>
-                <td th:text="${tempEmpruntsRetournes.dateRetourPrevu}"></td>
+                <td th:text="${tempEmpruntsRetournes.dateRetour}"></td>
             </tr>
             </tbody>
         </table>

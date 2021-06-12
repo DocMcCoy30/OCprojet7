@@ -159,18 +159,7 @@ public class EmpruntController {
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         List<EmpruntModelBean> empruntModelBeans = new ArrayList<>();
         String message = "";
-        List<PretBean> empruntsEnCours = empruntService.getEmpruntsEnCours(bibliothequeId);
-        if (empruntsEnCours.isEmpty()) {
-            message = "Aucun emprunt en cours pour " + (bibliothequeService.getBibliothequeById(bibliothequeId)).getNom();
-            theModel.addObject("message", message);
-        } else {
-            for (PretBean pret : empruntsEnCours) {
-                EmpruntModelBean empruntModelBean = new EmpruntModelBean();
-                UtilisateurBean abonne = userService.getUtilisateurById(pret.getUtilisateurId());
-                utilsMethodService.setEmpruntModelBean(empruntModelBeans, pret, empruntModelBean, abonne, ouvrageService);
-            }
-            theModel.addObject("empruntEnCours", empruntModelBeans);
-        }
+        utilsMethodService.setEmpruntsEnCours(theModel, empruntModelBeans, bibliothequeId);
         return theModel;
     }
 
@@ -180,25 +169,31 @@ public class EmpruntController {
                                          @RequestParam("empruntId") Long empruntId) {
         ModelAndView theModel = new ModelAndView("emprunt-en-cours-page");
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
-        String message;
+        String messageRetour;
         List<EmpruntModelBean> empruntModelBeans = new ArrayList<>();
         empruntService.retournerEmprunt(empruntId, ouvrageId);
-        message = "Le retour a bien été enregistré";
-        theModel.addObject("message", message);
-        List<PretBean> empruntsEnCours = empruntService.getEmpruntsEnCours(bibliothequeId);
-        if (empruntsEnCours.isEmpty()) {
-            message = "Aucun emprunt en cours pour " + (bibliothequeService.getBibliothequeById(bibliothequeId)).getNom();
-            theModel.addObject("message", message);
-        } else {
-            for (PretBean pret : empruntsEnCours) {
-                EmpruntModelBean empruntModelBean = new EmpruntModelBean();
-                UtilisateurBean abonne = userService.getUtilisateurById(pret.getUtilisateurId());
-                utilsMethodService.setEmpruntModelBean(empruntModelBeans, pret, empruntModelBean, abonne, ouvrageService);
-            }
-            theModel.addObject("empruntEnCours", empruntModelBeans);
-        }
+        messageRetour = "Le retour a bien été enregistré";
+        theModel.addObject("messageRetour", messageRetour);
+        utilsMethodService.setEmpruntsEnCours(theModel, empruntModelBeans, bibliothequeId);
         return theModel;
     }
+
+    @GetMapping("/prolongerEmprunt")
+    public ModelAndView prolongerEmprunt(@RequestParam("bibliothequeId") Long bibliothequeId,
+                                         @RequestParam("empruntId") Long empruntId,
+                                         @RequestParam(value = "username", required = false) String username) {
+        ModelAndView theModel = new ModelAndView("/profil-utilisateur");
+        utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
+        String messageProlongation = "";
+        boolean modification = false;
+        empruntService.prolongerEmprunt(empruntId);
+        messageProlongation = "Votre demande de prolongation a bien été enregistrée.";
+        utilsMethodService.setEmpruntListForProfilView(username, theModel, modification);
+        theModel.addObject("messageProlongation", messageProlongation);
+        return theModel;
+    }
+
+
 
 
 }

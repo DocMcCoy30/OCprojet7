@@ -51,4 +51,9 @@ public class EmpruntServiceImpl implements EmpruntService {
         empruntServiceProxy.retournerEmprunt(empruntId, ouvrageId);
     }
 
+    @Override
+    public void prolongerEmprunt(Long empruntId) {
+        empruntServiceProxy.prolongerEmprunt(empruntId);
+    }
+
 }

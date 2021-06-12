@@ -119,4 +119,23 @@ public class EmpruntServiceImpl implements EmpruntService {
         ouvrage.setEmprunte(false);
         ouvrageRepository.save(ouvrage);
     }
+
+    @Override
+    public void prolongerEmprunt(Long empruntId) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        Pret pret = new Pret();
+        Optional<Pret> result1 = pretRepository.findById(empruntId);
+        if (result1.isPresent()) {
+            pret = result1.get();
+        }
+        Date dateRestitutionPrevue = pret.getDateRestitution();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dateRestitutionPrevue);
+        c.add(Calendar.DAY_OF_MONTH, 7);
+        Date dateProlongation = c.getTime();
+        pret.setDateProlongation(dateProlongation);
+        pret.setProlongation(true);
+        pretRepository.save(pret);
+    }
 }

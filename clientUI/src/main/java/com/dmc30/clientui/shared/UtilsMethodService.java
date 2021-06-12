@@ -1,7 +1,9 @@
 package com.dmc30.clientui.shared;
 
 import com.dmc30.clientui.service.contract.BibliothequeService;
+import com.dmc30.clientui.service.contract.EmpruntService;
 import com.dmc30.clientui.service.contract.OuvrageService;
+import com.dmc30.clientui.service.contract.UserService;
 import com.dmc30.clientui.shared.bean.bibliotheque.*;
 import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,10 +23,19 @@ import java.util.List;
 public class UtilsMethodService {
 
     BibliothequeService bibliothequeService;
+    OuvrageService ouvrageService;
+    EmpruntService empruntService;
+    UserService userService;
 
     @Autowired
-    public UtilsMethodService(BibliothequeService bibliothequeService) {
+    public UtilsMethodService(BibliothequeService bibliothequeService,
+                              OuvrageService ouvrageService,
+                              EmpruntService empruntService,
+                              UserService userService) {
         this.bibliothequeService = bibliothequeService;
+        this.ouvrageService = ouvrageService;
+        this.empruntService = empruntService;
+        this.userService = userService;
     }
 
     /**
@@ -47,7 +59,7 @@ public class UtilsMethodService {
      * @param ouvrageService le service ouvrage pour récupérer l'ouvrage emprunté
      */
     public void setEmpruntModelBean(List<EmpruntModelBean> empruntModelBeans, PretBean pret, EmpruntModelBean empruntModelBean, UtilisateurBean abonne, OuvrageService ouvrageService) {
-        Date dateRetourPrevu;
+        Date dateRestitution;
         empruntModelBean.setAbonne(abonne.getPrenom() + " " + abonne.getNom());
         empruntModelBean.setAbonneId(abonne.getId());
         OuvrageResponseModelBean ouvrage = ouvrageService.getOuvrageById(pret.getOuvrageId());
@@ -56,11 +68,14 @@ public class UtilsMethodService {
         empruntModelBean.setEmpruntId(pret.getId());
         empruntModelBean.setDateEmprunt(pret.getDateEmprunt());
         if (pret.isProlongation()) {
-            dateRetourPrevu = pret.getDateProlongation();
+            dateRestitution = pret.getDateProlongation();
         } else {
-            dateRetourPrevu = pret.getDateRestitution();
+            dateRestitution = pret.getDateRestitution();
         }
-        empruntModelBean.setDateRetourPrevu(dateRetourPrevu);
+        if (pret.isRestitution()) {
+            dateRestitution = pret.getDateRestitution();
+        }
+        empruntModelBean.setDateRetour(dateRestitution);
         empruntModelBean.setProlongation(pret.isProlongation());
         empruntModelBeans.add(empruntModelBean);
     }
@@ -90,5 +105,59 @@ public class UtilsMethodService {
         createEmpruntBean.setPrenom(abonneSelectionne.getPrenom());
         createEmpruntBean.setNom(abonneSelectionne.getNom());
         createEmpruntBean.setNumTelephone(abonneSelectionne.getNumTelephone());
+    }
+
+    /**
+     * Methode utils pour formater la liste la liste des emprunts en cours par bibliotheque (ROLE-EMPLOYE)
+     * @param theModel le ModelAndView
+     * @param empruntModelBeans La liste d'objets EmpruntModel à renvoyer à la vue
+     * @param bibliothequeId l'identifiant de la bibliothèque
+     */
+    public void setEmpruntsEnCours(ModelAndView theModel, List<EmpruntModelBean> empruntModelBeans, @RequestParam("bibliothequeId") Long bibliothequeId) {
+        String message;
+        List<PretBean> empruntsEnCours = empruntService.getEmpruntsEnCours(bibliothequeId);
+        if (empruntsEnCours.isEmpty()) {
+            message = "Aucun emprunt en cours pour " + (bibliothequeService.getBibliothequeById(bibliothequeId)).getNom();
+            theModel.addObject("message", message);
+        } else {
+            for (PretBean pret : empruntsEnCours) {
+                EmpruntModelBean empruntModelBean = new EmpruntModelBean();
+                UtilisateurBean abonne = userService.getUtilisateurById(pret.getUtilisateurId());
+                setEmpruntModelBean(empruntModelBeans, pret, empruntModelBean, abonne, ouvrageService);
+            }
+            theModel.addObject("empruntEnCours", empruntModelBeans);
+        }
+    }
+
+    /**
+     * Methode utils pour formater la liste des emprunts (en cours et historique) pour un abonné (ROLE-ABONNE)
+     * @param username le username de l'abonné
+     * @param theModel le ModelAndView
+     * @param modification la demande de modification du profil => false dans ce cas
+     */
+    public void setEmpruntListForProfilView(String username, ModelAndView theModel, boolean modification) {
+        String message;
+        UtilisateurBean abonne = userService.getUtilisateurByUsername(username);
+        List<EmpruntModelBean> empruntsEnCours = new ArrayList<>();
+        List<EmpruntModelBean> empruntsRetournes = new ArrayList<>();
+        Long utilisateurId = abonne.getId();
+        List<PretBean> empruntList = empruntService.getEmpruntByUtilisateurId(utilisateurId);
+        if (empruntList.isEmpty()) {
+            message = "Aucun emprunt en cours";
+            theModel.addObject("message", message);
+        } else {
+            for (PretBean pret : empruntList) {
+                EmpruntModelBean empruntModelBean = new EmpruntModelBean();
+                if (pret.isRestitution()) {
+                    setEmpruntModelBean(empruntsRetournes, pret, empruntModelBean, abonne, ouvrageService);
+                    theModel.addObject("empruntsRetournes", empruntsRetournes);
+                } else if (!pret.isRestitution()) {
+                    setEmpruntModelBean(empruntsEnCours, pret, empruntModelBean, abonne, ouvrageService);
+                    theModel.addObject("empruntEnCours", empruntsEnCours);
+                }
+            }
+        }
+        theModel.addObject("abonne", abonne);
+        theModel.addObject("modification", modification);
     }
 }

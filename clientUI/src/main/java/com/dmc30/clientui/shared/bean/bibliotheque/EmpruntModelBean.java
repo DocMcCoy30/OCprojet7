@@ -11,7 +11,7 @@ public class EmpruntModelBean {
 
     private Long empruntId;
     private Date dateEmprunt;
-    private Date dateRetourPrevu;
+    private Date dateRetour;
     private boolean prolongation;
     private boolean restitution;
     private String identifiantOuvrage;
