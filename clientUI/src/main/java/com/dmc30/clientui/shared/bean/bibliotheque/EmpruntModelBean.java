@@ -18,6 +18,7 @@ public class EmpruntModelBean {
     private boolean restitution;
     private String identifiantOuvrage;
     private String titreDuLivre;
+    private String auteur;
     private Long abonneId;
     private String abonne;
 }

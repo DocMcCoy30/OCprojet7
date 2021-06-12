@@ -113,6 +113,7 @@
                 <tr>
                     <th>Abonné</th>
                     <th>Titre du Livre</th>
+                    <th>Auteur(s)</th>
                     <th>Identifiant Interne</th>
                     <th>Date de l'emprunt</th>
                     <th>Date de restitution prévue</th>
@@ -123,6 +124,7 @@
                 <tr th:each="tempEmpruntEnCours : ${empruntEnCours}">
                     <td th:text="${tempEmpruntEnCours.abonne}"></td>
                     <td th:text="${tempEmpruntEnCours.titreDuLivre}"></td>
+                    <td th:text="${tempEmpruntEnCours.auteur}"></td>
                     <td th:text="${tempEmpruntEnCours.identifiantOuvrage}"></td>
                     <td th:text="${tempEmpruntEnCours.dateEmpruntFormat}"></td>
                     <td th:text="${tempEmpruntEnCours.dateRetourFormat}"></td>
@@ -141,6 +143,7 @@
                 <tr>
                     <th>Abonné</th>
                     <th>Titre du Livre</th>
+                    <th>Auteur(s)</th>
                     <th>Identifiant Interne</th>
                     <th>Date de l'emprunt</th>
                     <th>Date de restitution</th>
@@ -150,6 +153,7 @@
                 <tr th:each="tempEmpruntsRetournes : ${empruntsRetournes}">
                     <td th:text="${tempEmpruntsRetournes.abonne}"></td>
                     <td th:text="${tempEmpruntsRetournes.titreDuLivre}"></td>
+                    <td th:text="${tempEmpruntsRetournes.auteur}"></td>
                     <td th:text="${tempEmpruntsRetournes.identifiantOuvrage}"></td>
                     <td th:text="${tempEmpruntsRetournes.dateEmpruntFormat}"></td>
                     <td th:text="${tempEmpruntsRetournes.dateRetourFormat}"></td>

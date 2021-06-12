@@ -66,8 +66,9 @@ public class UtilsMethodService {
         OuvrageResponseModelBean ouvrage = ouvrageService.getOuvrageById(pret.getOuvrageId());
         empruntModelBean.setIdentifiantOuvrage(ouvrage.getIdInterne());
         empruntModelBean.setTitreDuLivre(ouvrage.getTitre());
+        empruntModelBean.setAuteur(ouvrage.getAuteur());
         empruntModelBean.setEmpruntId(pret.getId());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE dd MMMMM yyyy");
         empruntModelBean.setDateEmpruntFormat(dateFormat.format(pret.getDateEmprunt()));
         empruntModelBean.setDateEmprunt(pret.getDateEmprunt());
         if (pret.isProlongation()) {
