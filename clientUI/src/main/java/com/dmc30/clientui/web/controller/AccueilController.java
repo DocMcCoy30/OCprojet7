@@ -59,7 +59,7 @@ public class AccueilController {
      * @param bibliothequeId L'identifiant de la bibliotheque choisie dans la page index
      * @return la vue accueil avec l'utilisateur s'il est connecté, la bibliothèque selectionnée, et la liste des 12 derniers livres enregistrés dans la BD
      */
-    @PostMapping("/showAccueil")
+    @GetMapping("/showAccueil")
     public ModelAndView getToLast12(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         ModelAndView theModel = new ModelAndView("accueil");
         if (bibliothequeId==null) {

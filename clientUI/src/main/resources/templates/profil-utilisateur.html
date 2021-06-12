@@ -10,119 +10,154 @@
 <body>
 <header th:insert="fragments/header.html"></header>
 <div class="container">
-    <h2>Profil Abonné</h2><a
-        th:href="@{/showProfil(username=${#authentication.getPrincipal()}, bibliothequeId=${bibliotheque.id}, modification=${true})}">
-    Modifier mon profil
-</a>
+    <h2>Profil Abonné</h2>
+    <div class="row">
+        <div class="col-md-2">
+            <a th:href="@{/showProfil(username=${#authentication.getPrincipal()}, bibliothequeId=${bibliotheque.id}, modification=${true})}">
+                Modifier mon profil
+            </a>
+        </div>
+    </div>
     <hr>
     <form class="form" action="#" th:action="@{/update(bibliothequeId=${bibliotheque.id})}" th:object="${abonne}"
           method="post">
         <span th:if="${modification}"><input class="form-control" type="hidden" th:field="*{publicId}"></span>
-        <!--        <div><a style="text-decoration: underline"> Username : </a><span style="font-weight: bold"-->
-        <!--                                                                         th:text="${abonne.username}"></span>-->
-        <!--            &nbsp;<span th:if="${modification}"><input class="form-control" type="text"-->
-        <!--                                                       th:placeholder="${abonne.username}"-->
-        <!--                                                       th:field="*{username}"></span>-->
-        <!--        </div>-->
+
         <div><a style="text-decoration: underline"> Abonné(e) depuis le : </a><span style="font-weight: bold"
                                                                                     th:text="${abonne.dateCreationCompte}"></span>
-            <div><a style="text-decoration: underline"> Prénom : </a><span style="font-weight: bold"
-                                                                           th:text="${abonne.prenom}"></span>
-                &nbsp;<span th:if="${modification}"><input class="form-control" type="text"
-                                                           th:placeholder="${abonne.prenom}"
-                                                           th:field="*{prenom}"></span>
+            <br><br>
+            <div class="row">
+                <div class="col-md-4">
+                    <span style="text-decoration: underline"> Prénom : </span><span style="font-weight: bold"
+                                                                                    th:text="${abonne.prenom}"></span>
+                </div>
+                <div class="col-md-5">
+                <span th:if="${modification}"><input class="form-control" type="text"
+                                                     th:placeholder="${abonne.prenom}"
+                                                     th:field="*{prenom}"></span>
+                </div>
             </div>
-            <div><a style="text-decoration: underline">Nom : </a><span style="font-weight: bold"
-                                                                       th:text="${abonne.nom}"></span>
-                &nbsp;<span th:if="${modification}"><input class="form-control" type="text"
-                                                           th:placeholder="${abonne.nom}"
-                                                           th:field="*{nom}"></span>
+            <div class="row">
+                <div class="col-md-4">
+                    <span style="text-decoration: underline"> Nom : </span><span style="font-weight: bold"
+                                                                                 th:text="${abonne.nom}"></span>
+                </div>
+                <div class="col-md-5">
+                <span th:if="${modification}"><input class="form-control" type="text"
+                                                     th:placeholder="${abonne.nom}"
+                                                     th:field="*{nom}"></span>
+                </div>
             </div>
-            <div><a style="text-decoration: underline">Email : </a><span style="font-weight: bold"
-                                                                         th:text="${abonne.email}"></span>
-                &nbsp;<span th:if="${modification}"><input class="form-control" type="email"
-                                                           th:placeholder="${abonne.email}" th:field="*{email}"></span>
+            <div class="row">
+                <div class="col-md-4">
+                    <span style="text-decoration: underline"> Email : </span><span style="font-weight: bold"
+                                                                                   th:text="${abonne.email}"></span>
+                </div>
+                <div class="col-md-5">
+                <span th:if="${modification}"><input class="form-control" type="text"
+                                                     th:placeholder="${abonne.email}"
+                                                     th:field="*{email}"></span>
+                </div>
             </div>
-            <div><a style="text-decoration: underline">Adresse : </a><span style="font-weight: bold"
-                                                                           th:text="${abonne.adresse.rue} + ' '+  ${abonne.adresse.codePostal} + ' '+  ${abonne.adresse.ville}"></span>
-                &nbsp;<span th:if="${modification}"><input class="form-control" type="text"
-                                                           th:placeholder="${abonne.adresse.rue}"
-                                                           th:field="*{adresse.rue}"></span>
-                &nbsp;<span th:if="${modification}"><input class="form-control" type="text"
-                                                           th:placeholder="${abonne.adresse.codePostal}"
-                                                           th:field="*{adresse.codePostal}"></span>
-                &nbsp;<span th:if="${modification}"><input class="form-control" type="text"
-                                                           th:placeholder="${abonne.adresse.ville}"
-                                                           th:field="*{adresse.ville}"></span>
+            <div class="row">
+                <div class="col-md-4">
+                    <span style="text-decoration: underline"> Adresse : </span><span style="font-weight: bold"
+                                                                                     th:text="${abonne.adresse.rue} + ' '+  ${abonne.adresse.codePostal} + ' '+  ${abonne.adresse.ville}"></span>
+                </div>
+                <div class="row col-md-8">
+                    <div class="row">
+                                    <span class="col-md-6" th:if="${modification}"><input class="form-control"
+                                                                                          type="text"
+                                                                                          th:placeholder="${abonne.adresse.rue}"
+                                                                                          th:field="*{adresse.rue}"></span>
+                        &nbsp;<span class="col-md-2" th:if="${modification}"><input class="form-control" type="text"
+                                                                                    th:placeholder="${abonne.adresse.codePostal}"
+                                                                                    th:field="*{adresse.codePostal}"></span>
+                        &nbsp;<span class="col-md-3" th:if="${modification}"><input class="form-control" type="text"
+                                                                                    th:placeholder="${abonne.adresse.ville}"
+                                                                                    th:field="*{adresse.ville}"></span>
+                    </div>
+                </div>
             </div>
-            <div><a style="text-decoration: underline">Numéro de téléphone : </a><span style="font-weight: bold"
-                                                                                       th:text="${abonne.numTelephone}"></span>
-                &nbsp;<span th:if="${modification}"><input class="form-control" type="text"
-                                                           th:placeholder="${abonne.numTelephone}"
-                                                           th:field="*{numTelephone}"></span>
+            <div class="row">
+                <div class="col-md-4">
+                    <span style="text-decoration: underline">Numéro de téléphone : </span><span
+                        style="font-weight: bold"
+                        th:text="${abonne.numTelephone}"></span>
+                </div>
+                <div class="col-md-5">
+                <span th:if="${modification}"><input class="form-control" type="text"
+                                                     th:placeholder="${abonne.numTelephone}"
+                                                     th:field="*{numTelephone}"></span>
+                </div>
             </div>
+            <br>
+            <input class="form-control" type="hidden" th:name="username" th:field="*{username}">
             <div th:if="${modification}">
                 <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Modifier</button>
             </div>
         </div>
     </form>
     <br>
-    <div th:if="${#lists.isEmpty(empruntEnCours)}">
-        <a th:text="${message}"></a>
-    </div>
-    <div th:if="${!#lists.isEmpty(empruntEnCours)}">
+    <div th:if="${!modification}">
+        <div th:if="${#lists.isEmpty(empruntEnCours)}">
+            <a th:text="${message}"></a>
+        </div>
+        <div th:if="${!#lists.isEmpty(empruntEnCours)}">
         <span>
-        <h4>Liste des emprunts en cours : <a th:text="${abonne.prenom}"></a><a>  </a><a th:text="${abonne.nom}"></a></h4>
+        <h4>Liste des emprunts en cours : <a th:text="${abonne.prenom}"></a><a>  </a><a
+                th:text="${abonne.nom}"></a></h4>
         <a th:if="${messageProlongation}" th:text="${messageProlongation}"></a>
             </span>
             <table class="table table-striped  table-bordered">
-            <thead class="thead-dark">
-            <tr>
-                <th>Abonné</th>
-                <th>Titre du Livre</th>
-                <th>Identifiant Interne</th>
-                <th>Date de l'emprunt</th>
-                <th>Date de restitution prévue</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="tempEmpruntEnCours : ${empruntEnCours}">
-                <td th:text="${tempEmpruntEnCours.abonne}"></td>
-                <td th:text="${tempEmpruntEnCours.titreDuLivre}"></td>
-                <td th:text="${tempEmpruntEnCours.identifiantOuvrage}"></td>
-                <td th:text="${tempEmpruntEnCours.dateEmprunt}"></td>
-                <td th:text="${tempEmpruntEnCours.dateRetour}"></td>
-                <td>
-                    <a th:if="${!tempEmpruntEnCours.prolongation}" th:href="@{prolongerEmprunt(bibliothequeId=${bibliotheque.id},
+                <thead class="thead-dark">
+                <tr>
+                    <th>Abonné</th>
+                    <th>Titre du Livre</th>
+                    <th>Identifiant Interne</th>
+                    <th>Date de l'emprunt</th>
+                    <th>Date de restitution prévue</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tempEmpruntEnCours : ${empruntEnCours}">
+                    <td th:text="${tempEmpruntEnCours.abonne}"></td>
+                    <td th:text="${tempEmpruntEnCours.titreDuLivre}"></td>
+                    <td th:text="${tempEmpruntEnCours.identifiantOuvrage}"></td>
+                    <td th:text="${tempEmpruntEnCours.dateEmprunt}"></td>
+                    <td th:text="${tempEmpruntEnCours.dateRetour}"></td>
+                    <td>
+                        <a th:if="${!tempEmpruntEnCours.prolongation}" th:href="@{prolongerEmprunt(bibliothequeId=${bibliotheque.id},
                      empruntId=${tempEmpruntEnCours.empruntId}, username=${abonne.username})}"
-                       class="card-link">Prolonger</a></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div th:if="${!#lists.isEmpty(empruntsRetournes)}">
-    <h4>Historique des emprunts : <a th:text="${abonne.prenom}"></a><a>  </a><a th:text="${abonne.nom}"></a></h4>
-        <table class="table table-striped  table-bordered">
-            <thead class="thead-dark">
-            <tr>
-                <th>Abonné</th>
-                <th>Titre du Livre</th>
-                <th>Identifiant Interne</th>
-                <th>Date de l'emprunt</th>
-                <th>Date de restitution</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="tempEmpruntsRetournes : ${empruntsRetournes}">
-                <td th:text="${tempEmpruntsRetournes.abonne}"></td>
-                <td th:text="${tempEmpruntsRetournes.titreDuLivre}"></td>
-                <td th:text="${tempEmpruntsRetournes.identifiantOuvrage}"></td>
-                <td th:text="${tempEmpruntsRetournes.dateEmprunt}"></td>
-                <td th:text="${tempEmpruntsRetournes.dateRetour}"></td>
-            </tr>
-            </tbody>
-        </table>
+                           class="card-link">Prolonger</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${!#lists.isEmpty(empruntsRetournes)}">
+            <h4>Historique des emprunts : <a th:text="${abonne.prenom}"></a><a> </a><a th:text="${abonne.nom}"></a></h4>
+            <table class="table table-striped  table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Abonné</th>
+                    <th>Titre du Livre</th>
+                    <th>Identifiant Interne</th>
+                    <th>Date de l'emprunt</th>
+                    <th>Date de restitution</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tempEmpruntsRetournes : ${empruntsRetournes}">
+                    <td th:text="${tempEmpruntsRetournes.abonne}"></td>
+                    <td th:text="${tempEmpruntsRetournes.titreDuLivre}"></td>
+                    <td th:text="${tempEmpruntsRetournes.identifiantOuvrage}"></td>
+                    <td th:text="${tempEmpruntsRetournes.dateEmprunt}"></td>
+                    <td th:text="${tempEmpruntsRetournes.dateRetour}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <footer th:insert="fragments/footer.html"></footer>

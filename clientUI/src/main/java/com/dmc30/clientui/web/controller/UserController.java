@@ -201,29 +201,30 @@ public class UserController {
         ModelAndView theModel = new ModelAndView("profil-utilisateur");
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         String message = "";
-        Date dateRetourPrevu;
-        UtilisateurBean abonne = userService.getUtilisateurByUsername(username);
-        List<EmpruntModelBean> empruntsEnCours = new ArrayList<>();
-        List<EmpruntModelBean> empruntsRetournes = new ArrayList<>();
-        Long utilisateurId = abonne.getId();
-        List<PretBean> empruntList = empruntService.getEmpruntByUtilisateurId(utilisateurId);
-        if (empruntList.isEmpty()) {
-            message = "Aucun emprunt en cours";
-            theModel.addObject("message", message);
-        } else {
-            for (PretBean pret : empruntList) {
-                EmpruntModelBean empruntModelBean = new EmpruntModelBean();
-                if (pret.isRestitution()) {
-                    utilsMethodService.setEmpruntModelBean(empruntsRetournes, pret, empruntModelBean, abonne, ouvrageService);
-                    theModel.addObject("empruntsRetournes", empruntsRetournes);
-                } else if (!pret.isRestitution()) {
-                    utilsMethodService.setEmpruntModelBean(empruntsEnCours, pret, empruntModelBean, abonne, ouvrageService);
-                    theModel.addObject("empruntEnCours", empruntsEnCours);
-                }
-            }
-        }
-        theModel.addObject("abonne", abonne);
-        theModel.addObject("modification", modification);
+        utilsMethodService.setEmpruntListForProfilView(username, theModel, modification);
+
+//        UtilisateurBean abonne = userService.getUtilisateurByUsername(username);
+//        List<EmpruntModelBean> empruntsEnCours = new ArrayList<>();
+//        List<EmpruntModelBean> empruntsRetournes = new ArrayList<>();
+//        Long utilisateurId = abonne.getId();
+//        List<PretBean> empruntList = empruntService.getEmpruntByUtilisateurId(utilisateurId);
+//        if (empruntList.isEmpty()) {
+//            message = "Aucun emprunt en cours";
+//            theModel.addObject("message", message);
+//        } else {
+//            for (PretBean pret : empruntList) {
+//                EmpruntModelBean empruntModelBean = new EmpruntModelBean();
+//                if (pret.isRestitution()) {
+//                    utilsMethodService.setEmpruntModelBean(empruntsRetournes, pret, empruntModelBean, abonne, ouvrageService);
+//                    theModel.addObject("empruntsRetournes", empruntsRetournes);
+//                } else if (!pret.isRestitution()) {
+//                    utilsMethodService.setEmpruntModelBean(empruntsEnCours, pret, empruntModelBean, abonne, ouvrageService);
+//                    theModel.addObject("empruntEnCours", empruntsEnCours);
+//                }
+//            }
+//        }
+//        theModel.addObject("abonne", abonne);
+//        theModel.addObject("modification", modification);
         return theModel;
     }
 
@@ -238,12 +239,17 @@ public class UserController {
     @PostMapping("/update")
     public ModelAndView updateAbonne(@ModelAttribute UtilisateurBean userDetails,
                                      @RequestParam(value = "paysId", required = false) Long paysId,
-                                     @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
+                                     @RequestParam(value = "username", required = false) String username,
+                                     @RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId,
+                                     @RequestParam(value = "modification", required = false) boolean modification) {
         ModelAndView theModel = new ModelAndView("profil-utilisateur");
+        modification = false;
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         userService.updateAbonne(userDetails);
-        UtilisateurBean abonne = userService.getUtilisateurByPublicId(userDetails.getPublicId());
-        theModel.addObject("abonne", abonne);
+        utilsMethodService.setEmpruntListForProfilView(username, theModel, modification);
+
+//        UtilisateurBean abonne = userService.getUtilisateurByPublicId(userDetails.getPublicId());
+//        theModel.addObject("abonne", abonne);
         return theModel;
     }
 }

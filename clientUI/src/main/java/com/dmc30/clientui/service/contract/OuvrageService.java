@@ -13,5 +13,4 @@ public interface OuvrageService {
     OuvrageResponseModelBean getOuvrageById(Long ouvrageId);
     List<OuvrageResponseModelBean> getOuvragesByIdInterne(String idInterne);
     OuvrageResponseModelBean getOuvrageByIdInterne(String idInterne);
-    CreateEmpruntBean createEmpruntForm(UtilisateurBean utilisateurBean, OuvrageResponseModelBean ouvrageResponseModelBean);
 }

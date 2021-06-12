@@ -22,7 +22,7 @@
          style="color:red;font-style:italic;">
     </div>
 
-<!--    <h3>Détail du livre :</h3>-->
+    <!--    <h3>Détail du livre :</h3>-->
     <br>
     <div th:if="${livre}">
         <div class="card container" style="border: solid darkred 2px">
@@ -35,24 +35,23 @@
                 </div>
             </div>
             <div class="card-body row">
-                    <div th:if="${!#lists.isEmpty(livre.illustrations)}" class="photo col-md-3 offset-1 text-center" >
-                        <div th:each="illustration : ${livre.illustrations}">
-                            <img th:src="@{${illustration.url}}" class="img-fluid" alt="Couverture">
-                        </div>
+                <div th:if="${!#lists.isEmpty(livre.illustrations)}" class="photo col-md-3 offset-1 text-center">
+                    <div th:each="illustration : ${livre.illustrations}">
+                        <img th:src="@{${illustration.url}}" class="img-fluid" alt="Couverture">
                     </div>
-                    <div th:if="${#lists.isEmpty(livre.illustrations)}" class="photo col-md-3 offset-1 text-center" >
-                        <img th:src="@{http://localhost:8081/imageserver/static/couv.jpg}" class="img-fluid" alt="Couverture">
-                    </div>
+                </div>
+                <div th:if="${#lists.isEmpty(livre.illustrations)}" class="photo col-md-3 offset-1 text-center">
+                    <img th:src="@{http://localhost:8081/imageserver/static/couv.jpg}" class="img-fluid"
+                         alt="Couverture">
+                </div>
                 <div class="col-md-7 offset-md-1" style="font-weight: bold">A propos :
                     <div th:text="${livre.resume}" style="font-weight:normal; font-style:italic "></div>
                 </div>
             </div>
             <div class="card-footer row">
                 <div class="description col-md-12 text-center">
-<!--                    <h2 th:text="${livre.titre}"></h2>-->
-<!--                    <h3 th:text="${livre.auteurs}"></h3>-->
-                    <h4 th:text="${livre.editeur.nomMaisonEdition}"></h4>
-                    <a th:text="${livre.dateEdition}"></a>
+                    <div>Maison d'édition : <a th:text="${livre.editeur.nomMaisonEdition}" style="font-weight: bold; font-size: large"></a></div>
+                    <div>Date d'édition : <a th:text="${livre.dateEdition}"></a></div>
                     <div>Genre(s) : <a th:text="${livre.genres}"></a>
                         <div>
                             <span>Numéro ISBN : <a th:text="${livre.numeroIsbn13}"></a></span>

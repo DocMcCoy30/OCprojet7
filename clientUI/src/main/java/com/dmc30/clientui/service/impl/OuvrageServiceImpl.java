@@ -112,18 +112,18 @@ public class OuvrageServiceImpl implements OuvrageService {
         return ouvrageResponseModelBean;
     }
 
-    @Override
-    public CreateEmpruntBean createEmpruntForm(UtilisateurBean utilisateurBean, OuvrageResponseModelBean ouvrageResponseModelBean) {
-        CreateEmpruntBean createEmpruntBean = new CreateEmpruntBean();
-        createEmpruntBean.setAbonneId(utilisateurBean.getId());
-        createEmpruntBean.setNumAbonne(utilisateurBean.getNumAbonne());
-        createEmpruntBean.setPrenom(utilisateurBean.getPrenom());
-        createEmpruntBean.setNom(utilisateurBean.getNom());
-        createEmpruntBean.setNumTelephone(utilisateurBean.getNumTelephone());
-        createEmpruntBean.setOuvrageId(ouvrageResponseModelBean.getId());
-        createEmpruntBean.setIdInterne(ouvrageResponseModelBean.getIdInterne());
-        createEmpruntBean.setTitre(ouvrageResponseModelBean.getTitre());
-        createEmpruntBean.setAuteur(ouvrageResponseModelBean.getAuteur());
-        return createEmpruntBean;
-    }
+//    @Override
+//    public CreateEmpruntBean createEmpruntForm(UtilisateurBean utilisateurBean, OuvrageResponseModelBean ouvrageResponseModelBean) {
+//        CreateEmpruntBean createEmpruntBean = new CreateEmpruntBean();
+//        createEmpruntBean.setAbonneId(utilisateurBean.getId());
+//        createEmpruntBean.setNumAbonne(utilisateurBean.getNumAbonne());
+//        createEmpruntBean.setPrenom(utilisateurBean.getPrenom());
+//        createEmpruntBean.setNom(utilisateurBean.getNom());
+//        createEmpruntBean.setNumTelephone(utilisateurBean.getNumTelephone());
+//        createEmpruntBean.setOuvrageId(ouvrageResponseModelBean.getId());
+//        createEmpruntBean.setIdInterne(ouvrageResponseModelBean.getIdInterne());
+//        createEmpruntBean.setTitre(ouvrageResponseModelBean.getTitre());
+//        createEmpruntBean.setAuteur(ouvrageResponseModelBean.getAuteur());
+//        return createEmpruntBean;
+//    }
 }
