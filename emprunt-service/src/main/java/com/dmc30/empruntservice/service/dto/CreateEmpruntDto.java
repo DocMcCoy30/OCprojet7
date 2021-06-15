@@ -1,4 +1,4 @@
-package com.dmc30.empruntservice.dto;
+package com.dmc30.empruntservice.service.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,7 +1,7 @@
 package com.dmc30.empruntservice.service.contract;
 
-import com.dmc30.empruntservice.dto.CreateEmpruntDto;
-import com.dmc30.empruntservice.dto.PretDto;
+import com.dmc30.empruntservice.service.dto.CreateEmpruntDto;
+import com.dmc30.empruntservice.service.dto.PretDto;
 
 import java.util.List;
 

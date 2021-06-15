@@ -1,8 +1,8 @@
 package com.dmc30.empruntservice.web;
 
-import com.dmc30.empruntservice.dto.PretDto;
+import com.dmc30.empruntservice.service.dto.PretDto;
 import com.dmc30.empruntservice.service.contract.EmpruntService;
-import com.dmc30.empruntservice.dto.CreateEmpruntDto;
+import com.dmc30.empruntservice.service.dto.CreateEmpruntDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

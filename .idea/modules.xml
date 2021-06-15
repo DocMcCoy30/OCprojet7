@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/OCprojet7.iml" filepath="$PROJECT_DIR$/.idea/OCprojet7.iml" />
       <module fileurl="file://$PROJECT_DIR$/clientUI/clientUI.iml" filepath="$PROJECT_DIR$/clientUI/clientUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/email-service/email-service.iml" filepath="$PROJECT_DIR$/email-service/email-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/emprunt-service/emprunt-service.iml" filepath="$PROJECT_DIR$/emprunt-service/emprunt-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway-server/gateway-server.iml" filepath="$PROJECT_DIR$/gateway-server/gateway-server.iml" />
