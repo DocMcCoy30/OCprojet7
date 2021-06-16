@@ -9,6 +9,7 @@ import java.util.List;
 @Setter
 public class CreateMailDto {
 
+    private Long userId;
     private String username;
     private String prenom;
     private String nom;

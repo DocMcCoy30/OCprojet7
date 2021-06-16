@@ -9,6 +9,8 @@ import com.dmc30.emailservice.service.dto.LivreForMailDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class LivreServiceImpl implements LivreService {
 
@@ -24,8 +26,16 @@ public class LivreServiceImpl implements LivreService {
     @Override
     public LivreForMailDto getTitreDuLivre(Long ouvrageId) {
         LivreForMailDto livre = new LivreForMailDto();
-        OuvrageEntity ouvrageEntity = ouvrageRepository.getById(ouvrageId);
-        LivreEntity livreEntity = livreRepository.getById(ouvrageEntity.getLivreId());
+        OuvrageEntity ouvrageEntity = new OuvrageEntity();
+        LivreEntity livreEntity = new LivreEntity();
+        Optional<OuvrageEntity> ouvrageResult = ouvrageRepository.findById(ouvrageId);
+        if (ouvrageResult.isPresent()) {
+            ouvrageEntity=ouvrageResult.get();
+        }
+        Optional<LivreEntity> livreResult = livreRepository.findById(ouvrageEntity.getLivreId());
+        if (livreResult.isPresent()) {
+            livreEntity=livreResult.get();
+        }
         String titre = livreEntity.getTitre();
         livre.setTitre(titre);
         return livre;

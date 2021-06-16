@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:remove="all">Email emprunt expiré</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p>
+    <span>Bonjour </span><span th:text="(${name})"></span>
+</p>
+<p>
+    Nous constatons que vous avez un ou plusieurs emprunts dont la date de restitution est aujourd'hui dépassée.
+</p>
+<p style="font-weight: bold">
+    Titre(s) des ouvrages concernés :
+</p>
+<ul th:if="${!livres.isEmpty()}">
+    <li th:each="livre : ${livres}"
+        th:text="${livre.titre}">Reading
+    </li>
+</ul>
+<p>
+    Nous vous invitons à vous rapprocher le plus rapidement possible de votre bibliothèque.
+</p>
+
+    Cordialement, <br/>
+    &emsp; <em>L'équipe de votre bibliothèque de Nîmes</em>
+</p>
+</body>
+</html>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UtilisateurServiceImpl implements UtilisateurService {
@@ -38,6 +39,14 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     public UtilisateurDto findById(Long utilisateurId) {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        return modelMapper.map(utilisateurRepository.getById(utilisateurId), UtilisateurDto.class);
+        UtilisateurEntity utilisateurEntity = new UtilisateurEntity();
+        Optional<UtilisateurEntity> result = utilisateurRepository.findById(utilisateurId);
+        if(result.isPresent()) {
+            utilisateurEntity=result.get();
+        }
+//        UtilisateurDto utilisateurDto = new UtilisateurDto();
+//        utilisateurDto.setId(utilisateurEntity.getId());
+//        utilisateurDto.setEmail(utilisateurEntity.getEmail());
+        return modelMapper.map(utilisateurEntity, UtilisateurDto.class);
     }
 }

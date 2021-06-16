@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import javax.mail.MessagingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Component
 public class ScheduledTasks {
@@ -31,21 +33,14 @@ public class ScheduledTasks {
         this.emailService = emailService;
     }
 
-    @Scheduled(fixedRate = 40000)
-    public void scheduledTaskServiceTest() {
+    @Scheduled(fixedRate = 20000)
+    public void scheduledTaskServiceTest() throws MessagingException {
         System.out.println("scheduledTaskTest is running.");
-        List<CreateMailDto> mailToCreateList = new ArrayList<>();
-        List<PretDto> expiredPretsList = empruntService.findExpiredPrets();
-        for (PretDto expiredPretDto:expiredPretsList) {
-            if(mailToCreateList.isEmpty()) {
-
-            }
-
-        }
-        List<UtilisateurDto> utilisateurDtoList = utilisateurService.findAll();
-        for (UtilisateurDto utilisateur:utilisateurDtoList) {
-            String email = utilisateur.getEmail();
-            emailService.sendSimpleMessage(email, "Test2 avec springScheduller", "Ceci est le test 2");
+        Locale locale = new Locale("FRANCE");
+        List<CreateMailDto> mailToSendList = emailService.createMailList();
+        for (CreateMailDto mailToSend : mailToSendList) {
+            emailService.sendSimpleMail(mailToSend, locale);
         }
     }
+
 }
