@@ -13,25 +13,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="626a98ec-6f0a-4fcd-8b60-c183d40dc1d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/configuration/SpringMailConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email-service/src/main/resources/templates/email-simple.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mchange_mchange_commons_java_0_2_15.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_quartz_scheduler_quartz_2_3_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_quartz_2_5_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/ScheduledTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/ScheduledTasks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/configuration/EmailConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/repository/LivreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/repository/LivreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/repository/OuvrageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/repository/OuvrageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/repository/UtilisateurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/repository/UtilisateurRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/repository/PretRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/repository/PretRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/mail/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/mail/EmailService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/mail/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/mail/EmailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/dto/CreateMailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/dto/CreateMailDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/LivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/LivreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/UtilisateurServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/UtilisateurServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/contract/EmpruntService.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/contract/EmpruntService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/EmpruntServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/EmpruntServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -434,7 +421,7 @@
       <workItem from="1623494244364" duration="16264000" />
       <workItem from="1623743556211" duration="26943000" />
       <workItem from="1623831140146" duration="2013000" />
-      <workItem from="1623834550010" duration="10447000" />
+      <workItem from="1623834550010" duration="17095000" />
     </task>
     <servers />
   </component>
@@ -455,14 +442,9 @@
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/ScheduledTasks.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/mail/EmailServiceImpl.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="72" />
+          <line>80</line>
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -19,7 +19,7 @@ public interface EmailService {
 
     List<CreateMailDto> createMailList();
 
-    CreateMailDto expiredPretEmailMaker(PretDto pret,
-                                        UtilisateurDto utilisateur,
-                                        List<LivreForMailDto> livres);
+    CreateMailDto expiredPretEmailMaker(
+            UtilisateurDto utilisateur,
+            List<LivreForMailDto> livres);
 }

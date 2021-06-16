@@ -80,38 +80,21 @@ public class EmailServiceImpl implements EmailService {
     public List<CreateMailDto> createMailList() {
         List<CreateMailDto> mailToCreateList = new ArrayList<>();
         List<LivreForMailDto> livres = new ArrayList<>();
-        List<PretDto> expiredPretsList = empruntService.findExpiredPrets();
-        for (PretDto expiredPretDto : expiredPretsList) {
-            if (mailToCreateList.isEmpty()) {
-                UtilisateurDto utilisateur = utilisateurService.findById(expiredPretDto.getUtilisateurId());
-                LivreForMailDto livre = livreService.getTitreDuLivre(expiredPretDto.getOuvrageId());
+        List<PretDto> expiredPretsList = new ArrayList<>();
+        List<Long> utilisateursEnRetardId = empruntService.findUtilisateurEnRetard();
+        for (Long utisateurEnRetardId : utilisateursEnRetardId) {
+            UtilisateurDto utilisateurDto = utilisateurService.findById(utisateurEnRetardId);
+            expiredPretsList = empruntService.findExpiredPretsByUtilisateurId(utisateurEnRetardId);
+            for (int i = 0; i < expiredPretsList.size(); i++) {
+                LivreForMailDto livre = livreService.getTitreDuLivre(expiredPretsList.get(i).getOuvrageId());
                 livres.add(livre);
-                CreateMailDto newMail = expiredPretEmailMaker(expiredPretDto, utilisateur, livres);
-                mailToCreateList.add(newMail);
-            } else {
-                for (CreateMailDto mail : mailToCreateList) {
-                    Long userId = mail.getUserId();
-                    if (expiredPretDto.getUtilisateurId().equals(userId)) {
-                        LivreForMailDto livre = livreService.getTitreDuLivre(expiredPretDto.getOuvrageId());
-                        livres.add(livre);
-                        mail.setLivres(livres);
-                    } else {
-                        UtilisateurDto utilisateur = utilisateurService.findById(expiredPretDto.getUtilisateurId());
-                        LivreForMailDto livre = livreService.getTitreDuLivre(expiredPretDto.getOuvrageId());
-                        livres.add(livre);
-                        CreateMailDto newMail = expiredPretEmailMaker(expiredPretDto, utilisateur, livres);
-                        mailToCreateList.add(newMail);
-                    }
-                }
             }
+            CreateMailDto newMail = expiredPretEmailMaker(utilisateurDto, livres);
+            mailToCreateList.add(newMail);
+            livres = new ArrayList<>();
         }
         return mailToCreateList;
     }
-//        List<UtilisateurDto> utilisateurDtoList = utilisateurService.findAll();
-//        for (UtilisateurDto utilisateur:utilisateurDtoList) {
-//            String email = utilisateur.getEmail();
-//            String username = utilisateur.getUsername();
-//            Locale locale = new Locale("FRANCE");
 
 
     @Override
@@ -130,7 +113,7 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public CreateMailDto expiredPretEmailMaker(PretDto pret,
+    public CreateMailDto expiredPretEmailMaker(
                                                UtilisateurDto utilisateur,
                                                List<LivreForMailDto> livres) {
         CreateMailDto createMailDto = new CreateMailDto();
