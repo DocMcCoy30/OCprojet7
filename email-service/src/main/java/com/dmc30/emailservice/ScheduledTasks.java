@@ -33,7 +33,8 @@ public class ScheduledTasks {
         this.emailService = emailService;
     }
 
-    @Scheduled(fixedRate = 20000)
+//    @Scheduled(cron = "0 0 0 * * ?") // tous les jours à minuit
+    @Scheduled(cron = "*/30 * * * * *") // toutes les 30 secondes
     public void scheduledTaskServiceTest() throws MessagingException {
         System.out.println("scheduledTaskTest is running.");
         Locale locale = new Locale("FRANCE");

@@ -147,8 +147,16 @@ public class EmpruntController {
         List<OuvrageResponseModelBean> ouvrages = new ArrayList<>();
         theModel.addObject("abonnes", abonnes);
         theModel.addObject("ouvrages", ouvrages);
-        PretBean pretBean = empruntService.createEmprunt(createEmpruntBean);
-        message = "L'emprunt du livre a bien été enregistré.";
+        if (createEmpruntBean.getAbonneId()==null) {
+            message = "Veuillez selectionner un abonné !";
+        }
+        else if (createEmpruntBean.getOuvrageId()==null) {
+            message = "Veuillez selectionner un ouvrage !";
+        }
+        else {
+            PretBean pretBean = empruntService.createEmprunt(createEmpruntBean);
+            message = "L'emprunt du livre a bien été enregistré.";
+        }
         theModel.addObject("messageCreateEmprunt", message);
         return theModel;
     }

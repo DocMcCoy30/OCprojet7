@@ -16,10 +16,11 @@
     <div th:if="${errorMessage}" th:utext="${errorMessage}"
          style="color:red;font-style:italic;">
     </div>
-    <div th:if="${messageCreateEmprunt}">
-        <a th:utext="${messageCreateEmprunt}" style="color:red;font-style:italic;"></a>
-    </div>
     <h4>Formulaire de création d'un emprunt :</h4>
+    <div th:if="${messageCreateEmprunt}">
+        <br>
+        <a th:utext="${messageCreateEmprunt}" style="color:red;font-style:italic;font-size: large"></a>
+    </div>
     <br>
     <form th:action="@{createEmpruntSearchForm(bibliothequeId=${bibliotheque.id})}" th:object="${createEmpruntBean}"
           method="post">
