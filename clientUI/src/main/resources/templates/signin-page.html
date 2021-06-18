@@ -26,19 +26,13 @@
                         <input type="text" th:field="*{prenom}" class="form-control" id="prenom" placeholder=""
                                value=""
                                required>
-                        <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}">Name Error</span>
-                        <div class="invalid-feedback">
-                            Valid first name is required.
-                        </div>
+                        <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"></span>
                     </div>
                     <div class="col-sm-6">
                         <label for="nom" class="form-label">Nom</label>
                         <input type="text" th:field="*{nom}" class="form-control" id="nom" placeholder="" value=""
                                required>
-                        <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}">Name Error</span>
-                        <div class="invalid-feedback">
-                            Valid last name is required.
-                        </div>
+                        <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></span>
                     </div>
                     <div class="col-sm-6">
                         <label for="username" class="form-label">Username</label>
@@ -46,40 +40,26 @@
                         <input type="text" th:field="*{username}" class="form-control" id="username"
                                placeholder=""
                                value="" required>
-                        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</span>
-                        <div class="invalid-feedback">
-                            Your username is required.
-                        </div>
+                        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
                     </div>
-                    <!--                    </div>-->
                     <div class="col-sm-6">
                         <label for="telephone" class="form-label">Numéro de Téléphone</label>
                         <input type="text" th:field="*{numTelephone}" class="form-control" id="telephone"
                                placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Phone required.
-                        </div>
                     </div>
                     <div class="col-sm-6">
                         <label for="password" class="form-label">Mot de Passe</label>
                         <input type="password" th:field="*{password}" class="form-control" id="password"
                                placeholder=""
                                value="" required>
-                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</span>
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
                         <span th:if="${messagePw}" th:text="${messagePw}"></span>
-                        <div class="invalid-feedback">
-                            Valid password is required.
-                        </div>
                     </div>
                     <div class="col-sm-6">
                         <label for="passwordVerif" class="form-label">Verifier mot de passe</label>
-                        <input type="text" class="form-control" id="passwordVerif"
+                        <input type="password" class="form-control" id="passwordVerif"
                                placeholder=""
-                               value=""
-                        >
-                        <div class="invalid-feedback">
-                            Valid password is required.
-                        </div>
+                               value="" required>
                     </div>
                     <div class="col-12">
                         <label for="email" class="form-label">Email <span class="text-muted"></span></label>
@@ -89,9 +69,6 @@
                                    value=""
                                    required>
                             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</span>
-                            <div class="invalid-feedback">
-                                Please enter a valid email address for shipping updates.
-                            </div>
                         </div>
                     </div>
                     <div class="col-12">
@@ -99,27 +76,17 @@
                         <input type="text" th:field="*{adresse.rue}" class="form-control" id="adresse"
                                placeholder=""
                                value="" required>
-                        <div class="invalid-feedback">
-                            Please enter your shipping address.
-                        </div>
                     </div>
                     <div class="col-md-3">
                         <label for="code-postal" class="form-label">Code Postal</label>
-                        <!--                        <div class="input-group">-->
                         <input type="text" th:field="*{adresse.codePostal}" class="form-control" id="code-postal"
                                placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Zip code required.
-                        </div>
                     </div>
                     <div class="col-md-3">
                         <label for="ville" class="form-label">Ville</label>
                         <input type="text" th:field="*{adresse.ville}" class="form-control" id="ville"
                                placeholder=""
                                value="" required>
-                        <div class="invalid-feedback">
-                            City required.
-                        </div>
                     </div>
                     <div class="col-md-4">
                         <label for="pays" class="form-label">Pays</label>
@@ -127,9 +94,6 @@
                             <option value="">Pays...</option>
                             <option value=1>France</option>
                         </select>
-                        <div class="invalid-feedback">
-                            Please provide a valid country.
-                        </div>
                     </div>
                 </div>
                 <hr class="my-4">

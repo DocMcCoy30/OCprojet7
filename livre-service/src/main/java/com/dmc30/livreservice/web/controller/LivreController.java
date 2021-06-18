@@ -5,6 +5,7 @@ import com.dmc30.livreservice.service.contract.LivreService;
 import com.dmc30.livreservice.service.dto.livre.AuteurDto;
 import com.dmc30.livreservice.service.dto.livre.LivreDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class LivreController {
      * @return le livre recherché
      */
     @GetMapping(path = "/id")
-    public LivreDto getLivreById(@RequestParam("livreId") Long livreId) {
+    public ResponseEntity<?> getLivreById(@RequestParam("livreId") Long livreId) {
         return livreService.findLivreById(livreId);
     }
 

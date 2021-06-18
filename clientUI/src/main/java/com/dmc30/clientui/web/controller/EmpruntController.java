@@ -157,6 +157,8 @@ public class EmpruntController {
             PretBean pretBean = empruntService.createEmprunt(createEmpruntBean);
             message = "L'emprunt du livre a bien été enregistré.";
         }
+        createEmpruntBean = new CreateEmpruntBean();
+        theModel.addObject("createEmpruntBean", createEmpruntBean);
         theModel.addObject("messageCreateEmprunt", message);
         return theModel;
     }

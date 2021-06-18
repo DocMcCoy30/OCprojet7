@@ -2,7 +2,9 @@ package com.dmc30.livreservice.web.controller;
 
 import com.dmc30.livreservice.service.contract.BibliothequeService;
 import com.dmc30.livreservice.service.dto.bibliotheque.BibliothequeDto;
+import com.dmc30.livreservice.web.exception.TechnicalException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +25,7 @@ public class BibliothequeController {
      * @return la liste de toutes les bibliothèques
      */
     @GetMapping("/all")
-    public List<BibliothequeDto> getBibliotheques() {
+    public ResponseEntity<?> getBibliotheques() throws TechnicalException {
         return bibliothequeService.findAll();
     }
 

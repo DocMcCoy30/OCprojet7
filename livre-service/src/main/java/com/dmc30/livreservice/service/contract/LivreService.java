@@ -1,6 +1,7 @@
 package com.dmc30.livreservice.service.contract;
 
 import com.dmc30.livreservice.service.dto.livre.LivreDto;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -10,5 +11,5 @@ public interface LivreService {
     List<LivreDto> findLivreByTitreContaining(String motCle);
     List<LivreDto> findLivreByAuteur(Long auteurId);
     List<LivreDto> findLast12();
-    LivreDto findLivreById(Long livreId);
+    ResponseEntity<?> findLivreById(Long livreId);
 }

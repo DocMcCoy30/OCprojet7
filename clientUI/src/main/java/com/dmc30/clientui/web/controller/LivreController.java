@@ -5,9 +5,13 @@ import com.dmc30.clientui.shared.UtilsMethodService;
 import com.dmc30.clientui.shared.bean.bibliotheque.BibliothequeBean;
 import com.dmc30.clientui.shared.bean.livre.AuteurBean;
 import com.dmc30.clientui.shared.bean.livre.LivreResponseModelBean;
+import com.dmc30.clientui.web.exception.ErrorMessage;
+import com.dmc30.clientui.web.exception.TechnicalException;
+import feign.FeignException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -159,31 +163,27 @@ public class LivreController {
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         logger.info("LivreId = " + livreId);
         if (livreId != null) {
-            LivreResponseModelBean livreResponseModelBean = livreService.getLivreById(livreId);
-            theModel.addObject("livre", livreResponseModelBean);
-            int nbExDispoInOne = ouvrageService.getOuvrageDispoInOneBibliotheque(livreId, bibliothequeId);
-            logger.info("Nombre d'ouvrage dispo = " + nbExDispoInOne);
-            theModel.addObject("nbExDispoInOne", nbExDispoInOne);
-            // test on nbExDispoInOther
-            List<Object> nbExDispoInOtherElements = ouvrageService.getOuvrageDispoInOtherBibliotheque(livreId, bibliothequeId);
-            if (!nbExDispoInOtherElements.isEmpty()) {
-                logger.info("Nombre d'ex dispo in other : " + nbExDispoInOtherElements);
-                logger.info("String obj1 = " + nbExDispoInOtherElements.get(0));
-                theModel.addObject("nbExDispoInOtherElements", nbExDispoInOtherElements);
-                for (Object elements : nbExDispoInOtherElements) {
-                    logger.info("Objet " + nbExDispoInOtherElements.indexOf(elements) + " : " + elements);
-                    logger.info("Objet " + nbExDispoInOtherElements.indexOf(elements) + " class : " + elements.getClass());
-                    List<Object> elementsList = (List<Object>) elements;
-                    Integer nbEx = (Integer) elementsList.get(0);
-                    Integer bibliothequeIdForEx = (Integer) elementsList.get(1);
-                    String bibliothequeNom = (String) elementsList.get(2);
-                    logger.info("nbEx : " + nbEx);
-                    logger.info("bibliothequeIdForEx : " + bibliothequeIdForEx);
-                    logger.info("bibliothequeNom : " + bibliothequeNom);
+                ResponseEntity<?> response = livreService.getLivreById(livreId);
+                if (response.getStatusCodeValue() == 202) {
+                LivreResponseModelBean livreResponseModelBean = (LivreResponseModelBean) response.getBody();
+                theModel.addObject("livre", livreResponseModelBean);
+                int nbExDispoInOne = ouvrageService.getOuvrageDispoInOneBibliotheque(livreId, bibliothequeId);
+                theModel.addObject("nbExDispoInOne", nbExDispoInOne);
+                List<Object> nbExDispoInOtherElements = ouvrageService.getOuvrageDispoInOtherBibliotheque(livreId, bibliothequeId);
+                if (!nbExDispoInOtherElements.isEmpty()) {
+                    theModel.addObject("nbExDispoInOtherElements", nbExDispoInOtherElements);
+                    for (Object elements : nbExDispoInOtherElements) {
+                        List<Object> elementsList = (List<Object>) elements;
+                        Integer nbEx = (Integer) elementsList.get(0);
+                        Integer bibliothequeIdForEx = (Integer) elementsList.get(1);
+                        String bibliothequeNom = (String) elementsList.get(2);
+                    }
                 }
+            } else {
+                String errorMessage = (String) response.getBody();
+                theModel.addObject("errorMessage", errorMessage);
             }
         }
         return theModel;
     }
-
 }

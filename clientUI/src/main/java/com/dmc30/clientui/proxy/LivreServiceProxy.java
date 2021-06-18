@@ -5,6 +5,7 @@ import com.dmc30.clientui.shared.bean.bibliotheque.OuvrageBean;
 import com.dmc30.clientui.shared.bean.livre.AuteurBean;
 import com.dmc30.clientui.shared.bean.livre.LivreBean;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,7 +19,7 @@ public interface LivreServiceProxy {
     List<LivreBean> getLivres();
 
     @GetMapping("/livres/id") //
-    LivreBean getLivreById(@RequestParam("livreId") Long livreId);
+    ResponseEntity<?> getLivreById(@RequestParam("livreId") Long livreId);
 
     @PostMapping("/livres/titre") //
     List<LivreBean> getLivreByTitre(@RequestParam("motCle") String motCle);
@@ -36,7 +37,7 @@ public interface LivreServiceProxy {
     List<AuteurBean> getAuteurByNomContaining(@RequestParam("motCle") String motCle);
 
     @GetMapping("/bibliotheques/all")
-    List<BibliothequeBean> getBibliotheques();
+    ResponseEntity<?> getBibliotheques();
 
     @PostMapping("/bibliotheques/id")
     BibliothequeBean getBibliothequeById(@RequestParam("bibliothequeId") Long bibliothequeId);

@@ -7,9 +7,11 @@ import com.dmc30.clientui.shared.UtilsMethodService;
 import com.dmc30.clientui.shared.bean.bibliotheque.BibliothequeBean;
 import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
 import com.dmc30.clientui.shared.bean.livre.LivreResponseModelBean;
+import com.dmc30.clientui.web.exception.TechnicalException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,8 +50,15 @@ public class AccueilController {
     public ModelAndView showIndex(@RequestParam(value = "username", required = false) String username) {
         UtilisateurBean abonneDto = new UtilisateurBean();
         ModelAndView theModel = new ModelAndView("index");
-        List<BibliothequeBean> bibliotheques = bibliothequeService.getBibliotheques();
-        theModel.addObject("bibliotheques", bibliotheques);
+        ResponseEntity<?> response = bibliothequeService.getBibliotheques();
+        int status = response.getStatusCodeValue();
+        if (status == 202) {
+            List<BibliothequeBean> bibliotheques = (List<BibliothequeBean>) response.getBody();
+            theModel.addObject("bibliotheques", bibliotheques);
+        } else {
+            String errorMessage = (String) response.getBody();
+            theModel.addObject("errorMessage", errorMessage);
+        }
         return theModel;
     }
 
@@ -62,8 +71,8 @@ public class AccueilController {
     @GetMapping("/showAccueil")
     public ModelAndView getToLast12(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         ModelAndView theModel = new ModelAndView("accueil");
-        if (bibliothequeId==null) {
-            bibliothequeId=1L;
+        if (bibliothequeId == null) {
+            bibliothequeId = 1L;
         }
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         List<LivreResponseModelBean> livres = livreService.get12LastLivres();

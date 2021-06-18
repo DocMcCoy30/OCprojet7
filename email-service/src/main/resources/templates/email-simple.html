@@ -16,15 +16,16 @@
 </p>
 <ul th:if="${!livres.isEmpty()}">
     <li th:each="livre : ${livres}"
-        th:text="${livre.titre}">Reading
+        th:text="${livre.titre}">Titre de l'ouvrage
     </li>
 </ul>
 <p>
     Nous vous invitons à vous rapprocher le plus rapidement possible de votre bibliothèque.
 </p>
-
+<p>
     Cordialement, <br/>
     &emsp; <em>L'équipe de votre bibliothèque de Nîmes</em>
 </p>
+
 </body>
 </html>

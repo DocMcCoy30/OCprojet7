@@ -15,7 +15,7 @@
 <div class="container">
     <div th:insert="fragments/recherche.html"></div>
     <div th:if="${errorMessage}" th:utext="${errorMessage}"
-         style="color:red;font-style:italic;">
+         style="color:red;font-style:italic;font-size: large">
     </div>
     <div th:text="${statut}"></div>
     <div th:if="${message}" th:utext="${message}"

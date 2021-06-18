@@ -2,14 +2,19 @@ package com.dmc30.livreservice.service.impl;
 
 import com.dmc30.livreservice.data.entity.bibliotheque.Bibliotheque;
 import com.dmc30.livreservice.data.repository.BibliothequeRepository;
+import com.dmc30.livreservice.web.exception.ErrorMessage;
 import com.dmc30.livreservice.web.exception.IntrouvableException;
 import com.dmc30.livreservice.service.contract.BibliothequeService;
 import com.dmc30.livreservice.service.dto.bibliotheque.BibliothequeDto;
+import com.dmc30.livreservice.web.exception.TechnicalException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.*;
 
 @Service
@@ -28,19 +33,22 @@ public class BibliothequeServiceImpl implements BibliothequeService {
      * @return la liste des bibliothèques
      */
     @Override
-    public List<BibliothequeDto> findAll() {
+    public ResponseEntity<?> findAll() throws TechnicalException {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         List<BibliothequeDto> bibliothequeDtos = new ArrayList<>();
-        List<Bibliotheque> bibliotheques = bibliothequeRepository.findAll();
-        if (bibliotheques == null) {
-            throw new IntrouvableException("Aucun résultat de recherche");
-        } else {
+        try {
+            List<Bibliotheque> bibliotheques = bibliothequeRepository.findAll();
             for (Bibliotheque bibliotheque : bibliotheques) {
                 bibliothequeDtos.add(modelMapper.map(bibliotheque, BibliothequeDto.class));
             }
+            ResponseEntity<?> responseEntity = ResponseEntity.status(HttpStatus.ACCEPTED).body(bibliothequeDtos);
+            return responseEntity;
+        } catch (Exception e) {
+            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.TECHNICAL_ERROR.getErrorCode())
+                    .body(new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage()));
+            return responseEntity;
         }
-        return bibliothequeDtos;
     }
 
     /**

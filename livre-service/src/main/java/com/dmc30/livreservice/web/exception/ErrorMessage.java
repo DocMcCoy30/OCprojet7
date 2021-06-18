@@ -1,4 +1,4 @@
-package com.dmc30.userservice.web.exception;
+package com.dmc30.livreservice.web.exception;
 
 public enum ErrorMessage {
 

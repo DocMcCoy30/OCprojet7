@@ -1,26 +1,26 @@
 package com.dmc30.clientui.web.controller;
 
-import com.dmc30.clientui.shared.UtilsMethodService;
-import com.dmc30.clientui.shared.bean.bibliotheque.BibliothequeBean;
-import com.dmc30.clientui.shared.bean.bibliotheque.EmpruntModelBean;
-import com.dmc30.clientui.shared.bean.bibliotheque.PretBean;
-import com.dmc30.clientui.shared.bean.utilisateur.LoginRequestBean;
-import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
 import com.dmc30.clientui.security.PasswordEncoderHelper;
 import com.dmc30.clientui.service.contract.BibliothequeService;
 import com.dmc30.clientui.service.contract.EmpruntService;
 import com.dmc30.clientui.service.contract.OuvrageService;
 import com.dmc30.clientui.service.contract.UserService;
-import com.dmc30.clientui.web.exception.TechnicalException;
+import com.dmc30.clientui.shared.UtilsMethodService;
+import com.dmc30.clientui.shared.bean.bibliotheque.BibliothequeBean;
 import com.dmc30.clientui.shared.bean.utilisateur.CreateAbonneBean;
+import com.dmc30.clientui.shared.bean.utilisateur.LoginRequestBean;
+import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
+import com.dmc30.clientui.web.exception.TechnicalException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,8 +28,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -88,8 +86,8 @@ public class UserController {
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         LoginRequestBean user = new LoginRequestBean();
         if (logout != null) {
-            List<BibliothequeBean> bibliotheques = bibliothequeService.getBibliotheques();
-            theModel.addObject("bibliotheques", bibliotheques);
+            ResponseEntity<?> bibliotheques = bibliothequeService.getBibliotheques();
+            theModel.addObject("bibliotheques", bibliotheques.getBody());
             theModel.addObject("logoutMessage", "Vous êtes deconnecté !");
             theModel.setViewName("index");
         }
@@ -173,6 +171,11 @@ public class UserController {
         String message = "";
         String path = "";
         if (bindingResult.hasErrors()) {
+            List<FieldError> errors = bindingResult.getFieldErrors();
+            for (FieldError error : errors) {
+                logger.info(error.getObjectName() + " - " + error.getField() + " - " + error.getDefaultMessage());
+            }
+            logger.info(String.valueOf(bindingResult.getModel()));
             theModel.addObject("abonne", userDetails);
             message = "Les informations renseignées ne sont pas conformes";
             path = "signin-page";

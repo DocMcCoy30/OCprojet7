@@ -6,10 +6,13 @@ import com.dmc30.clientui.shared.bean.livre.LivreBean;
 import com.dmc30.clientui.proxy.LivreServiceProxy;
 import com.dmc30.clientui.service.contract.LivreService;
 import com.dmc30.clientui.shared.bean.livre.LivreResponseModelBean;
+import com.dmc30.clientui.web.exception.ErrorMessage;
+import feign.FeignException;
 import org.apache.commons.lang.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -72,14 +75,21 @@ public class LivreServiceImpl implements LivreService {
      * @return le livre recherché
      */
     @Override
-    public LivreResponseModelBean getLivreById(Long livreId) {
+    public ResponseEntity<?> getLivreById(Long livreId) {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        LivreBean livreBean = livreServiceProxy.getLivreById(livreId);
-        LivreResponseModelBean livreResponseModelBean = modelMapper.map(livreBean, LivreResponseModelBean.class);
-        livreResponseModelBean.setAuteurs(formatListeAuteurs(livreBean.getAuteurs()));
-        livreResponseModelBean.setGenres(formatListeGenres(livreBean.getGenres()));
-        return livreResponseModelBean;
+        try {
+            ResponseEntity<?> response = livreServiceProxy.getLivreById(livreId);
+            LivreBean livreBean = (LivreBean) response.getBody();
+            LivreResponseModelBean livreResponseModelBean = modelMapper.map(livreBean, LivreResponseModelBean.class);
+            livreResponseModelBean.setAuteurs(formatListeAuteurs(livreBean.getAuteurs()));
+            livreResponseModelBean.setGenres(formatListeGenres(livreBean.getGenres()));
+            return ResponseEntity.status(response.getStatusCodeValue()).body(livreResponseModelBean);
+        } catch (FeignException.FeignClientException e) {
+            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
+                    .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
+            return responseEntity;
+        }
     }
 
     /**

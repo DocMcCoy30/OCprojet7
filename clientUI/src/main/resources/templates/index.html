@@ -15,6 +15,9 @@
     <span th:if="${logoutMessage}" th:utext="${logoutMessage}"></span>
 
     <main class="px-3  align-items-center">
+        <div th:if="${errorMessage}" th:utext="${errorMessage}"
+             style="color:red;font-style:italic;font-size: large">
+        </div>
         <h1>Bibliothèques de Nîmes</h1>
         <p class="lead">Bienvenue sur le site des bibliothèques de Nîmes</p>
         <div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
