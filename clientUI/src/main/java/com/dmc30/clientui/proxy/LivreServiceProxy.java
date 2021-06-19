@@ -40,7 +40,7 @@ public interface LivreServiceProxy {
     ResponseEntity<?> getBibliotheques();
 
     @PostMapping("/bibliotheques/id")
-    BibliothequeBean getBibliothequeById(@RequestParam("bibliothequeId") Long bibliothequeId);
+    ResponseEntity<?> getBibliothequeById(@RequestParam("bibliothequeId") Long bibliothequeId);
 
     @GetMapping("/ouvrages/ouvrageDispoInOne")
     Integer getOuvrageDispoInOneBibliotheque(@RequestParam("livreId") Long livreId,

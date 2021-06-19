@@ -8,6 +8,7 @@ import com.dmc30.clientui.shared.bean.bibliotheque.OuvrageBean;
 import com.dmc30.clientui.shared.bean.bibliotheque.OuvrageResponseModelBean;
 import com.dmc30.clientui.shared.bean.livre.LivreBean;
 import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -63,7 +64,8 @@ public class OuvrageServiceImpl implements OuvrageService {
         ouvrageResponseModelBean.setEmprunte(ouvrageBean.isEmprunte());
         Long livreId = livreServiceProxy.getLivreIdByOuvrageId(ouvrageBean.getId());
         ResponseEntity<?> response = livreServiceProxy.getLivreById(livreId);
-        LivreBean livreBean = (LivreBean) response.getBody();
+        ObjectMapper mapper =new ObjectMapper();
+        LivreBean livreBean = mapper.convertValue(response.getBody(), LivreBean.class);
 //        LivreBean livreBean = livreServiceProxy.getLivreById(livreId);
         ouvrageResponseModelBean.setTitre(livreBean.getTitre());
         ouvrageResponseModelBean.setAuteur(livreService.formatListeAuteurs(livreBean.getAuteurs()));
@@ -87,7 +89,8 @@ public class OuvrageServiceImpl implements OuvrageService {
             ouvrageResponseModelBean.setEmprunte(ouvrageBean.isEmprunte());
             Long livreId = livreServiceProxy.getLivreIdByOuvrageId(ouvrageBean.getId());
             ResponseEntity<?> response = livreServiceProxy.getLivreById(livreId);
-            LivreBean livreBean = (LivreBean) response.getBody();
+            ObjectMapper mapper = new ObjectMapper();
+            LivreBean livreBean = mapper.convertValue(response.getBody(), LivreBean.class);
 //        LivreBean livreBean = livreServiceProxy.getLivreById(livreId);
             ouvrageResponseModelBean.setTitre(livreBean.getTitre());
             ouvrageResponseModelBean.setAuteur(livreService.formatListeAuteurs(livreBean.getAuteurs()));
@@ -111,7 +114,8 @@ public class OuvrageServiceImpl implements OuvrageService {
         ouvrageResponseModelBean.setEmprunte(ouvrageBean.isEmprunte());
         Long livreId = livreServiceProxy.getLivreIdByOuvrageId(ouvrageBean.getId());
         ResponseEntity<?> response = livreServiceProxy.getLivreById(livreId);
-        LivreBean livreBean = (LivreBean) response.getBody();
+        ObjectMapper mapper = new ObjectMapper();
+        LivreBean livreBean = mapper.convertValue(response.getBody(), LivreBean.class);
 //        LivreBean livreBean = livreServiceProxy.getLivreById(livreId);
         ouvrageResponseModelBean.setTitre(livreBean.getTitre());
         ouvrageResponseModelBean.setAuteur(livreService.formatListeAuteurs(livreBean.getAuteurs()));

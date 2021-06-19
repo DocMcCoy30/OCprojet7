@@ -12,59 +12,65 @@
 </head>
 <body>
 <div class="container">
-    <div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
-        <header th:case="${true}"
-                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-5 border-bottom">
-            <a th:href="@{/(username=${#authentication.getPrincipal()})}"
-               class="col-md-5 mb-2 mb-md-0 text-dark text-decoration-none">
-                <h4 th:text="${bibliotheque.nom}">Bibliothèque</h4>
-            </a>
-            <input type="hidden" name="bibliothequeId" th:value="${bibliotheque.id}">
-            <div class="col-md-4 text-right">
-                Bonjour <a
-                    th:href="@{/showProfil(username=${#authentication.getPrincipal()}, bibliothequeId=${bibliotheque.id}, modification = ${false})}"><span
-                    sec:authentication="name"></span></a>
-                <a th:href="@{/logout(bibliothequeId=${bibliotheque.id})}">
-                    <button type="button" class="btn btn-success me-2">Se deconnecter</button>
+    <div th:if="${bibliotheque}">
+        <div th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
+            <header th:case="${true}"
+                    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-5 border-bottom">
+                <a th:href="@{/(username=${#authentication.getPrincipal()})}"
+                   class="col-md-5 mb-2 mb-md-0 text-dark text-decoration-none">
+                    <h4 th:text="${bibliotheque.nom}">Bibliothèque</h4>
                 </a>
-            </div>
-        </header>
-        <header th:case="${false}"
-                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <a th:href="@{/}" class="col-md-5 mb-2 mb-md-0 text-dark text-decoration-none">
-                <h4 th:text="${bibliotheque.nom}">
-                    Bibliothèque</h4>
-            </a>
-            <input type="hidden" name="bibliothequeId" th:value="${bibliotheque.id}">
-            <div class="col-md-3 text-right">
-                <a th:href="@{/login(bibliothequeId=${bibliotheque.id})}">
-                    <button type="button" class="btn btn-outline-primary">Se connecter</button>
-                </a>
-                <a th:href="@{/signin(bibliothequeId=${bibliotheque.id})}">
-                    <button type="button" class="btn btn-primary">S'inscrire</button>
-                </a>
-            </div>
-        </header>
-        <div class="row">
-            <div class="col-auto">
-                <a th:href="@{/showAccueil(bibliothequeId=${bibliotheque.id})}">
-                    Retour à l'accueil
-                </a>
-            </div>
-            <div class="col-auto">
-                <div sec:authorize="hasRole('ROLE_EMPLOYE')">
-                    <a th:href="@{/showEmpruntPage(bibliothequeId=${bibliotheque.id})}">Créer un nouvel emprunt</a>
+                <input type="hidden" name="bibliothequeId" th:value="${bibliotheque.id}">
+                <div class="col-md-4 text-right">
+                    Bonjour <a
+                        th:href="@{/showProfil(username=${#authentication.getPrincipal()}, bibliothequeId=${bibliotheque.id}, modification = ${false})}"><span
+                        sec:authentication="name"></span></a>
+                    <a th:href="@{/logout(bibliothequeId=${bibliotheque.id})}">
+                        <button type="button" class="btn btn-success me-2">Se deconnecter</button>
+                    </a>
                 </div>
-            </div>
-            <div class="col-auto">
-                <div sec:authorize="hasRole('ROLE_EMPLOYE')">
-                    <a th:href="@{/searchEmpruntsEnCours(bibliothequeId=${bibliotheque.id})}">Liste des emprunts en
-                        cours</a>
+            </header>
+            <header th:case="${false}"
+                    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+                <a th:href="@{/}" class="col-md-5 mb-2 mb-md-0 text-dark text-decoration-none">
+                    <h4 th:text="${bibliotheque.nom}">
+                        Bibliothèque</h4>
+                </a>
+                <input type="hidden" name="bibliothequeId" th:value="${bibliotheque.id}">
+                <div class="col-md-3 text-right">
+                    <a th:href="@{/login(bibliothequeId=${bibliotheque.id})}">
+                        <button type="button" class="btn btn-outline-primary">Se connecter</button>
+                    </a>
+                    <a th:href="@{/signin(bibliothequeId=${bibliotheque.id})}">
+                        <button type="button" class="btn btn-primary">S'inscrire</button>
+                    </a>
+                </div>
+            </header>
+            <div class="row">
+                <div class="col-auto">
+                    <a th:href="@{/showAccueil(bibliothequeId=${bibliotheque.id})}">
+                        Retour à l'accueil
+                    </a>
+                </div>
+                <div class="col-auto">
+                    <div sec:authorize="hasRole('ROLE_EMPLOYE')">
+                        <a th:href="@{/showEmpruntPage(bibliothequeId=${bibliotheque.id})}">Créer un nouvel emprunt</a>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div sec:authorize="hasRole('ROLE_EMPLOYE')">
+                        <a th:href="@{/searchEmpruntsEnCours(bibliothequeId=${bibliotheque.id})}">Liste des emprunts en
+                            cours</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;font-size: large">
+    </div>
 </div>
+
 <br>
 </body>
 </html>

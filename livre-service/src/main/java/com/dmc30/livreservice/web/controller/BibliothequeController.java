@@ -35,7 +35,7 @@ public class BibliothequeController {
      * @return la bibliothèque recherchée
      */
     @PostMapping("/id")
-    public BibliothequeDto getBibliothequeById(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
+    public ResponseEntity<?> getBibliothequeById(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         return bibliothequeService.findById(bibliothequeId);
     }
 }

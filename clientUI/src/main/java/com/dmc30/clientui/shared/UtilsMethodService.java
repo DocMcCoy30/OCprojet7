@@ -6,7 +6,9 @@ import com.dmc30.clientui.service.contract.OuvrageService;
 import com.dmc30.clientui.service.contract.UserService;
 import com.dmc30.clientui.shared.bean.bibliotheque.*;
 import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,7 +20,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Classe de methodes utilitaires utilisées à plusieurs reprises dans les controllers
+ * Classe de methodes génériques utilisées à plusieurs reprises dans les controllers : ne pas multiplier les lignes de code : refactoring...
  */
 @Service
 public class UtilsMethodService {
@@ -45,9 +47,20 @@ public class UtilsMethodService {
      * @param bibliothequeId l'identifiant de la bibliothèque selectionnée
      */
     public void setBibliothequeForTheVue(ModelAndView theModel, @RequestParam("bibliothequeId") Long bibliothequeId) {
+        String errorMessage;
         if (bibliothequeId != null) {
-            BibliothequeBean bibliotheque = bibliothequeService.getBibliothequeById(bibliothequeId);
-            theModel.addObject("bibliotheque", bibliotheque);
+            ResponseEntity<?> response = bibliothequeService.getBibliothequeById(bibliothequeId);
+            if (response.getStatusCodeValue() == 202) {
+                ObjectMapper mapper = new ObjectMapper();
+                BibliothequeBean bibliotheque = mapper.convertValue(response.getBody(), BibliothequeBean.class);
+                theModel.addObject("bibliotheque", bibliotheque);
+            } else if (response.getStatusCodeValue() == 491) {
+                errorMessage = (String) response.getBody();
+                theModel.addObject("errorMessage", errorMessage);
+            } else if (response.getStatusCodeValue() == 490) {
+                errorMessage = (String) response.getBody();
+                theModel.addObject("errorMessage", errorMessage);
+            }
         }
     }
 
@@ -122,7 +135,10 @@ public class UtilsMethodService {
         String message;
         List<PretBean> empruntsEnCours = empruntService.getEmpruntsEnCours(bibliothequeId);
         if (empruntsEnCours.isEmpty()) {
-            message = "Aucun emprunt en cours pour " + (bibliothequeService.getBibliothequeById(bibliothequeId)).getNom();
+            ResponseEntity<?> response = bibliothequeService.getBibliothequeById(bibliothequeId);
+            ObjectMapper mapper = new ObjectMapper();
+            BibliothequeBean bibliotheque = mapper.convertValue(response.getBody(), BibliothequeBean.class);
+            message = "Aucun emprunt en cours pour " + bibliotheque.getNom();
             theModel.addObject("message", message);
         } else {
             for (PretBean pret : empruntsEnCours) {

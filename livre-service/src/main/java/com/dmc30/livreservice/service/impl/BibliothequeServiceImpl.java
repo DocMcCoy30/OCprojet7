@@ -3,7 +3,6 @@ package com.dmc30.livreservice.service.impl;
 import com.dmc30.livreservice.data.entity.bibliotheque.Bibliotheque;
 import com.dmc30.livreservice.data.repository.BibliothequeRepository;
 import com.dmc30.livreservice.web.exception.ErrorMessage;
-import com.dmc30.livreservice.web.exception.IntrouvableException;
 import com.dmc30.livreservice.service.contract.BibliothequeService;
 import com.dmc30.livreservice.service.dto.bibliotheque.BibliothequeDto;
 import com.dmc30.livreservice.web.exception.TechnicalException;
@@ -14,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLException;
 import java.util.*;
 
 @Service
@@ -54,22 +52,36 @@ public class BibliothequeServiceImpl implements BibliothequeService {
     /**
      * Cherche un objet bibliothèque dans la BD par son identifiant. Si l'identifiant n'est pas précisé, renvoie la 1ère bibliothèque enregistrée.
      *
-     * @param bibliothequeid L'identifiant de la bibliothèque rcherchée
+     * @param bibliothequeId L'identifiant de la bibliothèque rcherchée
      * @return un objet bibliothèque
      */
     @Override
-    public BibliothequeDto findById(Long bibliothequeid) {
+    public ResponseEntity<?> findById(Long bibliothequeId) {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        Bibliotheque bibliotheque = new Bibliotheque();
-        if (bibliothequeid == null) {
-            bibliothequeid = 1L;
+//        Bibliotheque bibliotheque = new Bibliotheque();
+        if (bibliothequeId == null) {
+            bibliothequeId = 1L;
         }
-        Optional<Bibliotheque> result = bibliothequeRepository.findById(bibliothequeid);
-        if (result.isPresent()) {
-            bibliotheque = result.get();
+        try {
+            Bibliotheque bibliotheque = bibliothequeRepository.findBibliothequeById(bibliothequeId);
+            if (bibliotheque != null) {
+                BibliothequeDto bibliothequeDto = modelMapper.map(bibliotheque, BibliothequeDto.class);
+                ResponseEntity<?> responseEntity = ResponseEntity.status(HttpStatus.ACCEPTED).body(bibliothequeDto);
+                return responseEntity;
+            } else {
+                ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
+                        .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
+                return responseEntity;
+            }
+        } catch (IllegalArgumentException e1) {
+            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
+                    .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
+            return responseEntity;
+        } catch (Exception e2) {
+            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.TECHNICAL_ERROR.getErrorCode())
+                    .body(new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage()));
+            return responseEntity;
         }
-        BibliothequeDto bibliothequeDto = modelMapper.map(bibliotheque, BibliothequeDto.class);
-        return bibliothequeDto;
     }
 }

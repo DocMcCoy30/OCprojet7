@@ -23,6 +23,7 @@ public class BibliothequeServiceImpl implements BibliothequeService {
 
     /**
      * Cherche la liste de toutes les bibliotheques
+     *
      * @return la liste
      */
     @Override
@@ -31,20 +32,34 @@ public class BibliothequeServiceImpl implements BibliothequeService {
             ResponseEntity<?> response = livreServiceProxy.getBibliotheques();
             return response;
         } catch (FeignException.FeignClientException e) {
-            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.TECHNICAL_ERROR.getErrorCode())
+            ResponseEntity<?> response = ResponseEntity.status(ErrorMessage.TECHNICAL_ERROR.getErrorCode())
                     .body(ErrorMessage.TECHNICAL_ERROR.getErrorMessage());
-            return responseEntity;
+            return response;
         }
     }
 
     /**
      * Recherche d'une bibliothèque par son identifiant
+     *
      * @param bibliothequeId l'identifiant de la bibliotheque
      * @return la bibliothèque recherchée
      */
     @Override
-    public BibliothequeBean getBibliothequeById(Long bibliothequeId) {
-        return livreServiceProxy.getBibliothequeById(bibliothequeId);
+    public ResponseEntity<?> getBibliothequeById(Long bibliothequeId) {
+        try {
+            ResponseEntity<?> response = livreServiceProxy.getBibliothequeById(bibliothequeId);
+            return response;
+        } catch (FeignException.FeignClientException e) {
+            ResponseEntity<?> response = null;
+            if (e.status() == 491) {
+                response = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
+                        .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
+            } else if (e.status() == 490) {
+                response = ResponseEntity.status(ErrorMessage.TECHNICAL_ERROR.getErrorCode())
+                        .body(ErrorMessage.TECHNICAL_ERROR.getErrorMessage());
+            }
+            return response;
+        }
     }
 
 }

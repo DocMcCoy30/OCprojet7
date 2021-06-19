@@ -42,7 +42,7 @@ public class EmpruntServiceImpl implements EmpruntService {
         Date dateEmprunt = new Date();
         Calendar c = Calendar.getInstance();
         c.setTime(dateEmprunt);
-        c.add(Calendar.DAY_OF_MONTH, 7);
+        c.add(Calendar.DAY_OF_MONTH, 31);
         Date dateRestitution = c.getTime();
         Ouvrage ouvrage = ouvrageRepository.getById(createEmpruntDto.getOuvrageId());
         ouvrage.setEmprunte(true);
@@ -132,7 +132,7 @@ public class EmpruntServiceImpl implements EmpruntService {
         Date dateRestitutionPrevue = pret.getDateRestitution();
         Calendar c = Calendar.getInstance();
         c.setTime(dateRestitutionPrevue);
-        c.add(Calendar.DAY_OF_MONTH, 7);
+        c.add(Calendar.DAY_OF_MONTH, 31);
         Date dateProlongation = c.getTime();
         pret.setDateProlongation(dateProlongation);
         pret.setProlongation(true);

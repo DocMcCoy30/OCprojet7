@@ -7,6 +7,7 @@ import com.dmc30.clientui.proxy.LivreServiceProxy;
 import com.dmc30.clientui.service.contract.LivreService;
 import com.dmc30.clientui.shared.bean.livre.LivreResponseModelBean;
 import com.dmc30.clientui.web.exception.ErrorMessage;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import feign.FeignException;
 import org.apache.commons.lang.StringUtils;
 import org.modelmapper.ModelMapper;
@@ -80,7 +81,8 @@ public class LivreServiceImpl implements LivreService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         try {
             ResponseEntity<?> response = livreServiceProxy.getLivreById(livreId);
-            LivreBean livreBean = (LivreBean) response.getBody();
+            ObjectMapper mapper = new ObjectMapper();
+            LivreBean livreBean = mapper.convertValue(response.getBody(), LivreBean.class);
             LivreResponseModelBean livreResponseModelBean = modelMapper.map(livreBean, LivreResponseModelBean.class);
             livreResponseModelBean.setAuteurs(formatListeAuteurs(livreBean.getAuteurs()));
             livreResponseModelBean.setGenres(formatListeGenres(livreBean.getGenres()));

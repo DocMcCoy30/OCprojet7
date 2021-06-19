@@ -8,5 +8,5 @@ import java.util.List;
 public interface BibliothequeService {
 
     ResponseEntity<?> getBibliotheques();
-    BibliothequeBean getBibliothequeById(Long bibliothequeId);
+    ResponseEntity<?> getBibliothequeById(Long bibliothequeId);
 }

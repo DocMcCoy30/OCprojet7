@@ -43,7 +43,7 @@
                         <p class="card-subtitle mb-2 text-muted" th:text="${tempLivre.auteurs}"></p>
                         <p class="card-text" th:text="${tempLivre.editeur.nomMaisonEdition}"></p>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center" th:if="${bibliotheque}">
                         <a th:href="@{showLivreDetails(livreId=${tempLivre.id}, bibliothequeId=${bibliotheque.id})}"
                            class="card-link">Détail du livre</a>
                     </div>
