@@ -14,20 +14,8 @@
   <component name="ChangeListManager">
     <list default="true" id="626a98ec-6f0a-4fcd-8b60-c183d40dc1d5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/LivreServiceProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/proxy/LivreServiceProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/BibliothequeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/contract/BibliothequeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/BibliothequeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/BibliothequeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/LivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/LivreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/OuvrageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/OuvrageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/UtilsMethodService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/UtilsMethodService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/accueil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/recherche.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/recherche.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/repository/BibliothequeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/repository/BibliothequeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/contract/BibliothequeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/contract/BibliothequeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/BibliothequeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/BibliothequeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/web/controller/BibliothequeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/web/controller/BibliothequeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-server/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -436,7 +424,9 @@
       <workItem from="1623915606394" duration="15495000" />
       <workItem from="1624005700772" duration="4455000" />
       <workItem from="1624012063502" duration="24038000" />
-      <workItem from="1624053426006" duration="6618000" />
+      <workItem from="1624053426006" duration="7536000" />
+      <workItem from="1624101806388" duration="1191000" />
+      <workItem from="1624264712924" duration="2599000" />
     </task>
     <servers />
   </component>
