@@ -24,4 +24,5 @@ public interface UsersService extends UserDetailsService {
     List<UtilisateurDto> getUtilisateursByNumAbonne(String numAbonne);
 
 
+    List<UtilisateurDto> getAll();
 }

@@ -16,4 +16,10 @@ public interface EmpruntService {
     void retournerEmprunt(Long empruntId, String ouvrageId);
 
     void prolongerEmprunt(Long empruntId);
+
+    List<PretDto> findExpiredPrets();
+
+    List<PretDto> findExpiredPretsByUtilisateurId(Long utilisateurId);
+
+    List<Long> findUtilisateurEnRetard();
 }

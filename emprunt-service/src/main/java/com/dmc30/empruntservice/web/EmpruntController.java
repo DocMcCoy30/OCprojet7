@@ -46,4 +46,21 @@ public class EmpruntController {
     public void prolongerEmprunt(@RequestParam Long empruntId) {
         empruntService.prolongerEmprunt(empruntId);
     }
+
+    @GetMapping("/expired")
+    List<PretDto> findExpiredPrets() {
+        return empruntService.findExpiredPrets();
+    }
+
+    @GetMapping("/expiredByUtilisateur")
+    List<PretDto> findExpiredPretsByUtilisateurId(@RequestParam Long utilisateurId) {
+        List<PretDto> pretDtos = empruntService.findExpiredPretsByUtilisateurId(utilisateurId);
+        System.out.println(pretDtos.toString());
+        return pretDtos;
+    }
+
+    @GetMapping("/expiredUsers")
+    List<Long> findUtilisateurEnRetard() {
+        return empruntService.findUtilisateurEnRetard();
+    }
 }

@@ -138,4 +138,35 @@ public class EmpruntServiceImpl implements EmpruntService {
         pret.setProlongation(true);
         pretRepository.save(pret);
     }
+
+    @Override
+    public List<PretDto> findExpiredPrets() {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<Pret> expiredPrets = pretRepository.findExpiredPrets();
+        List<PretDto>expiredPretsDto = new ArrayList<>();
+        for (Pret expiredPret:expiredPrets) {
+            PretDto expiredPretDto = modelMapper.map(expiredPret, PretDto.class);
+            expiredPretsDto.add(expiredPretDto);
+        }
+        return expiredPretsDto;
+    }
+
+    @Override
+    public List<PretDto> findExpiredPretsByUtilisateurId(Long utilisateurId) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<Pret> expiredPrets = pretRepository.findExpiredPretsByUtilisateurId(utilisateurId);
+        List<PretDto>expiredPretsDto = new ArrayList<>();
+        for (Pret expiredPret:expiredPrets) {
+            PretDto expiredPretDto = modelMapper.map(expiredPret, PretDto.class);
+            expiredPretsDto.add(expiredPretDto);
+        }
+        return expiredPretsDto;
+    }
+
+    @Override
+    public List<Long> findUtilisateurEnRetard() {
+        return pretRepository.findUtilisateurEnRetard();
+    }
 }

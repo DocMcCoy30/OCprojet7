@@ -1,11 +1,11 @@
 package com.dmc30.emailservice.service.contract;
 
-import com.dmc30.emailservice.service.dto.UtilisateurDto;
+import com.dmc30.emailservice.service.bean.UtilisateurBean;
 
 import java.util.List;
 
 public interface UtilisateurService {
 
-    List<UtilisateurDto> findAll();
-    UtilisateurDto findById(Long utilisateurId);
+    List<UtilisateurBean> findAll();
+    UtilisateurBean findUtilisateurById(Long utilisateurId);
 }

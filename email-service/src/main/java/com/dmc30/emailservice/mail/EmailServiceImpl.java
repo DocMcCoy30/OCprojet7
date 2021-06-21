@@ -1,15 +1,13 @@
 package com.dmc30.emailservice.mail;
 
-import com.dmc30.emailservice.data.entity.LivreEntity;
+import com.dmc30.emailservice.service.bean.CreateMailBean;
+import com.dmc30.emailservice.service.bean.LivreForMailBean;
+import com.dmc30.emailservice.service.bean.PretBean;
+import com.dmc30.emailservice.service.bean.UtilisateurBean;
 import com.dmc30.emailservice.service.contract.EmpruntService;
 import com.dmc30.emailservice.service.contract.LivreService;
 import com.dmc30.emailservice.service.contract.UtilisateurService;
-import com.dmc30.emailservice.service.dto.CreateMailDto;
-import com.dmc30.emailservice.service.dto.LivreForMailDto;
-import com.dmc30.emailservice.service.dto.PretDto;
-import com.dmc30.emailservice.service.dto.UtilisateurDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -20,7 +18,10 @@ import org.thymeleaf.context.Context;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 @Service
 public class EmailServiceImpl implements EmailService {
@@ -52,13 +53,13 @@ public class EmailServiceImpl implements EmailService {
      * Send HTML mail (simple)
      */
     public void sendSimpleMail(
-            CreateMailDto createMailDto, final Locale locale)
+            CreateMailBean createMailBean, final Locale locale)
             throws MessagingException {
 
         // Prepare the evaluation context
         final Context ctx = new Context(locale);
-        ctx.setVariable("name", createMailDto.getUsername());
-        ctx.setVariable("livres", createMailDto.getLivres());
+        ctx.setVariable("name", createMailBean.getUsername());
+        ctx.setVariable("livres", createMailBean.getLivres());
         ctx.setVariable("subscriptionDate", new Date());
 
         // Prepare message using a Spring helper
@@ -66,7 +67,7 @@ public class EmailServiceImpl implements EmailService {
         final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, "UTF-8");
         message.setSubject(SUBJECT);
         message.setFrom(NOREPLY_ADDRESS);
-        message.setTo(createMailDto.getEmail());
+        message.setTo(createMailBean.getEmail());
 
         // Create the HTML body using Thymeleaf
         final String htmlContent = this.htmlTemplateEngine.process(EMAIL_SIMPLE_TEMPLATE_NAME, ctx);
@@ -77,19 +78,19 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public List<CreateMailDto> createMailList() {
-        List<CreateMailDto> mailToCreateList = new ArrayList<>();
-        List<LivreForMailDto> livres = new ArrayList<>();
-        List<PretDto> expiredPretsList = new ArrayList<>();
+    public List<CreateMailBean> createMailList() {
+        List<CreateMailBean> mailToCreateList = new ArrayList<>();
+        List<LivreForMailBean> livres = new ArrayList<>();
+        List<PretBean> expiredPretsList = new ArrayList<>();
         List<Long> utilisateursEnRetardId = empruntService.findUtilisateurEnRetard();
         for (Long utisateurEnRetardId : utilisateursEnRetardId) {
-            UtilisateurDto utilisateurDto = utilisateurService.findById(utisateurEnRetardId);
+            UtilisateurBean utilisateurBean = utilisateurService.findUtilisateurById(utisateurEnRetardId);
             expiredPretsList = empruntService.findExpiredPretsByUtilisateurId(utisateurEnRetardId);
             for (int i = 0; i < expiredPretsList.size(); i++) {
-                LivreForMailDto livre = livreService.getTitreDuLivre(expiredPretsList.get(i).getOuvrageId());
+                LivreForMailBean livre = livreService.getTitreDuLivre(expiredPretsList.get(i).getOuvrageId());
                 livres.add(livre);
             }
-            CreateMailDto newMail = expiredPretEmailMaker(utilisateurDto, livres);
+            CreateMailBean newMail = expiredPretEmailMaker(utilisateurBean, livres);
             mailToCreateList.add(newMail);
             livres = new ArrayList<>();
         }
@@ -113,17 +114,17 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public CreateMailDto expiredPretEmailMaker(
-                                               UtilisateurDto utilisateur,
-                                               List<LivreForMailDto> livres) {
-        CreateMailDto createMailDto = new CreateMailDto();
-        createMailDto.setUserId(utilisateur.getId());
-        createMailDto.setUsername(utilisateur.getUsername());
-        createMailDto.setPrenom(utilisateur.getPrenom());
-        createMailDto.setNom(utilisateur.getNom());
-        createMailDto.setEmail(utilisateur.getEmail());
-        createMailDto.setLivres(livres);
-        return createMailDto;
+    public CreateMailBean expiredPretEmailMaker(
+                                               UtilisateurBean utilisateur,
+                                               List<LivreForMailBean> livres) {
+        CreateMailBean createMailBean = new CreateMailBean();
+        createMailBean.setUserId(utilisateur.getId());
+        createMailBean.setUsername(utilisateur.getUsername());
+        createMailBean.setPrenom(utilisateur.getPrenom());
+        createMailBean.setNom(utilisateur.getNom());
+        createMailBean.setEmail(utilisateur.getEmail());
+        createMailBean.setLivres(livres);
+        return createMailBean;
     }
 }
 

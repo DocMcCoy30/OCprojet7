@@ -36,6 +36,11 @@ public class UsersController {
                 return usersService.getUtilisateurById(utilisateurId);
     }
 
+    @GetMapping("/all")
+    List<UtilisateurDto> findAll() {
+        return usersService.getAll();
+    }
+
 
     /**
      * Recherche d'un utilisateur par son identifiant public (UUID)

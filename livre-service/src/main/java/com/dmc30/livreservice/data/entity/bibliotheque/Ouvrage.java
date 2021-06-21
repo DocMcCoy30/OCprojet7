@@ -27,6 +27,9 @@ public class Ouvrage {
     @Column(name = "id_bibliotheque")
     private Long bibliothequeId;
 
+    @Column(name = "id_livre")
+    private Long livreId;
+
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ouvrage")
 //    private Set<Pret> prets;
 

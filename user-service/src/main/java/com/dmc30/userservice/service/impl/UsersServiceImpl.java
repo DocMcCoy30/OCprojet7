@@ -213,4 +213,17 @@ public class UsersServiceImpl implements UsersService {
         return abonnesDto;
     }
 
+    @Override
+    public List<UtilisateurDto> getAll() {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        List<UtilisateurDto> abonnesDto = new ArrayList<>();
+        List<UtilisateurEntity> abonnes = utilisateurRepository.findAll();
+        for (UtilisateurEntity abonne:abonnes) {
+            UtilisateurDto abonneDto = modelMapper.map(abonne, UtilisateurDto.class);
+            abonnesDto.add(abonneDto);
+        }
+        return abonnesDto;
+    }
+
 }

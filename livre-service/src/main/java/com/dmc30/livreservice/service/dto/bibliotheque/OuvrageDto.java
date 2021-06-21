@@ -14,6 +14,7 @@ public class OuvrageDto {
     private String idInterne;
     private boolean emprunte;
     private Long bibliothequeId;
+    private Long livreId;
     @JsonIgnore
     private List<PretDto> prets;
 

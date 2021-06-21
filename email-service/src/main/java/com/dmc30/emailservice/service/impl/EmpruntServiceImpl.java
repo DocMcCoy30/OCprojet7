@@ -1,9 +1,8 @@
 package com.dmc30.emailservice.service.impl;
 
-import com.dmc30.emailservice.data.entity.PretEntity;
-import com.dmc30.emailservice.data.repository.PretRepository;
+import com.dmc30.emailservice.proxy.EmpruntServiceProxy;
+import com.dmc30.emailservice.service.bean.PretBean;
 import com.dmc30.emailservice.service.contract.EmpruntService;
-import com.dmc30.emailservice.service.dto.PretDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,38 +14,27 @@ import java.util.List;
 @Service
 public class EmpruntServiceImpl implements EmpruntService {
 
-    PretRepository pretRepository;
+    EmpruntServiceProxy empruntServiceProxy;
 
     @Autowired
-    public EmpruntServiceImpl(PretRepository pretRepository) {
-        this.pretRepository = pretRepository;
+    public EmpruntServiceImpl(EmpruntServiceProxy empruntServiceProxy) {
+        this.empruntServiceProxy = empruntServiceProxy;
     }
 
     @Override
-    public List<PretDto> findExpiredPrets() {
-        ModelMapper modelMapper = new ModelMapper();
-        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        List<PretDto> pretDtos = new ArrayList<>();
-        List<PretEntity> pretEntities = pretRepository.findExpiredPrets();
-        for (PretEntity pretEntity:pretEntities) {
-            pretDtos.add(modelMapper.map(pretEntity, PretDto.class));
-        }
-        return pretDtos;
+    public List<PretBean> findExpiredPrets() {
+        List<PretBean> pretBeans = empruntServiceProxy.findExpiredPrets();
+        return pretBeans;
     }
 
     @Override
     public List<Long> findUtilisateurEnRetard() {
-        return pretRepository.findUtilisateurEnRetard();
+        return empruntServiceProxy.findUtilisateurEnRetard();
     }
 
     @Override
-    public List<PretDto> findExpiredPretsByUtilisateurId(Long utilisateurId) {
-        ModelMapper modelMapper = new ModelMapper();
-        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        List<PretDto> pretDtos = new ArrayList<>();
-        List<PretEntity> pretEntities = pretRepository.findExpiredPretsByUtilisateurId(utilisateurId);
-        for (PretEntity pretEntity:pretEntities) {
-            pretDtos.add(modelMapper.map(pretEntity, PretDto.class));
-        }
-        return pretDtos;    }
+    public List<PretBean> findExpiredPretsByUtilisateurId(Long utilisateurId) {
+        List<PretBean> pretBeans = empruntServiceProxy.findExpiredPretsByUtilisateurId(utilisateurId);
+        return pretBeans;
+    }
 }

@@ -1,9 +1,9 @@
 package com.dmc30.emailservice.service.contract;
 
-import com.dmc30.emailservice.service.dto.LivreForMailDto;
+import com.dmc30.emailservice.service.bean.LivreForMailBean;
 
 public interface LivreService {
 
-    LivreForMailDto getTitreDuLivre(Long ouvrageId);
+    LivreForMailBean getTitreDuLivre(Long ouvrageId);
 
 }

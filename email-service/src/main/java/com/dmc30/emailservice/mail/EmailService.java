@@ -1,9 +1,8 @@
 package com.dmc30.emailservice.mail;
 
-import com.dmc30.emailservice.service.dto.CreateMailDto;
-import com.dmc30.emailservice.service.dto.LivreForMailDto;
-import com.dmc30.emailservice.service.dto.PretDto;
-import com.dmc30.emailservice.service.dto.UtilisateurDto;
+import com.dmc30.emailservice.service.bean.CreateMailBean;
+import com.dmc30.emailservice.service.bean.LivreForMailBean;
+import com.dmc30.emailservice.service.bean.UtilisateurBean;
 
 import javax.mail.MessagingException;
 import java.util.List;
@@ -14,12 +13,12 @@ public interface EmailService {
     void sendSimpleMessage(String to, String subject, String text);
 
     void sendSimpleMail(
-            CreateMailDto createMailDto, final Locale locale)
+            CreateMailBean createMailBean, final Locale locale)
             throws MessagingException;
 
-    List<CreateMailDto> createMailList();
+    List<CreateMailBean> createMailList();
 
-    CreateMailDto expiredPretEmailMaker(
-            UtilisateurDto utilisateur,
-            List<LivreForMailDto> livres);
+    CreateMailBean expiredPretEmailMaker(
+            UtilisateurBean utilisateur,
+            List<LivreForMailBean> livres);
 }
