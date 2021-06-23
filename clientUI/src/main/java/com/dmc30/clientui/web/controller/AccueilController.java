@@ -5,17 +5,14 @@ import com.dmc30.clientui.service.contract.LivreService;
 import com.dmc30.clientui.service.contract.UserService;
 import com.dmc30.clientui.shared.UtilsMethodService;
 import com.dmc30.clientui.shared.bean.bibliotheque.BibliothequeBean;
-import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
 import com.dmc30.clientui.shared.bean.livre.LivreResponseModelBean;
-import com.dmc30.clientui.web.exception.TechnicalException;
+import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 

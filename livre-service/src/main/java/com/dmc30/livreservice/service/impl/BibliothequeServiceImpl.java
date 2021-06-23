@@ -43,10 +43,10 @@ public class BibliothequeServiceImpl implements BibliothequeService {
             ResponseEntity<?> responseEntity = ResponseEntity.status(HttpStatus.ACCEPTED).body(bibliothequeDtos);
             return responseEntity;
         } catch (Exception e) {
-            throw new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage());
-//            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.TECHNICAL_ERROR.getErrorCode())
-//                    .body(new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage()));
-//            return responseEntity;
+//            throw new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage());
+            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.TECHNICAL_ERROR.getErrorCode())
+                    .body(new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage()));
+            return responseEntity;
         }
     }
 
@@ -71,22 +71,21 @@ public class BibliothequeServiceImpl implements BibliothequeService {
                 ResponseEntity<?> responseEntity = ResponseEntity.status(HttpStatus.ACCEPTED).body(bibliothequeDto);
                 return responseEntity;
             } else {
-                throw new TechnicalException(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
-//                ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
-//                        .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
-//                return responseEntity;
+//                throw new TechnicalException(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
+                ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
+                        .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
+                return responseEntity;
             }
         } catch (IllegalArgumentException e1) {
-            throw new TechnicalException(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
-
-//            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
-//                    .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
-//            return responseEntity;
+//            throw new TechnicalException(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
+            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
+                    .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
+            return responseEntity;
         } catch (Exception e2) {
-            throw new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage());
-//            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.TECHNICAL_ERROR.getErrorCode())
-//                    .body(new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage()));
-//            return responseEntity;
+//            throw new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage());
+            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.TECHNICAL_ERROR.getErrorCode())
+                    .body(new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage()));
+            return responseEntity;
         }
     }
 }

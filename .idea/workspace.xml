@@ -13,27 +13,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="626a98ec-6f0a-4fcd-8b60-c183d40dc1d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/access-denied.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.README_images/a16ce5b1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/edec9058-78da-494b-a38d-e99d3ce07e86.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/edec9058-78da-494b-a38d-e99d3ce07e86.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/edec9058-78da-494b-a38d-e99d3ce07e86/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/edec9058-78da-494b-a38d-e99d3ce07e86/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-Documents/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/sql/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-Documents/sql/structure.sql" beforeDir="false" afterPath="$PROJECT_DIR$/1-Documents/sql/structure.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/BibliothequeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/BibliothequeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/LivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/LivreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bean/bibliotheque/OuvrageBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bean/bibliotheque/OuvrageBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bean/utilisateur/CreateAbonneBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bean/utilisateur/CreateAbonneBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/AccueilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/AccueilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/signin-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/signin-page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/ScheduledTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/ScheduledTasks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/contract/BibliothequeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/contract/BibliothequeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/contract/LivreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/contract/LivreService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/BibliothequeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/BibliothequeServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/LivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/LivreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/web/controller/BibliothequeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/web/controller/BibliothequeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/web/controller/LivreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/web/controller/LivreController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -447,7 +436,7 @@
       <workItem from="1624264712924" duration="8085000" />
       <workItem from="1624272902795" duration="2218000" />
       <workItem from="1624276155339" duration="12906000" />
-      <workItem from="1624443802637" duration="12907000" />
+      <workItem from="1624443802637" duration="15435000" />
     </task>
     <servers />
   </component>

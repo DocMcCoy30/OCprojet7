@@ -15,7 +15,7 @@
 
 ##Architecture du projet (microservice) : 
 
-![](.README_images/df230d44.png)
+![](.README_images/a16ce5b1.png)
 
 ##Langages et Technologies utilisées :
 
@@ -45,13 +45,26 @@ La documentation se trouve dans le dossier "1-Documents" :
 
 ##application.properties => modification de la configuration
 
-+ configuration du port server :
-
-![](.README_images/3844bc63.png)
 
 + configuration de la base de données (livre-service, utilisateur-service- emprunt-service) :
 
 ![](.README_images/5be63c66.png)
+
+## Base de données
+
+- les backup pour la base de données sont dans le répertoire 1-Documents/sql
+
+- Créer une nouvelle base de données DB_P7_Bibliotheque dans pgAdmin : owner => POSTGRES
+
+![](.README_images/c796e4f5.png)
+
+- Copier/Coller le contenu du fichier structure.sql dans le QueryEditor et executer le script
+
+![](.README_images/42d92377.png)
+
+- Copier/Coller le contenu du fichier data.sql dans le QueryEditor et executer le script
+
+![](.README_images/9f6c00c6.png)
 
 ## Installation
 
@@ -93,8 +106,8 @@ $ java -jar nom-du-service.jar
 Page d'accueil accessible à : https://localhost:8999/ (gateway) ou locahost:9000/ (clientUI)
 
 2 utilisateurs sont créés dans la base de données :
-+ abonné : login : / password :
-+ employé : login : / password :
++ abonné : login : abonne@test.com / password : abonnetest
++ employé : login : employe@test.com/ password : employetest
 
 Les nouveaux utilisateurs crées dans "s'inscrire" seront toujours des abonnés.
 

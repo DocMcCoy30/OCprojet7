@@ -143,11 +143,11 @@ public class LivreServiceImpl implements LivreService {
             return responseEntity;
         } catch (IllegalArgumentException e) {
             System.out.println("Exception attrapée...");
-//            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
-//                    .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
-//            return responseEntity;
+            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
+                    .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
+            return responseEntity;
 //            throw new TechnicalException(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
         }
     }
 
