@@ -13,10 +13,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="626a98ec-6f0a-4fcd-8b60-c183d40dc1d5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/1-Documents/sql/data_genre.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-Documents/sql/data_langue.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-Documents/sql/data_pays.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/1-Documents/sql/data_role.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/couv.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/nimes1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/nimes2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/nimes3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/nimes4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/nimes5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/img/nimes6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/static/js/clientui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/fragments/footer.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +94,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="jdk.selected.JAVA_MODULE" value="11.0.3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/clientUI/src/main/resources/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TestP7" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -430,7 +436,7 @@
       <workItem from="1624264712924" duration="8085000" />
       <workItem from="1624272902795" duration="2218000" />
       <workItem from="1624276155339" duration="12906000" />
-      <workItem from="1624443802637" duration="15763000" />
+      <workItem from="1624443802637" duration="17416000" />
     </task>
     <servers />
   </component>
