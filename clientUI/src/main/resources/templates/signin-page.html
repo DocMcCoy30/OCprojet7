@@ -17,6 +17,10 @@
             <span th:if="${message}">
                 <a th:text="${message}" style="color: red"></a>
             </span>
+            <span> - </span>
+            <span th:if="${fieldError}">
+                <a th:text="${fieldError}" style="color: red"></a>
+            </span>
             <h1 class="h3 mb-3 font-weight-normal">Créer un compte</h1>
             <form class="form" action="#" th:action="@{/signin(bibliothequeId=${bibliotheque.id})}"
                   th:object="${abonne}" method="post">
@@ -26,7 +30,7 @@
                         <input type="text" th:field="*{prenom}" class="form-control" id="prenom" placeholder=""
                                value=""
                                required>
-                        <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"></span>
+                        <span th:if="${#fields.hasErrors('prenom')}" th:text="${fieldError}"></span>
                     </div>
                     <div class="col-sm-6">
                         <label for="nom" class="form-label">Nom</label>
@@ -55,12 +59,12 @@
                         <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
                         <span th:if="${messagePw}" th:text="${messagePw}"></span>
                     </div>
-                    <div class="col-sm-6">
-                        <label for="passwordVerif" class="form-label">Verifier mot de passe</label>
-                        <input type="password" class="form-control" id="passwordVerif"
-                               placeholder=""
-                               value="" required>
-                    </div>
+<!--                    <div class="col-sm-6">-->
+<!--                        <label for="passwordVerif" class="form-label">Verifier mot de passe</label>-->
+<!--                        <input type="password" class="form-control" id="passwordVerif"-->
+<!--                               placeholder=""-->
+<!--                               value="" required>-->
+<!--                    </div>-->
                     <div class="col-12">
                         <label for="email" class="form-label">Email <span class="text-muted"></span></label>
                         <div class="input-group has-validation">

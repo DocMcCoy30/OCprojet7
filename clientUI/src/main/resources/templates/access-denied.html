@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet"/>
+    <title>Access-Denied-Page</title>
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Sorry, you do not have permission to view this page.</h2>
+
+    <div class="col-auto">
+        <a th:href="@{/}">
+            Retour à l'accueil
+        </a>
+    </div>
+
+</div>
+<footer th:insert="fragments/footer.html"></footer>
+</body>
+</html>
+
+

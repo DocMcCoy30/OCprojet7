@@ -1,10 +1,10 @@
 package com.dmc30.clientui.service.impl;
 
+import com.dmc30.clientui.proxy.LivreServiceProxy;
+import com.dmc30.clientui.service.contract.LivreService;
 import com.dmc30.clientui.shared.bean.livre.AuteurBean;
 import com.dmc30.clientui.shared.bean.livre.GenreBean;
 import com.dmc30.clientui.shared.bean.livre.LivreBean;
-import com.dmc30.clientui.proxy.LivreServiceProxy;
-import com.dmc30.clientui.service.contract.LivreService;
 import com.dmc30.clientui.shared.bean.livre.LivreResponseModelBean;
 import com.dmc30.clientui.web.exception.ErrorMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,6 +12,8 @@ import feign.FeignException;
 import org.apache.commons.lang.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,8 @@ import java.util.List;
 
 @Service
 public class LivreServiceImpl implements LivreService {
+
+    Logger logger = LoggerFactory.getLogger(LivreServiceImpl.class);
 
     LivreServiceProxy livreServiceProxy;
 
@@ -87,7 +91,10 @@ public class LivreServiceImpl implements LivreService {
             livreResponseModelBean.setAuteurs(formatListeAuteurs(livreBean.getAuteurs()));
             livreResponseModelBean.setGenres(formatListeGenres(livreBean.getGenres()));
             return ResponseEntity.status(response.getStatusCodeValue()).body(livreResponseModelBean);
-        } catch (FeignException.FeignClientException e) {
+        } catch (FeignException e) {
+            int status = e.status();
+            String message = e.getMessage();
+            logger.info("StatusCode = " + status + " - Message = " + message);
             ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
                     .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
             return responseEntity;

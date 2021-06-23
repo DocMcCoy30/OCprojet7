@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -40,6 +41,11 @@ public class AccueilController {
     }
 
     Logger logger = LoggerFactory.getLogger(AccueilController.class);
+
+    @GetMapping("/accessDenied")
+    public ModelAndView accessDenied() {
+        return new ModelAndView("access-denied");
+    }
 
     /**
      * Affiche la vue index : page d'accueil de l'application
@@ -79,4 +85,6 @@ public class AccueilController {
         theModel.addObject("lastLivres", livres);
         return theModel;
     }
+
+
 }

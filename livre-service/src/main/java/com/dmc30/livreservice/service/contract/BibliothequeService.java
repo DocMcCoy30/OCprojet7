@@ -10,6 +10,6 @@ public interface BibliothequeService {
 
     ResponseEntity<?> findAll() throws TechnicalException;
 
-    ResponseEntity<?> findById(Long Bibliothequeid);
+    ResponseEntity<?> findById(Long Bibliothequeid) throws TechnicalException;
 
 }

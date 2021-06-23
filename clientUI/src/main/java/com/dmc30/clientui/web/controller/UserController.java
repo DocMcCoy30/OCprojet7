@@ -169,14 +169,18 @@ public class UserController {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         String message = "";
+        String fieldError = "";
         String path = "";
         if (bindingResult.hasErrors()) {
             List<FieldError> errors = bindingResult.getFieldErrors();
             for (FieldError error : errors) {
                 logger.info(error.getObjectName() + " - " + error.getField() + " - " + error.getDefaultMessage());
+                fieldError = error.getDefaultMessage();
+                theModel.addObject("fieldError", fieldError);
             }
             logger.info(String.valueOf(bindingResult.getModel()));
             theModel.addObject("abonne", userDetails);
+
             message = "Les informations renseignées ne sont pas conformes";
             path = "signin-page";
         } else {

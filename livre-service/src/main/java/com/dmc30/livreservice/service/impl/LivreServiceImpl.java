@@ -18,6 +18,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,7 +131,7 @@ public class LivreServiceImpl implements LivreService {
      * @return le livre recherché
      */
     @Override
-    public ResponseEntity<?> findLivreById(Long livreId) {
+    public ResponseEntity<?> findLivreById(Long livreId) throws TechnicalException {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         LivreDto livreDto = new LivreDto();
@@ -142,9 +143,11 @@ public class LivreServiceImpl implements LivreService {
             return responseEntity;
         } catch (IllegalArgumentException e) {
             System.out.println("Exception attrapée...");
-            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
-                    .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
-            return responseEntity;
+//            ResponseEntity<?> responseEntity = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
+//                    .body(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
+//            return responseEntity;
+//            throw new TechnicalException(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ErrorMessage.INTROUVABLE_EXCEPTION.getErrorMessage());
         }
     }
 

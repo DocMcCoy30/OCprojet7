@@ -13,46 +13,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="626a98ec-6f0a-4fcd-8b60-c183d40dc1d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/proxy/EmpruntServiceProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/proxy/LivreServiceProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/proxy/UserServiceProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/bean/LivreBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/bean/OuvrageBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/bean/PretBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/bean/UtilisateurBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/access-denied.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/edec9058-78da-494b-a38d-e99d3ce07e86.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/edec9058-78da-494b-a38d-e99d3ce07e86.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/edec9058-78da-494b-a38d-e99d3ce07e86/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/edec9058-78da-494b-a38d-e99d3ce07e86/storage_v2/_src_/database/DB_P7_Bibliotheque.3hQkSw/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/EmailServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/EmailServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/BibliothequeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/BibliothequeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/LivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/LivreServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bean/bibliotheque/OuvrageBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bean/bibliotheque/OuvrageBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bean/utilisateur/CreateAbonneBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/shared/bean/utilisateur/CreateAbonneBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/AccueilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/AccueilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/web/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientUI/src/main/resources/templates/signin-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/clientUI/src/main/resources/templates/signin-page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/ScheduledTasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/ScheduledTasks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/entity/LivreEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/entity/OuvrageEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/entity/PretEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/entity/UtilisateurEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/repository/LivreRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/repository/OuvrageRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/repository/PretRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/data/repository/UtilisateurRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/mail/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/mail/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/mail/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/mail/EmailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/contract/EmpruntService.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/contract/EmpruntService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/contract/LivreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/contract/LivreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/contract/UtilisateurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/contract/UtilisateurService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/dto/CreateMailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/bean/CreateMailBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/dto/LivreForMailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/bean/LivreForMailBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/dto/PretDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/dto/UtilisateurDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/EmpruntServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/EmpruntServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/LivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/LivreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/UtilisateurServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/UtilisateurServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/data/repository/PretRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/data/repository/PretRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/contract/EmpruntService.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/contract/EmpruntService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/web/EmpruntController.java" beforeDir="false" afterPath="$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/web/EmpruntController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/bibliotheque/Ouvrage.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/data/entity/bibliotheque/Ouvrage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/dto/bibliotheque/OuvrageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/dto/bibliotheque/OuvrageDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/contract/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/contract/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/impl/UsersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/service/impl/UsersServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/web/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/web/controller/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/contract/BibliothequeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/contract/BibliothequeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/contract/LivreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/contract/LivreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/BibliothequeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/BibliothequeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/LivreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/LivreServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/web/controller/BibliothequeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/web/controller/BibliothequeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/web/controller/LivreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/web/controller/LivreController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +45,8 @@
       <list>
         <option value="JpaEntity" />
         <option value="JpaRepository" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -124,7 +105,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="jdk.selected.JAVA_MODULE" value="11.0.3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user-service/src/main/java/com/dmc30/userservice/web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/clientUI/src/main/resources/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -148,10 +129,10 @@
       <recent name="com.dmc30.clientui.service.impl" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\templates" />
       <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\user-service\src\main\java\com\dmc30\userservice\web" />
       <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\emprunt-service\src\main\java\com\dmc30\empruntservice\web" />
       <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\email-service\src\main\resources\templates" />
-      <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\clientUI\src\main\resources\templates" />
       <recent name="C:\Workplace\IntelliJ\OpenClassrooms - Projets\OCprojet7\gateway-server\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -465,7 +446,8 @@
       <workItem from="1624101806388" duration="1191000" />
       <workItem from="1624264712924" duration="8085000" />
       <workItem from="1624272902795" duration="2218000" />
-      <workItem from="1624276155339" duration="4308000" />
+      <workItem from="1624276155339" duration="12906000" />
+      <workItem from="1624443802637" duration="12907000" />
     </task>
     <servers />
   </component>
@@ -484,41 +466,6 @@
           <url>file://$PROJECT_DIR$/email-service/src/main/java/quartz/MailSendingJobService.java</url>
           <line>29</line>
           <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/BibliothequeServiceImpl.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/clientUI/src/main/java/com/dmc30/clientui/service/impl/BibliothequeServiceImpl.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/web/EmpruntController.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java</url>
-          <line>156</line>
-          <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/emprunt-service/src/main/java/com/dmc30/empruntservice/service/impl/EmpruntServiceImpl.java</url>
-          <line>143</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/livre-service/src/main/java/com/dmc30/livreservice/service/impl/LivreServiceImpl.java</url>
-          <line>133</line>
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/email-service/src/main/java/com/dmc30/emailservice/service/impl/LivreServiceImpl.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="99" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

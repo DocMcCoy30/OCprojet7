@@ -31,7 +31,7 @@ public class BibliothequeServiceImpl implements BibliothequeService {
         try {
             ResponseEntity<?> response = livreServiceProxy.getBibliotheques();
             return response;
-        } catch (FeignException.FeignClientException e) {
+        } catch (FeignException e) {
             ResponseEntity<?> response = ResponseEntity.status(ErrorMessage.TECHNICAL_ERROR.getErrorCode())
                     .body(ErrorMessage.TECHNICAL_ERROR.getErrorMessage());
             return response;
@@ -49,7 +49,7 @@ public class BibliothequeServiceImpl implements BibliothequeService {
         try {
             ResponseEntity<?> response = livreServiceProxy.getBibliothequeById(bibliothequeId);
             return response;
-        } catch (FeignException.FeignClientException e) {
+        } catch (FeignException e) {
             ResponseEntity<?> response = null;
             if (e.status() == 491) {
                 response = ResponseEntity.status(ErrorMessage.INTROUVABLE_EXCEPTION.getErrorCode())
