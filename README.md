@@ -19,7 +19,7 @@
 
 ##Langages et Technologies utilisées :
 
-+ Java / Javascript / Html / Css
++ Java / Html / Css
 
 + SpringBoot / Web / Jpa / Actuator / Lombok / DevTools
 
@@ -93,7 +93,7 @@ $mvn install pour chaque service si nécessaire
 
 4- utilisateur-service / livre-service / emprunt-service / email-service
 
-5- imageserver contient les images (couvertures des livres notamment) : les infos pour l'installation et la configuration sont dans la ReadMe du module.
+5- imageserver contient les images (couvertures des livres notamment) : les infos pour l'installation et la configuration sont dans le ReadMe du module.
 
 Pour chaque service
 ```
@@ -103,7 +103,7 @@ $ java -jar nom-du-service.jar
 
 ## Utilisation et fonctionnalités
 
-Page d'accueil accessible à : https://localhost:8999/ (gateway) ou locahost:9000/ (clientUI)
+Page d'accueil accessible à : https://localhost:8999/ (gateway)
 
 2 utilisateurs sont créés dans la base de données :
 + abonné : login : abonne@test.com / password : abonnetest
