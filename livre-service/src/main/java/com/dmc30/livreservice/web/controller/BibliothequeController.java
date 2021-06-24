@@ -25,7 +25,7 @@ public class BibliothequeController {
      * @return la liste de toutes les bibliothèques
      */
     @GetMapping("/all")
-    public ResponseEntity<?> getBibliotheques() throws TechnicalException {
+    public ResponseEntity<?> getBibliotheques() {
         return bibliothequeService.findAll();
     }
 
@@ -35,7 +35,7 @@ public class BibliothequeController {
      * @return la bibliothèque recherchée
      */
     @PostMapping("/id")
-    public ResponseEntity<?> getBibliothequeById(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) throws TechnicalException {
+    public ResponseEntity<?> getBibliothequeById(@RequestParam(value = "bibliothequeId", required = false) Long bibliothequeId) {
         return bibliothequeService.findById(bibliothequeId);
     }
 }

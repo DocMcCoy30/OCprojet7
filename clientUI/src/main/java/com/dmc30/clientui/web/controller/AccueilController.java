@@ -7,6 +7,7 @@ import com.dmc30.clientui.shared.UtilsMethodService;
 import com.dmc30.clientui.shared.bean.bibliotheque.BibliothequeBean;
 import com.dmc30.clientui.shared.bean.livre.LivreResponseModelBean;
 import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
+import com.dmc30.clientui.web.exception.TechnicalException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,8 +79,13 @@ public class AccueilController {
             bibliothequeId = 1L;
         }
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
-        List<LivreResponseModelBean> livres = livreService.get12LastLivres();
-        theModel.addObject("lastLivres", livres);
+        try {
+            List<LivreResponseModelBean> livres = livreService.get12LastLivres();
+            theModel.addObject("lastLivres", livres);
+        } catch (TechnicalException e) {
+            String errorMessage = e.getMessage();
+            theModel.addObject("errorMessage", errorMessage);
+        }
         return theModel;
     }
 

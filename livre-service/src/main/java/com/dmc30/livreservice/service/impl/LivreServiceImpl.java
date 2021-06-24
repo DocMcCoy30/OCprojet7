@@ -131,7 +131,7 @@ public class LivreServiceImpl implements LivreService {
      * @return le livre recherché
      */
     @Override
-    public ResponseEntity<?> findLivreById(Long livreId) throws TechnicalException {
+    public ResponseEntity<?> findLivreById(Long livreId) {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         LivreDto livreDto = new LivreDto();

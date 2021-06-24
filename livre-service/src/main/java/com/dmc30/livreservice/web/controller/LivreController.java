@@ -48,7 +48,7 @@ public class LivreController {
      * @return le livre recherché
      */
     @GetMapping(path = "/id")
-    public ResponseEntity<?> getLivreById(@RequestParam("livreId") Long livreId) throws TechnicalException {
+    public ResponseEntity<?> getLivreById(@RequestParam("livreId") Long livreId) {
         return livreService.findLivreById(livreId);
     }
 

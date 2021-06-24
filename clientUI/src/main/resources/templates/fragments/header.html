@@ -47,7 +47,7 @@
                 </div>
             </header>
             <div class="row">
-                <div class="col-auto">
+                <div class="col-auto" th:unless="${errorMessage}">
                     <a th:href="@{/showAccueil(bibliothequeId=${bibliotheque.id})}">
                         Retour à l'accueil
                     </a>
@@ -66,8 +66,10 @@
             </div>
         </div>
     </div>
-    <div th:if="${errorMessage}" th:utext="${errorMessage}"
-         style="color:red;font-style:italic;font-size: large">
+    <div th:if="${errorMessage}">
+        <a th:href="@{/}">
+            Retour à l'accueil
+        </a>
     </div>
 </div>
 

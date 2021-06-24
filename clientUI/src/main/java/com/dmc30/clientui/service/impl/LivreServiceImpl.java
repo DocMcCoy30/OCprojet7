@@ -7,6 +7,7 @@ import com.dmc30.clientui.shared.bean.livre.GenreBean;
 import com.dmc30.clientui.shared.bean.livre.LivreBean;
 import com.dmc30.clientui.shared.bean.livre.LivreResponseModelBean;
 import com.dmc30.clientui.web.exception.ErrorMessage;
+import com.dmc30.clientui.web.exception.TechnicalException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import feign.FeignException;
 import org.apache.commons.lang.StringUtils;
@@ -39,16 +40,20 @@ public class LivreServiceImpl implements LivreService {
      * @return la liste de tous les livres
      */
     @Override
-    public List<LivreResponseModelBean> getLivres() {
+    public List<LivreResponseModelBean> getLivres() throws TechnicalException {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         List<LivreResponseModelBean> livreResponseModelBeanList = new ArrayList<>();
-        List<LivreBean> livreBeans = livreServiceProxy.getLivres();
-        for (LivreBean livre : livreBeans) {
-            LivreResponseModelBean livreResponseModelBean = modelMapper.map(livre, LivreResponseModelBean.class);
-            livreResponseModelBean.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
-            livreResponseModelBean.setGenres(formatListeGenres(livre.getGenres()));
-            livreResponseModelBeanList.add(livreResponseModelBean);
+        try {
+            List<LivreBean> livreBeans = livreServiceProxy.getLivres();
+            for (LivreBean livre : livreBeans) {
+                LivreResponseModelBean livreResponseModelBean = modelMapper.map(livre, LivreResponseModelBean.class);
+                livreResponseModelBean.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
+                livreResponseModelBean.setGenres(formatListeGenres(livre.getGenres()));
+                livreResponseModelBeanList.add(livreResponseModelBean);
+            }
+        }catch (FeignException e) {
+            throw new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage());
         }
         return livreResponseModelBeanList;
     }
@@ -59,16 +64,20 @@ public class LivreServiceImpl implements LivreService {
      * @return la liste des 12 derniers livres
      */
     @Override
-    public List<LivreResponseModelBean> get12LastLivres() {
+    public List<LivreResponseModelBean> get12LastLivres() throws TechnicalException {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         List<LivreResponseModelBean> livreResponseModelBeanList = new ArrayList<>();
-        List<LivreBean> livreBeans = livreServiceProxy.get12LastLivres();
-        for (LivreBean livre : livreBeans) {
-            LivreResponseModelBean livreResponseModelBean = modelMapper.map(livre, LivreResponseModelBean.class);
-            livreResponseModelBean.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
-            livreResponseModelBean.setGenres(formatListeGenres(livre.getGenres()));
-            livreResponseModelBeanList.add(livreResponseModelBean);
+        try {
+            List<LivreBean> livreBeans = livreServiceProxy.get12LastLivres();
+            for (LivreBean livre : livreBeans) {
+                LivreResponseModelBean livreResponseModelBean = modelMapper.map(livre, LivreResponseModelBean.class);
+                livreResponseModelBean.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
+                livreResponseModelBean.setGenres(formatListeGenres(livre.getGenres()));
+                livreResponseModelBeanList.add(livreResponseModelBean);
+            }
+        } catch (FeignException e) {
+            throw new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage());
         }
         return livreResponseModelBeanList;
     }
@@ -108,16 +117,20 @@ public class LivreServiceImpl implements LivreService {
      * @return la liste des livres correcpondants au critère de recherche
      */
     @Override
-    public List<LivreResponseModelBean> getLivreByTitre(String motCle) {
+    public List<LivreResponseModelBean> getLivreByTitre(String motCle) throws TechnicalException {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         List<LivreResponseModelBean> livreResponseModelBeanList = new ArrayList<>();
-        List<LivreBean> livreBeans = livreServiceProxy.getLivreByTitre(motCle);
-        for (LivreBean livre : livreBeans) {
-            LivreResponseModelBean livreResponseModelBean = modelMapper.map(livre, LivreResponseModelBean.class);
-            livreResponseModelBean.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
-            livreResponseModelBean.setGenres(formatListeGenres(livre.getGenres()));
-            livreResponseModelBeanList.add(livreResponseModelBean);
+        try {
+            List<LivreBean> livreBeans = livreServiceProxy.getLivreByTitre(motCle);
+            for (LivreBean livre : livreBeans) {
+                LivreResponseModelBean livreResponseModelBean = modelMapper.map(livre, LivreResponseModelBean.class);
+                livreResponseModelBean.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
+                livreResponseModelBean.setGenres(formatListeGenres(livre.getGenres()));
+                livreResponseModelBeanList.add(livreResponseModelBean);
+            }
+        } catch (FeignException e) {
+            throw new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage());
         }
         return livreResponseModelBeanList;
     }
@@ -129,16 +142,20 @@ public class LivreServiceImpl implements LivreService {
      * @return la liste des livres recherchés
      */
     @Override
-    public List<LivreResponseModelBean> getLivreByAuteur(Long auteurId) {
+    public List<LivreResponseModelBean> getLivreByAuteur(Long auteurId) throws TechnicalException {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         List<LivreResponseModelBean> livreResponseModelBeanList = new ArrayList<>();
-        List<LivreBean> livreBeans = livreServiceProxy.getLivreByAuteur(auteurId);
-        for (LivreBean livre : livreBeans) {
-            LivreResponseModelBean livreResponseModelBean = modelMapper.map(livre, LivreResponseModelBean.class);
-            livreResponseModelBean.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
-            livreResponseModelBean.setGenres(formatListeGenres(livre.getGenres()));
-            livreResponseModelBeanList.add(livreResponseModelBean);
+        try {
+            List<LivreBean> livreBeans = livreServiceProxy.getLivreByAuteur(auteurId);
+            for (LivreBean livre : livreBeans) {
+                LivreResponseModelBean livreResponseModelBean = modelMapper.map(livre, LivreResponseModelBean.class);
+                livreResponseModelBean.setAuteurs(formatListeAuteurs(livre.getAuteurs()));
+                livreResponseModelBean.setGenres(formatListeGenres(livre.getGenres()));
+                livreResponseModelBeanList.add(livreResponseModelBean);
+            }
+        } catch (FeignException e) {
+            throw new TechnicalException(ErrorMessage.TECHNICAL_ERROR.getErrorMessage());
         }
         return livreResponseModelBeanList;
     }

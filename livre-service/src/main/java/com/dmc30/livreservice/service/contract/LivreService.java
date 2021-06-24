@@ -12,5 +12,5 @@ public interface LivreService {
     List<LivreDto> findLivreByTitreContaining(String motCle);
     List<LivreDto> findLivreByAuteur(Long auteurId);
     List<LivreDto> findLast12();
-    ResponseEntity<?> findLivreById(Long livreId) throws TechnicalException;
+    ResponseEntity<?> findLivreById(Long livreId) ;
 }

@@ -6,6 +6,7 @@ import com.dmc30.clientui.service.contract.OuvrageService;
 import com.dmc30.clientui.service.contract.UserService;
 import com.dmc30.clientui.shared.bean.bibliotheque.*;
 import com.dmc30.clientui.shared.bean.utilisateur.UtilisateurBean;
+import com.dmc30.clientui.web.exception.TechnicalException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,7 +44,8 @@ public class UtilsMethodService {
 
     /**
      * Renvoie la bibliothèque selectionnée par l'utilisateur à la vue
-     * @param theModel le ModeAndVue
+     *
+     * @param theModel       le ModeAndVue
      * @param bibliothequeId l'identifiant de la bibliothèque selectionnée
      */
     public void setBibliothequeForTheVue(ModelAndView theModel, @RequestParam("bibliothequeId") Long bibliothequeId) {
@@ -66,13 +68,14 @@ public class UtilsMethodService {
 
     /**
      * Construit la liste de modèles Emprunt à renvoyer aux controllers et à la vue
+     *
      * @param empruntModelBeans la liste des emprunts à construire
-     * @param pret le bean objet
-     * @param empruntModelBean le bean empruntModel
-     * @param abonne le bean abonné
-     * @param ouvrageService le service ouvrage pour récupérer l'ouvrage emprunté
+     * @param pret              le bean objet
+     * @param empruntModelBean  le bean empruntModel
+     * @param abonne            le bean abonné
+     * @param ouvrageService    le service ouvrage pour récupérer l'ouvrage emprunté
      */
-    public void setEmpruntModelBean(List<EmpruntModelBean> empruntModelBeans, PretBean pret, EmpruntModelBean empruntModelBean, UtilisateurBean abonne, OuvrageService ouvrageService) {
+    public void setEmpruntModelBean(List<EmpruntModelBean> empruntModelBeans, PretBean pret, EmpruntModelBean empruntModelBean, UtilisateurBean abonne, OuvrageService ouvrageService) throws TechnicalException {
         Date dateRestitution;
         empruntModelBean.setAbonne(abonne.getPrenom() + " " + abonne.getNom());
         empruntModelBean.setAbonneId(abonne.getId());
@@ -101,7 +104,8 @@ public class UtilsMethodService {
     /**
      * Methode utils pour remplir le formulaire de creation d'un emprunt avec les détails nécessaires de l'ouvrage selectionné
      * et le renvoyer aux controllers et à la vue
-     * @param createEmpruntBean l'objet createEmprunt correspondant au formulaire pour la vue
+     *
+     * @param createEmpruntBean  l'objet createEmprunt correspondant au formulaire pour la vue
      * @param ouvrageSelectionne l'ouvrage à emprunter
      */
     public void setOuvrageForEmpruntBean(@ModelAttribute CreateEmpruntBean createEmpruntBean, OuvrageResponseModelBean ouvrageSelectionne) {
@@ -114,6 +118,7 @@ public class UtilsMethodService {
     /**
      * Methode utils pour remplir le formulaire de création d'un emprunt avec les détails nécessaires de l'abonné selectionné
      * et le renvoyer aux controllers et à la vue
+     *
      * @param createEmpruntBean l'objet createEmprunt correspondant au formulaire pour la vue
      * @param abonneSelectionne l'abonné qui souhaite effectuer un emprunt
      */
@@ -127,33 +132,40 @@ public class UtilsMethodService {
 
     /**
      * Methode utils pour formater la liste la liste des emprunts en cours par bibliotheque (ROLE-EMPLOYE)
-     * @param theModel le ModelAndView
+     *
+     * @param theModel          le ModelAndView
      * @param empruntModelBeans La liste d'objets EmpruntModel à renvoyer à la vue
-     * @param bibliothequeId l'identifiant de la bibliothèque
+     * @param bibliothequeId    l'identifiant de la bibliothèque
      */
     public void setEmpruntsEnCours(ModelAndView theModel, List<EmpruntModelBean> empruntModelBeans, @RequestParam("bibliothequeId") Long bibliothequeId) {
         String message;
-        List<PretBean> empruntsEnCours = empruntService.getEmpruntsEnCours(bibliothequeId);
-        if (empruntsEnCours.isEmpty()) {
-            ResponseEntity<?> response = bibliothequeService.getBibliothequeById(bibliothequeId);
-            ObjectMapper mapper = new ObjectMapper();
-            BibliothequeBean bibliotheque = mapper.convertValue(response.getBody(), BibliothequeBean.class);
-            message = "Aucun emprunt en cours pour " + bibliotheque.getNom();
-            theModel.addObject("message", message);
-        } else {
-            for (PretBean pret : empruntsEnCours) {
-                EmpruntModelBean empruntModelBean = new EmpruntModelBean();
-                UtilisateurBean abonne = userService.getUtilisateurById(pret.getUtilisateurId());
-                setEmpruntModelBean(empruntModelBeans, pret, empruntModelBean, abonne, ouvrageService);
+        try {
+            List<PretBean> empruntsEnCours = empruntService.getEmpruntsEnCours(bibliothequeId);
+            if (empruntsEnCours.isEmpty()) {
+                ResponseEntity<?> response = bibliothequeService.getBibliothequeById(bibliothequeId);
+                ObjectMapper mapper = new ObjectMapper();
+                BibliothequeBean bibliotheque = mapper.convertValue(response.getBody(), BibliothequeBean.class);
+                message = "Aucun emprunt en cours pour " + bibliotheque.getNom();
+                theModel.addObject("message", message);
+            } else {
+                for (PretBean pret : empruntsEnCours) {
+                    EmpruntModelBean empruntModelBean = new EmpruntModelBean();
+                    UtilisateurBean abonne = userService.getUtilisateurById(pret.getUtilisateurId());
+                    setEmpruntModelBean(empruntModelBeans, pret, empruntModelBean, abonne, ouvrageService);
+                }
+                theModel.addObject("empruntEnCours", empruntModelBeans);
             }
-            theModel.addObject("empruntEnCours", empruntModelBeans);
+        } catch (TechnicalException e) {
+            String errorMessage = e.getMessage();
+            theModel.addObject("errorMessage", errorMessage);
         }
     }
 
     /**
      * Methode utils pour formater la liste des emprunts (en cours et historique) pour un abonné (ROLE-ABONNE)
-     * @param username le username de l'abonné
-     * @param theModel le ModelAndView
+     *
+     * @param username     le username de l'abonné
+     * @param theModel     le ModelAndView
      * @param modification la demande de modification du profil => false dans ce cas
      */
     public void setEmpruntListForProfilView(String username, ModelAndView theModel, boolean modification) {
@@ -164,23 +176,28 @@ public class UtilsMethodService {
         List<EmpruntModelBean> empruntsEnCours = new ArrayList<>();
         List<EmpruntModelBean> empruntsRetournes = new ArrayList<>();
         Long utilisateurId = abonne.getId();
-        List<PretBean> empruntList = empruntService.getEmpruntByUtilisateurId(utilisateurId);
-        if (empruntList.isEmpty()) {
-            message = "Aucun emprunt en cours";
-            theModel.addObject("message", message);
-        } else {
-            for (PretBean pret : empruntList) {
-                EmpruntModelBean empruntModelBean = new EmpruntModelBean();
-                if (pret.isRestitution()) {
-                    setEmpruntModelBean(empruntsRetournes, pret, empruntModelBean, abonne, ouvrageService);
-                    theModel.addObject("empruntsRetournes", empruntsRetournes);
-                } else if (!pret.isRestitution()) {
-                    setEmpruntModelBean(empruntsEnCours, pret, empruntModelBean, abonne, ouvrageService);
-                    theModel.addObject("empruntEnCours", empruntsEnCours);
+        try {
+            List<PretBean> empruntList = empruntService.getEmpruntByUtilisateurId(utilisateurId);
+            if (empruntList.isEmpty()) {
+                message = "Aucun emprunt en cours";
+                theModel.addObject("message", message);
+            } else {
+                for (PretBean pret : empruntList) {
+                    EmpruntModelBean empruntModelBean = new EmpruntModelBean();
+                    if (pret.isRestitution()) {
+                        setEmpruntModelBean(empruntsRetournes, pret, empruntModelBean, abonne, ouvrageService);
+                        theModel.addObject("empruntsRetournes", empruntsRetournes);
+                    } else if (!pret.isRestitution()) {
+                        setEmpruntModelBean(empruntsEnCours, pret, empruntModelBean, abonne, ouvrageService);
+                        theModel.addObject("empruntEnCours", empruntsEnCours);
+                    }
                 }
             }
+            theModel.addObject("abonne", abonne);
+            theModel.addObject("modification", modification);
+        } catch (TechnicalException e) {
+            String errorMessage = e.getMessage();
+            theModel.addObject("errorMessage", errorMessage);
         }
-        theModel.addObject("abonne", abonne);
-        theModel.addObject("modification", modification);
     }
 }

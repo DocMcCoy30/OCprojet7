@@ -31,7 +31,7 @@ public class BibliothequeServiceImpl implements BibliothequeService {
      * @return la liste des bibliothèques
      */
     @Override
-    public ResponseEntity<?> findAll() throws TechnicalException {
+    public ResponseEntity<?> findAll() {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         List<BibliothequeDto> bibliothequeDtos = new ArrayList<>();
@@ -57,7 +57,7 @@ public class BibliothequeServiceImpl implements BibliothequeService {
      * @return un objet bibliothèque
      */
     @Override
-    public ResponseEntity<?> findById(Long bibliothequeId) throws TechnicalException {
+    public ResponseEntity<?> findById(Long bibliothequeId) {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 //        Bibliotheque bibliotheque = new Bibliotheque();

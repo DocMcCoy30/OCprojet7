@@ -22,7 +22,7 @@ public class CreateAbonneBean {
     @Size(min=2, message= "Le prenom  doit contenir au moins 2 caractères")
     private String prenom;
     @NotNull(message="Last name cannot be null")
-    @Size(min=2, message= "Le nom doit contenir au moins caractères")
+    @Size(min=2, message= "Le nom doit contenir au moins 2 caractères")
     private String nom;
     @NotNull(message="Email cannot be null")
     @Email

@@ -21,6 +21,9 @@
             <span th:if="${fieldError}">
                 <a th:text="${fieldError}" style="color: red"></a>
             </span>
+            <div th:if="${errorMessage}" th:utext="${errorMessage}"
+                 style="color:red;font-style:italic;">
+            </div>
             <h1 class="h3 mb-3 font-weight-normal">Créer un compte</h1>
             <form class="form" action="#" th:action="@{/signin(bibliothequeId=${bibliotheque.id})}"
                   th:object="${abonne}" method="post">

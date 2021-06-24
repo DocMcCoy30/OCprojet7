@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface BibliothequeService {
 
-    ResponseEntity<?> findAll() throws TechnicalException;
+    ResponseEntity<?> findAll();
 
-    ResponseEntity<?> findById(Long Bibliothequeid) throws TechnicalException;
+    ResponseEntity<?> findById(Long Bibliothequeid);
 
 }

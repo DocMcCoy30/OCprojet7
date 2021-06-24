@@ -59,8 +59,14 @@ public class LivreController {
      */
     @GetMapping("/showLivres")
     public String getLivres(Model theModel) {
-        List<LivreResponseModelBean> livres = livreService.getLivres();
-        theModel.addAttribute("livres", livres);
+        List<LivreResponseModelBean> livres = new ArrayList<>();
+        try {
+            livres = livreService.getLivres();
+            theModel.addAttribute("livres", livres);
+        } catch (TechnicalException e) {
+            String errorMessage = e.getMessage();
+            theModel.addAttribute("errorMessage", errorMessage);
+        }
         return "accueil";
     }
 
@@ -73,7 +79,13 @@ public class LivreController {
     @PostMapping("/showLivresByTitre")
     public ModelAndView getLivreByTitre(@RequestParam("motCle") String motCle) {
         ModelAndView theModel = new ModelAndView("accueil");
-        List<LivreResponseModelBean> livres = livreService.getLivreByTitre(motCle);
+        List<LivreResponseModelBean> livres = new ArrayList<>();
+        try {
+            livres = livreService.getLivreByTitre(motCle);
+        } catch (TechnicalException e) {
+            String errorMessage = e.getMessage();
+            theModel.addObject("errorMessage", errorMessage);
+        }
         theModel.addObject("livresParTitre", livres);
         return theModel;
     }
@@ -95,37 +107,41 @@ public class LivreController {
         List<LivreResponseModelBean> livres = new ArrayList<>();
         List<AuteurBean> auteurs = new ArrayList<>();
         String errorMessage = "";
-        if (searchParam != null && !motCle.equals("")) {
-            switch (searchParam) {
-                case 1:
-                    livres = livreService.getLivreByTitre(motCle);
-                    theModel.addObject("livres", livres);
-                    break;
-                case 2:
-                    auteurs = auteurService.getAuteurByNomContaining(motCle);
-                    theModel.addObject("auteurs", auteurs);
-                    break;
+        try {
+            if (searchParam != null && !motCle.equals("")) {
+                switch (searchParam) {
+                    case 1:
+                        livres = livreService.getLivreByTitre(motCle);
+                        theModel.addObject("livres", livres);
+                        break;
+                    case 2:
+                        auteurs = auteurService.getAuteurByNomContaining(motCle);
+                        theModel.addObject("auteurs", auteurs);
+                        break;
+                }
             }
-        }
-        if (searchParam != null && motCle.equals("")) {
-            switch (searchParam) {
-                case 1:
-                    livres = livreService.getLivres();
-                    theModel.addObject("livres", livres);
-                    break;
-                case 2:
-                    auteurs = auteurService.getAuteurs();
-                    theModel.addObject("auteurs", auteurs);
-                    break;
+            if (searchParam != null && motCle.equals("")) {
+                switch (searchParam) {
+                    case 1:
+                        livres = livreService.getLivres();
+                        theModel.addObject("livres", livres);
+                        break;
+                    case 2:
+                        auteurs = auteurService.getAuteurs();
+                        theModel.addObject("auteurs", auteurs);
+                        break;
+                }
             }
-        }
-        if (searchParam == null && motCle.equals("")) {
-            livres = livreService.getLivres();
-            theModel.addObject("livres", livres);
-        } else if (motCle.equals("")) {
-            errorMessage = "Veuillez entrer une recherche";
-        } else if (searchParam == null) {
-            errorMessage = "Selectionnez un critère de recherche !";
+            if (searchParam == null && motCle.equals("")) {
+                livres = livreService.getLivres();
+                theModel.addObject("livres", livres);
+            } else if (motCle.equals("")) {
+                errorMessage = "Veuillez entrer une recherche";
+            } else if (searchParam == null) {
+                errorMessage = "Selectionnez un critère de recherche !";
+            }
+        } catch (TechnicalException e) {
+            errorMessage = e.getMessage();
         }
         theModel.addObject("errorMessage", errorMessage);
         return theModel;
@@ -144,8 +160,17 @@ public class LivreController {
         ModelAndView theModel = new ModelAndView("accueil");
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         List<LivreResponseModelBean> livres = new ArrayList<>();
-        livres = livreService.getLivreByAuteur(auteurId);
-        theModel.addObject("livres", livres);
+        try {
+            livres = livreService.getLivreByAuteur(auteurId);
+            theModel.addObject("livres", livres);
+            if (livres.isEmpty()) {
+                String message = "Aucun livre disponible pour cet auteur.";
+                theModel.addObject("message", message);
+            }
+        } catch (TechnicalException e) {
+            String errorMessage = e.getMessage();
+            theModel.addObject("errorMessage", errorMessage);
+        }
         return theModel;
     }
 
@@ -162,9 +187,10 @@ public class LivreController {
         ModelAndView theModel = new ModelAndView("livre-detail");
         utilsMethodService.setBibliothequeForTheVue(theModel, bibliothequeId);
         logger.info("LivreId = " + livreId);
+        try {
         if (livreId != null) {
-                ResponseEntity<?> response = livreService.getLivreById(livreId);
-                if (response.getStatusCodeValue() == 202) {
+            ResponseEntity<?> response = livreService.getLivreById(livreId);
+            if (response.getStatusCodeValue() == 202) {
                 LivreResponseModelBean livreResponseModelBean = (LivreResponseModelBean) response.getBody();
                 theModel.addObject("livre", livreResponseModelBean);
                 int nbExDispoInOne = ouvrageService.getOuvrageDispoInOneBibliotheque(livreId, bibliothequeId);
@@ -183,6 +209,10 @@ public class LivreController {
                 String errorMessage = (String) response.getBody();
                 theModel.addObject("errorMessage", errorMessage);
             }
+        }
+        } catch (TechnicalException e) {
+            String errorMessage = e.getMessage();
+            theModel.addObject("errorMessage", errorMessage);
         }
         return theModel;
     }

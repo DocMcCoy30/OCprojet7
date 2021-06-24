@@ -90,7 +90,7 @@ public class UsersServiceImpl implements UsersService {
         Date date = new Date();
         utilisateurDto.setDateCreationCompte(new Date());
         //Set Numero d'abonné
-        utilisateurDto.setNumAbonne(utilisateurDto.getPrenom().substring(0,3).toUpperCase() + utilisateurDto.getNom().substring(0,3).toUpperCase() + "-" + utilisateurDto.getPublicId().substring(0,4));
+        utilisateurDto.setNumAbonne(utilisateurDto.getPrenom().substring(0,2).toUpperCase() + utilisateurDto.getNom().substring(0,2).toUpperCase() + "-" + utilisateurDto.getPublicId().substring(0,4));
         logger.info("Numéro Abonné de " + utilisateurDto.getPrenom() + " " + utilisateurDto.getNom() + " = " + utilisateurDto.getNumAbonne());
         //Mapping AbonneEntity
         UtilisateurEntity utilisateurEntity = modelMapper.map(utilisateurDto, UtilisateurEntity.class);
